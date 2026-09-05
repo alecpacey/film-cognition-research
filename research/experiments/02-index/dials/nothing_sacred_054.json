@@ -1,0 +1,51 @@
+[
+  {
+    "clip": "segments/nothing_sacred_054.mp4",
+    "info": {
+      "fps": 23.976,
+      "frames": 1438,
+      "width": 988,
+      "height": 720,
+      "duration_s": 59.977
+    },
+    "cuts": {
+      "n_cuts": 5,
+      "cuts_per_min": 5.0,
+      "mean_shot_len_s": 9.996,
+      "single_take": false,
+      "peak_frame_delta": 54.44
+    },
+    "camera": {
+      "label": "push_in",
+      "pan_per_frame_frac": -4e-05,
+      "tilt_per_frame_frac": 1e-05,
+      "net_zoom": 1.0959,
+      "net_roll_deg": -2.8,
+      "jitter": 0.06325,
+      "n_pairs": 1437
+    },
+    "lighting": {
+      "key": "mid_key",
+      "median_luma": 48,
+      "mean_luma": 53.3,
+      "shadow_frac": 0.2446,
+      "highlight_frac": 0.0002,
+      "contrast_p5_p95": 112,
+      "luma_drift": 32.49
+    },
+    "colour": {
+      "colourfulness": 18.49,
+      "mean_saturation": 74.99,
+      "warm_cool": 7.57
+    },
+    "shot_scale": {
+      "scale": "wide",
+      "face_area_frac": 0.0045,
+      "detected_in": 696
+    },
+    "dof": {
+      "focus": "medium",
+      "centre_surround_sharpness": 1.93
+    }
+  }
+]

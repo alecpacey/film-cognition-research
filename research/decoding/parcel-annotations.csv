@@ -1,0 +1,25 @@
+parcel,glasser_index,glasser_full_name,glasser_region_section,glasser_region_name,new_in_2016,glasser_synonyms,cabnp_network_L,cabnp_network_R,yeo7_majority_L,yeo7_pct_L,yeo7_majority_R,yeo7_pct_R,film_bucket,evidence
+VMV2,160,Ventro-Medial Visual Area 2,4,Ventral Stream Visual Cortex,Yes*,PHC1/PHC-1,Visual2,Visual2,Visual,100,Visual,100,scene-place,moderate
+VMV3,154,Ventro-Medial Visual Area 3,4,Ventral Stream Visual Cortex,Yes*,VO2,Visual2,Visual2,Visual,100,Visual,100,scene-place;colour,moderate
+V3B,19,Area V3B,3,Dorsal Stream Visual Cortex,No,V3C,Visual2,Visual2,Visual,100,Visual,100,motion;spatial-layout,strong
+V4,6,Fourth Visual Area,2,Early Visual Cortex,No,hOC4v/hOC4lp/LO1,Visual2,Visual2,Visual,100,Visual,100,colour;shape,strong
+V8,7,Eighth Visual Area,4,Ventral Stream Visual Cortex,No,VO1,Visual2,Visual2,Visual,100,Visual,100,colour,contested
+V4t,156,Area V4t,5,MT+ Complex and Neighbouring Visual Areas,No,LO2 (other authors),Visual2,Visual2,Visual,100,Visual,100,motion;bodies,moderate
+V7,16,Seventh Visual Area,3,Dorsal Stream Visual Cortex,No,IPS0,Visual2,Visual2,Visual,100,Visual,100,attention-scanning,strong
+V3CD,158,Area V3CD,5,MT+ Complex and Neighbouring Visual Areas,Yes,V3A/V3B/hOC4la,Visual2,Visual2,Visual,100,Visual,100,motion;shape,thin
+LO2,21,Lateral Occipital Area 2,5,MT+ Complex and Neighbouring Visual Areas,No,LO1/hOC4la,Visual2,Visual2,Visual,100,Visual,100,object-shape,strong
+PIT,22,Posterior InferoTemporal Complex,4,Ventral Stream Visual Cortex,No,OFA/hOC4la,Visual2,Visual2,Visual,100,Visual,100,faces,strong
+IPS1,17,IntraParietal Sulcus Area 1,3,Dorsal Stream Visual Cortex,No,IPS1,Visual2,Visual2,Dorsal Attention,62,Visual,53,attention-scanning,strong
+IP0,146,Area IntraParietal 0,17,Inferior Parietal Cortex,Yes,,Dorsal-Attention,Dorsal-Attention,Visual,55,Dorsal Attention,51,attention-scanning,thin
+LIPv,48,Area Lateral IntraParietal ventral,16,Superior Parietal Cortex,Yes*,hIP3,Visual2,Visual2,Dorsal Attention,100,Dorsal Attention,94,attention-scanning,strong
+VIP,49,Ventral IntraParietal Complex,16,Superior Parietal Cortex,Yes*,,Visual2,Visual2,Dorsal Attention,100,Dorsal Attention,100,camera-motion;looming,moderate-strong
+V6A,152,Area V6A,3,Dorsal Stream Visual Cortex,No,,Visual2,Visual2,Visual,100,Visual,100,camera-motion;optic-flow,strong
+FEF,10,Frontal Eye Fields,8,Premotor Cortex,No,,Cingulo-Opercular,Cingulo-Opercular,Dorsal Attention,73,Dorsal Attention,51,attention-scanning,strong
+PEF,11,Premotor Eye Field,8,Premotor Cortex,No,6v2,Dorsal-Attention,Cingulo-Opercular,Dorsal Attention,90,Dorsal Attention,76,attention-scanning,moderate
+A4,175,Auditory 4 Complex,11,Auditory Association Cortex,Yes*,TE3,Auditory,Auditory,Somatomotor,100,Somatomotor,100,sound-objects,moderate-strong
+A5,125,Auditory 5 Complex,11,Auditory Association Cortex,Yes,,Language,Language,Somatomotor,57,Somatomotor,91,speech;voices,moderate
+PBelt,124,ParaBelt Complex,10,Early Auditory Cortex,Yes*,ParaBelt/TA1,Auditory,Auditory,Somatomotor,100,Somatomotor,100,sound-texture;timbre,strong
+STSdp,129,Area STSd posterior,11,Auditory Association Cortex,Yes,,Language,Language,Default,100,Default,87,social;voices;faces-dynamic,moderate-strong
+55b,12,Area 55b,8,Premotor Cortex,No,,Language,Language,Default,30,Ventral Attention,44,speech-production;narrative,strong-but-variable
+IFSp,81,Area IFSp,21,Inferior Frontal Cortex,Yes,,Language,Frontoparietal,Frontoparietal,88,Frontoparietal,96,cognitive-load,moderate
+IFJa,79,Area IFJa,21,Inferior Frontal Cortex,Yes,,Language,Language,Frontoparietal,95,Frontoparietal,89,switching;cognitive-load,moderate

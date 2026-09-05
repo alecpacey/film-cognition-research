@@ -1,0 +1,51 @@
+[
+  {
+    "clip": "segments/royal_wedding_018.mp4",
+    "info": {
+      "fps": 23.976,
+      "frames": 1438,
+      "width": 956,
+      "height": 720,
+      "duration_s": 59.977
+    },
+    "cuts": {
+      "n_cuts": 1,
+      "cuts_per_min": 1.0,
+      "mean_shot_len_s": 29.988,
+      "single_take": false,
+      "peak_frame_delta": 59.77
+    },
+    "camera": {
+      "label": "push_in+roll_ccw",
+      "pan_per_frame_frac": 1e-05,
+      "tilt_per_frame_frac": -2e-05,
+      "net_zoom": 1.4685,
+      "net_roll_deg": 10.35,
+      "jitter": 0.00794,
+      "n_pairs": 1437
+    },
+    "lighting": {
+      "key": "mid_key",
+      "median_luma": 99,
+      "mean_luma": 92.01,
+      "shadow_frac": 0.1685,
+      "highlight_frac": 0.0002,
+      "contrast_p5_p95": 166,
+      "luma_drift": 30.24
+    },
+    "colour": {
+      "colourfulness": 35.5,
+      "mean_saturation": 97.72,
+      "warm_cool": 17.57
+    },
+    "shot_scale": {
+      "scale": "full",
+      "face_area_frac": 0.00928,
+      "detected_in": 719
+    },
+    "dof": {
+      "focus": "shallow",
+      "centre_surround_sharpness": 2.36
+    }
+  }
+]

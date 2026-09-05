@@ -1,0 +1,21 @@
+# Source prints and cut segments — 14 GB of licensed-but-heavy video.
+# Provenance lives in 02-index/CORPUS.md (Internet Archive identifiers) and
+# 02-index/segments_manifest.json, so the corpus is reconstructible without it.
+research/experiments/02-index/sources/
+research/experiments/02-index/segments/
+research/experiments/**/clips/
+research/experiments/**/out/
+research/experiments/**/cache/
+
+# Model weights
+*.onnx
+
+# Process bookkeeping — machine-local, not evidence
+*.pid
+*.log
+
+# OS
+.DS_Store
+__pycache__/
+*.pyc
+.claude/skills/

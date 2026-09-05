@@ -1,0 +1,51 @@
+[
+  {
+    "clip": "segments/jungle_book_030.mp4",
+    "info": {
+      "fps": 23.976,
+      "frames": 1438,
+      "width": 960,
+      "height": 720,
+      "duration_s": 59.977
+    },
+    "cuts": {
+      "n_cuts": 7,
+      "cuts_per_min": 7.0,
+      "mean_shot_len_s": 7.497,
+      "single_take": false,
+      "peak_frame_delta": 79.57
+    },
+    "camera": {
+      "label": "push_in",
+      "pan_per_frame_frac": -5e-05,
+      "tilt_per_frame_frac": -3e-05,
+      "net_zoom": 1.0734,
+      "net_roll_deg": -2.05,
+      "jitter": 0.05683,
+      "n_pairs": 1437
+    },
+    "lighting": {
+      "key": "low_key",
+      "median_luma": 31,
+      "mean_luma": 51.54,
+      "shadow_frac": 0.4486,
+      "highlight_frac": 0.0016,
+      "contrast_p5_p95": 181,
+      "luma_drift": 67.66
+    },
+    "colour": {
+      "colourfulness": 28.01,
+      "mean_saturation": 109.42,
+      "warm_cool": 1.75
+    },
+    "shot_scale": {
+      "scale": "full",
+      "face_area_frac": 0.02166,
+      "detected_in": 429
+    },
+    "dof": {
+      "focus": "shallow",
+      "centre_surround_sharpness": 2.033
+    }
+  }
+]

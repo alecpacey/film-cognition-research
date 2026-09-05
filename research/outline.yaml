@@ -1,0 +1,151 @@
+topic: >-
+  Low-development-complexity system coupling Meta TRIBE v2 brain-response prediction
+  to fal.ai MiniMax H3 Max video generation, so predicted brain responses to
+  audiovisual content dynamically write the prompts for a continuous AI livestream.
+
+bias: shortest-path-to-working-demo
+time_range: last 6 months (prefer sources after 2026-02-28)
+current_date: 2026-08-31
+
+grounding_facts:
+  tribe_v2:
+    weights: huggingface facebook/tribev2
+    code: github facebookresearch/tribev2
+    licence: CC BY-NC 4.0
+    output: (n_timesteps, ~20484) fsaverage5 cortical vertices + 8802 subcortical voxels (Harvard-Oxford, 8 regions)
+    sampling: 2 Hz stimulus alignment; preds offset 5s to compensate hemodynamic lag
+    backbones: V-JEPA-2-Giant (64 frames / prev 4s), Wav2Vec-BERT-2.0 (50Hz -> 2Hz), Llama-3.2-3B (1024-word ctx)
+    analysis_atlas: HCP 360-parcel (Glasser 2016); ICA recovers language, auditory, motion, DMN, visual networks
+    training: 451.6h fMRI / 25 subjects; eval 1117.7h / 720 subjects
+  h3_max:
+    endpoints: [minimax/h3-max/text-to-video, minimax/h3-max/image-to-video]
+    schema: prompt, duration(5..15), resolution(480P|768P), seed, image_url, end_image_url, prompt_expansion_mode(balanced|quality), sync_mode, enable_safety_checker
+    output: {video: {url,...}, expanded_prompt, timings}
+    speed: 5s clip in <3s; 15s clip in ~9s
+    pricing: launch $0.025/s 480P, $0.04/s 768P; regular $0.05/s and $0.08/s
+    audio: natively synchronised in same pass
+  prior_art:
+    infinite_slop: levelsio, chat-driven infinite stream, Hetzner VPS, 37k viewers day one, fal covered compute
+
+items:
+  - id: 01
+    name: TRIBE v2 inference interface and runtime cost
+    focus: Real VRAM, cold-start, per-window latency, batching, whether predict() can run on a rolling window rather than a whole file.
+    must_cover:
+      - "Modality dropout at inference (trained p=0.3 per modality) — video-only or video+audio inference is legitimate and skips the ~6GB Llama-3.2-3B text branch. Biggest single latency lever; quantify the saving."
+      - "Subject-conditioning block vs the 'unseen subject' universal layer (trained via 10%% subject dropout). How to select a simulated viewer at inference time."
+      - "OFF-THE-SHELF WRAPPERS may remove most of items 1-2 entirely: eight public repos tagged `tribe-v2`, notably `neuroscore` (CLI + Python API, 'predict how the human brain reacts to any content') and `tribe-subcortex` (subcortical readout for video). Evaluate these FIRST before writing any wrapper code."
+  - id: 02
+    name: Brain-output semantic readout
+    focus: Collapsing 20484 vertices + 8802 voxels into a small interpretable vector. Which atlas/annot files, which nilearn/neuromaps calls, which networks are usable as creative dials.
+    must_cover:
+      - "TEMPORAL REDUCTION POLICY. Output is (T, 20484) at ~1Hz, so a 15s clip is a 15x20484 matrix not a vector. Enumerate the reduction options (peak vertex, ROI mean, last-N-seconds, trajectory delta) and their differing aesthetic consequences. This is an unavoidable design decision."
+      - "Existing 'engagement score' community tooling that collapses network time courses into ~5 composite floats. Cheapest possible control signal. MUST also record the caveat that these scores are not validated against real view time, shares or conversions."
+      - "TRIBE SHIPS NO PARCELLATION HELPERS. Hemispheres are split manually at vertex index 10242. Yeo-17 exists natively in fsaverage5; HCP-MMP1/Glasser .annot files exist for fsaverage (mind the +1000/+2000 hemisphere offset). Give the exact nilearn/nibabel calls."
+  - id: 03
+    name: Stimulus ingestion and windowing
+    focus: Feeding a rolling audiovisual window into TRIBE without re-encoding history every tick; the events dataframe format.
+    must_cover:
+      - "HEMODYNAMIC LAG AND MINIMUM STIMULUS LENGTH. TRIBE applies a 5s BOLD offset and yields diffuse, low-intensity activations on short inputs; practitioner guidance is 15-30s minimum. This sets a hard FLOOR on clip duration and means the response read is lagged relative to the frames that caused it. Confirm and quantify."
+  - id: 04
+    name: Brain-state to prompt translation layer
+    focus: Turning an ROI activation vector into a text prompt. Template/lookup vs LLM-in-the-loop. This is the creative core.
+  - id: 05
+    name: fal MiniMax H3 Max generation API
+    focus: Client libraries, queue vs subscribe, webhooks, concurrency limits, real observed timings, free tier.
+    must_cover:
+      - "prompt_expansion_mode latency tradeoff: 'balanced' ~1s vs 'quality' ~30s. Confirm that 'quality' is off the table for a live loop."
+      - "enable_safety_checker defaults true. A brain-activation-maximising objective pushes toward faces, threat cues and high-salience imagery — exactly where rejections cluster. Rejected generations are a throughput hazard; what is the fallback?"
+  - id: 06
+    name: Clip continuity and chaining
+    focus: Last-frame extraction and image_url/end_image_url conditioning; drift, colour shift, audio seams.
+  - id: 07
+    name: Streaming and playback pipeline
+    focus: The genuinely simplest delivery — browser-side video queue vs HLS via ffmpeg vs a media server. What Infinite Slop actually did.
+    must_cover:
+      - "CHEAPEST OPTION OMITTED SO FAR: ffmpeg RTMP push straight to YouTube Live or Twitch, outsourcing CDN, scaling and the player entirely. Self-hosted nginx-rtmp with 2s HLS fragments is the middle path. Compare all three on dev hours and cost."
+      - "H3 Max emits natively synchronised audio in the same pass, which closes TRIBE's audio branch with no separate TTS/music stage and changes the muxing requirements."
+  - id: 08
+    name: Orchestration loop and buffer management
+    focus: Generate-ahead depth, parallel in-flight requests, backpressure, what happens when generation falls behind playback.
+    must_cover:
+      - "FAL CONCURRENCY LADDER IS THE REAL CAP, not latency. New accounts get 2 concurrent IN_PROGRESS requests, scaling automatically to 40 with credit-purchase history; higher needs sales contact. Queued requests do not count and are never rejected. 2 is likely too few on day one — verify and design around it."
+      - "Buffer-underrun fallback is undefined and mandatory for 24/7: filler loop, slow-motion of the prior clip, or crossfade hold. Roughly an hour of work; specify it."
+      - "Safety-checker rejections are unbudgeted throughput loss. Define the retry/fallback path."
+  - id: 09
+    name: Closed-loop recursion
+    focus: Feeding generated clips back into TRIBE. Stability, runaway feedback, whether it degenerates. The conceptual payoff of the piece.
+    must_cover:
+      - "The H3 Max response returns `expanded_prompt` (the rewritten prompt actually used). Feed that directly into TRIBE's text branch instead of captioning the generated clip. Free, exact, zero added latency. Verify this works."
+      - "ATTRACTOR COLLAPSE IS THE CENTRAL RISK AND IT IS EVIDENCED, NOT SPECULATIVE. FFA-optimised synthetic stimuli drive the predicted region ~4x as hard as a natural face photograph (arXiv 2605.13904). A system optimising for its own brain model drifts toward salience-maximising adversarial imagery and the stream converges within minutes. Design an explicit novelty/damping term."
+  - id: 10
+    name: GPU hosting for TRIBE v2
+    focus: Modal vs Replicate vs fal custom container vs local GPU. Cost, cold starts, and which needs least devops.
+    must_cover:
+      - "WARM PROCESS IS REQUIRED. 28-32GB VRAM; A100-40GB minimum, 80GB recommended; T4 insufficient. V-JEPA2-Giant and Llama-3.2-3B lazy-load on first predict() giving ~60s cold start. This RULES OUT naive per-clip serverless and turns the cost model into always-on GPU-hours. Verify and price it."
+      - "Install blockers that collectively cost half a day: NumPy pinned <2.1; gated Meta licence acceptance for Llama-3.2-3B plus HF_TOKEN; HF_HUB_DOWNLOAD_TIMEOUT / HF_HUB_HTTP_TIMEOUT set to 300; flush() -> fsync() -> close() on temp files before passing paths to the model."
+  - id: 11
+    name: Cost model
+    focus: Full dollar-per-hour of continuous stream across generation, GPU, egress, hosting. Where the money actually goes.
+  - id: 12
+    name: Prior art and reference implementations
+    focus: Infinite Slop internals, other endless AI streams, neuroadaptive/BCI generative art, anything already wiring brain models to generators.
+  - id: 13
+    name: Latency budget and real-time feasibility
+    focus: End-to-end accounting. Does perceive->predict->prompt->generate close inside one clip duration, and what to cut if not.
+  - id: 14
+    name: Licence, ethics and framing
+    focus: CC BY-NC constraints on any public/monetised deployment; honesty limits of "your brain" when the prediction is group-average.
+  - id: 15
+    name: Radical simplification paths
+    focus: Precomputed brain-response lookup tables, offline batch precomputation, dropping TRIBE at runtime entirely.
+  - id: 16
+    name: Differentiable stimulus optimisation as an offline motif table
+    focus: >-
+      arXiv 2605.13904 'Feature Visualization Recovers Known Cortical Selectivity from TRIBE v2',
+      code at github.com/recozers/Tribe-V2-Interp, does gradient ascent through the frozen encoder
+      to synthesise stimuli that maximise a chosen ROI, recovering V1/V4/MT/FFA/PPA selectivity.
+      Run OFFLINE this yields a grounded ROI -> visual-motif lookup table — a far better version of
+      item 15's precomputation, with no TRIBE in the live loop at all. Assess feasibility and output quality.
+  - id: 17
+    name: Autoregressive real-time video as a competing architecture
+    focus: >-
+      Krea Realtime 14B (Wan 2.1 14B distilled via Self-Forcing, ~11fps 4-step on a single B200)
+      supports changing the prompt MID-GENERATION rather than between clips. This dissolves the whole
+      clip-chaining problem and makes brain-driven steering continuous rather than stepwise.
+      Compare against the H3 Max clip-queue approach on latency, cost, quality, hosting burden and dev complexity.
+      Decide whether it is actually the shorter path.
+    must_cover:
+      - "`github.com/fal-ai-community/realtime-krea-wan` is literally 'text-to-video with dynamic prompt rewriting' on a realtime model. Swap the rewriter for the brain readout and most of items 7 and 8 disappear. This is the NEAREST EXISTING SCAFFOLD to the target system — evaluate it seriously."
+      - "fal exposes realtime WebSocket and SSE `/{model-id}/stream` surfaces alongside `queue.fal.run`. Decart MirageLSD runs live stream diffusion at 20fps / 768x432."
+      - "Academic backing: Helios (arXiv 2603.04379), minWM (arXiv 2605.30263), Causal Forcing++ (arXiv 2605.15141)."
+  - id: 18
+    name: Observability and on-stream brain visualisation
+    focus: >-
+      THE OVERLAY IS THE VISUAL DIFFERENTIATOR versus a chat-driven stream, and it is nearly free.
+      nilearn view_surf / plot_surf_stat_map on fsaverage5 with the manual hemisphere split at vertex 10242.
+      Composite into the stream via ffmpeg overlay, or render browser-side beside the player.
+      Plus per-iteration logging of vertex vector, ROI reduction, prompt, expanded_prompt and clip URL —
+      without which drift is undiagnosable after the fact.
+  - id: 19
+    name: Neural data regulatory surface
+    focus: >-
+      Distinct from the software licence. California SB 1223 / CCPA sensitive personal information,
+      Connecticut neural data statute, Colorado HB 24-1058, US FTC Act s5 deceptive claims,
+      UNESCO 2025 Recommendation on the Ethics of Neurotechnology, EU AI Act emotion-recognition
+      and manipulative-technique provisions. Crux: does any of it bite when NO real brain data is
+      collected and the response is simulated? Marketing a group average as "your brain" is squarely a s5 question.
+  - id: 20
+    name: Closed-loop neuro-generation prior art
+    focus: >-
+      The real methodological lineage: NeuroGen (activation-optimised synthesis), BrainDiVE
+      (encoder-gradient-guided diffusion), MindPilot (closed-loop EEG-guided diffusion optimisation),
+      and Kasahara's generative-AI closed-loop fMRI system. For each: what it found, whether code exists,
+      and crucially whether the optimisation converged to adversarial-looking imagery — this directly
+      predicts what a TRIBE -> H3 Max closed loop will do.
+
+execution:
+  batch_size: 10
+  items_per_agent: 2  # 20 items -> 10 agents
+  output_dir: ./tribe-minimax-reactive-stream/results
+  supplementary_fields: ./fields-supplementary.yaml  # report stage only

@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#eef0f4" />
+  <title>The Simulated Viewer — mutuals inc.</title>
+
+  <!-- noindex while this is a research design rather than a result. The licence
+       position is clean (non-commercial personal work under CC BY-NC). -->
+  <meta name="robots" content="noindex" />
+
+  <meta name="description" content="Indexing which cinematographic techniques drive which cortical responses, and using that index to direct a generative video model." />
+  <meta property="og:title" content="The Simulated Viewer — mutuals inc." />
+  <meta property="og:description" content="Indexing which cinematographic techniques drive which cortical responses, and using that index to direct a generative video model." />
+  <meta property="og:url" content="https://mutuals.inc/film" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Archivo for headings, Newsreader for the reading column, IBM Plex Mono for
+       measured figures. The duotone accents encode the two coupled systems:
+       indigo for the brain side, ochre for the picture side. -->
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Meta Pixel + Conversions API (shared, site-wide) -->
+  <script src="/assets/pixel.js"></script>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <div class="col">
+      <p class="eyebrow">Research design &middot; first result in &middot; 1 September 2026</p>
+      <h1>The Simulated Viewer</h1>
+      <p class="deck">
+        Index which cinematographic techniques drive which cortical responses, then use that
+        index to direct a generative video model. The instrument is a brain model that has
+        never watched anything, standing in for an audience that will never exist.
+      </p>
+    </div>
+    <div class="tick">
+      <div><span class="k n num">20,484</span><span class="v">cortical vertices out</span></div>
+      <div><span class="k num">2</span><span class="v">tracks, both required</span></div>
+      <div><span class="k s num">34</span><span class="v">movement primitives</span></div>
+      <div><span class="k num">870</span><span class="v">shots already coded</span></div>
+      <div><span class="k s num">0.15</span><span class="v">probe overlap &mdash; pass</span></div>
+      <div><span class="k n num">&kappa; 0.035</span><span class="v">ceiling on felt emotion</span></div>
+    </div>
+  </header>
+
+  <!-- ============ THE PRINCIPLE ============ -->
+  <section style="padding-top:44px">
+    <div class="sechead col">
+      <p class="eyebrow">01 &middot; Foundation</p>
+      <h2>The direction this research takes</h2>
+    </div>
+    <div class="principle col">
+      <blockquote>
+        Observational data gives you the index and validates TRIBE against real cortex.
+        Generated clips are the only place you can hold five dials fixed and move one.
+        <strong>You need both, and neither replaces the other.</strong>
+      </blockquote>
+      <p class="attr">The governing constraint. Every decision below follows from it.</p>
+    </div>
+    <p style="margin-top:18px;font-size:.96rem" class="col">
+      Real cinema cannot isolate a variable, because directors covary their dials deliberately &mdash;
+      close-ups arrive with shallow focus and quieter sound; action arrives with fast cutting
+      <em>and</em> camera movement <em>and</em> high contrast. Kauttonen tried exactly this in 2015
+      with 37 cinematic features and needed elastic net to cope with the multicollinearity. You
+      cannot separate lighting from shot scale in <em>Pulp Fiction</em>, because it wasn&rsquo;t shot
+      that way.
+    </p>
+    <p style="margin-top:12px;font-size:.96rem" class="col">
+      Generated clips can isolate perfectly &mdash; hold everything, move one dial &mdash; but there
+      is no brain in the room, only a model&rsquo;s prediction of one. Each track supplies precisely
+      what the other cannot. Where they agree, the index is trustworthy.
+    </p>
+  </section>
+
+  <!-- ============ THESIS ============ -->
+  <section style="padding-top:44px">
+    <div class="sechead col">
+      <p class="eyebrow">02 &middot; Thesis</p>
+      <h2>The through-line</h2>
+    </div>
+    <div class="principle col">
+      <blockquote>
+        Build an index from cinematographic technique to cortical response profile,
+        then <strong>invert it</strong> &mdash; specify the profile you want, and choose the
+        technique that reaches it.
+      </blockquote>
+      <p class="attr">Directing with a gauge instead of an instinct.</p>
+    </div>
+
+    <p style="margin-top:18px;font-size:.96rem" class="col">
+      The original hypothesis was that director&rsquo;s technique would move a brain model in
+      patterns representing an audience&rsquo;s reaction, and that this would let you direct a
+      generative model. Three claims were fused inside that sentence, and separating them is what
+      this research did. <strong>The thesis got sharper, not smaller.</strong>
+    </p>
+
+    <div class="tablewrap" style="margin-top:18px">
+      <table>
+        <thead><tr><th>Claim</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Sensor</strong> &mdash; TRIBE responds to audiovisual content in anatomically coherent ways</td>
+              <td><span class="pill p-ok">Tested &middot; true</span><br><span style="font-size:.86rem;color:var(--muted)">V1 never enters a top-10 despite a 13&times; luminance range; the auditory chain climbs monotonically on speech</span></td></tr>
+          <tr class="hi"><td><strong>Control</strong> &mdash; cinematographic technique moves that response predictably</td>
+              <td><span class="pill p-s">The live question</span><br><span style="font-size:.86rem;color:var(--muted)">Untested. Everything now turns on this</span></td></tr>
+          <tr><td><strong>Interpretation</strong> &mdash; those responses mean something about felt experience</td>
+              <td><span class="pill p-bad">Bounded, and removed</span><br><span style="font-size:.86rem;color:var(--muted)">&kappa;&nbsp;=&nbsp;0.035, BF&nbsp;2.3. Never load-bearing for directing</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid2" style="margin-top:18px">
+      <div class="card win">
+        <h4>Why a profile beats an emotion word</h4>
+        <p style="font-size:.95rem">
+          Directing needs a target you can specify, a measurement to compare against it, and a
+          control you can adjust. An emotion label fails all three &mdash; you cannot specify
+          &ldquo;0.7 suspense&rdquo;, cannot measure it, and cannot turn it. A parcel profile
+          succeeds at all three. It is the original idea with the unmeasurable middleman removed.
+        </p>
+      </div>
+      <div class="card">
+        <h4>Where the emotional layer returns</h4>
+        <p style="font-size:.95rem">
+          Not in the loop &mdash; in the authoring. The hand-written crosswalk
+          (<code>suspense := 0.4&middot;anticipation + 0.3&middot;threat&hellip;</code>) is a claim
+          about what a profile <em>means</em>, cleanly separated from the measurement that produced
+          it. That separation is what makes it honest rather than a dressed-up reading.
+        </p>
+      </div>
+    </div>
+
+    <p style="margin-top:18px;font-size:.96rem" class="col">
+      <strong>What would kill it:</strong> if technique moves no parcel reliably when varied on
+      identical footage, the control claim fails and the thesis is dead. That test is cheap, and it
+      comes before anything expensive.
+    </p>
+  </section>
+
+  <!-- ============ THE HYPOTHESIS ============ -->
+  <section>
+    <div class="sechead col">
+      <p class="eyebrow">03 &middot; Claims</p>
+      <h2>Three claims, separately true or false</h2>
+      <p>
+        The original hypothesis chains three propositions. They have very different evidential
+        standing, and conflating them is the easiest way to build the wrong thing.
+      </p>
+    </div>
+    <div class="claims">
+      <div class="claim">
+        <span class="cn">01</span>
+        <span class="ct">
+          <b>Technique changes TRIBE&rsquo;s predicted cortical response</b>
+          <span>The sensor half is now <strong>measured, not assumed</strong>. Given three
+          60-second clips from one film, TRIBE separated them cleanly (mean top-10 parcel overlap
+          <span class="mono">0.15</span>) and in the anatomically right direction &mdash; scenery
+          drove ventromedial visual, talking heads drove auditory and language, a crowd drove the
+          dorsal attention network. What remains untested is whether <em>technique</em> moves it
+          as reliably as <em>content</em> does.</span>
+        </span>
+        <span class="cs"><span class="pill p-ok">Content: confirmed</span></span>
+      </div>
+      <div class="claim">
+        <span class="cn">02</span>
+        <span class="ct">
+          <b>Those patterns represent how an audience reacts</b>
+          <span>Weak, and not for want of a better model. Felt emotion has no reliable
+          measurement to validate against: seven trained annotators rating experienced emotion on
+          the same films agreed at <span class="mono">&kappa; = 0.035</span>. What survives is
+          attention and processing &mdash; cuts drive an orienting response, event boundaries drive
+          the hippocampus &mdash; not valence.</span>
+        </span>
+        <span class="cs"><span class="pill p-bad">Bounded</span></span>
+      </div>
+      <div class="claim">
+        <span class="cn">03</span>
+        <span class="ct">
+          <b>Therefore a generative model can be directed toward a target</b>
+          <span><strong>This needs only claim 1.</strong> Steering toward a target cortical
+          profile requires the mapping to be consistent and controllable. It does not require the
+          profile to mean anything about feeling &mdash; that interpretation sits on top and is not
+          load-bearing.</span>
+        </span>
+        <span class="cs"><span class="pill p-n">Follows from 01</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TWO TRACKS ============ -->
+  <section>
+    <div class="sechead col">
+      <p class="eyebrow">04 &middot; Method</p>
+      <h2>The two tracks</h2>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th></th><th>Observational — real film</th><th>Generated — synthesised clips</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Sample size</strong></td><td>Large — hours of continuous cinema</td><td>Small — tens of clips</td></tr>
+          <tr><td><strong>Brain data</strong></td><td class="n">Measured BOLD, 15–86 subjects</td><td class="n">TRIBE prediction only</td></tr>
+          <tr class="hi"><td><strong>Dial separation</strong></td><td>Confounded and inseparable</td><td><strong>Orthogonal by construction</strong></td></tr>
+          <tr><td><strong>Window length</strong></td><td>Continuous — 30 s windows come free</td><td>Must be built; 15 s clips need concatenating</td></tr>
+          <tr><td><strong>Realism</strong></td><td>Actual cinema</td><td>Diffusion video — different motion statistics</td></tr>
+          <tr><td><strong>Cost</strong></td><td>GPU hours only</td><td>~$60 generation plus GPU</td></tr>
+          <tr><td><strong>Answers</strong></td><td>Does TRIBE track real cortex on cinematographic variation?</td><td>Does <em>this</em> dial, alone, move the response?</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px;font-size:.94rem;color:var(--muted)" class="col">
+      Prompt adherence matters far less than it first appears. You regress on <em>measured</em>
+      technique, not <em>requested</em> technique &mdash; so a model that renders camera movement
+      unreliably simply hands you a messier spread, which for index-building is variation rather
+      than error. Adherence only becomes load-bearing later, when you want to hit a target.
+    </p>
+  </section>
+
+  <!-- ============ MEASURED ============ -->
+  <section>
+    <div class="sechead col">
+      <p class="eyebrow">05 &middot; Measured</p>
+      <h2>The sensor works</h2>
+      <p>
+        Three 60-second clips cut from one public-domain film &mdash; same stock, same grade, so
+        content was the only variable &mdash; scored on an A10G. Pass criteria were fixed in
+        writing before the run.
+      </p>
+    </div>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Clip</th><th>Top HCP parcels</th><th>What those regions are</th></tr></thead>
+        <tbody>
+          <tr class="hi"><td><strong>landscape</strong><br><span style="font-size:.85rem;color:var(--muted)">jungle, water</span></td>
+              <td class="n">VMV2 +2.84<br>VMV3 +2.61<br>V3B, V4</td>
+              <td>Ventromedial visual &mdash; the scene-selective, place-area neighbourhood. Read as <em>place</em>.</td></tr>
+          <tr><td><strong>face</strong><br><span style="font-size:.85rem;color:var(--muted)">two people talking, close-up</span></td>
+              <td class="n">A5 +2.38<br>STSdp +2.04<br>55b, A4, PBelt</td>
+              <td>Auditory belt and parabelt, superior temporal sulcus, language network. Read as <em>voice</em>.</td></tr>
+          <tr><td><strong>crowd</strong><br><span style="font-size:.85rem;color:var(--muted)">a throng</span></td>
+              <td class="n">LO2 +2.43<br>V4t, V7<br>IPS1, FEF, LIPv, VIP</td>
+              <td>Dorsal attention and frontal eye fields; lateral occipital bodies. Read as <em>a scanning problem</em>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid2" style="margin-top:16px">
+      <div class="card win">
+        <h4>Both criteria met</h4>
+        <p style="font-size:.95rem">
+          Mean pairwise top-10 parcel overlap <strong>0.15</strong> against a threshold of 0.60
+          set beforehand &mdash; face and landscape share one parcel in ten. And the direction was
+          right on all three clips, not the two required. Nothing told the model what it was
+          looking at.
+        </p>
+        <p style="font-size:.95rem">
+          <strong>Output rate confirmed at exactly 1 Hz</strong> &mdash; 61 rows over 60.0 seconds.
+          That had been open since the research phase.
+        </p>
+      </div>
+      <div class="card lose">
+        <h4>Two corrections this forces</h4>
+        <p style="font-size:.95rem">
+          <strong>~10× slower than real time</strong>, measured &mdash; roughly 10 minutes per
+          60-second clip, not the 2.3&ndash;2.9× carried through the research from a ZeroGPU
+          extrapolation. Twenty hours of film is ~200 GPU-hours, so event-locked sampling is
+          mandatory rather than an optimisation.
+        </p>
+        <p style="font-size:.95rem">
+          <strong>Modality dropout does not buy video speed.</strong> Skipping the text branch
+          removes ASR and Llama, but V-JEPA-2 encoding dominates &mdash; 120 steps at ~4.9 s each.
+          The lever only works if you drop <em>video</em>.
+        </p>
+      </div>
+    </div>
+
+    <div class="card col" style="margin-top:16px;border-left:3px solid var(--danger)">
+      <h4>The confound in this result</h4>
+      <p style="font-size:.95rem">
+        The face clip is two people <em>talking</em>, and the audio branch was live. Its top
+        parcels are auditory and language &mdash; which may be the voices rather than the faces.
+        The separation stands; the attribution to faces specifically does not. A silent face clip
+        settles it, and until it does, &ldquo;face&rdquo; is not established as an addressable dial.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ DECODING ============ -->
+  <section>
+    <div class="sechead col">
+      <p class="eyebrow">06 &middot; The cognitive layer</p>
+      <h2>From regions to meaning &mdash; how far it actually goes</h2>
+      <p>
+        The instinct is to turn an activation pattern into a feeling. There is an established
+        method for the attempt &mdash; <strong>meta-analytic decoding</strong>, matching a pattern
+        against thousands of published studies &mdash; and a well-quantified account of why it
+        does not reach as far as you would want.
+      </p>
+    </div>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Layer</th><th>What it is</th><th>Can we read it?</th></tr></thead>
+        <tbody>
+          <tr><td><strong>0 &middot; Signal</strong></td><td>Pixels and waveform</td><td class="n">Directly measured</td></tr>
+          <tr><td><strong>1 &middot; Perceptual features</strong></td><td>Motion energy, luminance, cut rate, face area</td><td class="n">Directly measured</td></tr>
+          <tr class="hi"><td><strong>2 &middot; Cortical response</strong></td><td>Which parcels work harder</td><td><strong>Yes &mdash; this is TRIBE, and this is where we operate</strong></td></tr>
+          <tr><td><strong>3 &middot; Cognitive state</strong></td><td>Attention, memory, threat</td><td>Inferred, weakly. BF ≈ 2.3</td></tr>
+          <tr><td><strong>4 &middot; Experience</strong></td><td>Suspense, immersion, dread</td><td>No measurement exists. &kappa; = 0.035</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:16px" class="col">
+      <strong>The useful accident is that cinematography also operates at layer 2.</strong> A
+      cinematographer does not manipulate suspense directly; they manipulate what is in frame, how
+      large, how lit, how fast it moves and what you hear. Those are stimulus properties, and
+      stimulus properties are exactly what early and mid cortex responds to reliably. The craft and
+      the instrument meet on the same layer. Layers 3 and 4 sit downstream of both, and inferring
+      them adds error without adding control.
+    </p>
+
+    <div class="grid2" style="margin-top:20px">
+      <div class="card win">
+        <h3>What we can say</h3>
+        <p style="font-size:.95rem">
+          <strong>Stimulus-content readings.</strong> &ldquo;Structured audio present.&rdquo;
+          &ldquo;Scene-biased ventral visual.&rdquo; &ldquo;Object form present.&rdquo; These are
+          supportable from activation because the regions carrying them are close to the input and
+          strongly selective.
+        </p>
+        <p style="font-size:.95rem">
+          Our probe returned three <em>whole documented chains</em>, not isolated parcels: the
+          complete acoustic-to-social pathway (PBelt &rarr; A4 &rarr; A5 &rarr; STSdp) on the
+          talking clip, five of seven attention parcels on the crowd, and parahippocampal place
+          cortex on the landscape. Chains are far harder to produce by noise or misalignment than
+          single regions.
+        </p>
+      </div>
+      <div class="card lose">
+        <h3>What we cannot</h3>
+        <p style="font-size:.95rem">
+          <strong>Cognitive nouns.</strong> The best-quantified reverse inference in the field
+          &mdash; Broca&rsquo;s area to language &mdash; is a posterior of 0.69 at Bayes factor
+          <span class="mono">2.3</span>, and BF below 4 is weak. Under a realistic 15% prior it
+          falls to <span class="mono">P = 0.29</span>.
+        </p>
+        <p style="font-size:.95rem">
+          <strong>FFA and PPA are not exempt.</strong> &ldquo;There is no &lsquo;face&rsquo;
+          identification area&rdquo; &mdash; neither is uniquely diagnostic for its preferred class.
+          The distinction that survives is <em>stimulus versus cognition</em>, not region versus region.
+        </p>
+      </div>
+    </div>
+
+    <div class="card col" style="margin-top:16px;border-left:3px solid var(--danger)">
+      <h4>Two traps that would produce confident fiction</h4>
+      <p style="font-size:.95rem">
+        <strong>Neurosynth&rsquo;s vocabulary is uncurated abstract tokens</strong> &mdash; 3,228 of
+        them, 713 multi-word, 60 beginning with a digit, including <code>12 healthy</code> and
+        <code>voxel</code>. Every filmmaker-facing word is absent or a homograph of methods prose:
+        <em>presence</em> means presence of a lesion, <em>flow</em> means blood flow,
+        <em>character</em> means letters on a screen. A pipeline decoding to it would report
+        &ldquo;high presence&rdquo; while measuring English prose habits. Use NeuroQuery&rsquo;s
+        psychology-categorised vocabulary (1,604 terms) instead.
+      </p>
+      <p style="font-size:.95rem">
+        <strong>Manipulation-strength bias predicts your results before you run them.</strong> Term
+        maps are built from strong isolated lab manipulations; film is weak, continuous and
+        confounded. Terms with strong source paradigms &mdash; pain, faces, motion &mdash; will
+        outrank terms with weak ones &mdash; empathy, suspense, social inference &mdash; regardless
+        of what the film does. Yarkoni: <em>&ldquo;I&rsquo;m not sure there&rsquo;s any good way to
+        correct for this.&rdquo;</em>
+      </p>
+      <p style="font-size:.95rem">
+        And the failure is fluent, not loud. Four coordinates millimetres apart inside one region
+        returned entirely different confident term lists &mdash; 86% <em>experiencing</em>, 85%
+        <em>abuse</em>, 84% <em>dysregulation</em>. A mislocalised parcel does not error; it tells
+        you a different, equally plausible story.
+      </p>
+    </div>
+
+    <div class="grid2" style="margin-top:16px">
+      <div class="card">
+        <h4>The design that survives</h4>
+        <p style="font-size:.95rem">
+          <strong>Decode contrasts, never single shots</strong> &mdash; close-up versus wide of the
+          same scene, cut versus no-cut at matched content. Meta-analytic decoding is informative
+          for matched contrasts and useless for single-condition maps, and one shot&rsquo;s map
+          <em>is</em> a single-condition map.
+        </p>
+        <p style="font-size:.95rem">
+          <strong>Spin-test every correlation.</strong> Naive nulls &ldquo;consistently yield
+          unrealistically liberal statistical estimates&rdquo;; without a spatial-autocorrelation-
+          preserving null, every term looks significant.
+        </p>
+      </div>
+      <div class="card">
+        <h4>The layer you have to author yourself</h4>
+        <p style="font-size:.95rem">
+          Roughly two-thirds of directorial intent is decodable &mdash; attention, threat, arousal,
+          valence, empathy, mentalizing, agency, surprise, memory encoding, spatial cognition,
+          narrative. Absent from all six vocabularies checked: <strong>suspense, tension, dread,
+          immersion, presence, dramatic irony</strong>. (<em>tension</em> exists in NeuroQuery; it
+          resolves to <em>hypotension</em>.)
+        </p>
+        <p style="font-size:.95rem">
+          The constructs have neuroimaging correlates &mdash; they simply never entered the
+          ontologies, because communication scholars and cognitive neuroscientists do not share a
+          vocabulary. So the top layer is hand-authored, roughly thirty terms shaped like
+          <code>suspense := 0.4&middot;anticipation + 0.3&middot;threat + 0.2&middot;uncertainty +
+          0.1&middot;vigilance</code>. A week of careful work, and the only part nobody can download
+          for you.
+        </p>
+      </div>
+    </div>
+
+    <p style="margin-top:18px;font-size:.94rem;color:var(--muted)" class="col">
+      Practical notes for the build: there is no canonical volumetric Glasser and no
+      <code>fsaverage_to_mni152</code> in neuromaps, so the reference matrix must be brought
+      <em>down</em> to fsaverage5 rather than pushing parcels up. Use CAB-NP for network
+      assignments &mdash; Yeo7 has no language network and mislabels four of our best parcels.
+      Demean each parcel column across terms before correlating, or every clip returns the same
+      ranking. And <code>neuromaps</code> is CC BY-NC-SA, which stacks with TRIBE&rsquo;s licence.
+    </p>
+  </section>
+
+  <!-- ============ DATABASES ============ -->
+  <section>
+    <div class="sechead col">
+      <p class="eyebrow">07 &middot; Sources</p>
+      <h2>Which databases, and what each costs you</h2>
+      <p>
+        The decisive question for every dataset is not size or prestige. It is whether it can
+        feed TRIBE at all &mdash; which needs <strong>continuous video on a window of at least
+        30 seconds</strong>. That single requirement eliminates most of the cinematography
+        corpora, which are still-frame collections.
+      </p>
+    </div>
+
+    <h3 style="margin:26px 0 14px">Track one — film with real brain data</h3>
+    <div class="dbgrid">
+
+      <div class="db pick">
+        <span class="name">StudyForrest</span>
+        <span class="meta">CC BY-SA · open download · 3T n=15 + 7T n=20 · ~2 h</span>
+        <ul>
+          <li class="p"><span class="m">+</span><span><strong>870 shot boundaries already human-coded.</strong> The annotation work you were going to do is done and public.</span></li>
+          <li class="p"><span class="m">+</span><span>Low-level confounds pre-extracted — brightness, volume, frame differences. These are exactly the nuisance regressors you must control for.</span></li>
+          <li class="p"><span class="m">+</span><span><strong>Not in TRIBE&rsquo;s training data</strong>, so it is genuinely held out. Clean validation rather than circular.</span></li>
+          <li class="p"><span class="m">+</span><span>Eye-gaze recorded during scanning — you can check whether viewers were even looking where the technique was.</span></li>
+          <li class="c"><span class="m">−</span><span>One film. <em>Forrest Gump</em>&rsquo;s cinematographic range is narrow, and n=15 for the audiovisual run.</span></li>
+          <li class="c"><span class="m">−</span><span>You source the film yourself; it is not in the release.</span></li>
+        </ul>
+      </div>
+
+      <div class="db pick">
+        <span class="name">NNDb</span>
+        <span class="meta">OpenNeuro ds002837 · CC0 · 86 subjects · 10 features · 89 GB</span>
+        <ul>
+          <li class="p"><span class="m">+</span><span><strong>CC0 and no application.</strong> One command. No forms, no agreement, no wait.</span></li>
+          <li class="p"><span class="m">+</span><span>Ten features across wildly different registers — prestige drama, documentary, Tarantino ensemble, thriller. Real cinematographic variance.</span></li>
+          <li class="p"><span class="m">+</span><span>86 subjects. The largest naturalistic sample available without paperwork.</span></li>
+          <li class="c"><span class="m">−</span><span><strong>No technique annotation at all.</strong> You do the whole annotation pass yourself, though CineScale&rsquo;s CNN and <code>cinemetrics.py</code> automate most of it.</span></li>
+          <li class="c"><span class="m">−</span><span>Films sourced yourself — ten commercial titles.</span></li>
+          <li class="c"><span class="m">−</span><span>89 GB, and <strong>measured</strong> throughput is ~10× slower than real time, so scoring 20 hours of film is ~200 GPU-hours (~$200). Event-locked sampling is mandatory, not an optimisation.</span></li>
+        </ul>
+      </div>
+
+      <div class="db">
+        <span class="name">Courtois NeuroMod</span>
+        <span class="meta">partial: 4 subjects, no application · full: 6 subjects, signed DTA</span>
+        <ul>
+          <li class="p"><span class="m">+</span><span>The partial tier carries a liberal licence explicitly authorising re-sharing of derivatives.</span></li>
+          <li class="p"><span class="m">+</span><span><code>movie10</code> ships the four feature films as video inside the databank — no sourcing needed.</span></li>
+          <li class="c"><span class="m">−</span><span><strong>This is what TRIBE trained on.</strong> Testing here is circular; it tells you the model memorised, not that it generalises.</span></li>
+          <li class="c"><span class="m">−</span><span>Its bulk is <em>Friends</em> — and what is distributed is frames, audio and subtitles, not episodes.</span></li>
+          <li class="c"><span class="m">−</span><span>Full tier needs project approval and a data transfer agreement. Weeks, not days.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin:30px 0 14px">Track two — technique labels</h3>
+    <div class="dbgrid">
+
+      <div class="db no">
+        <span class="name">CameraBench</span>
+        <span class="meta">CC BY 4.0 · 1,071 rows · 34 primitives · <strong>GIF only</strong></span>
+        <ul>
+          <li class="p"><span class="m">+</span><span>The deepest movement taxonomy in existence, designed with professional cinematographers. Separates dolly-in from zoom-in; treats steadiness and speed as orthogonal. Worth adopting as vocabulary.</span></li>
+          <li class="c"><span class="m">−</span><span><strong>Measured, not assumed: the repo holds only GIFs.</strong> 1,072 of its 1,079 files are <code>videos_gif/</code>; the <code>.mp4</code> paths in the metadata point at files that are not there.</span></li>
+          <li class="c"><span class="m">−</span><span><strong>~3.6 seconds, 480&times;270, no audio.</strong> A probed sample runs 51 frames at 14.3 fps. An order of magnitude under TRIBE&rsquo;s floor, below its working resolution, and silent — so the audio branch is dead too.</span></li>
+          <li class="c"><span class="m">−</span><span>Camera motion only, and reconstructing usable video means re-sourcing every clip from its original YouTube id.</span></li>
+        </ul>
+      </div>
+
+      <div class="db">
+        <span class="name">ShotBench</span>
+        <span class="meta">Apache-2.0 · 3,049 images + 464 clips · 8 dimensions</span>
+        <ul>
+          <li class="p"><span class="m">+</span><span><strong>The taxonomy to adopt.</strong> The only public set covering lighting, lens and composition alongside scale and angle. Vocabulary derives from ShotDeck, so these are the words DPs use.</span></li>
+          <li class="p"><span class="m">+</span><span>Apache-2.0, verified. Drawn from 200+ Oscar-cinematography-nominated films.</span></li>
+          <li class="c"><span class="m">−</span><span><strong>Overwhelmingly stills.</strong> Every lighting, lens, composition and shot-size row is an image. It cannot drive TRIBE.</span></li>
+          <li class="c"><span class="m">−</span><span>Options are not mutually exclusive — RefineShot rewrote 961 of its ~3,500 questions. 31% of lighting answers are compound multi-label strings.</span></li>
+        </ul>
+      </div>
+
+      <div class="db">
+        <span class="name">CineScale</span>
+        <span class="meta">CC BY 4.0 labels · 792k frames @1fps · 124 films · 9-class scale</span>
+        <ul>
+          <li class="p"><span class="m">+</span><span>The most rigorously coded shot-scale set anywhere — two independent coders, third adjudicating, every frame.</span></li>
+          <li class="p"><span class="m">+</span><span>Ships a trained CNN, which automates shot scale over your own footage.</span></li>
+          <li class="c"><span class="m">−</span><span>Frames are <em>not</em> in the open release — labels only, images on request.</span></li>
+          <li class="c"><span class="m">−</span><span>Six auteur directors, mid-century European art cinema. A strongly non-representative visual distribution.</span></li>
+        </ul>
+      </div>
+
+      <div class="db no">
+        <span class="name">AVE — Anatomy of Video Editing</span>
+        <span class="meta">196k shots · 15 professional editors · no licence</span>
+        <ul>
+          <li class="p"><span class="m">+</span><span>The largest human-annotated set, and the <strong>only</strong> source of editing structure — which is the dial with the largest measured effect.</span></li>
+          <li class="c"><span class="m">−</span><span><strong>No licence at all.</strong> No LICENSE file, nothing stated in the paper, annotations hosted on a personal Google Drive.</span></li>
+          <li class="c"><span class="m">−</span><span>Use the taxonomy as reading; compute your own cut boundaries rather than depending on it.</span></li>
+        </ul>
+      </div>
+
+      <div class="db no">
+        <span class="name">MovieNet / MovieShots</span>
+        <span class="meta">User Service Agreement · 4 movement classes</span>
+        <ul>
+          <li class="c"><span class="m">−</span><span>Four movement classes, one of which is simply &ldquo;motion&rdquo;. Far coarser than CameraBench.</span></li>
+          <li class="c"><span class="m">−</span><span>Under a User Service Agreement rather than an open licence.</span></li>
+          <li class="c"><span class="m">−</span><span>No HF mirror exists, despite widespread assumption otherwise.</span></li>
+        </ul>
+      </div>
+
+      <div class="db no">
+        <span class="name">LIRIS-ACCEDE / COGNIMUSE</span>
+        <span class="meta">affect annotation · CC films (LIRIS) · 10 raters, aged 18–27</span>
+        <ul>
+          <li class="p"><span class="m">+</span><span>LIRIS is the only affect corpus whose films are Creative Commons, so derived annotations are redistributable.</span></li>
+          <li class="c"><span class="m">−</span><span><strong>Measures the thing we established is unmeasurable.</strong> COGNIMUSE&rsquo;s own annotators agreed at &kappa;&nbsp;=&nbsp;0.035 on experienced emotion.</span></li>
+          <li class="c"><span class="m">−</span><span>Best held-out prediction is PCC ~0.31, median ~0.15. Continuous labels come from ten French participants aged 18–27.</span></li>
+          <li class="c"><span class="m">−</span><span>No technique annotation, so it cannot close the loop anyway.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card col" style="margin-top:22px;border-left:3px solid var(--neural)">
+      <h4>The pairing does not exist, and that is the gap worth occupying</h4>
+      <p style="font-size:.95rem">
+        No public dataset annotates both technique and audience response at usable scale. The
+        affect corpora treat the film as an opaque stimulus; the technique corpora never collect a
+        viewer. CineScale&rsquo;s own authors name shot-scale-to-emotion as their motivation and
+        then collect no affect labels. Constructing that pairing &mdash; even at small scale, even
+        with a model standing in for the audience &mdash; is the novel contribution here.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ ESTABLISHED ============ -->
+  <section>
+    <div class="sechead col">
+      <p class="eyebrow">08 &middot; Prior work</p>
+      <h2>What not to spend money re-deriving</h2>
+      <p>
+        A 2026 review has already assembled much of this into a Film Cognition Matrix, mapping
+        film form onto cognitive domains &mdash; and recommends precisely the method proposed here:
+        convolve editing rate with a haemodynamic response and regress.
+      </p>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Technique</th><th>Established effect</th><th>Strength</th></tr></thead>
+        <tbody>
+          <tr class="hi"><td>Montage context</td><td>Largest measured effect of any dial, replicated across two samples</td><td class="n">η²p 0.715 / 0.721</td></tr>
+          <tr><td>Cuts, event boundaries</td><td>Drive the hippocampus, salience-scaled, surviving perceptual covariates</td><td>Replicated</td></tr>
+          <tr><td>Cut density</td><td>Alters subjective time, via SMA</td><td>Established</td></tr>
+          <tr><td>Camera movement</td><td>Sensorimotor cortex, Steadicam &gt; zoom &gt; static. <em>No</em> occipital effect — motor resonance, not attention</td><td>Established</td></tr>
+          <tr><td>Shot scale across a cut</td><td>Graded N300–N400; scale-out amplifies, scale-in attenuates</td><td>Established</td></tr>
+          <tr><td>Camera angle</td><td><strong>Nothing.</strong> One of ShotBench&rsquo;s dimensions may simply be inert</td><td>Null</td></tr>
+          <tr><td>Close-ups → affect</td><td>Rejected by the authors; the one significant result was non-monotonic</td><td class="n">N=495, p=.071</td></tr>
+          <tr><td>Colour → valence</td><td>Essentially zero</td><td class="n">η²p 0.001</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px;font-size:.94rem;color:var(--muted)" class="col">
+      Note the shape of that list: the dials film-school intuition reaches for first &mdash;
+      close-ups, colour &mdash; are the two with published nulls, while editing carries the largest
+      effect in the literature. Note too that several findings are EEG rather than fMRI, so they do
+      not map onto TRIBE&rsquo;s output space directly.
+    </p>
+  </section>
+
+  <!-- ============ MEASUREMENT ============ -->
+  <section>
+    <div class="sechead col">
+      <p class="eyebrow">09 &middot; Instruments</p>
+      <h2>Measuring what actually came out</h2>
+    </div>
+    <div class="grid2">
+      <div class="card win">
+        <h3>Pixels, not models</h3>
+        <p style="font-size:.95rem">
+          <code>cinemetrics.py</code> measures camera motion, cuts, lighting key, colour and depth
+          of field from image statistics alone — 2 seconds per clip, no GPU. Verified here on clips
+          its author never saw: push-in detected at net_zoom 1.44 against a truth of 1.5, pan
+          correct, 2 of 2 real cuts found, and zero false cuts on continuous motion.
+        </p>
+        <p style="font-size:.95rem">
+          That last figure is the important one. A fixed-threshold detector reported
+          <strong>71 cuts in a 72-frame single-take pan</strong> — camera motion alone exceeds the
+          default threshold every frame.
+        </p>
+      </div>
+      <div class="card lose">
+        <h3>Why not a vision model</h3>
+        <p style="font-size:.95rem">
+          Across 24 VLMs on ShotBench, GPT-4o averages 59.3%, half the field is under 50%, and
+          camera movement is described as approaching random. The purpose-built ShotVL scores 62.9%
+          on movement — <strong>worse than the optical-flow baseline you can run for free.</strong>
+        </p>
+        <p style="font-size:.95rem">
+          Add exactly one model, <code>Vchitect/ShotVL-7B</code>, for camera angle and lighting
+          type — the only two dials image statistics genuinely cannot reach.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRAPS ============ -->
+  <section>
+    <div class="sechead col">
+      <p class="eyebrow">10 &middot; Silent failures</p>
+      <h2>Four ways this measures nothing and looks fine</h2>
+    </div>
+  </section>
+
+  <div class="band">
+    <div class="band-inner">
+      <div class="traps">
+        <div class="trap">
+          <span class="idx">01</span>
+          <div class="body">
+            <h3>Activations are ~50× smaller than intuition</h3>
+            <p>A natural face photograph drives the fusiform face area to <b class="mono">+0.080</b>
+            z-units; even a gradient-ascent-optimised stimulus reaches only <b class="mono">+0.339</b>.
+            Any threshold written by intuition never fires, and every condition returns the same answer.</p>
+            <p class="sym"><b>Fix:</b> thresholds in rolling-sigma units, with a floor calibrated
+            from logged per-region standard deviation — roughly its 10th percentile.</p>
+          </div>
+        </div>
+        <div class="trap">
+          <span class="idx">02</span>
+          <div class="body">
+            <h3>Windows under 30 s return garbage without erroring</h3>
+            <p>TRIBE was trained on 100-second windows. Below about 30 seconds the output goes
+            diffuse and low-intensity — and the floor is enforced nowhere in code. This is the
+            constraint that eliminates every still-frame dataset and threatens short-clip corpora.</p>
+            <p class="sym"><b>Fix:</b> score rolling 30 s windows. Long-form film gives them free;
+            clip corpora may not be usable at all.</p>
+          </div>
+        </div>
+        <div class="trap">
+          <span class="idx">03</span>
+          <div class="body">
+            <h3>TRIBE barely saw cinema</h3>
+            <p>Of the 121 hours of video it ever encountered, <b class="mono">64.5 hours is
+            <em>Friends</em></b> — a multi-camera sitcom with almost no cinematographic variation.
+            Only three of its eight datasets contain real cinema. A model trained mostly on a
+            sitcom may not be sensitive to the dials in question.</p>
+            <p class="sym"><b>Fix:</b> this is precisely what the observational track tests. It is
+            also why <em>Friends</em>-adjacent evaluation is circular, and why held-out
+            StudyForrest matters.</p>
+          </div>
+        </div>
+        <div class="trap">
+          <span class="idx">04</span>
+          <div class="body">
+            <h3>Multicollinearity in real film</h3>
+            <p>Directors covary dials on purpose. Regressing 37 cinematic features against fMRI
+            required elastic net for exactly this reason. A naive regression will happily attribute
+            an editing effect to shot scale.</p>
+            <p class="sym"><b>Fix:</b> penalised regression on the observational track, and the
+            generated track as the orthogonal control. This is the whole argument for two tracks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ THE FILM ============ -->
+  <section>
+    <div class="sechead col">
+      <p class="eyebrow">11 &middot; Output</p>
+      <h2>The experiment decides which film</h2>
+      <p>
+        A film comes out of this either way. Which one depends on whether the index holds.
+      </p>
+    </div>
+    <div class="grid2">
+      <div class="card win">
+        <h3>If the index holds — the controller</h3>
+        <p style="font-size:.95rem">
+          Scenes directed toward target cortical profiles. Set a trajectory across the runtime and
+          have the system steer toward it, shot by shot. This is the original hypothesis realised:
+          a simulated viewer in the director&rsquo;s chair, and the first film cut to a measured
+          neural target rather than a guess about one.
+        </p>
+      </div>
+      <div class="card lose">
+        <h3>If it doesn&rsquo;t — the collapse</h3>
+        <p style="font-size:.95rem">
+          Run the maximiser instead and film what it does. Told to drive the cortex as hard as
+          possible, it narrows from landscape to face over ten minutes and then holds, at a
+          measured endpoint of 61–70% face purity. It needs no control law — only the drift —
+          and the degeneration is the argument.
+        </p>
+      </div>
+    </div>
+    <p style="margin-top:16px;font-size:.94rem;color:var(--muted)" class="col">
+      Either way the cortex stays on screen beside the picture, and either way the honest register
+      is perceptual. You can say <em>this is the configuration a simulated visual system enters</em>.
+      You cannot say <em>this is what the audience feels</em> — not because the model is inadequate,
+      but because felt emotion has no reliable measurement to validate against.
+    </p>
+  </section>
+
+  <!-- ============ OPEN ============ -->
+  <section>
+    <div class="sechead col">
+      <p class="eyebrow">12 &middot; Open</p>
+      <h2>What to settle first, cheapest first</h2>
+    </div>
+    <div class="measure">
+      <div>
+        <span class="q">Does TRIBE discriminate content at all?</span>
+        <span class="why">Three videos you already own — a landscape, a crowd, a face. If the top regions do not separate them, nothing downstream works. Free, and it should be the first thing run.</span>
+      </div>
+      <div>
+        <span class="q">Does it respond to cut rate on identical footage?</span>
+        <span class="why">The cleanest possible test — same material, one variable, nothing passing through a generator. Also the dial with the largest effect in the literature, and plausibly the one TRIBE's sitcom-heavy training covers best.</span>
+      </div>
+      <div>
+        <span class="q">Does TRIBE's prediction correlate with real BOLD on cinema?</span>
+        <span class="why"><strong>The feasibility question for the whole programme.</strong> Score StudyForrest's film, correlate against the measured response of 15 people who watched it in a scanner, per cortical region. Public data, GPU cost only. If it fails, the directed-film hypothesis is dead and you know before spending on anything else.</span>
+      </div>
+      <div>
+        <span class="q">Does the face response survive without speech?</span>
+        <span class="why">The probe's face clip is two people <em>talking</em>, and its top parcels are auditory and language. So the response may be to the voices, not the faces. A silent face clip separates them — cheap, and it decides whether "face" is even a dial we can address.</span>
+      </div>
+      <div>
+        <span class="q">How much of NNDb needs scoring</span>
+        <span class="why">At the measured ~10× real time, twenty hours of film is <strong>~200 GPU-hours</strong>, roughly $200 on an A10G. Event-locked sampling — 30 s windows around annotated technique changes — is what makes this affordable rather than a nice-to-have. Design the sampling before renting anything.</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="foot col">
+    <p>
+      Twenty-five research items across two rounds. The systems research is in
+      <a href="research/results/">research/results/</a>, validated at 100% field coverage against a
+      shared schema, with the long-form reference at <a href="research/report.md">research/report.md</a>.
+      The cinematography research is in <a href="research/cinematography/">research/cinematography/</a>,
+      including the measurement code.
+    </p>
+    <p>
+      Figures were verified against primary sources — TRIBE's shipped config and model code, fal's
+      live OpenAPI schemas, dataset licence files read directly, source PDFs rather than search
+      snippets. Secondary write-ups were wrong on VRAM, on the numpy pin, on model licensing, on
+      whether TRIBE ships parcellation helpers, and on which datasets carry cinematography labels
+      at all.
+    </p>
+    <p>Nothing here is legal advice.</p>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+[
+  {
+    "clip": "segments/jungle_book_046.mp4",
+    "info": {
+      "fps": 23.976,
+      "frames": 1438,
+      "width": 960,
+      "height": 720,
+      "duration_s": 59.977
+    },
+    "cuts": {
+      "n_cuts": 6,
+      "cuts_per_min": 6.0,
+      "mean_shot_len_s": 8.568,
+      "single_take": false,
+      "peak_frame_delta": 75.64
+    },
+    "camera": {
+      "label": "static",
+      "pan_per_frame_frac": 7e-05,
+      "tilt_per_frame_frac": 0.0,
+      "net_zoom": 1.0449,
+      "net_roll_deg": -2.52,
+      "jitter": 0.01774,
+      "n_pairs": 1437
+    },
+    "lighting": {
+      "key": "mid_key",
+      "median_luma": 111,
+      "mean_luma": 107.78,
+      "shadow_frac": 0.0988,
+      "highlight_frac": 0.0004,
+      "contrast_p5_p95": 185,
+      "luma_drift": 46.61
+    },
+    "colour": {
+      "colourfulness": 31.97,
+      "mean_saturation": 72.22,
+      "warm_cool": 8.03
+    },
+    "shot_scale": {
+      "scale": "full",
+      "face_area_frac": 0.00879,
+      "detected_in": 621
+    },
+    "dof": {
+      "focus": "medium",
+      "centre_surround_sharpness": 1.551
+    }
+  }
+]

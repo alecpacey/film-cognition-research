@@ -1,0 +1,38 @@
+{
+ "royal_wedding_1951.mp4": {
+  "duration_s": 5585.663417,
+  "n_frames": 12,
+  "mean_saturation": 85.4962767389966,
+  "colourfulness": 31.038750330607098,
+  "chroma": 16.31008553504944,
+  "saturation_range": [
+   50.14691828254848,
+   149.86837488457988
+  ],
+  "verdict": "COLOUR"
+ },
+ "nothing_sacred_1937.mp4": {
+  "duration_s": 4426.797375,
+  "n_frames": 12,
+  "mean_saturation": 81.85777519102197,
+  "colourfulness": 20.49241868654887,
+  "chroma": 10.539504965146383,
+  "saturation_range": [
+   57.099026981852916,
+   132.60383834765997
+  ],
+  "verdict": "COLOUR"
+ },
+ "jungle_book_1942.mkv": {
+  "duration_s": 6339.904,
+  "n_frames": 12,
+  "mean_saturation": 115.62402054398149,
+  "colourfulness": 27.19040362040202,
+  "chroma": 14.552802483240763,
+  "saturation_range": [
+   20.67416087962963,
+   169.9322974537037
+  ],
+  "verdict": "COLOUR"
+ }
+}

@@ -1,0 +1,948 @@
+# A technique→response index for cinematography, measured through a brain encoding model
+
+**Working paper · draft of 5 September 2026**
+**Status: stages 00 and 01 complete and reported. Stage 02 pre-registered, collection in progress (13 of 70 segments), analysis unrun.**
+
+---
+
+## Abstract
+
+Film craft is taught as a set of dials — cut rate, shot scale, lighting key, camera
+movement, colour — but the relation between those dials and a viewer's neural
+response is documented only piecemeal, one dial at a time, in studies that rarely
+share a stimulus set or an analysis. We ask whether that relation can be measured
+systematically enough to be **inverted**: given a target cortical response profile,
+choose the technique that reaches it.
+
+The instrument is TRIBE (Meta AI, winner of the Algonauts 2025 challenge), a
+trimodal encoding model that predicts whole-cortex fMRI response from video, audio
+and text. Using an encoding model as a *measurement device* rather than as a
+prediction target is the methodological move this programme rests on, and it
+carries a scope condition we state at the outset and never relax: **the dependent
+variable is a model's prediction of cortex, not cortex.** Every claim inherits
+TRIBE's accuracy against real brains — mean Pearson *r* = 0.3195 in-distribution and
+**0.2146 out-of-distribution** — and our corpus is further out of distribution than
+that figure was measured on.
+
+We report two completed stages. **Stage 00** establishes that the sensor
+discriminates content: mean pairwise top-10 Jaccard overlap 0.15 against a
+pre-registered threshold of 0.60, with a reciprocal double dissociation between the
+voice chain (A5, STSdp) and the place chain (VMV2, PHA1/2) and a graded intermediate
+condition. **Stage 01** establishes that *technique* moves the sensor with content
+held constant: intercutting two fixed 60-second scenes at five rates moved 51 of 180
+parcels to |*r*| > 0.9 against log cut count, against a pre-registered bar of 15 and
+a chance expectation of ~7. The strongest responders were inferior-frontal (IFJa
+*r* = +0.996) rather than the dorsal-attention network the literature predicted —
+coherent, since every cut is a task switch, but post-hoc and treated as a hypothesis
+rather than a finding.
+
+**Stage 02**, the observational index, is pre-registered here in full and its
+analysis is unrun. Three public-domain live-action Technicolor features were cut
+into 244 fixed 60-second segments, normalised to a common encode, and measured on 14
+cinematographic dials; 70 segments were selected by stratified maximin sampling
+across dial ranges for scoring. We derive a smallest effect size of interest of
+*r* ≥ 0.5 from TRIBE's published out-of-distribution accuracy rather than asserting a
+convention, and set *n* = 70 from that. We report the corpus's collinearity structure
+as a pre-registered diagnostic: condition number 58.8, with a near-redundant
+lighting-and-colour cluster (median luminance ~ shadow fraction *r* = −0.90, VIF 9.5)
+and comparatively independent camera, shot-scale and depth-of-field dials.
+
+We also report method failure as evidence. Six of seven failures in stage 00 were
+assumed API shapes rather than model or data problems; clip uploads were silently
+dropped by a `.gitignore` rule while reporting success; and a "fact" recorded in the
+project handoff — that background log pollers had been *killed* — was a wrong
+diagnosis of a blocking read on a stream that never closes. **When an instrument
+returns plausible numbers whatever you feed it, silent failure is the central
+methodological hazard**, and the discipline that catches it is worth reporting
+alongside the results it protects.
+
+---
+
+## 1 · Introduction
+
+### 1.1 The question
+
+A director changes the cut rate and something changes in the audience. That much is
+uncontroversial and is the working assumption of every editing manual written. What
+is missing is a *map*: which techniques move which parts of cortex, by how much, and
+with enough structure that the relation can be run backwards.
+
+Backwards is the point. An index from technique to response is descriptive; the
+thesis this programme is built toward is **inversion** — specify a target response
+profile, and derive the technique that reaches it. That is a control problem, and it
+requires three things the current literature does not supply together: many dials
+measured on the same material, a response measure dense enough to distinguish
+cortical regions, and enough samples to fit a model rather than compare two
+conditions.
+
+### 1.2 Why an encoding model, and what that costs
+
+Collecting fMRI on enough film segments to fit such a model is out of reach for this
+project. The substitute is an encoding model that predicts fMRI from stimulus.
+TRIBE, the Algonauts 2025 winner, predicts responses across 1,000 cortical parcels
+from video, audio and time-aligned text.
+
+Using it as an instrument has one large advantage and one large cost.
+
+The advantage is that **the measurement is deterministic**. TRIBE's released
+checkpoint has no subject-specific parameters, so predictions are identical whoever
+is nominally watching, and identical on repeated runs — verified in stage 00, where
+an independent re-run reproduced parcel values to two decimal places (LO2 +2.43 vs
++2.43, A5 +2.37 vs +2.38, STSdp +2.04 vs +2.04). There is no trial-to-trial noise, no
+subject variance, no scanner drift. A correlation computed against these values is
+not attenuated by measurement unreliability, which is the dominant limit on effect
+sizes in real naturalistic-imaging work.
+
+The cost is **validity**. We are measuring a model's behaviour, and the model's
+agreement with real cortex is a published, finite number. Section 3.2 turns that
+number into a quantitative scope condition rather than leaving it as a caveat.
+
+### 1.3 Relation to the wider project
+
+This research sits inside a film production — *The Simulated Viewer*, a ten-minute
+short in which a machine is instructed to make a simulated cortex respond as strongly
+as possible and drifts, over ten minutes, from showing the world to showing faces.
+The production brief adopts one rule that this paper inherits: **nothing is claimed
+as tested that has not been tested here, and every figure is either sourced to a
+primary document or explicitly marked unmeasured.** The subject invites overclaiming
+— a system that predicts brain activity is very easy to describe dishonestly — so the
+distinction is structural rather than decorative.
+
+### 1.4 Contributions
+
+1. A **derived** rather than conventional effect-size threshold for encoding-model
+   studies, obtained by propagating the model's published accuracy through to the
+   claim being made (§3.2).
+2. A **two-track design** separating what observational data can establish
+   (association across real cinema) from what only controlled generation can
+   (isolation of covarying dials), with the boundary stated in advance.
+3. A corpus decision made by **overturning our own prior assumption on evidence**
+   (§4.1), including the finding that animation — proposed as the corpus on
+   availability grounds — is the *minimum*-variance case for the covariance-breaking
+   the design requires.
+4. A **detectability classification** that distinguishes "this dial did not move the
+   sensor" from "this dial never varied enough to test", two results that a
+   conventional drop-low-variance-predictors step would have merged (§4.6).
+5. A report of **silent-failure modes** in this class of pipeline, and the practices
+   that surfaced them (§7).
+
+---
+
+## 2 · Hypotheses
+
+The programme is a chain. Each link gates the next and is permitted to break it.
+
+| | Hypothesis | Status |
+|---|---|---|
+| **H0** | TRIBE discriminates content — different kinds of scene produce different parcel profiles, in anatomically interpretable directions | ✅ **Supported** (stage 00) |
+| **H1** | Cinematographic *technique* moves the predicted response with content held constant | ✅ **Supported** (stage 01, cut rate only) |
+| **H2** | Across real cinema, measured technique dials predict parcel-level response profiles, recoverably by penalised regression | ⏳ **Pre-registered, collection in progress** (stage 02) |
+| **H2b** | The controlled cut-rate result of stage 01 reappears observationally | ⏳ Pre-registered as pass criterion 2 |
+| **H3** | At least some of those associations are causal, demonstrable by holding all dials fixed and moving one | Not started (stage 03) |
+| **H4** | The mapping can be inverted — a target profile selects a technique, and the achieved profile matches | Not started (stage 04) |
+
+**H2b deserves emphasis.** It is the only place in the design where the controlled
+and observational tracks can contradict each other. If cut rate moves the sensor on
+identical footage but shows no association across real cinema, one of the two results
+is wrong, and that must be resolved before anything is built on either. The
+pre-registration names this outcome **PARTIAL** and calls it the most important
+possible finding — which is why §4.5 records that we raised the sample size
+specifically so that this check would be able to fail informatively.
+
+---
+
+## 3 · Theoretical framework
+
+### 3.1 The instrument
+
+TRIBE is a trimodal transformer encoder that fuses representations from pretrained
+unimodal backbones — V-JEPA 2 for video, Wav2Vec2-BERT for audio, Llama for text —
+and predicts fMRI response across cortical parcels. Its training corpus is 121 hours
+of video, of which **64.5 hours is the sitcom *Friends***; the remainder is
+Memento10k real-world clips, silent YouTube footage and live-action features.
+
+Two consequences follow and are load-bearing throughout.
+
+**The visual diet is narrow.** A model whose training was dominated by a
+multi-camera sitcom shot largely in medium two-shots on a fixed set may have poor
+sensitivity to exactly the variation this project intends to use. That is not a
+rhetorical worry; it is why stage 00 exists as a gate rather than a formality.
+
+**The encoding head is the exposure, not the backbone.** V-JEPA 2 was pretrained
+broadly and has almost certainly seen material far outside TRIBE's fMRI-fitting
+corpus. The feature→BOLD mapping, however, was fitted only on that corpus. Material
+outside it — animation, generated video, and to a lesser extent 1930s Technicolor —
+is out-of-distribution for the head specifically, and the head **fails silently**,
+returning plausible numbers rather than raising.
+
+Operational facts, established by measurement in stage 00 and recorded so they are
+not re-derived:
+
+| | |
+|---|---|
+| Output rate | exactly **1 Hz** — `timeline (61, 20484)` over a 60.0 s span = 1.000 rows/s |
+| Vertices | 20,484 (fsaverage5) |
+| Parcels | 181 returned; index 0 is `???` and is dropped, leaving **180 usable** |
+| Throughput | ~10 min per 60 s clip on an A10G — roughly **10× slower than real time** |
+| Determinism | reproduces to 2 d.p. across independent runs |
+
+### 3.2 The scope condition, stated quantitatively
+
+The dependent variable is TRIBE's prediction, not measured cortex. The link between
+the two is published:
+
+| | Pearson *r* |
+|---|---|
+| In-distribution (Friends season 7) | 0.3195 |
+| **Out-of-distribution** | **0.2146** |
+| Noise-ceiling-normalised | 0.54 ± 0.1 (54% of explainable variance) |
+| Best individual regions, normalised | 0.77 – 0.85 |
+
+Our corpus — Technicolor features from 1937–1951 — is out of distribution, and
+arguably further out than the challenge's own out-of-distribution films, so 0.2146
+should be read as an optimistic upper bound for our case.
+
+This is a bottleneck, and it can be propagated. If a dial *D* correlates with a
+TRIBE parcel prediction *P* at *r*<sub>DP</sub>, and *P* tracks real BOLD *Y* at
+*r*<sub>PY</sub>, then under a simple mediation reading the dial's implied
+association with real cortex is approximately *r*<sub>DP</sub> × *r*<sub>PY</sub>.
+
+To imply even a conventionally small real effect of *r* = 0.10:
+
+| via | *r*<sub>PY</sub> | required *r*<sub>DP</sub> |
+|---|---|---|
+| raw out-of-distribution accuracy | 0.2146 | 0.10 / 0.2146 = **0.47** |
+| noise-ceiling-normalised accuracy | 0.54 | 0.10 / 0.54 = 0.19 |
+
+**We adopt SESOI = *r* ≥ 0.5**, the conservative row rounded up. The generous row is
+recorded so the choice is visible rather than buried: it would put the threshold near
+0.19 and demand roughly 200 segments.
+
+Two things about this derivation are worth stating plainly. First, it follows
+Lakens' requirement that a smallest effect size of interest be *justified* rather
+than asserted, and the justification used here is the measurement chain itself — a
+theoretical/practical anchor rather than a convention or a resource constraint.
+Second, it argues for a **higher** threshold and therefore a **cheaper** study. A
+dial reaching only *r* = 0.3 in a measurement with no noise in it would be worth
+almost nothing once passed through a 0.21 bottleneck. The mediation reading is
+first-order and approximate; §4.5 records the sample-size headroom taken to absorb
+that.
+
+### 3.3 Prior art, and where this design departs from it
+
+**Kauttonen et al. (2015)**, *Optimizing methods for linking cinematic features to
+fMRI data*, NeuroImage 110:136–148, is the closest methodological precedent. They
+related 37 cinematic features to free-viewing fMRI of a single 14-minute art film,
+combining elastic-net regularisation with ICA and inter-subject correlation, and
+found elastic net more sensitive than PLS or unregularised regression precisely
+because the feature set was large and heavily intercorrelated.
+
+We take the regularisation choice directly from them. **The null does not
+transfer.** Their design regresses feature *timeseries* against a continuous BOLD
+timeline within one film; ours regresses aggregate dial values against aggregate
+parcel values *across segments*. That difference propagates: it makes segment-label
+permutation the correct null (§4.7), and it substantially weakens the objection that
+fixed windows straddle scene boundaries (§4.3).
+
+**Aliko et al. (2020)**, the Naturalistic Neuroimaging Database (*Scientific Data*),
+scanned 86 participants watching one of **ten full-length feature films** across
+diverse genres. It is the strongest precedent that a multi-film, whole-feature corpus
+is an ordinary design rather than an invention.
+
+**Gruber et al. (2024)**, *Between-movie variability severely limits generalizability
+of "naturalistic" neuroimaging* (bioRxiv 2024.12.03.626542), is the most consequential
+for us. Across 112 participants watching **eight animated movies** over 210
+Brainnetome parcels, whole-brain inter-subject correlation differed significantly
+between films — *F*(7,385) = 4.65, *p* < 0.001, η²<sub>G</sub> = 0.048 — and the
+differences were not driven by one atypical film. Their downstream analysis found
+associations in **non-overlapping regions for nearly every movie**: of eight films,
+exactly one parcel was shared between two.
+
+Their conclusion — that "using a specific movie in neuroscience should be treated
+similarly to using a particular task" — supports two of our decisions and imposes one
+limitation. It supports the multi-film corpus and the within-film centring. It
+imposes the requirement that **our index be reported as corpus-conditional**: three
+films is enough to break dial covariance, not enough to claim film-independence.
+
+The same paper also supplied the argument that removed animation from our corpus
+(§4.1), because they chose animated films precisely for being "stylistically and
+thematically similar" — a deliberate minimum-variance condition.
+
+**Baldassano et al. (2017)** and **Geerligs et al. (2022)** establish that neural
+event timescales form a partially nested cortical hierarchy — short states in early
+sensory regions, long states in angular gyrus and posterior medial cortex. This is
+the reason no single event-aligned segmentation can be correct for all 180 parcels
+(§4.3).
+
+---
+
+## 4 · Methodology
+
+### 4.1 Corpus, and an assumption overturned
+
+The corpus requirement follows from the covariance problem. Directors covary their
+dials deliberately — fast cutting arrives with camera movement and high contrast,
+close-ups arrive with shallow focus — so within a single film the dials are
+confounded by intent. **Varying the director is the cheapest way to break that
+covariance without a lab.**
+
+The corpus went through two rejections, both recorded because the reasoning matters
+more than the outcome.
+
+*His Girl Friday* (1940) was proposed as the dialogue picture against a landscape
+picture. **Rejected: it is black and white.** In a corpus where every other film is
+in colour, saturation becomes a perfect proxy for film identity, and any
+colour-correlated parcel association would in fact be a which-film association
+carrying era, genre, director and subject matter with it.
+
+Animated Technicolor features were then adopted as a working assumption, recorded
+explicitly as an assumption rather than a finding, on the grounds that public-domain
+animated colour titles are more available than live-action ones and that animation
+offers strong deliberate colour with less confound from lens and stock.
+**Both halves of that failed.**
+
+The availability premise is false. A survey of the Internet Archive verified **six
+public-domain live-action Technicolor features against two animated colour features**,
+one of the latter carrying French intertitles. What is abundant in the animation
+collections is colour *shorts* — Popeye one-reelers of 7–9 minutes — not features.
+
+The second failure is more interesting, and comes from Gruber et al. They selected
+animated movies *because* animation is stylistically and thematically homogeneous —
+an ideal limiting case for measuring between-movie variability. **Animation is
+therefore the minimum-variance condition, which is the opposite of what a corpus
+assembled to break dial covariance requires.** An all-animated corpus would have been
+the worst available instrument for this specific job, independently of whether TRIBE
+can see animation at all.
+
+The adopted corpus is three public-domain live-action Technicolor features:
+
+| Film | Year | Contributes |
+|---|---|---|
+| ***Nothing Sacred*** (Wellman) | 1937 | dense overlapping dialogue, interiors, fast cutting, medium shots |
+| ***Jungle Book*** (Korda) | 1942 | landscape, exteriors, slow cutting, wide shots |
+| ***Royal Wedding*** (Donen) | 1951 | sustained camera movement, high-key luminance, moving long takes |
+
+***Nothing Sacred* is the direct colour replacement for *His Girl Friday*** — the
+same object, a fast-talking 1937 newspaper satire, in three-strip Technicolor. It
+fills the role the rejected film was chosen for, with the black-and-white confound
+removed.
+
+Three films rather than four: more films break covariance better, but fewer films
+leave more segments per film for within-film centring to estimate a stable film mean.
+At the planned sample size, three films gives ~23 segments each; four would give ~17.
+
+**Colour was verified by measurement, not by provenance.** A documented Technicolor
+production can still reach an archive as a black-and-white dupe, and a pixel format
+proves nothing — a greyscale encode is still `yuv420p`, merely with flat chroma
+planes. Twelve frames per print were sampled across the middle 90% of running time
+(excluding titles and credits, often monochrome even in colour films) and measured on
+mean HSV saturation, Hasler–Süsstrunk colourfulness, and mean per-pixel channel
+spread:
+
+| Print | mean saturation | colourfulness | chroma | verdict |
+|---|---|---|---|---|
+| Nothing Sacred | 81.9 | 20.5 | 10.5 | COLOUR |
+| Royal Wedding | 85.5 | 31.0 | 16.3 | COLOUR |
+| Jungle Book | 115.6 | 27.2 | 14.6 | COLOUR |
+
+Thresholds were saturation > 15 and chroma > 3; a true greyscale print sits at
+essentially zero on both.
+
+### 4.2 Encode normalisation
+
+The verified prints spanned 640×480 to 1480×1080 with differing audio codecs (AAC on
+two, AC-3 on one). This is a confound, and a subtle one.
+
+`cinemetrics.py` measures depth of field as a **centre-versus-surround sharpness
+ratio**, and its colour and contrast statistics move with encode quality. Within-film
+centring removes a per-film *mean*; it does **not** remove a resolution-dependent
+difference in a dial's *variance*. Left uncorrected, "depth of field" would be partly
+a proxy for which print happened to be downloaded.
+
+Every segment is therefore re-encoded identically before any dial is measured: scaled
+to a common 720-line height with the same Lanczos scaler, libx264 at CRF 20,
+`yuv420p`, and AAC 128 kbps 48 kHz stereo. All three sources are natively 24000/1001
+fps, so no frame-rate conversion is applied. Audio is preserved — TRIBE has an audio
+branch, and both prior runs kept it.
+
+Segments are re-encoded rather than stream-copied. A stream copy begins at the
+nearest keyframe and silently yields a clip that starts late or runs short, and a
+short clip is precisely the failure mode that returns confident noise.
+
+### 4.3 Segmentation: fixed 60 s, non-overlapping
+
+Three reasons, in order of weight.
+
+**The unit of analysis is the segment, not the timepoint.** Stage 02 regresses a
+segment's aggregate parcel vector on its aggregate dials. A scene change inside a
+segment is therefore not a confound — it is *measured*, by the cut-rate dial, and
+both sides of the regression see the same 60 seconds. The straddling objection is
+serious for a timepoint-level design such as Kauttonen's; it does not transfer to a
+cross-segment design.
+
+**No event-aligned segmentation is correct for all 180 parcels.** Given a nested
+hierarchy of neural state durations (Baldassano 2017; Geerligs 2022), windows aligned
+to boundaries defined at one timescale are misaligned for every parcel operating at
+another.
+
+**Variable-length windows fight the sensor.** TRIBE has a ~30 s floor and a 100 s
+training window. Fixed 60 s sits comfortably inside that band. Shot-aligned windows
+vary in length, and some would land near the floor — where the model returns diffuse
+output *without erroring*.
+
+Head and tail of each film are skipped (5% each end). Scene-boundary counts per
+segment are recorded as a diagnostic, not entered as a covariate.
+
+This yields **244 segments**: Jungle Book 95, Nothing Sacred 66, Royal Wedding 83.
+
+### 4.4 Dials
+
+`cinemetrics.py` measures 14 dials per segment using OpenCV and NumPy only — no model
+weights, no network:
+
+| family | dials |
+|---|---|
+| cutting | `cuts_per_min`, `mean_shot_len_s` |
+| camera | `camera_jitter`, `camera_zoom`, `camera_pan` |
+| lighting | `median_luma`, `contrast_p5_p95`, `shadow_frac` |
+| colour | `colourfulness`, `mean_saturation`, `warm_cool` |
+| shot scale | `face_area_frac`, `face_hit_rate` |
+| focus | `dof_ratio` |
+
+Shot scale uses YuNet face detection rather than a Haar cascade, because Haar fires
+on texture *consistently* — a false positive appears on every frame of a static shot,
+and no temporal filter removes it — whereas YuNet returns a confidence score that
+does. Where no face is detected at all (16 of 244 segments), `face_area_frac` is
+encoded as 0.0 and `face_hit_rate` carried alongside, so that "no face present"
+remains distinguishable from "a small face" rather than being conflated by a bare
+zero.
+
+Measurement cost was **~28 s per 60 s segment at 720p**, measured on the real corpus.
+An earlier planning figure of ~2 s per clip, inherited from shorter and smaller test
+material, was wrong by roughly 14× and has been corrected in the planning documents.
+Frame stride is held at 1: raising it would halve the cost, but cut detection compares
+adjacent frames, and cut rate is both the dial stage 01 established and the one stage
+02 must replicate.
+
+### 4.5 Sample size
+
+Power for a Pearson *r* at α = .05 two-tailed, with 3 degrees of freedom lost to
+within-film centring across three films:
+
+| *n* segments | *r*=0.3 | *r*=0.4 | *r*=0.5 | *r*=0.6 | min *r* at 80% power |
+|---|---|---|---|---|---|
+| 20 | 0.21 | 0.35 | 0.54 | 0.74 | 0.63 |
+| 40 | 0.44 | 0.70 | 0.89 | 0.98 | 0.45 |
+| 60 | 0.62 | 0.88 | 0.98 | 1.00 | 0.36 |
+| **70** | 0.68 | 0.92 | **0.99** | 1.00 | **0.33** |
+| 100 | 0.85 | 0.98 | 1.00 | 1.00 | 0.28 |
+
+**Target: *n* = 70** (Jungle Book 24, Nothing Sacred 23, Royal Wedding 23).
+
+The SESOI of 0.5 would be satisfied by *n* = 40, which has 89% power there. The
+headroom above that is deliberate, and one component of it was **not** planned but
+forced by measurement.
+
+At *n* = 60, the two cut-rate dials came in at **0.79 and 0.80 power — below the 80%
+floor** — because roughly a third of cut rate's variance lies *between* films and
+within-film centring removes it (§4.6). Cut rate is the dial that pass criterion 2
+requires to replicate. At 60 segments a null on cut rate could not have been
+distinguished from a failure to detect, so **the replication check would have been
+unable to fail informatively**, and the PARTIAL verdict the design calls its most
+important possible outcome would have been unearned. Raising *n* to 70 brings both
+cut-rate dials to 0.85 and 0.86 and puts all 14 dials over the floor. The fix cost
+$1.70.
+
+Two further reasons for headroom, both of which would otherwise bite silently:
+
+1. The mediation estimate in §3.2 is first-order. If the true bottleneck is kinder
+   than 0.2146, the SESOI belongs lower, and 70 segments retains 80% power down to
+   *r* = 0.33.
+2. **The pass criteria's quantity is not a marginal correlation.** It is a
+   cross-validated predictive *r* for a parcel from the whole dial set — a
+   multivariate quantity whose null is established by permutation, not by the table
+   above. The power table is indicative, not exact.
+
+### 4.6 Detectability: no dial is dropped
+
+A conventional pipeline drops predictors with too little variance to test. **That
+step was specified, then removed as wrong on its own terms.**
+
+It saves nothing: GPU cost is per *segment*, and `cinemetrics.py` returns every dial
+in one pass regardless of intent, so dropping a dial saves neither GPU nor
+measurement time. And it would create a reporting error the design explicitly
+forbids. A dropped dial and a tested-null dial become indistinguishable in the
+write-up, when the pre-registration requires that a dial which does not move the
+sensor be reported with equal prominence as a finding. **"Did not move the sensor"
+and "never varied enough to test" are different results and must not be merged** —
+the first is evidence, the second is absence of evidence.
+
+Every dial is therefore measured, entered, and reported, each carrying a
+pre-registered label derived from its realised range. The label is computed, not
+chosen by eye. A dial's spread surviving within-film centring is
+*s* = within-film SD / total SD; restriction of range then attenuates a true
+correlation *r* to
+
+> *r*<sub>obs</sub> = *r·s* / √(1 − *r*² + *r*²*s*²)
+
+| range retained | a true *r* = 0.5 is observed as |
+|---|---|
+| 100% | 0.50 |
+| 70% | 0.37 |
+| 50% | 0.28 |
+| 30% | 0.17 |
+
+**TESTED** means *r*<sub>obs</sub> at the SESOI still yields ≥ 80% power at the
+planned *n*; a null there is a real null. **UNDERPOWERED** means it does not; a null
+there is uninformative and must be reported as untested, never as evidence of
+absence.
+
+A known limitation of this metric is recorded because it did not bite rather than
+because it cannot: *s* is a **ratio**, so a dial with almost no absolute variance
+whose remnant survives centring scores *s* ≈ 1.0 and is labelled TESTED. The metric
+measures what centring costs, not whether anything was there to begin with.
+`camera_pan` presented exactly that appearance — its SD printed as `0.000` — and was
+checked directly rather than trusted: values reach 2.9 × 10⁻³ of frame width per
+frame, a pan across 421% of the frame over 60 s, with 27 static segments and 48
+distinct values. A real dial; the `0.000` was a formatting artefact of `%.3f` applied
+to a 2 × 10⁻⁴ number. Future dials should be checked on absolute spread as well as on
+*s*.
+
+### 4.7 Model, null, and segment selection
+
+Per parcel, a cross-validated elastic net regresses the parcel's *z* on the dial set.
+Elastic net rather than OLS follows Kauttonen: the dial set is multicollinear by
+construction (§6.2), and unregularised regression is unstable there.
+
+The null is **permutation over segment labels**, 1,000 permutations. This is a
+regression across segments, not a map-to-map comparison, so a spin test is the wrong
+null; spin tests become appropriate only when comparing resulting technique-maps
+against external maps such as Neurosynth terms, which is stage 03 and beyond. (An
+earlier version of the roadmap specified a spin test here; that was wrong and has
+been corrected.)
+
+Dials and parcels are centred **within film**, always. This removes any per-film
+constant, and is what stops saturation — or any other dial with a large between-film
+offset — from becoming a proxy for film identity.
+
+**Selection.** All 244 segments are cut and dialled, both free. The 70 scored are
+chosen by stratifying on cut rate within each film, then taking, within each stratum,
+the segment whose standardised dial vector is farthest from those already selected —
+a maximin coverage design that spreads every dial rather than only the stratifying
+one. The selection retains 83–100% of each dial's full range.
+
+This is a design choice on **predictors**, made before any parcel value exists.
+Selecting on outcomes would be p-hacking; selecting on stimulus properties is
+ordinary experimental design. The genuine caveat is different and is recorded in
+advance: deliberately spreading a dial inflates its variance relative to a random
+sample, so **estimates are design-conditional** and must not be read as "the effect
+in typical cinema". Stratifying across quantiles rather than taking extreme groups
+keeps that mild.
+
+### 4.8 The no-peeking constraint, and why this paper stops where it does
+
+Collection is at **13 of 70 segments** as this draft is written. No dial→parcel
+relationship has been computed, and none will be until the set is complete.
+
+This is not fastidiousness. Peeking at an accumulating dataset and stopping when it
+looks good inflates false positives, and a programme whose headline finding turned
+out to be an artefact of when its authors chose to stop would be worthless. The
+pre-registration therefore states that the statistical test runs **once, on the
+complete set**, that interim looks are exploratory, and that anything seen in one may
+not be reported as a finding.
+
+Between-batch checks verify **pipeline health only**: 180 parcels per clip, no NaN,
+no implausible *z*, filenames aligning between the dial table and the parcel table.
+For completeness, the batch-0 health check also inspected pairwise whole-vector
+correlations between four clips — to confirm the sensor discriminates at all rather
+than returning one vector for everything. None of these is a dial→parcel
+relationship, so none is an outcome peek.
+
+**One pre-specified exception** exists, and it is a resource decision rather than a
+test. It was also *restated*, because the original was arithmetically inert. The
+original rule — "if after 20 segments no dial reaches |*r*| > 0.3, stop" — fires about
+one time in five under pure noise: at *n* = 20 the null probability of a single dial
+exceeding |*r*| = 0.3 is 0.247, and across six dials the probability at least one does
+so is 0.82. A rule that almost never triggers is not a stopping rule. The restated
+version runs the permutation null at 30 segments and stops only if no dial has any
+parcel whose cross-validated *r* exceeds the 95th percentile of its own permutation
+distribution *uncorrected* — a real threshold with a real false-trigger rate, using
+the same machinery as the final test, and deliberately lenient enough to stop only a
+study showing nothing at all.
+
+### 4.9 Infrastructure
+
+Scoring runs on a duplicated Hugging Face Space (`alecnpacey/tribe-probe`) on A10G
+Small hardware at $1.00/hr, approximately $0.17 per 60-second segment. The Space's
+reference environment is used — its `tribev2` fork, pinned transformers, patches and
+windowing — but its interactive interface is replaced, so the modules are driven
+directly rather than through a UI.
+
+Inference runs in video mode with `audio_only=True`. This skips ASR and the gated
+Llama-3.2-3B text branch, which the upstream documentation names as the path for
+validating metrics before Meta licence approval; the model tolerates the missing text
+modality through modality dropout. **All results are therefore video + audio only,
+with no text branch.**
+
+Checkpointing is per clip: the Space prints each segment's 180 parcel values to
+stdout the moment it finishes, so a run that dies half-way still banks its completed
+clips. Resume is by omission — only segments with no saved vector are uploaded, so
+nothing is ever scored twice. The Space's filesystem is wiped on pause, so results
+survive only in the log stream until harvested, and harvesting pauses the Space to
+stop billing.
+
+---
+
+## 5 · Results — completed stages
+
+### 5.1 Stage 00 · Discrimination probe
+
+**Question.** Does TRIBE distinguish kinds of content at all? Everything downstream
+assumes it does; if the top-ranked regions were the same for a landscape, a crowd and
+a close-up face, no downstream design could rescue the programme.
+
+**Design.** Three 60-second clips, all drawn from **one film** (*Jungle Book*, 1942) —
+deliberately, so that stock, grade, era, grain and encode are held constant and
+content is the only variable. Three unrelated stock clips would have confounded
+content with everything about how each was shot and digitised.
+
+Timestamps were chosen by measurement, not by eye. An initial visual pass picked
+badly: the first face candidate contained *fewer* faces than the crowd clip, which
+would have made the test meaningless. The film was then scanned with YuNet at
+4-second intervals (1,574 samples) and windows ranked objectively, producing a clean
+gradient on face area (24.1% → 1.5% → 0.6%) with face *count* inverted between the
+face and crowd clips (1.8 vs 3.3).
+
+**Criteria, fixed before the run.** (1) Separation: mean pairwise top-10 Jaccard
+overlap < 0.60. (2) Direction: at least two of three clips rank their expected region
+family higher than the others do.
+
+**Result: PASS on both.**
+
+Mean pairwise top-10 Jaccard overlap **0.15**:
+
+| pair | overlap |
+|---|---|
+| crowd vs face | 0.05 |
+| face vs landscape | 0.05 |
+| crowd vs landscape | 0.33 |
+
+Direction was correct on **all three** clips, not two:
+
+| clip | top parcels | reading |
+|---|---|---|
+| face | A5, STSdp, 55b, V8, A4, PEF, PBelt, IFSp, IFJa, PIT | auditory belt/parabelt, superior temporal sulcus, language network |
+| landscape | VMV2, VMV3, V3B, V8, V4, V3CD, IPS1, IP0, V6A, LIPv | scene-selective ventromedial visual, parahippocampal neighbourhood |
+| crowd | LO2, V4t, V7, IPS1, FEF, LIPv, VIP, V6A, V4, V8 | intraparietal / frontal-eye-field, lateral occipital |
+
+**The stronger result was the full vector, not the top ten.** Retaining all 540 values
+revealed a reciprocal **double dissociation**:
+
+| chain | face | landscape | crowd |
+|---|---|---|---|
+| A5 (auditory) | **+2.37** | −3.26 | −0.38 |
+| STSdp (social/voice) | **+2.04** | −3.99 | −0.74 |
+| VMV2 (place) | −2.26 | **+2.83** | −0.17 |
+| PHA2 (parahippocampal) | −3.46 | **+1.26** | −2.08 |
+| PHA1 | −2.65 | **+1.01** | −1.77 |
+
+Two systems trade places in opposite directions, and **crowd sits between them on
+both chains** — a graded middle condition rather than an arbitrary third point. That
+is a considerably harder pattern to produce by noise or misalignment than three-way
+separation alone. Whole-vector correlations: landscape vs face *r* = **−0.098**
+(orthogonal), landscape vs crowd +0.455, crowd vs face +0.453.
+
+**Caveats, carried forward.** The face clip is two people *talking* with the audio
+branch live, so auditory and language parcels may be responding to speech rather than
+to faces — the discrimination result stands, the *attribution* to faces does not. The
+landscape clip is environment-dominant, not people-free. The crowd clip drifts in its
+second half. All three come from one film at 640×480 in a dim 1942 grade, so
+generalisation across stocks and eras is not yet shown. The text branch was skipped.
+
+### 5.2 Stage 01 · Cut rate on identical footage
+
+**Question.** Does cinematographic *technique* move the sensor with content held
+constant? This is the first genuine test of the thesis and the first thing capable of
+killing it.
+
+**Design.** The two most orthogonal clips from stage 00 (face and landscape,
+whole-vector *r* = −0.098) intercut at five rates: 1, 3, 7, 15 and 31 added cuts.
+**Every condition contains exactly the same 30 s of each scene.** Colour, luminance,
+motion, subject matter and audio are all held; only the number of cuts differs.
+
+Cut rate was chosen as the gate rather than as part of the index because it is the
+only dial that can be varied with content perfectly constant, and it carries the
+largest documented effect in the literature (montage context, η²ₚ 0.715). If
+technique could not move the sensor when varied this cleanly and this strongly, no
+subtler dial would.
+
+**Criteria, fixed before the run.** (1) Count: at least 15 of 180 parcels reach
+|*r*| > 0.9 against log cut count — with *n* = 5, *r* = 0.9 is *p* ≈ 0.037, so ~7 are
+expected by chance, and the bar is twice that. (2) Anatomy: the dorsal-attention
+family (IPS1, FEF, LIPv, VIP, V7, PEF, IP0) over-represented relative to its 7/180
+base rate.
+
+**Result: PASS on both.**
+
+**51 of 180 parcels** reached |*r*| > 0.9 — against a bar of 15 and a chance
+expectation of ~7, roughly **seven times chance**. Dorsal attention was
+over-represented: **3 of 7** parcels survived (LIPv, PEF, VIP) against 1.98 expected.
+
+**The strongest responders were not where the literature pointed:**
+
+| parcel | *r* | cut01 → cut31 |
+|---|---|---|
+| **IFJa** | +0.996 | +1.36 · +1.75 · +2.02 · +2.17 · +2.39 |
+| IFSp | +0.995 | +0.45 → +1.45 |
+| 8C | +0.990 | +0.61 → +1.34 |
+| IFJp | +0.984 | +0.92 → +1.59 |
+| 7AL | −0.990 | +0.66 → +0.25 |
+| V3B | −0.978 | +2.70 → +1.88 |
+
+The top responders — IFJa, IFJp, IFSp, 8C, 45, 44, p9-46v — are **inferior frontal
+junction and inferior frontal sulcus**: cognitive control and task-switching cortex,
+not the dorsal attention network predicted. Read plainly this is coherent — **every
+cut is a switch**, and IFJ is the region most associated with updating task set when
+input changes. The monotonicity is near-perfect: IFJa rises across all five conditions
+without a reversal. Meanwhile V3B *falls*, consistent with shorter shots giving less
+sustained visual processing per shot.
+
+Hitting a different coherent signature is a better outcome than hitting the predicted
+one by luck. **But it is a post-hoc reading of an unpredicted result, and is treated
+as a hypothesis for stage 02 rather than as a finding.**
+
+Whole-vector correlation cut01 vs cut31 = **+0.8934** — well below the 0.99 that
+would have meant the manipulation did nothing, while remaining high, as it should
+since the content is identical by design.
+
+**Caveats, carried forward.** The effective range was **2.1×, not 31×**: the source
+scenes carry ~22–24 cuts of their own, so detected totals ran 25 → 53 rather than
+1 → 31. This makes the pass *conservative* — the effect appeared despite a compressed
+manipulation — but it also means a null here would have meant "cutting did not move
+the sensor over a 2.1× range". One dial, one film, one pair of scenes: a passing gate
+says technique *can* move the sensor, not that lighting or shot scale do. And *n* = 5
+conditions is few; the defence is the count (51 ≫ 7) and the anatomical coherence, not
+any single parcel.
+
+---
+
+## 6 · Stage 02 · Pre-registered, analysis unrun
+
+**No stage-02 results appear in this paper.** Collection stands at 13 of 70 segments;
+the statistical test runs once, on the complete set, per §4.8. What follows restates
+the criteria fixed in advance, and reports only the stimulus-side diagnostics that
+were themselves pre-registered and touch no outcome.
+
+### 6.1 Pass criteria, as fixed
+
+For each dial, a cross-validated elastic net predicts each parcel's *z* from the dial
+set, compared against 1,000 label permutations.
+
+**PASS** requires both:
+
+1. **At least 3 of the measured dials** have ≥ 1 parcel whose cross-validated
+   predictive *r* exceeds the 95th percentile of its permutation null, after FDR
+   correction across 180 parcels.
+2. **Cut rate replicates** — the inferior-frontal cluster from stage 01 (IFJa, IFJp,
+   IFSp, 8C) associates with cut rate observationally as well.
+
+**FAIL** if fewer than 3 dials survive, or if cut rate fails to replicate.
+
+**PARTIAL** — dials survive but cut rate does not replicate — means the observational
+and controlled tracks disagree. The pre-registration names this the most important
+possible finding, and one that would redirect the programme.
+
+**Nulls are reported with equal prominence.** A dial that does not move the sensor is
+a dial you cannot direct with, and knowing that is worth more than a plausible story.
+
+### 6.2 Stimulus-side diagnostic: dial interdependence
+
+Reported as a pre-registered diagnostic, computed on centred dials across all 244
+segments, and **not modelled**.
+
+**Condition number of the dial correlation matrix: 58.8** — meaningful collinearity
+(> 30), short of severe (> 100).
+
+| pair | *r* |
+|---|---|
+| median_luma ~ shadow_frac | **−0.90** |
+| contrast_p5_p95 ~ shadow_frac | −0.71 |
+| median_luma ~ mean_saturation | −0.68 |
+| median_luma ~ contrast_p5_p95 | +0.68 |
+| shadow_frac ~ mean_saturation | +0.68 |
+
+Highest VIF: `shadow_frac` **9.5**, `median_luma` 6.1, `mean_saturation` 5.9,
+`colourfulness` 5.0. Conventionally VIF > 5 warrants comment, > 10 is serious.
+
+**The structure is one tight cluster, and it is lighting-and-colour.** Luminance,
+shadow fraction, contrast and saturation move together and are close to redundant;
+`shadow_frac` at *r* = −0.90 with `median_luma` is nearly a deterministic function of
+it. The camera dials, the face and shot-scale dials, and depth of field are
+comparatively independent (VIF < 2.3), as is cut rate.
+
+This is the elastic net earning its place — precisely the multicollinearity Kauttonen
+(2015) encountered with 37 features. It carries a consequence that must be stated
+before any result is read: **any association found inside the lighting/colour cluster
+will attribute poorly.** The model may establish that the cluster matters without
+being able to say which member drives it. Observational data structurally cannot
+resolve that; it is a stage-03 question and will be written up as one rather than
+argued away.
+
+### 6.3 Detectability at *n* = 70
+
+All 14 dials clear the 80% power floor at the SESOI. The two cut-rate dials are the
+weakest (*s* = 0.66 and 0.67; power 0.85 and 0.86), for the reason given in §4.5 —
+their variance is disproportionately *between* films, and within-film centring removes
+it. The remaining twelve sit at *s* = 0.87–1.00 with power 0.94–0.99.
+
+**The cause is a genuine design tension, not an error.** Cut rate loses a third of its
+variance to centring *because the corpus was chosen for director contrast* — Wellman,
+Korda and Donen cut at different rates, which is exactly the between-film spread the
+corpus was built to have. Within-film centring, adopted to stop any dial becoming a
+proxy for film identity, removes exactly that. The two decisions oppose each other,
+and only on the dials where between-film contrast is the point.
+
+Stratified selection does not rescue it: recomputing detectability on the selected
+subset rather than all 244 leaves *s* essentially unchanged and **no dial changes
+label**. Stratifying *within* film cannot recover variance that lives *between* films.
+
+---
+
+## 7 · Method failure as evidence
+
+This section is not an appendix. When an instrument returns plausible numbers
+whatever you feed it, **silent failure is the central methodological hazard**, and the
+practices that surface it are part of the result.
+
+**Six of seven failures in stage 00 were assumed API shapes** — not model failures,
+not data failures, and none of them in the science. All sat in the last ten lines that
+turn vertices into parcel names:
+
+| failure | cause |
+|---|---|
+| clips silently absent | the Space's `.gitignore` contains `*.mp4`; uploads **reported success** and were dropped |
+| wrong readout, twice | `build_roi_masks` returns 5 composite scores, not parcels — giving Jaccard 1.00 *by construction*; then `get_hcp_labels` returns a dict, not a list, mis-keying every parcel |
+| `load_fsaverage5_atlas` | raises `NotImplementedError`; superseded |
+| tuple unpack | `run_inference` returns `(preds, abs_times)`, not an array |
+| gated model 401 | `mode="video"` pulls the text branch; fixed with `audio_only=True` |
+| invalid kwarg | `show_copy_button` removed in gradio 6.11 |
+
+The second row is the instructive one. **A Jaccard overlap of 1.00 by construction is
+indistinguishable, without introspection, from a sensor that cannot discriminate.**
+Had that run been accepted, stage 00 would have "failed" and the programme would have
+stopped on an artefact of the readout code.
+
+Each failure cost ~7 minutes of restart plus ~30 minutes of scoring. Verifying an API
+shape by introspection costs seconds. This produced the programme's standing rule —
+**introspect before writing against an API** — and the rule has since caught the same
+class of error again: a later collection step assumed `cinemetrics.py` wrote a dict
+keyed by clip path when it writes a *list*, and null face-area values on 16 no-face
+segments would have silently dropped the shot-scale dial from the analysis entirely.
+
+**A recorded fact can itself be a wrong diagnosis.** The project handoff carried, in a
+"do not re-derive" table, the statement that background log pollers "were killed
+silently with no output", and a standing rule to fetch logs in the foreground. That
+diagnosis was wrong. The Hugging Face `/logs/run` endpoint is a **live SSE stream that
+does not close while the Space is running**, so any reader iterating it blocks
+indefinitely — foreground or background alike. The pollers were not killed; they were
+hanging. The corrected implementation reads to a wall-clock deadline with a socket
+idle timeout.
+
+The cost of that wrong fact was paid twice: once in stage 00, and again when a
+monitoring script written from the same misunderstanding blocked while a run completed
+underneath it, leaving GPU hardware idling on billed time until a human noticed. **A
+wrong entry in a "do not re-derive" table is worse than no entry**, because it is
+trusted precisely where it will not be re-checked.
+
+Three practices follow, and are now standing rules:
+
+1. **Criteria are written in the stage README before the run and are never softened
+   afterwards.** Every result in §5 is reported against a threshold fixed in advance.
+2. **Persist to disk, not to the instrument.** The Space's filesystem is wiped on
+   pause; stage 00's first full result set was lost that way and had to be re-run.
+3. **Introspect before writing.** Seconds to check, ~35 minutes to get wrong.
+
+---
+
+## 8 · Limitations
+
+Stated plainly, and none of them resolvable within this design.
+
+**It is a model, not a brain.** Every result concerns TRIBE's predictions. The link to
+real cortex is *r* = 0.2146 out-of-distribution, and our material is further out than
+that figure was measured on. §3.2 turns this into the effect-size threshold rather
+than leaving it as a disclaimer, but no analysis here can escape it. A finding that
+technique moves TRIBE is a finding about TRIBE.
+
+**The index will be corpus-conditional.** Three films is enough to break dial
+covariance; it is not enough to claim film-independence. Gruber et al. found
+associations landing in non-overlapping regions for nearly every one of eight films,
+and concluded that a specific movie should be treated like a specific task. Our index
+should be read the same way, and the stage-02 report must say so rather than leave it
+to be discovered.
+
+**Effect sizes are design-conditional.** Segments were deliberately selected to spread
+each dial's range, which inflates dial variance relative to a random sample of cinema.
+Estimates therefore do not describe "the effect in typical film".
+
+**Observational data cannot separate covarying dials.** With a condition number of
+58.8 and a near-redundant lighting/colour cluster, any association inside that cluster
+will attribute poorly no matter how the regression is regularised. Elastic net manages
+the instability; it does not manufacture identifiability. Separating those dials
+requires generating clips that hold all but one fixed — stage 03 — and that is a
+different kind of evidence.
+
+**One era, one medium, three directors.** Technicolor features from 1937–1951 share
+conventions of lighting, staging and lens that contemporary cinema does not.
+Generalisation beyond that is untested.
+
+**No text branch.** All results are video + audio only; the gated text model was
+skipped throughout. For a corpus containing dense dialogue — *Nothing Sacred* in
+particular — this omits a modality TRIBE was designed to use.
+
+**Cut rate is the weakest dial in the design**, at *s* ≈ 0.66, precisely because it
+carries the most between-film signal. It is also the dial the replication check
+depends on. The sample size was raised to keep that check informative, but it remains
+the thinnest margin in the study.
+
+---
+
+## 9 · Status and next steps
+
+| stage | status |
+|---|---|
+| 00 · Probe | ✅ Complete — PASS |
+| 01 · Gate | ✅ Complete — PASS |
+| **02 · Index** | 🔄 **Collection in progress, 13 / 70 segments. Analysis pre-registered and unrun.** |
+| 01b · Synthetic-imagery transfer | Specified, unrun — reclassified as a prerequisite for stage 03 |
+| 02b · Generalisation test | Specified, pulls only after stage 02 has a written result |
+| 03 · Isolation | Not started; gated by 01b |
+| 04 · Inversion | Not started |
+
+On completion of collection, the pre-registered analysis runs once and produces a
+stage-02 result section reporting: the elastic-net fits per parcel, the permutation
+null, both pass criteria, and — with equal prominence — every dial that showed no
+reliable association, labelled TESTED or UNDERPOWERED so that a null is never confused
+with an absence of test.
+
+---
+
+## Sources
+
+- TRIBE: *TRImodal Brain Encoder for whole-brain fMRI response prediction*, arXiv:2507.22229
+- *Insights from the Algonauts 2025 Winners*, arXiv:2508.10784
+- Kauttonen, J. et al. (2015). Optimizing methods for linking cinematic features to fMRI data. *NeuroImage* 110:136–148. PMID 25662868
+- Aliko, S. et al. (2020). A naturalistic neuroimaging database for understanding the brain using ecological stimuli. *Scientific Data* 7:347
+- Gruber, M. et al. (2024). Between-movie variability severely limits generalizability of "naturalistic" neuroimaging. bioRxiv 2024.12.03.626542
+- Geerligs, L. et al. (2022). A partially nested cortical hierarchy of neural states underlies event segmentation in the human brain. *eLife* 11:e77430
+- Baldassano, C. et al. (2017). Discovering event structure in continuous narrative perception and memory
+- Lakens, D. *Sample Size Justification* / *Improving Your Statistical Inferences*, ch. 8
+- Internet Archive metadata API, per-identifier, read 3 September 2026
+- Hugging Face Spaces hardware pricing (A10G Small, $1.00/hr)
+
+## Internal documents
+
+`experiments/ROADMAP.md` · `experiments/LOG.md` · `experiments/OBJECTIVES.md` ·
+`experiments/00-probe/{README,RESULT,CLIPS}.md` ·
+`experiments/01-cutrate/{README,RESULT}.md` ·
+`experiments/02-index/{README,CORPUS,DIALS}.md`

@@ -1,0 +1,33 @@
+# Supplementary analytic dimensions. NOT part of the per-item validation contract
+# (added after the deep-phase agents launched, so fields.yaml was left untouched).
+# These are applied at the REPORT stage as cross-cutting columns.
+
+report_stage_fields:
+  - name: loop_position
+    values: [inside-latency-budget, background, offline-precompute]
+    description: The single most useful discriminator for a low-complexity build — anything moved offline stops mattering for latency.
+  - name: control_signal_shape
+    description: Exact dimensionality and rate crossing each boundary, e.g. "(15, 20484) @1Hz -> float[5] -> string". Forces reduction decisions to be explicit rather than hand-waved.
+  - name: warm_vs_cold
+    description: Cold-start seconds and whether the component must stay resident. Separates "serverless works" from "renting a GPU 24/7"; dominates the cost model.
+  - name: fallback_on_timeout
+    description: What plays or happens if this stage misses its deadline. Distinct from simpler_alternative, which is a design fallback not a runtime one.
+  - name: validation_status
+    values: [empirically-validated, plausible-unvalidated, speculative]
+    description: TRIBE's cortical predictions are validated; engagement scores derived from them are not. Without this the report silently equates them.
+  - name: concurrency_limit
+    description: Hard platform cap (fal 2 -> 40). Bounds buffer depth and is invisible in latency_ms.
+  - name: licence_class
+    description: Per-component licence, since CC BY-NC (TRIBE), gated Meta licence (Llama-3.2-3B) and a commercial API (fal) mix in one pipeline.
+  - name: commercial_use_ok
+    description: Boolean per component. The most restrictive component governs the whole system.
+  - name: build_time_estimate
+    description: Hours or days. LOW/MEDIUM/HIGH is too coarse to sequence a shortest-path build — three LOW items can still be a week.
+  - name: viewer_visible
+    description: Whether the component produces anything the audience actually perceives. Directs effort toward the brain-map overlay and away from readout precision nobody can see.
+  - name: failure_is_silent
+    description: Whether failure errors loudly or merely degrades. A too-short clip yields a diffuse brain response that looks fine and quietly produces mush. Determines monitoring vs try/except.
+  - name: determinism
+    description: Seed/reproducibility control, needed to A/B the control loop. H3 exposes `seed`; TRIBE is deterministic given input.
+  - name: replaced_by_realtime_arch
+    description: Whether the item disappears entirely under the autoregressive/streaming generation path. Makes the two architectures directly comparable rather than interleaved.

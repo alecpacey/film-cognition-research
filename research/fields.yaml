@@ -1,0 +1,103 @@
+# Field definitions for: TRIBE v2 -> MiniMax H3 Max reactive livestream
+# Schema matches validate_json.py: field_categories[].category + .fields[].name/.required
+# detail_level: brief -> moderate -> detailed
+
+field_categories:
+
+  - category: identity
+    fields:
+      - name: what_it_is
+        required: true
+        detail_level: brief
+        description: One-line description of the component and its job in the pipeline.
+      - name: role_in_loop
+        required: true
+        detail_level: brief
+        description: Where it sits in the perceive -> predict -> prompt -> generate -> stream cycle.
+
+  - category: interface
+    fields:
+      - name: interface_spec
+        required: true
+        detail_level: detailed
+        description: Exact API surface — function signature, endpoint id, request/response schema, tensor shapes with named dimensions.
+      - name: input_contract
+        required: true
+        detail_level: moderate
+        description: What must be fed in (file formats, sample rates, window lengths, context requirements).
+      - name: output_contract
+        required: true
+        detail_level: moderate
+        description: What comes out, with units and shape. For model outputs, what the numbers physically mean.
+
+  - category: performance
+    fields:
+      - name: latency_ms
+        required: true
+        detail_level: moderate
+        description: Measured or best-estimate wall-clock latency per invocation. Flag clearly when estimated rather than sourced.
+      - name: throughput_constraint
+        required: true
+        detail_level: moderate
+        description: Rate limits, concurrency caps, GPU serialisation, queue behaviour.
+      - name: realtime_headroom
+        required: true
+        detail_level: moderate
+        description: Does this fit inside the clip-duration budget? Surplus or deficit in seconds.
+
+  - category: complexity
+    fields:
+      - name: dev_complexity
+        required: true
+        detail_level: brief
+        description: LOW / MEDIUM / HIGH for a single developer, with the reason for the rating.
+      - name: loc_estimate
+        required: false
+        detail_level: brief
+        description: Rough lines of code to implement the recommended approach.
+      - name: off_the_shelf_option
+        required: true
+        detail_level: moderate
+        description: Existing library, hosted service or template that removes the need to build it at all.
+
+  - category: decision
+    fields:
+      - name: recommended_approach
+        required: true
+        detail_level: detailed
+        description: The shortest path that actually works. Concrete — name the library, the endpoint, the flag.
+      - name: simpler_alternative
+        required: true
+        detail_level: moderate
+        description: The cruder fallback if the recommendation proves too slow, too costly or too fiddly.
+      - name: code_sketch
+        required: false
+        detail_level: detailed
+        description: Minimal working code snippet or pseudocode for the recommended approach.
+
+  - category: risk
+    fields:
+      - name: failure_modes
+        required: true
+        detail_level: moderate
+        description: What breaks in practice — the specific, non-obvious ways this component fails.
+      - name: unknowns
+        required: true
+        detail_level: moderate
+        description: What could not be determined from available sources and must be measured empirically.
+
+  - category: economics
+    fields:
+      - name: cost
+        required: true
+        detail_level: moderate
+        description: Dollar cost, expressed per hour of continuous stream where applicable.
+
+  - category: evidence
+    fields:
+      - name: sources
+        required: true
+        detail_level: moderate
+        description: URLs backing every factual claim. Mark inference explicitly as inference.
+
+uncertain: []
