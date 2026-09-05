@@ -558,6 +558,27 @@ Update process with a documented justification.
 > `github.com/alec-mutuals/film-cognition-research`, commit
 > `89d01a1b693154bfd54ac443c70899d8a75b1dea`.
 >
+> **Known defect in the pre-registration text, disclosed rather than corrected.**
+> Three passages in `02-index/README.md` and `PAPER.md` reason over **6 dials** where
+> the study measures **14**. The figure is a leftover from an earlier design that
+> counted dial *families*. It is disclosed here rather than edited, because silently
+> revising the arithmetic of a pre-registered document is exactly the softening this
+> registration exists to prevent. Both affected conclusions survive, and both are
+> strengthened at the true count:
+>
+> - *Futility rule (item_15).* "Across 6 dials the chance at least one exceeds
+>   |r| = 0.3 at n = 20 is 0.82" is correct for 6 dials (1 − 0.753⁶ = 0.818). At 14
+>   dials it is 1 − 0.753¹⁴ = **0.98**. The original rule was therefore even more
+>   inert than stated, which reinforces rather than undermines the decision to
+>   replace it.
+> - *Interactions (item_19).* "With 6 dials, all pairwise interactions is 21 terms"
+>   reads as 6 main effects plus 15 pairwise. At 14 dials it is 14 + 91 = **105
+>   terms** at n = 70, which strengthens the case for excluding interactions from the
+>   primary model.
+>
+> No pass criterion, threshold, sample size or model specification depends on the
+> stale count.
+
 > **Prior stages.** Stages 00 and 01 are complete and were reported against criteria
 > fixed before each run. They are not covered by this registration and are described
 > here only as context.
