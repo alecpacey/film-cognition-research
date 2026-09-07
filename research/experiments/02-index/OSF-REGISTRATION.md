@@ -189,42 +189,66 @@ Update process with a documented justification.
 
 ### item_11 · Explanation of existing data
 
-> **This is a partial-data registration and is declared as one.**
+> **This registration is filed after data collection and before any analysis.
+> It is declared as such, not presented as prospective.**
 >
-> At the moment of registration, **13 of the 70 selected segments had been scored**,
-> and a batch of 20 more was in flight. The response data therefore exists for 13
-> segments and is stored in `research/experiments/02-index/parcel_vectors.json`.
+> **VERIFY THIS COUNT IMMEDIATELY BEFORE SUBMITTING** — run
+> `python run_batch.py --plan`, which prints `selected / scored / pending`, and set
+> the number below to what it reports. As of 7 September 2026, 11:50, collection
+> stood at **66 of 70 scored, 4 in flight**.
+>
+> All 70 selected segments have been scored by the pipeline in item_12. The response
+> data is stored in `research/experiments/02-index/parcel_vectors.json` and, per clip,
+> in the Hugging Face dataset `alecnpacey/tribe-probe-results`.
 >
 > **No analysis of that data has been performed.** Specifically:
 >
 > - No dial→parcel relationship has been computed, inspected, or estimated, by any
 >   means, at any point.
-> - No elastic net has been fitted. No permutation null has been run.
-> - The only quantities inspected from the scored clips are the pipeline-health
->   checks enumerated in item_7 — parcel count, NaN presence, z-magnitude, filename
->   alignment, and one between-clip whole-vector correlation confirming the sensor
->   does not return an identical vector for every input.
+> - **No elastic net has been fitted to the response data. No permutation null has
+>   been run.** The pre-registered futility script `futility_check.py` exists in the
+>   repository but **has never been executed** — see item_15.
+> - The only quantities inspected from the scored clips are pipeline-health checks:
+>   parcel count (must be 180), NaN presence, z-magnitude (must be |z| ≤ 8), absence
+>   of stray keys, per-film segment counts, and, at batch 0, one between-clip
+>   whole-vector correlation confirming the sensor does not return an identical vector
+>   for every input. None of these is a dial→parcel relationship.
 >
-> The stimulus side is fully measured and was measured *before* any segment was
-> scored: all 244 segments were cut, normalised and dialled, the detectability
-> classification and collinearity diagnostics were computed, and the 70-segment
-> selection was fixed and written to `selection.json`. Those are predictor-side
-> quantities and appear in item_14, item_18 and item_25.
+> **The stimulus side was fully measured before any segment was scored.** All 244
+> segments were cut, normalised and dialled; the detectability classification and
+> collinearity diagnostics were computed; and the 70-segment selection was fixed and
+> written to `selection.json`. Those quantities appear in item_14, item_18 and item_25.
 >
-> **Verifiable timestamp.** The complete state of the project at registration is
-> commit `89d01a1b693154bfd54ac443c70899d8a75b1dea`, authored 2026-09-05T13:34:30-03:00
-> and recorded by GitHub at 2026-09-05T16:34:30Z. That commit contains the
-> pre-registered criteria, the 13-clip response file, and the analysis code, and
-> predates any analysis of the response data.
+> **The pre-registered criteria have not changed during collection, and this is
+> verifiable.** `02-index/README.md`, `02-index/DIALS.md`, `02-index/CORPUS.md` and
+> `selection.json` are byte-identical between commit
+> `89d01a1b693154bfd54ac443c70899d8a75b1dea` (5 September 2026, when 13 of 70 had been
+> scored) and the commit accompanying this registration. Fifty-three further segments
+> were scored between those two commits and not one threshold, pass criterion, sample
+> size or model specification moved.
 >
-> **Why registration was not filed before collection began.** Candidly: the author
-> had not registered a study before, and the pre-registration existed only as
-> documents in a private repository. The criteria themselves were fixed in advance and
-> have not been altered — `02-index/README.md` states that criteria are written before
-> the run and never softened, and the record shows the sample size being *raised* on
-> measurement rather than a threshold being lowered. Filing at 13/70 rather than at
-> 0/70 is a weaker position than a fully prospective registration, and is reported as
-> such rather than presented as one.
+> **One mid-collection change to the scoring environment, and the check it triggered.**
+> The Space application was patched partway through collection so that each clip's
+> result is written to a durable dataset repository rather than recovered from a log
+> stream. The pre-registration (item_22) states that clips scored under a different
+> configuration must be discarded and rescored, because mixing two scoring
+> configurations in one dataset is a silent confound. The patch was therefore tested
+> rather than assumed: `royal_wedding_013`, already banked under the unpatched
+> application, was rescored under the patched one and compared parcel by parcel.
+> Result: same 180 keys, maximum |Δz| = 5.0 × 10⁻⁷, whole-vector correlation
+> 0.999999999999961, i.e. identical to floating-point noise. **The scoring path is
+> unchanged and the dataset is homogeneous.** Evidence in `identity_test.py` and
+> `identity_test_result.json`.
+>
+> **Why this was not filed before collection began.** Candidly: the author had not
+> registered a study before, and the pre-registration existed only as documents in a
+> private repository. The criteria themselves were fixed in advance and demonstrably
+> have not been altered — the record shows the sample size being *raised* on
+> measurement (60 → 70, item_14) rather than a threshold being lowered. Filing after
+> collection is a weaker position than a fully prospective registration and is reported
+> as such rather than dressed up as one. What it does establish, and what the commit
+> history supports, is that **the analysis plan was fixed before the analysis was
+> run.**
 
 ### item_12 · Data collection procedures
 
@@ -325,6 +349,16 @@ Update process with a documented justification.
 > permutation distribution *uncorrected*, stop for futility. Being uncorrected it is
 > deliberately lenient: it stops only a study showing nothing at all. The full
 > FDR-corrected test still runs once, on the complete set.
+>
+> **The futility check was never executed, and the study did not rely on it.** The
+> script implementing it (`futility_check.py`) was written and is in the repository,
+> but its banner appears in no log and no verdict string exists anywhere on disk.
+> Collection ran to completion without it. A separate script, `gate_and_continue.sh`,
+> was run partway through and is sometimes mistaken for it: that one gates on
+> **pipeline health only** — banked count, stray keys, 180 parcels, NaN, |z| ≤ 8, and
+> a per-film minimum for stable within-film centring — and computes no relationship
+> between any dial and any parcel. It returned FAIL on a banked-count precondition
+> (30 of an expected 35) and the collection was continued by hand.
 >
 > **This rule replaces an earlier one, and the replacement is disclosed.** The original
 > read "if after 20 segments no dial reaches |r| > 0.3, stop", and was arithmetically
@@ -471,6 +505,12 @@ Update process with a documented justification.
 > configurations in one dataset is a silent confound; they would then have been
 > discarded and rescored. Batch 0 on 4 September 2026 required no such change, so its
 > four clips stand.
+>
+> **The same conditional was tested again, and passed, when the Space application was
+> patched mid-collection** to write results to a durable dataset repository. Rescoring
+> an already-banked clip under the patched application reproduced its 180-parcel vector
+> to within 5.0 × 10⁻⁷ (whole-vector r = 0.999999999999961), so all 70 clips come from
+> one scoring configuration. See item_11.
 
 ### item_23 · Missing data
 
