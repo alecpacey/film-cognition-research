@@ -193,12 +193,16 @@ Update process with a documented justification.
 > **This registration is filed after data collection and before any analysis.
 > It is declared as such, not presented as prospective.**
 >
-> **VERIFY THIS COUNT IMMEDIATELY BEFORE SUBMITTING** — run
-> `python run_batch.py --plan`, which prints `selected / scored / pending`, and set
-> the number below to what it reports. As of 7 September 2026, 11:50, collection
-> stood at **66 of 70 scored, 4 in flight**.
+> **Collection is complete. All 70 of 70 selected segments have been scored**, and
+> none remain pending. Verified 7 September 2026 at 12:22 local time by
+> `run_batch.py --plan`, which reported `selected: 70   scored: 70   pending: 0`.
+> The per-film split is that of the pre-registered selection: Jungle Book 24,
+> Nothing Sacred 23, Royal Wedding 23.
 >
-> All 70 selected segments have been scored by the pipeline in item_12. The response
+> The final batch finished cleanly — all four result files present, harvested, and
+> the scoring hardware paused. The harvest verification, which is the
+> pipeline-health check described below, reported **no problems on any of the 70
+> clips**: every clip carries 180 parcels, none contains NaN, and no |z| exceeds 8. The response
 > data is stored in `research/experiments/02-index/parcel_vectors.json` and, per clip,
 > in the Hugging Face dataset `alecnpacey/tribe-probe-results`.
 >
