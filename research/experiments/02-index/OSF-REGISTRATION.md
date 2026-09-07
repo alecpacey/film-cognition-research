@@ -21,6 +21,7 @@ Update process with a documented justification.
 ### item_2 · Authors
 
 > Alec Pacey (independent researcher).
+> ORCID: **0009-0004-8639-4123** — https://orcid.org/0009-0004-8639-4123
 >
 > Sole author. No funder. No institutional affiliation. Analysis and writing were
 > assisted by a large language model acting under instruction; all design decisions,
