@@ -27,7 +27,7 @@ this refuses to run rather than guess.
 """
 import argparse, json, re, socket, time, urllib.request
 from pathlib import Path
-from huggingface_hub import HfApi, get_token
+from huggingface_hub import HfApi, get_token, hf_hub_download
 
 SPACE = "alecnpacey/tribe-probe"
 SEGMENTS = Path("segments")
@@ -67,16 +67,33 @@ def pending():
     loses more than the segments it missed. Round-robin makes every prefix balanced.
     """
     done = set(saved())
-    todo = [n for n in selected() if n not in done]
+    sel = selected()
+    todo = [n for n in sel if n not in done]
+
+    # Order by which film is FURTHEST BEHIND its share, not plain round-robin.
+    # Batch 2 was truncated by the Space's sleep timer, and because the Space
+    # processes each batch alphabetically the cut always fell on the end of the
+    # alphabet: royal_wedding finished with 3 of 23 while jungle_book had 13.
+    # Dials and parcels are centred WITHIN FILM, so a film with three segments
+    # has no stable mean. Deficit-first ordering self-corrects that instead of
+    # compounding it.
+    quota, have = {}, {}
+    for n in sel:
+        quota[n.rsplit("_", 1)[0]] = quota.get(n.rsplit("_", 1)[0], 0) + 1
+    for n in done:
+        have[n.rsplit("_", 1)[0]] = have.get(n.rsplit("_", 1)[0], 0) + 1
     by_film = {}
     for n in todo:
         by_film.setdefault(n.rsplit("_", 1)[0], []).append(n)
-    order, i = [], 0
-    while any(v[i:] for v in by_film.values()):
-        for f in sorted(by_film):
-            if i < len(by_film[f]):
-                order.append(by_film[f][i])
-        i += 1
+
+    order = []
+    counts = {f: have.get(f, 0) for f in by_film}
+    while any(by_film[f] for f in by_film):
+        # the film with the smallest completed fraction of its quota goes next
+        f = min((f for f in by_film if by_film[f]),
+                key=lambda f: (counts[f] / quota[f], f))
+        order.append(by_film[f].pop(0))
+        counts[f] += 1
     return [SEGMENTS / f"{n}.mp4" for n in order]
 
 
@@ -115,17 +132,52 @@ def fetch_logs(deadline=45, idle=5):
     return out
 
 
+RESULTS_REPO = "alecnpacey/tribe-probe-results"
+CLIPS_REPO = "alecnpacey/tribe-probe-clips"
+
+
 def harvest():
-    """Merge whatever the log holds into the saved set. Idempotent."""
-    lines = fetch_logs()
+    """Merge every result file in the dataset repo into the saved set. Idempotent.
+
+    Results are FILES now, uploaded by the Space the moment each clip is scored.
+    The log is read only as a fallback. Reason: HF's /logs/run serves a bounded
+    window from the start of the log, so once a run passes ~1,500 lines nothing
+    printed later is ever readable again — two collection runs were lost to that
+    before the cause was found.
+    """
     data = saved()
     added = 0
-    for l in lines:
+    try:
+        files = [f for f in api.list_repo_files(RESULTS_REPO, repo_type="dataset")
+                 if f.startswith("results/") and f.endswith(".json")]
+    except Exception as e:
+        print(f"  ! could not list {RESULTS_REPO}: {type(e).__name__}: {e}")
+        files = []
+    for f in files:
+        clip = re.sub(r"^\d{2}_", "", Path(f).stem)     # drop the upload ordinal
+        if clip in data and len(data[clip]) == 180:
+            continue                                     # already banked
+        try:
+            local = hf_hub_download(RESULTS_REPO, f, repo_type="dataset")
+            payload = json.loads(Path(local).read_text())
+        except Exception as e:
+            print(f"  ! {f}: {type(e).__name__}: {e}"); continue
+        vec = payload.get("parcels", {})
+        if len(vec) == 180:
+            data[clip] = {k: {"raw": float(v["raw"]), "z": float(v["z"])} for k, v in vec.items()}
+            added += 1
+        else:
+            print(f"  ! {f}: {len(vec)} parcels, not banked")
+    # fallback: anything only in the log window
+    for l in fetch_logs():
         if l.startswith("PARCEL\t"):
             _, clip, parcel, raw, z = l.split("\t")
-            if clip not in data:
-                data[clip] = {}; added += 1
-            data[clip][parcel] = {"raw": float(raw), "z": float(z)}
+            clip = re.sub(r"^\d{2}_", "", clip)
+            if clip in data and len(data[clip]) == 180:
+                continue
+            data.setdefault(clip, {})[parcel] = {"raw": float(raw), "z": float(z)}
+    # never bank a partial vector
+    data = {c: v for c, v in data.items() if len(v) == 180}
     VECTORS.write_text(json.dumps(data, indent=1))
     return data, added
 
@@ -133,6 +185,16 @@ def harvest():
 def verify(data):
     """Between-batch checkpoint. Pipeline sanity only — NOT the statistical test."""
     problems = []
+    # Clips are uploaded with an ordinal prefix (00_, 01_ ...) so the Space's own
+    # alphabetical sort follows our deficit-first order; harvest() strips it back
+    # off. If that strip ever fails, results would bank under keys that match no
+    # segment and silently drop out of the analysis. Catch it here, loudly.
+    known = set(json.loads(SELECTION.read_text())["selected"]) if SELECTION.exists() else set()
+    if known:
+        stray = sorted(set(data) - known)
+        if stray:
+            problems.append(f"{len(stray)} banked keys match no selected segment "
+                            f"(prefix strip failed?): {stray[:3]}")
     for clip, v in data.items():
         if len(v) != 180:
             problems.append(f"{clip}: {len(v)} parcels, expected 180")
@@ -172,15 +234,20 @@ if __name__ == "__main__":
         batch = todo[:a.batch]
         if not batch:
             print("nothing pending"); raise SystemExit
-        # clear the Space's clip dir so it scores only this batch
-        for f in api.list_repo_files(SPACE, repo_type="space"):
-            if f.startswith("probe_clips/"):
-                try: api.delete_file(f, repo_id=SPACE, repo_type="space")
-                except Exception: pass
-        for p in batch:
-            api.upload_file(path_or_fileobj=str(p), path_in_repo=f"probe_clips/{p.name}",
-                            repo_id=SPACE, repo_type="space")
-        print(f"uploaded {len(batch)}: {[p.stem for p in batch]}")
+        # A batch is a MANIFEST, not an upload. Clips live in CLIPS_REPO (uploaded
+        # once); the Space reads batch.json at start, fetches those clips, and scores
+        # them in manifest order via an ordinal prefix that harvest() strips again.
+        # Pushing mp4s into the Space repo hit its 1 GB storage cap on 6 Sep.
+        names = [p.stem for p in batch]
+        have = {Path(f).stem for f in api.list_repo_files(CLIPS_REPO, repo_type="dataset")
+                if f.startswith("clips/")}
+        missing = [n for n in names if n not in have]
+        if missing:
+            raise SystemExit(f"STOP: {len(missing)} batch clips absent from {CLIPS_REPO}: {missing[:3]}")
+        api.upload_file(path_or_fileobj=json.dumps({"clips": names}).encode(),
+                        path_in_repo="batch.json", repo_id=CLIPS_REPO, repo_type="dataset",
+                        commit_message=f"batch: {len(names)} clips")
+        print(f"uploaded {len(batch)}: {names}")
         api.restart_space(SPACE)
         print(f"Space restarting — ~{len(batch)*10 + 5} min. "
               f"Then: python run_batch.py --harvest")

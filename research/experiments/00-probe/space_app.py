@@ -16,8 +16,13 @@ Pass criteria are fixed in 00-probe/README.md and are evaluated here as written:
 What it prints is the whole result. Copy it into RESULT.md.
 """
 
-import json
 import os
+# Silence progress bars BEFORE anything imports tqdm. They were ~40% of the log,
+# and HF's /logs/run only serves a bounded window from the start of the log — so
+# with bars on, a 10-clip run goes unreadable after clip 4 and a stall is invisible.
+os.environ.setdefault("TQDM_DISABLE", "1")
+os.environ.setdefault("HF_HUB_DISABLE_PROGRESS_BARS", "1")
+import json
 import sys
 import traceback
 from itertools import combinations
@@ -31,6 +36,85 @@ sys.path.insert(0, str(Path(__file__).parent / "src"))
 CLIP_DIR = Path(__file__).parent / "probe_clips"
 CACHE = os.environ.get("TRIBE_CACHE", "./cache")
 TOP_K = 10
+
+# Durable results. stdout is NOT storage: HF's /logs/run serves a bounded window
+# from the START of the log, so once a run passes ~1,500 lines nothing printed
+# afterwards is ever readable again. Two collection runs were lost to that. Each
+# clip's vector is therefore also uploaded, the moment it exists, to a SEPARATE
+# private dataset repo — separate because any commit to this Space's own repo
+# triggers a rebuild and would restart the run mid-batch.
+RESULTS_REPO = os.environ.get("RESULTS_REPO", "alecnpacey/tribe-probe-results")
+CLIPS_REPO = os.environ.get("CLIPS_REPO", "alecnpacey/tribe-probe-clips")
+
+
+def _fetch_batch():
+    """Pull this batch's clips from the clips dataset, as listed in its batch.json.
+
+    Clips used to be pushed into this Space's own repo. That hit the 1 GB private
+    Space storage cap on 6 Sep after ~70 clips — deleted LFS objects keep counting —
+    and every push also triggered a rebuild. Now the clips live in a dataset repo,
+    uploaded once, and a batch is a 200-byte manifest plus a restart.
+
+    The manifest's order is preserved via an ordinal prefix, so sorted() below
+    scores clips in the deficit-first order run_batch chose. Falls back to whatever
+    is in probe_clips/ if there is no manifest, so the old path still works.
+    """
+    import shutil
+    tok = os.environ.get("HF_TOKEN")
+    try:
+        from huggingface_hub import hf_hub_download
+        m = hf_hub_download(CLIPS_REPO, "batch.json", repo_type="dataset", token=tok,
+                            force_download=True)
+        names = json.loads(Path(m).read_text())["clips"]
+    except Exception as e:
+        print(f"BATCH_FETCH\tno manifest ({type(e).__name__}); using local probe_clips/", flush=True)
+        return
+    CLIP_DIR.mkdir(exist_ok=True)
+    for f in CLIP_DIR.glob("*.mp4"):
+        f.unlink()
+    for i, n in enumerate(names):
+        src = hf_hub_download(CLIPS_REPO, f"clips/{n}.mp4", repo_type="dataset", token=tok)
+        shutil.copy(src, CLIP_DIR / f"{i:02d}_{n}.mp4")
+    print(f"BATCH_FETCH\t{len(names)} clips from {CLIPS_REPO}", flush=True)
+
+
+UPLOAD_TIMEOUT_S = 120
+UPLOAD_TRIES = 3
+
+
+def _upload_result(clip, names, vals, z, shape):
+    """Durable upload, bounded: a hung HTTP call must never hang the scoring thread.
+
+    The 6 Sep 10-clip batch stopped dead after clip 6 with the web server still
+    answering — consistent with an upload that never returned. So each attempt runs
+    in a worker thread and is abandoned after UPLOAD_TIMEOUT_S; up to UPLOAD_TRIES
+    attempts, then the failure is logged and scoring continues with the next clip.
+    """
+    import threading
+    tok = os.environ.get("HF_TOKEN")
+    if not tok:
+        print(f"RESULT_UPLOAD\t{clip}\tSKIPPED\tno HF_TOKEN", flush=True); return
+    payload = json.dumps({"clip": clip, "n_parcels": len(names), "timeline_shape": list(shape),
+                          "parcels": {n: {"raw": float(vals[i]), "z": float(z[i])}
+                                      for i, n in enumerate(names)}}).encode()
+    for attempt in range(1, UPLOAD_TRIES + 1):
+        outcome = {}
+        def work():
+            try:
+                from huggingface_hub import HfApi
+                HfApi().upload_file(path_or_fileobj=payload, path_in_repo=f"results/{clip}.json",
+                                    repo_id=RESULTS_REPO, repo_type="dataset", token=tok,
+                                    commit_message=f"result: {clip}")
+                outcome["ok"] = True
+            except Exception as e:
+                outcome["err"] = f"{type(e).__name__}: {e}"
+        th = threading.Thread(target=work, daemon=True); th.start()
+        th.join(UPLOAD_TIMEOUT_S)
+        if outcome.get("ok"):
+            print(f"RESULT_UPLOAD\t{clip}\tOK\tresults/{clip}.json\tattempt {attempt}", flush=True); return
+        why = outcome.get("err", f"timeout after {UPLOAD_TIMEOUT_S}s") if not th.is_alive() else f"timeout after {UPLOAD_TIMEOUT_S}s"
+        print(f"RESULT_UPLOAD\t{clip}\tRETRY\tattempt {attempt}: {why}", flush=True)
+    print(f"RESULT_UPLOAD\t{clip}\tFAILED\tafter {UPLOAD_TRIES} attempts", flush=True)
 
 # Expected direction per clip, from README.md. Recorded here so the run itself
 # carries the prediction rather than us reading it back afterwards.
@@ -65,6 +149,7 @@ def _run_probe(mode="video", audio_only=True):
     except Exception as e:
         return f"FAILED to import tribescore: {type(e).__name__}: {e}\n\n{traceback.format_exc()}"
 
+    _fetch_batch()
     clips = sorted(CLIP_DIR.glob("*.mp4"))
     if not clips:
         return f"No clips found in {CLIP_DIR}"
@@ -161,10 +246,11 @@ def _run_probe(mode="video", audio_only=True):
             "expected": EXPECTED.get(name, ""),
         }
         log(f"top {TOP_K}: " + ", ".join(f"{n} ({z[i]:+.2f})" for n, i in zip(top, order[:TOP_K])))
-        # FULL VECTOR — one line per parcel so nothing depends on the Space's disk.
-        for i_, n_ in enumerate(names):
-            print(f"PARCEL\t{name}\t{n_}\t{vals[i_]:.6f}\t{z[i_]:.6f}", flush=True)
+        # The vector goes to the results repo as a file (proven identical to the
+        # old stdout path on 6 Sep, max |delta| 5e-7). Per-parcel stdout lines are
+        # dropped: 180 lines per clip filled HF's bounded log window by clip 4.
         print(f"PARCELCOUNT\t{name}\t{len(names)}", flush=True)
+        _upload_result(name, names, vals, z, timeline.shape)
 
     # ---- criterion 1, exactly as written before the run ----
     log("\n" + "=" * 64)
