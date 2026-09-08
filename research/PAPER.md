@@ -1,7 +1,7 @@
 # A technique→response index for cinematography, measured through a brain encoding model
 
 **Working paper · draft of 5 September 2026**
-**Status: stages 00 and 01 complete and reported. Stage 02 pre-registered, collection in progress (13 of 70 segments), analysis unrun.**
+**Status: stages 00 and 01 complete and reported. Stage 02 collection complete (70 of 70 segments), analysis plan registered at `osf.io/dg7fe`, analysis unrun.**
 
 ---
 
@@ -728,10 +728,25 @@ any single parcel.
 
 ## 6 · Stage 02 · Pre-registered, analysis unrun
 
-**No stage-02 results appear in this paper.** Collection stands at 13 of 70 segments;
-the statistical test runs once, on the complete set, per §4.8. What follows restates
-the criteria fixed in advance, and reports only the stimulus-side diagnostics that
-were themselves pre-registered and touch no outcome.
+**No stage-02 results appear in this paper.** Collection is complete at 70 of 70
+segments and the analysis is unrun; the statistical test runs once, on the complete
+set, per §4.8. What follows restates the criteria fixed in advance, and reports only
+the stimulus-side diagnostics that were themselves pre-registered and touch no outcome.
+
+**The analysis plan below is publicly registered at `osf.io/dg7fe`** (OSF
+Preregistration, registered 8 September 2026, embargoed), filed after collection and
+before any analysis. The registration declares its own status honestly — OSF's
+foreknowledge field is set to *"Authors' limited observation of the data could not
+influence their analysis decisions"*, not to any category implying the data did not
+exist. It attaches the complete 70-segment response dataset, frozen, with SHA-256
+checksums, so the data the analysis runs on cannot be altered undetectably afterwards.
+
+Two things about that registration are verifiable rather than asserted. The four
+documents fixing the criteria are byte-identical between the repository commit made
+when 13 of 70 segments had been scored and the commit at registration — 57 further
+segments were scored across that span and no threshold, pass criterion, sample size or
+model specification moved. And the pre-registered futility script, the one interim look
+the design permitted, was never executed.
 
 ### 6.1 Pass criteria, as fixed
 
