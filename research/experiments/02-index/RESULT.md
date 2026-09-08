@@ -109,9 +109,12 @@ coef(mean_shot_len_s) < 0. Seed 20260908. Listed in full in `analyse.py`.
 
 - **Unrestricted permutation.** Labels were permuted across all 70 segments, as
   registered. With three films, any within-film structure not removed by centring —
-  segments from one scene are not independent — makes this null lenient, and 101
-  of 180 is a large fraction. A within-film (restricted) permutation would be the
-  conservative test. It was not registered and was not run.
+  segments from one scene are not independent — could make this null lenient, and
+  101 of 180 is a large fraction. A within-film (restricted) permutation is the more
+  conservative test. **It was not registered, but it has since been run as a declared
+  exploratory check, and the concern does not bite — see below.** Within-film
+  *adjacency* remains untested: segments neighbouring in time are not independent
+  either, and shuffling within a film does not preserve that.
 - **Corpus-conditional** (three films) and **design-conditional** (segments chosen
   to spread dial ranges; not "the effect in typical cinema").
 - **A model, not a brain.** Every association here is between technique and
@@ -119,6 +122,50 @@ coef(mean_shot_len_s) < 0. Seed 20260908. Listed in full in `analyse.py`.
   distribution, and this corpus is further out than that figure was measured on.
 - **Attribution inside the lighting/colour cluster** is not available from this
   design.
+
+
+## Exploratory sensitivity check — restricted permutation
+
+**Not the pre-registered test. The verdict above is unchanged and was not re-run.**
+Registered under the exploratory clause; nothing here may be reported as a
+confirmatory finding. Script `sensitivity_restricted_perm.py`, output
+`sensitivity_restricted_perm.json`.
+
+The registered null permuted segment labels across all 70 segments (declared choice
+D7). The three films differ in dial distribution and in response variance, and
+within-film centring removes each film's *mean*, not its variance — so an
+unrestricted permutation lands one film's response rows on another film's dial rows,
+breaking structure the design never claimed to break. The restricted null preserves
+film membership and shuffles only within each film. Everything else is identical:
+same frozen data, same α, l1_ratio, folds, CV seed, statistic, FDR and attribution
+rule. Observed *r* is unchanged by construction, and came out identical to the
+registered run to 0.00e+00 — the correctness check on the script.
+
+| | registered | restricted |
+|---|---|---|
+| surviving parcels (FDR q<0.05) | 101 / 180 | **99 / 180** |
+| dials with ≥1 surviving parcel | 14 / 14 | **14 / 14** |
+| cut rate replicates in cluster | no | **no** |
+| median 95th-pct null *r* | +0.192 | **+0.182** |
+
+94 parcels are retained, 7 lost (10r, 5m, 9a, FEF, PFm, PIT, a24pr), 5 gained
+(PreS, ProS, V3CD, V4t, V7). No dial moves by more than 4 parcels; `face_area_frac`
+stays dominant at 86, `shadow_frac` stays weakest at 9. In the inferior-frontal
+cluster IFSp again survives (q = 0.020) and IFJa again sits at its null (r = +0.044
+against a 95th percentile of +0.173).
+
+**The concern does not bite, and it fails in the direction that matters.** The
+restricted null is not *wider* than the registered one — its median 95th percentile
+is marginally lower (+0.182 vs +0.192), so the film-blocking structure the
+unrestricted permutation was breaking is negligible here. Had the restricted null
+been substantially more stringent, 101 of 180 would have been an artefact of a
+lenient test. It is not.
+
+**What this does not establish.** Shuffling within a film does not preserve temporal
+autocorrelation between adjacent segments, which is a separate and untested
+dependence. A block or circular-shift permutation would go further. This check is one
+step more conservative than registered, not the conservative limit, and the headline
+count of 101 should still be read as an upper bound rather than a precise figure.
 
 ## Disclosure
 
