@@ -1,7 +1,8 @@
 # A technique→response index for cinematography, measured through a brain encoding model
 
 **Working paper · draft of 5 September 2026**
-**Status: stages 00 and 01 complete and reported. Stage 02 collection complete (70 of 70 segments), analysis plan registered at `osf.io/dg7fe`, analysis unrun.**
+**Status: stages 00, 01 and 02 complete and reported. Stage 02's analysis plan was
+registered at `osf.io/dg7fe` before the analysis was run; it returned PARTIAL.**
 
 ---
 
@@ -36,25 +37,49 @@ a chance expectation of ~7. The strongest responders were inferior-frontal (IFJa
 coherent, since every cut is a task switch, but post-hoc and treated as a hypothesis
 rather than a finding.
 
-**Stage 02**, the observational index, is pre-registered here in full and its
-analysis is unrun. Three public-domain live-action Technicolor features were cut
-into 244 fixed 60-second segments, normalised to a common encode, and measured on 14
-cinematographic dials; 70 segments were selected by stratified maximin sampling
-across dial ranges for scoring. We derive a smallest effect size of interest of
-*r* ≥ 0.5 from TRIBE's published out-of-distribution accuracy rather than asserting a
-convention, and set *n* = 70 from that. We report the corpus's collinearity structure
-as a pre-registered diagnostic: condition number 58.8, with a near-redundant
-lighting-and-colour cluster (median luminance ~ shadow fraction *r* = −0.90, VIF 9.5)
-and comparatively independent camera, shot-scale and depth-of-field dials.
+**Stage 02**, the observational index, was pre-registered at `osf.io/dg7fe` before
+its analysis was run, and returned **PARTIAL** — the outcome the pre-registration
+named in advance as the most important one available. Three public-domain live-action
+Technicolor features were cut into 244 fixed 60-second segments, normalised to a
+common encode, and measured on 14 cinematographic dials; 70 segments were selected by
+stratified maximin sampling across dial ranges and scored. We derive a smallest effect
+size of interest of *r* ≥ 0.5 from TRIBE's published out-of-distribution accuracy
+rather than asserting a convention, and set *n* = 70 from that.
+
+The first pass criterion was met and the second was not. All 14 dials carry weight in
+at least one of 101 parcels surviving a 1,000-permutation null under FDR correction —
+but **cut rate does not replicate where stage 01 put it.** IFJa, stage 01's strongest
+responder at *r* = +0.996 on identical footage, is indistinguishable from its null
+here; the one cluster parcel that survives does so with *exactly zero* weight on both
+cut-rate dials. Observationally, cut rate loads on auditory and early visual cortex,
+never frontal. We read this as the difference between varying cutting with nothing
+else changing and measuring it where it co-occurs with dialogue, close-ups and
+interiors — but which track is wrong is not decidable from this data, and that it must
+be resolved before anything is built on cut rate is the finding.
+
+Two results qualify the first criterion and are reported with equal prominence. The
+dominant dial is **face area**, largest coefficient in 65 of the 101 survivors, whose
+signature reproduces stage 00's double dissociation to the parcel; a controller
+maximising predicted response would find faces the lever with the most reach, which
+is a measured claim where it was previously a predicted one. And **only 9 of 180
+parcels exceed the derived SESOI**, median survivor *r* = 0.35 implying roughly
+*r* ≈ 0.07 against real cortex — so surviving a permutation null and reaching the
+smallest effect worth calling a finding are not the same thing, and most of this
+result falls on the wrong side of that line. A declared exploratory sensitivity check
+using a restricted within-film permutation returns 99 of 180 with a marginally
+*narrower* null, so the headline count is not an artefact of a lenient test.
 
 We also report method failure as evidence. Six of seven failures in stage 00 were
 assumed API shapes rather than model or data problems; clip uploads were silently
 dropped by a `.gitignore` rule while reporting success; and a "fact" recorded in the
 project handoff — that background log pollers had been *killed* — was a wrong
-diagnosis of a blocking read on a stream that never closes. **When an instrument
-returns plausible numbers whatever you feed it, silent failure is the central
-methodological hazard**, and the discipline that catches it is worth reporting
-alongside the results it protects.
+diagnosis of a blocking read on a stream that never closes. The registration itself
+carried an error of the same kind: it stated three times that a pre-registered interim
+check had never been executed, inferred from the absence of any record of it on disk.
+The check had in fact been run, and the claim was corrected by public amendment. **When
+an instrument returns plausible numbers whatever you feed it, silent failure is the
+central methodological hazard**, and the discipline that catches it — including when
+it catches the authors — is worth reporting alongside the results it protects.
 
 ---
 
@@ -136,8 +161,8 @@ The programme is a chain. Each link gates the next and is permitted to break it.
 |---|---|---|
 | **H0** | TRIBE discriminates content — different kinds of scene produce different parcel profiles, in anatomically interpretable directions | ✅ **Supported** (stage 00) |
 | **H1** | Cinematographic *technique* moves the predicted response with content held constant | ✅ **Supported** (stage 01, cut rate only) |
-| **H2** | Across real cinema, measured technique dials predict parcel-level response profiles, recoverably by penalised regression | ⏳ **Pre-registered, collection in progress** (stage 02) |
-| **H2b** | The controlled cut-rate result of stage 01 reappears observationally | ⏳ Pre-registered as pass criterion 2 |
+| **H2** | Across real cinema, measured technique dials predict parcel-level response profiles, recoverably by penalised regression | ✅ **Supported** (stage 02) — 14/14 dials, 101/180 parcels. But only 9 parcels reach the SESOI |
+| **H2b** | The controlled cut-rate result of stage 01 reappears observationally | ❌ **Not supported** (stage 02) — IFJa at its null; the one surviving cluster parcel has zero cut-rate weight |
 | **H3** | At least some of those associations are causal, demonstrable by holding all dials fixed and moving one | Not started (stage 03) |
 | **H4** | The mapping can be inverted — a target profile selects a technique, and the achieved profile matches | Not started (stage 04) |
 
@@ -541,8 +566,10 @@ keeps that mild.
 
 ### 4.8 The no-peeking constraint, and why this paper stops where it does
 
-Collection is at **13 of 70 segments** as this draft is written. No dial→parcel
-relationship has been computed, and none will be until the set is complete.
+Collection is complete at **70 of 70 segments** and the registered test has been run
+once, on the complete set, after the analysis plan was registered at `osf.io/dg7fe`.
+The account below describes the constraint as it was operated, and one place where we
+described our own compliance wrongly.
 
 This is not fastidiousness. Peeking at an accumulating dataset and stopping when it
 looks good inflates false positives, and a programme whose headline finding turned
@@ -559,7 +586,16 @@ than returning one vector for everything. None of these is a dial→parcel
 relationship, so none is an outcome peek.
 
 **One pre-specified exception** exists, and it is a resource decision rather than a
-test. It was also *restated*, because the original was arithmetically inert. The
+test. **It was invoked, and the registration said otherwise.** The registration
+asserted in three places that the futility script had never been executed. It had —
+once, on 6 September 2026 at 30 of 70 segments, returning CONTINUE. The script is
+written to print a verdict and nothing else, so no dial, parcel or coefficient was
+produced; the study proceeded exactly as it would have, and no threshold or
+specification moved. The error was ours and its mechanism is instructive: we checked
+the claim by searching the repository and its logs for the script's output, found
+nothing, and read absence of a record as absence of execution. The script was
+untracked and had printed to a terminal. The registration was amended publicly, and
+§7 treats this as a method failure rather than a footnote. It was also *restated*, because the original was arithmetically inert. The
 original rule — "if after 20 segments no dial reaches |*r*| > 0.3, stop" — fires about
 one time in five under pure noise: at *n* = 20 the null probability of a single dial
 exceeding |*r*| = 0.3 is 0.247, and across six dials the probability at least one does
@@ -726,27 +762,34 @@ any single parcel.
 
 ---
 
-## 6 · Stage 02 · Pre-registered, analysis unrun
+## 6 · Stage 02 · The observational index — PARTIAL
 
-**No stage-02 results appear in this paper.** Collection is complete at 70 of 70
-segments and the analysis is unrun; the statistical test runs once, on the complete
-set, per §4.8. What follows restates the criteria fixed in advance, and reports only
-the stimulus-side diagnostics that were themselves pre-registered and touch no outcome.
-
-**The analysis plan below is publicly registered at `osf.io/dg7fe`** (OSF
-Preregistration, registered 8 September 2026, embargoed), filed after collection and
-before any analysis. The registration declares its own status honestly — OSF's
+**The analysis plan was registered at `osf.io/dg7fe` on 8 September 2026, before the
+analysis was run.** It was filed after collection and declares itself as such: OSF's
 foreknowledge field is set to *"Authors' limited observation of the data could not
-influence their analysis decisions"*, not to any category implying the data did not
-exist. It attaches the complete 70-segment response dataset, frozen, with SHA-256
-checksums, so the data the analysis runs on cannot be altered undetectably afterwards.
+influence their analysis decisions"*, and the complete 70-segment response dataset is
+attached to the registration, frozen, with SHA-256 checksums. The test ran once, on
+the complete set, against the frozen copy, with the checksum verified in-script.
 
 Two things about that registration are verifiable rather than asserted. The four
 documents fixing the criteria are byte-identical between the repository commit made
 when 13 of 70 segments had been scored and the commit at registration — 57 further
 segments were scored across that span and no threshold, pass criterion, sample size or
-model specification moved. And the pre-registered futility script, the one interim look
-the design permitted, was never executed.
+model specification moved. And the registered test was run exactly once; the only
+earlier dial→parcel computation was the pre-registered futility check described in
+§4.8, whose output is a single binary verdict by construction.
+
+### 6.0 Verdict
+
+| criterion | required | found | |
+|---|---|---|---|
+| 1 · dials with ≥ 1 surviving parcel | ≥ 3 of 14 | **14 of 14** | met |
+| 2 · cut rate replicates in {IFJa, IFJp, IFSp, 8C} | yes | **no** | not met |
+
+**PARTIAL.** The pre-registration names this outcome, in advance, as the most
+important one available: it means the observational and controlled tracks disagree,
+and one of them is wrong. §4.5 records that the sample size was raised from 60 to 70
+specifically so that this check could fail informatively. It has.
 
 ### 6.1 Pass criteria, as fixed
 
@@ -821,6 +864,124 @@ Stratified selection does not rescue it: recomputing detectability on the select
 subset rather than all 244 leaves *s* essentially unchanged and **no dial changes
 label**. Stratifying *within* film cannot recover variance that lives *between* films.
 
+### 6.4 Criterion 1 — technique predicts the sensor, broadly but weakly
+
+**101 of 180 parcels survive** a 1,000-permutation segment-label null under
+Benjamini–Hochberg FDR at *q* < 0.05, and **every one of the 14 dials** carries a
+non-zero coefficient in at least one survivor. All 14 were classified TESTED at
+*n* = 70 before the run, so every result below is a real result and not an untested
+one. There are no nulls to report.
+
+| dial | surviving parcels attributed | dial | surviving parcels attributed |
+|---|---|---|---|
+| face_area_frac | 85 | face_hit_rate | 39 |
+| mean_shot_len_s | 72 | cuts_per_min | 35 |
+| mean_saturation | 59 | dof_ratio | 35 |
+| camera_zoom | 58 | contrast_p5_p95 | 32 |
+| camera_pan | 53 | warm_cool | 31 |
+| camera_jitter | 46 | colourfulness | 25 |
+| median_luma | 43 | shadow_frac | 11 |
+
+**Statistical survival is not the same as reaching the smallest effect worth calling a
+finding, and most of this result falls on the wrong side of that line.** Among
+survivors, cross-validated *r* has median 0.35 (IQR 0.28–0.44, max 0.61). **Only nine
+parcels exceed the pre-registered SESOI of 0.5** — PCV 0.61, POS2 0.55, DVT 0.55,
+7Pm 0.55, 31a 0.54, 6v 0.53, POS1 0.53, 7Am 0.52, V3 0.50. Passed through TRIBE's
+out-of-distribution accuracy of 0.2146, a survivor at the median implies roughly
+*r* ≈ 0.07 against real cortex. §3.2 derived that threshold precisely so this
+distinction would be visible rather than buried under a count of significant parcels.
+
+**The dominant dial is face area**, holding the largest coefficient in 65 of the 101
+survivors. Its signature is stage 00's double dissociation reappearing as a
+continuously measured dial rather than a three-way contrast: the voice chain up
+(STSdp +0.84, A5 +0.69, STSvp +0.58) and the place chain down (VMV2 −0.66,
+PHA2 −0.62, MT −0.54). A controlled probe and an observational index, sharing no
+segments and no analysis, agree on this axis to the parcel.
+
+**The lighting/colour cluster** is dominant in 25 survivors and, per the
+pre-registration, is reported as an association with the *cluster*. §6.2 fixed that
+consequence before any result existed: with condition number 58.8 and
+`median_luma`~`shadow_frac` at −0.90, this design can establish that the cluster
+matters without saying which member drives it.
+
+### 6.5 Criterion 2 — cut rate does not replicate where stage 01 put it
+
+| parcel | CV *r* | null 95th pct | *q* | survives | coef cuts_per_min | coef mean_shot_len_s |
+|---|---|---|---|---|---|---|
+| IFJa | +0.044 | 0.178 | 0.191 | no | 0 | 0 |
+| IFJp | −0.204 | 0.126 | 0.567 | no | 0 | 0 |
+| IFSp | +0.346 | 0.221 | 0.015 | **yes** | **0** | **0** |
+| 8C | +0.075 | 0.176 | 0.158 | no | 0 | 0 |
+
+IFSp survives, and it survives with *exactly zero* weight on both cut-rate dials — its
+model is carried by face area (+0.23) and camera zoom (−0.12). Stage 01's strongest
+responder, **IFJa at *r* = +0.996 on identical footage, is indistinguishable from its
+null here**. IFJp's point estimate is negative. The criterion required that the cluster
+associate *with cut rate*; nothing in it does.
+
+**Where cut rate goes instead.** Among survivors its largest weights are auditory and
+negative — A4 −0.23, A1 −0.17, MBelt −0.16, A5 −0.13 — and early visual and positive —
+PIT +0.17, MST +0.17, FFC +0.16, V8 +0.14. Mean shot length, its inverse, loads on the
+place chain (PHA2 −0.22, VMV2 −0.17) and on motion-sensitive cortex (MT −0.17,
+V3A −0.21). Neither dial reaches frontal cortex at all.
+
+**A reading, stated as a reading.** Stage 01 varied cut count on identical footage:
+every cut was a switch and nothing else changed, and the sensor answered in
+cognitive-control cortex. Stage 02 measures cut rate as it occurs in cinema, where
+fast cutting co-occurs with dialogue, close-ups and interiors, and within-film centring
+removes only each film's mean of that. The observational cut-rate signature looks like
+*the content that fast cutting accompanies*, rather than *the act of cutting*. That is
+exactly the covariance the corpus was built to break and could only partly break, and
+exactly the separation stage 03 exists to make.
+
+**We do not claim which track is wrong.** Observational and controlled measurements of
+the same dial disagree; that is the finding, and resolving it is a precondition for
+building anything on cut rate. One candidate artefact deserves ruling out first: the
+text branch was disabled throughout (§4.9), so dialogue reached the model only as
+sound. In a corpus containing *Nothing Sacred*, a fast-talking dialogue picture, an
+auditory cut-rate signature may be partly an artefact of the missing modality rather
+than a property of cutting.
+
+### 6.6 Declared choices, and one exploratory check
+
+**Declared before the run, where the registration was silent.** Elastic net α = 0.1,
+l1_ratio = 0.5, 5-fold shuffled cross-validation — the values already present in the
+pre-registered futility script, adopted as the only available anchor rather than
+tuned. Dials standardised after within-film centring, which is a penalty necessity
+rather than a data transformation: dials span 10⁻⁴ to 10², and an unscaled L1/L2
+penalty would zero the small-unit ones by units alone. Parcels are not rescaled.
+Permutation *p* = (1 + #{*r*_perm ≥ *r*_obs}) / 1001, one-sided; one shared label
+permutation across all 180 parcels per iteration, preserving their correlation
+structure under the null. Attribution of a survivor to a dial is a non-zero
+coefficient in the full-data fit. Seed 20260908. **That the registration did not fix
+these hyperparameters is a residual degree of freedom, and it is disclosed rather than
+presented as fully specified.**
+
+**Exploratory sensitivity check — not the registered test, which was not re-run.** The
+registered null permuted labels across all 70 segments as literally registered, and we
+flagged the restricted alternative as a limitation: the three films differ in dial
+distribution and response variance, and within-film centring removes each film's mean
+but not its variance, so an unrestricted permutation breaks structure the design never
+claimed to break. Re-running with permutation restricted **within film**, identical in
+every other respect, gives:
+
+| | registered | restricted (exploratory) |
+|---|---|---|
+| surviving parcels | 101 / 180 | 99 / 180 |
+| dials with ≥ 1 survivor | 14 / 14 | 14 / 14 |
+| cut rate replicates | no | no |
+| median 95th-pct null *r* | +0.192 | +0.182 |
+
+94 parcels are retained, 7 lost and 5 gained; no dial moves by more than 4 parcels.
+The restricted null is marginally *narrower*, not wider, so the film-blocking
+structure the unrestricted permutation was breaking is negligible and the headline
+count is not an artefact of a lenient test. Observed *r* is unchanged by construction
+and matched the registered run to 0.00 × 10⁰, which is the correctness check on the
+script. **This does not address within-film temporal adjacency**, which shuffling
+inside a film does not preserve; the check is one step more conservative than
+registered, not the conservative limit.
+
+
 ---
 
 ## 7 · Method failure as evidence
@@ -869,6 +1030,31 @@ underneath it, leaving GPU hardware idling on billed time until a human noticed.
 wrong entry in a "do not re-derive" table is worse than no entry**, because it is
 trusted precisely where it will not be re-checked.
 
+**The same failure recurred in this paper's own pre-registration, which is why it is
+reported here rather than in a footnote.** The registration filed at `osf.io/dg7fe`
+stated three times that the pre-registered futility check had never been executed, and
+once, more broadly, that no dial→parcel relationship had been computed by any means at
+any point. Both were false. The check had run on 6 September at 30 of 70 segments and
+returned CONTINUE.
+
+The mechanism is the one this section is about. The claim was checked before filing by
+searching the repository and its logs for the script's output banner and verdict
+strings, which returned nothing. The script was untracked in version control and had
+been run interactively, printing to a terminal rather than to a file. **Absence of a
+record was read as absence of execution.** The defensible statement — "no record of
+execution exists on disk" — is weaker, and would have prompted the question that was
+not asked.
+
+What it did and did not cost is worth separating. Running the check was *permitted*: it
+was pre-registered, it returned CONTINUE, its output is a single binary verdict by
+construction, and no threshold, sample size or specification moved. The protocol was
+not violated. What was damaged was the accuracy of a public document, and the remedy
+was a public amendment recording the correction and its cause. **A registration that
+must be amended for a false statement about its own compliance is a worse artefact than
+one that never made the claim** — and the general lesson is the one already stated
+above, now demonstrated twice: a confidently recorded fact is exactly where verification
+stops, which is exactly where it is most needed.
+
 Three practices follow, and are now standing rules:
 
 1. **Criteria are written in the stage README before the run and are never softened
@@ -915,6 +1101,29 @@ Generalisation beyond that is untested.
 skipped throughout. For a corpus containing dense dialogue — *Nothing Sacred* in
 particular — this omits a modality TRIBE was designed to use.
 
+**Most survivors do not reach the smallest effect worth calling a finding.** 101 of
+180 parcels survive the permutation null, but only 9 exceed the derived SESOI of 0.5,
+and the median survivor implies *r* ≈ 0.07 against real cortex. The count of surviving
+parcels is the weaker of the two numbers and should not be quoted without the second.
+
+**The null may still be lenient in a way we have not tested.** A declared exploratory
+check with permutation restricted within film returned 99 of 180 against the registered
+101, with a marginally narrower null, so film-blocking structure is not inflating the
+result. Temporal adjacency between neighbouring segments within a film is a separate
+dependence that neither permutation preserves, and it remains untested. Treat 101 as an
+upper bound.
+
+**The hyperparameters of the model were not pre-registered.** The registration
+specified "a cross-validated elastic net" without fixing α, l1_ratio or fold count.
+Those were set before the run to the values already present in the pre-registered
+futility script, and are disclosed in §6.6, but they were a residual degree of freedom
+that a tighter registration would have closed.
+
+**The cut-rate disagreement has an untested alternative explanation.** With the text
+branch disabled, dialogue reached the model only as audio, and the observational
+cut-rate signature is strongest in auditory cortex. Whether that signature is a
+property of cutting or an artefact of the missing modality is not decidable here.
+
 **Cut rate is the weakest dial in the design**, at *s* ≈ 0.66, precisely because it
 carries the most between-film signal. It is also the dial the replication check
 depends on. The sample size was raised to keep that check informative, but it remains
@@ -928,17 +1137,36 @@ the thinnest margin in the study.
 |---|---|
 | 00 · Probe | ✅ Complete — PASS |
 | 01 · Gate | ✅ Complete — PASS |
-| **02 · Index** | 🔄 **Collection in progress, 13 / 70 segments. Analysis pre-registered and unrun.** |
+| **02 · Index** | ✅ **Complete — PARTIAL.** Registered at `osf.io/dg7fe`; criterion 1 met, criterion 2 not met |
 | 01b · Synthetic-imagery transfer | Specified, unrun — reclassified as a prerequisite for stage 03 |
 | 02b · Generalisation test | Specified, pulls only after stage 02 has a written result |
 | 03 · Isolation | Not started; gated by 01b |
 | 04 · Inversion | Not started |
 
-On completion of collection, the pre-registered analysis runs once and produces a
-stage-02 result section reporting: the elastic-net fits per parcel, the permutation
-null, both pass criteria, and — with equal prominence — every dial that showed no
-reliable association, labelled TESTED or UNDERPOWERED so that a null is never confused
-with an absence of test.
+**Stage 02's PARTIAL verdict sets the agenda, and it points at stage 03 more sharply
+than the roadmap did.** Three things follow.
+
+First, **cut rate is now the first dial to isolate**, not merely one of several
+candidates. It is the only dial on which a controlled and an observational measurement
+of the same programme disagree, and the disagreement is the kind only generated clips
+can settle: hold content, lighting, motion and shot scale fixed, vary cutting alone,
+and see whether the inferior-frontal response returns. If it does, the observational
+signature was confounded content. If it does not, stage 01's result was a property of
+its two particular scenes.
+
+Second, **the missing text branch should be closed before that comparison is trusted.**
+The observational cut-rate signature is strongest in auditory cortex, and dialogue
+reached the model only as sound. This is cheap to test relative to generation cost.
+
+Third, **face area is the strongest lever the index found**, and it is the dial that
+carries the programme's inversion thesis. Any control law built from this index would
+reach faces first. That is a measured association, not a causal claim, and it inherits
+every limitation in §8 — but it is the association most worth attempting to isolate
+after cut rate.
+
+The 01b transfer gate remains a prerequisite for all of this, and remains registered as
+possibly testing the wrong thing (§9 table). Nothing above should be attempted until it
+is respecified or run.
 
 ---
 

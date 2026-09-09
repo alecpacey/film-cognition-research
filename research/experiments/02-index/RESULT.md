@@ -53,8 +53,8 @@ the median r = 0.35 implies roughly r ≈ 0.07 against real cortex.
 
 **The dominant dial is face area.** 65 of the 101 survivors have face_area_frac as
 their largest coefficient. Its signature is the run-00 double dissociation
-reappearing as a dial: STSdp +0.85, A5 +0.69, STSvp +0.58 (the voice chain, up) and
-VMV2 −0.67, PHA2 −0.62, MT −0.55 (the place chain, down). The controlled probe and
+reappearing as a dial: STSdp +0.84, A5 +0.69, STSvp +0.58 (the voice chain, up) and
+VMV2 −0.66, PHA2 −0.62, MT −0.54 (the place chain, down). The controlled probe and
 the observational index agree on this axis to the parcel.
 
 **The lighting/colour cluster** is dominant in 25 of 101 survivors. Per the

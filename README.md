@@ -49,9 +49,9 @@ and are never softened afterwards.
 | **Measured in this research — film side** | nilearn render latency (71 ms – 3.90 s), the dead-cortex normalisation failure (0.00% of vertices lit at plausible settings), Destrieux contiguity on fsaverage5 (median 1.4%) |
 | **Measured in this research — experiments** | **Stage 00:** mean top-10 Jaccard 0.15 against a pre-registered 0.60 bar, with a double dissociation between the voice and place chains. **Stage 01:** 51 of 180 parcels at \|r\|>0.9 against log cut count on identical footage, against a bar of 15 and chance ~7. Both against criteria fixed before the run |
 | **Measured, stimulus side only** | 244 segments cut and normalised; 14 dials measured; dial condition number 58.8; detectability of all 14 dials at n=70. These touch no outcome |
-| **Pre-registered and unrun** | **Stage 02's entire analysis.** Collection stands at 13 of 70 segments. No dial→parcel relationship has been computed, and none will be until the set is complete |
-| **Predicted, not observed** | the film's three-act arc. BrainDiVE's 61–70% face purity came from thousands of gradient steps; this film takes forty discrete ones through a text bottleneck. **Whether the drift happens in forty clips is the single biggest open question** |
-| **Post-hoc, treated as hypothesis** | that stage 01's strongest responders were inferior-frontal (IFJa r = +0.996) rather than the predicted dorsal attention network. Coherent — every cut is a task switch — but unpredicted, and it is stage 02's pass criterion 2 to replicate it, not a finding |
+| **Pre-registered, then run once** | **Stage 02 — verdict PARTIAL.** Plan registered at `osf.io/dg7fe` before the analysis, which then ran once on all 70 segments. Criterion 1 met: 14/14 dials carry weight in 101 of 180 parcels surviving FDR. Criterion 2 **not** met: cut rate does not replicate. **Only 9 parcels reach the pre-registered effect-size threshold** — the count of survivors is the weaker number |
+| **Predicted, not observed** | the film's three-act arc. BrainDiVE's 61–70% face purity came from thousands of gradient steps; this film takes forty discrete ones through a text bottleneck. **Whether the drift happens in forty clips is still the single biggest open question.** What changed: stage 02 independently found **face area is the dominant dial**, largest coefficient in 65 of 101 surviving parcels, so a machine maximising this signal would reach faces first. That is measured support for the *mechanism*, arrived at by a different route than BrainDiVE. It is not evidence that the drift happens in forty clips, and it is an association in a model's predictions |
+| **Tested, and not replicated** | stage 01's inferior-frontal cut-rate result (IFJa r = +0.996 on identical footage) was carried into stage 02 as pass criterion 2 — where it **failed**. IFJa is indistinguishable from its null observationally; the one cluster parcel that survives has zero cut-rate weight. The two tracks disagree, which the pre-registration named in advance as the most important possible finding. Which is wrong is not decidable from this data |
 | **Reported but unconfirmed** | a separate `tribev2-subcortical` checkpoint; the 8,808 voxel figure |
 
 **The largest standing caveat applies to everything in the experiments:** the dependent
@@ -67,7 +67,7 @@ A finding that technique moves TRIBE is a finding about TRIBE.
 |---|---|
 | **00 · Probe** — does the sensor discriminate content? | ✅ **PASS** |
 | **01 · Gate** — does technique move it, content held constant? | ✅ **PASS** |
-| **02 · Index** — the technique→parcel crosswalk | 🔄 **Collecting.** 13 of 70 segments. Analysis pre-registered, unrun |
+| **02 · Index** — the technique→parcel crosswalk | ⚠️ **Complete — PARTIAL.** Registered at `osf.io/dg7fe`, run once on 70/70 |
 | 01b · Synthetic-imagery transfer | Specified, unrun — a prerequisite for stage 03 |
 | 02b · Generalisation test | Specified; pulls only after stage 02 has a written result |
 | 03 · Isolation · 04 · Inversion | Specified, not started |
@@ -137,9 +137,10 @@ source prints under `research/experiments/02-index/sources/`, the 244 cut segmen
 Raw predictions for one 30 s clip are ~2.5 MB of float32 and there will be thousands —
 keep them local, commit the reductions.
 
-⛔ **`research/experiments/02-index/parcel_vectors.json` is not to be opened** while
-stage 02 is collecting. The statistical test runs once, on all 70 segments; reading those
-numbers early destroys the study's value and nothing in the output would reveal it.
+The stage-02 dataset `research/experiments/02-index/parcel_vectors.json` is **frozen**.
+Its SHA-256 `93807b80…53a3189` is recorded in the OSF registration, and the registered
+test verified it in-script before running. Do not modify it; any reanalysis must be able
+to show it is working from the same bytes.
 
 ## Do not
 
