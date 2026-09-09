@@ -69,6 +69,18 @@ result falls on the wrong side of that line. A declared exploratory sensitivity 
 using a restricted within-film permutation returns 99 of 180 with a marginally
 *narrower* null, so the headline count is not an artefact of a lenient test.
 
+Characterising the fitted crosswalk as a map — exploratory, and the artefact the
+programme was built to produce — gives the sharpest structural result. **Fourteen dials
+move this cortex along about three effective dimensions**: three components carry 90%
+of the index's variance, and they are interpretable as a face/place axis (69%), a motion
+axis (14%) and a colour axis (6%). The reachable subspace retains 90.8% of observed
+profile variance against 7.9% for a random subspace of equal dimension and a 99.4%
+ceiling, and the first technique axis is very nearly the first principal component of
+cortical variation. This bounds the programme's endpoint before it is attempted:
+**inversion is projection, not solution** — an arbitrary target profile is not
+reachable, only its component in a roughly three-dimensional subspace is — and the
+direction technique commands most strongly is the face/place axis.
+
 We also report method failure as evidence. Six of seven failures in stage 00 were
 assumed API shapes rather than model or data problems; clip uploads were silently
 dropped by a `.gitignore` rule while reporting success; and a "fact" recorded in the
@@ -164,7 +176,7 @@ The programme is a chain. Each link gates the next and is permitted to break it.
 | **H2** | Across real cinema, measured technique dials predict parcel-level response profiles, recoverably by penalised regression | ✅ **Supported** (stage 02) — 14/14 dials, 101/180 parcels. But only 9 parcels reach the SESOI |
 | **H2b** | The controlled cut-rate result of stage 01 reappears observationally | ❌ **Not supported** (stage 02) — IFJa at its null; the one surviving cluster parcel has zero cut-rate weight |
 | **H3** | At least some of those associations are causal, demonstrable by holding all dials fixed and moving one | Not started (stage 03) |
-| **H4** | The mapping can be inverted — a target profile selects a technique, and the achieved profile matches | Not started (stage 04) |
+| **H4** | The mapping can be inverted — a target profile selects a technique, and the achieved profile matches | Not started (stage 04). **Bounded in advance by §6.7**: the reachable set is ~3-dimensional, so inversion is projection onto it, and the inverse is many-to-one |
 
 **H2b deserves emphasis.** It is the only place in the design where the controlled
 and observational tracks can contradict each other. If cut rate moves the sensor on
@@ -925,14 +937,26 @@ PIT +0.17, MST +0.17, FFC +0.16, V8 +0.14. Mean shot length, its inverse, loads 
 place chain (PHA2 −0.22, VMV2 −0.17) and on motion-sensitive cortex (MT −0.17,
 V3A −0.21). Neither dial reaches frontal cortex at all.
 
-**A reading, stated as a reading.** Stage 01 varied cut count on identical footage:
-every cut was a switch and nothing else changed, and the sensor answered in
-cognitive-control cortex. Stage 02 measures cut rate as it occurs in cinema, where
-fast cutting co-occurs with dialogue, close-ups and interiors, and within-film centring
-removes only each film's mean of that. The observational cut-rate signature looks like
-*the content that fast cutting accompanies*, rather than *the act of cutting*. That is
-exactly the covariance the corpus was built to break and could only partly break, and
-exactly the separation stage 03 exists to make.
+**A reading, stated as a reading — and one obvious version of it is ruled out by our
+own data.** The natural explanation is confounding: stage 01 varied cut count on
+identical footage, so every cut was a switch and nothing else changed, whereas stage 02
+measures cut rate where fast cutting co-occurs with other technique. **Among the
+measured dials, it does not.** After within-film centring, `cuts_per_min` correlates
+with every other dial except its own definitional inverse at |*r*| ≤ 0.194 — with
+`face_area_frac` at −0.194 (faster cutting goes with *smaller* faces, not close-ups),
+`camera_zoom` +0.163, `face_hit_rate` +0.145, and nothing else above 0.12. Cut rate is
+the most nearly independent dial we measure, which §6.2 already recorded as VIF < 2.3.
+
+So the confound, if that is what this is, lies in what we did **not** measure. The dial
+set has no descriptor of speech, semantic content, narrative structure or scene type,
+and the text branch was disabled throughout, so dialogue reached the instrument only as
+audio. That the observational cut-rate signature is strongest in auditory cortex — and
+*negative* there — while stage 01's was frontal, is consistent with the two designs
+loading different unmeasured things, but we cannot show which. **We report the
+disagreement and decline to explain it.** What this does establish is a requirement on
+stage 03 that was not previously visible: controlling the fourteen measured dials is
+not sufficient to isolate cutting, because they were never what cut rate was confounded
+with.
 
 **We do not claim which track is wrong.** Observational and controlled measurements of
 the same dial disagree; that is the finding, and resolving it is a precondition for
@@ -981,6 +1005,87 @@ script. **This does not address within-film temporal adjacency**, which shufflin
 inside a film does not preserve; the check is one step more conservative than
 registered, not the conservative limit.
 
+
+### 6.7 The index as a map, and what it implies for inversion
+
+**Exploratory. Not pre-registered, and none of it counts toward the pass criteria.**
+The registered test asks whether dials predict parcels. It does not ask what the
+resulting crosswalk *looks like* — and that crosswalk is the artefact the whole
+programme was built to produce. This section characterises it. The object is the
+180 × 14 matrix **B** of full-data elastic-net coefficients: column *k* is the
+cortical pattern associated with dial *k*, and the set of response profiles technique
+can reach is the span of those columns.
+
+**Fourteen dials move cortex along about three effective dimensions.** The singular
+values of **B** fall away sharply — 3.34, 1.52, 1.01, then nothing above 0.74. Three
+components carry 90.1% of the index's variance and five carry 95.9%; the participation
+ratio is 5.56 of a possible 14. Restricted to the 101 surviving parcels the collapse is
+sharper still (4.76, three components for 92.7%). **The console has fourteen knobs and
+about three outputs.**
+
+| axis | share | dominant dials | cortex |
+|---|---|---|---|
+| 1 | 69.4% | face area +0.80, saturation −0.43, zoom −0.27 | STSdp +0.35, A5 +0.30, VMV2 −0.25, PHA2 −0.22 |
+| 2 | 14.3% | camera pan −0.65, luminance +0.51, cut rate +0.35 | V4t +0.30, MST +0.30, MT +0.29, FST +0.28 |
+| 3 | 6.4% | saturation +0.58, face area +0.46, zoom +0.32 | PCV −0.31, PIT +0.24, A5 −0.23, V8 +0.23 |
+
+The axes are interpretable without being told what to look for. **Axis 1 is the
+face/place axis** — stage 00's double dissociation, recovered as the dominant direction
+of a continuous 14-dial model that was never shown stage 00's clips. **Axis 2 is
+motion** — camera movement and cutting loading on MT, MST, FST, V4t, the motion-
+sensitive complex. **Axis 3 is colour**, and it is small. Note where cut rate lands: on
+the motion axis, at a third the weight of camera pan, and nowhere near frontal cortex —
+the same story §6.5 tells, arrived at without reference to stage 01.
+
+**Technique is well aligned with how this cortex actually varies, and that is not
+trivial.** Projecting the observed 70 × 180 profile matrix onto the reachable subspace
+retains **90.8%** of its variance. The comparisons that make that number meaningful:
+
+| 14-dimensional subspace | variance of observed profiles retained |
+|---|---|
+| random | 7.9% (sd 1.9, max 15.1 over 200 draws) |
+| **technique** | **90.8%** |
+| top-14 principal components (ceiling) | 99.4% |
+
+Technique reaches 91.3% of what the *best possible* 14-dimensional subspace could. With
+a single axis it retains 57.7% against a best-possible 61.8% — **the first technique
+axis is very nearly the first principal component of cortical variation across these
+segments.**
+
+**Two things temper this.** First, **B** is fitted to predict **Y**, so its column space
+is selected to align with **Y**; the number is partly a restatement of model fit rather
+than an independent discovery. What is not guaranteed by fitting is the *concentration*
+— that a 14-predictor fit collapses to three effective directions, and that the first
+of them nearly coincides with the dominant direction of variation. Second, the parcel
+space is highly redundant to begin with (participation ratio 8.35 of 67 available
+degrees of freedom), which is why the random baseline is the necessary comparison and
+is reported.
+
+**What this says about inversion, which is the programme's endpoint.** H4 proposes
+specifying a target cortical profile and deriving the technique that reaches it. The
+geometry above says what that can and cannot mean.
+
+*A target profile is not freely specifiable.* Response profiles live in 180 dimensions;
+technique reaches about three. Any target decomposes into a reachable component and a
+residual that no combination of these fourteen dials can produce, and the residual is
+not small in general — it is only small for targets that resemble the profiles real
+film already produces. **Inversion is projection, not solution.**
+
+*The inverse is many-to-one, which cuts both ways.* Fourteen dials mapping onto three
+effective directions means a reachable target is reachable by a whole family of dial
+settings. For a director that is permissive: several technical routes reach the same
+predicted response. For identifiability it is fatal: one cannot infer the technique from
+the response, and stage 04 must therefore verify an *achieved profile* rather than a
+recovered technique.
+
+*And the axis that dominates is the face axis.* If a controller maximises predicted
+response along the direction technique most strongly commands, it moves along axis 1,
+whose positive pole is the voice/face chain and whose negative pole is the place chain.
+**A machine hill-climbing on this index would go to faces and away from landscapes** —
+which is the drift *The Simulated Viewer* depicts, here arrived at from a coefficient
+matrix rather than from a generative search. This is an association in a model's
+predictions, it inherits every limitation in §8, and it is not evidence that the drift
+occurs in forty clips. It is evidence that the lever exists and is the largest one.
 
 ---
 
@@ -1124,6 +1229,11 @@ branch disabled, dialogue reached the model only as audio, and the observational
 cut-rate signature is strongest in auditory cortex. Whether that signature is a
 property of cutting or an artefact of the missing modality is not decidable here.
 
+**The index is low-dimensional, which bounds every downstream claim.** Fourteen dials
+resolve to about three effective cortical directions (§6.7). Whatever the programme
+eventually demonstrates about control, it is control over a roughly three-dimensional
+subspace of response profiles, not over cortical response in general.
+
 **Cut rate is the weakest dial in the design**, at *s* ≈ 0.66, precisely because it
 carries the most between-film signal. It is also the dial the replication check
 depends on. The sample size was raised to keep that check informative, but it remains
@@ -1164,9 +1274,22 @@ reach faces first. That is a measured association, not a causal claim, and it in
 every limitation in §8 — but it is the association most worth attempting to isolate
 after cut rate.
 
+**Fourth, and changing what stage 04 should attempt: the reachable set is about three
+dimensional (§6.7).** Inversion cannot mean specifying an arbitrary cortical profile.
+The tractable version — and the one stage 04 should be respecified to test — is: take a
+target that lies *within* the reachable subspace, derive a dial setting, generate,
+measure the achieved profile, and ask whether it lands where the index said it would.
+That is a falsifiable control-law test at a scale the effect sizes in §6.4 can support.
+Specifying targets outside the subspace would fail for geometric reasons that have
+nothing to do with whether the index is right.
+
 The 01b transfer gate remains a prerequisite for all of this, and remains registered as
-possibly testing the wrong thing (§9 table). Nothing above should be attempted until it
-is respecified or run.
+possibly testing the wrong thing. Nothing above should be attempted until it is
+respecified or run — and §6.7 sharpens what it must establish: stage 03 and 04 depend on
+generated imagery reproducing the *face/place axis* in particular, since that is the
+axis carrying most of the index and all of the inversion thesis. A transfer gate that
+tests three-way content discrimination without testing that axis would pass while
+leaving the thing stage 04 depends on unverified.
 
 ---
 
