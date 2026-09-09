@@ -1031,7 +1031,12 @@ about three outputs.**
 
 The axes are interpretable without being told what to look for. **Axis 1 is the
 face/place axis** — stage 00's double dissociation, recovered as the dominant direction
-of a continuous 14-dial model that was never shown stage 00's clips. **Axis 2 is
+of a continuous 14-dial model that was never shown stage 00's clips. That is not a
+resemblance but a measurement: run 00's face − landscape contrast vector correlates with
+axis 1 at ***r* = +0.936** (face alone +0.704, landscape alone −0.684, crowd −0.135 —
+the graded middle again), against a 180-parcel permutation 95th percentile of 0.144.
+Two measurements sharing no segments, no films and no analysis agree on the dominant
+direction to 0.94. **Axis 2 is
 motion** — camera movement and cutting loading on MT, MST, FST, V4t, the motion-
 sensitive complex. **Axis 3 is colour**, and it is small. Note where cut rate lands: on
 the motion axis, at a third the weight of camera pan, and nowhere near frontal cortex —

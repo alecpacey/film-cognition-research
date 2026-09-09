@@ -99,9 +99,14 @@ hand-animated footage are out-of-distribution in the same way is untested and ma
 be false. If it is false, 01b as written tests the wrong thing and needs
 respecifying before it is run.
 
-Design and pass criteria are held, unmodified, in `../OBJECTIVES.md` § O2 — a
-three-way content probe repeating run 00, criteria fixed before O1 ran. **~30 min,
-~$0.50**, against a stage-03 budget of ~$60.
+**Respecified 9 September 2026 in `01b-transfer/README.md`**, criteria fixed there
+before generation. Three changes from the held design: generated rather than animated
+material, from the stage-03 generator (MiniMax H3 Max via fal); a third criterion
+requiring the generated face − landscape contrast to reproduce **axis 1 of the stage-02
+index** at *r* ≥ 0.50 (live-action reference +0.936); and two arms, silent and
+audio-matched, to settle the audio protocol stage 03 will need. **Cost is ≈ $17–30
+generation plus ≈ $1 scoring**, not the ~$0.50 previously stated — that figure covered
+scoring only, and 60 s clips are 6–10 stitched generations at fal's per-second pricing.
 
 **Also its second job:** once stage 02 has a written RESULT, 01b is the
 disambiguator for the generalisation test below.
