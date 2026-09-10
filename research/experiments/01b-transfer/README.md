@@ -72,26 +72,19 @@ paper records that its voice-chain response (A4, A5, STSdp) may be speech rather
 faces. Generated clips may be silent. If they are, the auditory half of criterion 2 can
 fail for lack of sound rather than lack of transfer, and the gate would be uninformative.
 
-**Decision: run both arms.** Six clips, not three.
-
-- **Arm S (silent):** the three generated clips as returned, no audio track. The clean
-  test of whether the head sees generated *video*.
-- **Arm A (audio-matched):** the same three clips with audio added to mirror run 00 —
-  synthetic speech on the face clip, ambient on the landscape, crowd murmur on the crowd.
-  The test of the full pipeline stage 03 will actually run.
-
-Criteria below are evaluated on **Arm A** for the verdict, because that is the stage-03
-condition. Arm S is reported alongside and is diagnostic: if Arm A passes and Arm S fails
-only on the auditory parcels (A4, A5), transfer is visual and the audio protocol is
-required; if both pass, audio is optional for stage 03; if Arm S fails on the visual
-parcels (STSdp, STSvp, VMV, PHA), the head is not seeing the generated video whatever
-the audio does.
-
-If H3 Max turns out to return native audio, Arm A uses it and Arm S strips it.
+**Decision (10 September 2026): one arm, audio-matched. Three clips.** Audio is added to
+mirror run 00 — synthetic speech on the face clip, ambient on the landscape, crowd murmur
+on the crowd — so the gate tests the full pipeline stage 03 will actually run. A silent
+arm was specified and **dropped on cost**, halving generation spend. Consequence stated
+rather than hidden: if criterion 2 fails on the auditory parcels only, this design
+cannot say whether the head failed to see the generated faces or merely heard nothing
+distinctive — the silent arm would have separated those, and would be the first thing
+to add if that outcome occurs. If H3 Max returns native audio, it is replaced, not
+layered, so that the audio provenance is identical across clips.
 
 ## Pass criteria — fixed now, before generation
 
-Evaluated on Arm A. Criteria 1 and 2 are **held unchanged** from the version fixed
+Criteria 1 and 2 are **held unchanged** from the version fixed
 before O1 ran. Criterion 3 is new and its anchor is stated.
 
 1. **Separation.** Mean pairwise top-10 Jaccard overlap across the three clips
@@ -127,9 +120,8 @@ passes. This outcome must be written up as what the head *does* respond to.
 question for generated material reopens.
 
 **Reported, not gating.** Correlation between the generated contrast and run 00's
-live-action contrast directly (reference +0.936 against the axis; the two vectors'
-correlation with each other is reported for completeness). Per-clip correlation with
-its run-00 counterpart. Arm S on every criterion. Number of regenerations.
+live-action contrast directly. Per-clip correlation with its run-00 counterpart.
+Number of regenerations.
 
 ## What a PASS does not establish
 
@@ -142,8 +134,8 @@ test. It is a gate on the axis stage 04 needs, not a certificate for the generat
 
 | | |
 |---|---|
-| Generation, 6 × 60 s at 1080p Pro | ≈ $29 *(≈ $16 at 768p)* — fal pricing, 9 Sep 2026, unverified since |
-| Scoring, 6 clips on A10G | ≈ $1.00, ≈ 60 min |
+| Generation, 3 × 60 s at 1080p Pro | ≈ $15 *(≈ $8 at 768p)* — fal pricing, 9 Sep 2026, unverified since |
+| Scoring, 3 clips on A10G | ≈ $0.50, ≈ 30 min |
 | Regenerations | reported; budget one round |
 
 ## Done when
