@@ -51,19 +51,22 @@ touches no outcome.
 
 ### Generator constraints, and how they are handled
 
-- **Maximum generation length is 10 s** (6 s standard) at the time of writing — read
-  from fal's model pages, not assumed. A 60 s clip is therefore **6 to 10 generations
-  concatenated**, which introduces cuts. Cuts are a dial. They are held **identical
-  across the three clips** — same number of generations, same durations, same join
-  points — so that the three-way contrast is not confounded by cutting, and the
-  concatenation count is recorded in `CLIPS.md`. Stage 03 faces the same constraint
-  and 01b establishes the protocol for it.
-- **Native audio: unverified.** Whether H3 Max returns an audio track is to be
-  established at generation time and recorded. See *Audio*, below.
-- **Cost is not $0.50.** The roadmap's figure covered scoring only. At $0.08/s (Pro,
-  1080p) a 60 s clip is ≈ $4.80 to generate, or ≈ $2.70 at 768p ($0.045/s); three
-  clips ≈ $8–15, six ≈ $16–29, plus ≈ $0.17 per clip to score. **Figures read from
-  fal's pricing pages on 9 September 2026 and may have moved.**
+Read from fal's model pages on 10 September 2026, not assumed.
+
+- **The generator is `minimax/h3-max/director`**, not Hailuo-02. It generates
+  **continuous sessions of up to 15 minutes**, so each 60 s clip is **one generation**
+  — no concatenation, no introduced cuts. The 6–10 s limit that applied to Hailuo-02
+  does not apply here; the earlier concatenation protocol is withdrawn.
+- **It does not generate audio.** It accepts a **target audio** input and follows it
+  across scenes. So the audio-matched design is native: the speech, ambient and crowd
+  tracks are prepared *before* generation and supplied as inputs, giving each clip one
+  audio provenance rather than a layered mix.
+- **Optional first- and last-frame image inputs** exist. Neither is used: the three
+  clips must differ only in prompt and target audio, and a seed frame would smuggle
+  content in by a second route.
+- **Cost.** $0.02 per second of video **until 14 September 2026**, then $0.08; 1080p is
+  2×; minimum charge $1.20 per generation. Three 60 s clips at 1080p ≈ **$7.20 before
+  the 14th, ≈ $28.80 after**. Scoring ≈ $0.50. Figures may have moved since read.
 
 ### Audio — a decision this gate has to make for stage 03
 
@@ -79,8 +82,8 @@ arm was specified and **dropped on cost**, halving generation spend. Consequence
 rather than hidden: if criterion 2 fails on the auditory parcels only, this design
 cannot say whether the head failed to see the generated faces or merely heard nothing
 distinctive — the silent arm would have separated those, and would be the first thing
-to add if that outcome occurs. If H3 Max returns native audio, it is replaced, not
-layered, so that the audio provenance is identical across clips.
+to add if that outcome occurs. H3 Max does not generate audio; the tracks are supplied as its target-audio input,
+so provenance is identical across clips by construction.
 
 ## Pass criteria — fixed now, before generation
 
@@ -134,7 +137,7 @@ test. It is a gate on the axis stage 04 needs, not a certificate for the generat
 
 | | |
 |---|---|
-| Generation, 3 × 60 s at 1080p Pro | ≈ $15 *(≈ $8 at 768p)* — fal pricing, 9 Sep 2026, unverified since |
+| Generation, 3 × 60 s at 1080p, H3 Max Director | ≈ $7.20 before 14 Sep 2026, ≈ $28.80 after — fal pricing read 10 Sep |
 | Scoring, 3 clips on A10G | ≈ $0.50, ≈ 30 min |
 | Regenerations | reported; budget one round |
 

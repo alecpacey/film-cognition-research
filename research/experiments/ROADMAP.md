@@ -39,7 +39,7 @@ to the collapse film, which needs no control law.
 
 ---
 
-## 02 · Index — the observational track ← CURRENT
+## 02 · Index — the observational track ✅ COMPLETE — PARTIAL
 
 The stage that produces the actual crosswalk. Score many real film segments and
 correlate parcel response against measured dials.
