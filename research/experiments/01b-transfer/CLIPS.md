@@ -10,9 +10,14 @@ same integrated level (−16 LUFS), so audio level cannot differ across clips.
 
 | clip | track | content |
 |---|---|---|
-| landscape | ambient | wind through trees, distant river, occasional bird. No voices, no music, no rhythmic events. |
-| crowd | crowd murmur | station-concourse walla: many overlapping indistinct voices, footsteps, a distant announcement chime. No intelligible words. |
-| face | speech | the dialogue below, two synthetic voices (one lower, one higher register), conversational pace, natural pauses. No music, no effects. |
+| landscape | ambient | wind (brown noise, low-passed, 10 s tremolo) over a river band (pink noise, 1.6 kHz). No voices, no music, no birds — the spec's "occasional bird" was dropped: a synthesised chirp would not be a bird, and a false one is worse than none. |
+| crowd | walla | eight overlapping low-content sentences in eight different voices at staggered offsets and rates, low-passed and mixed at low gain with light echo; two distant two-note chimes at 20 s and 45 s. No intelligible words at mix level. |
+| face | speech | the dialogue below, macOS `say` voices **Daniel** (A) and **Flo** (B) at 165 wpm, 0.55 s gaps, no music, no effects. |
+
+**Route: free and local** — macOS `say` + ffmpeg, script `make_audio.sh`, reproducible.
+Chosen on cost for a probe whose criteria are the place-chain / voice-chain contrasts,
+not audio realism. Limitation inherited knowingly: synthetic voices are themselves
+out of distribution for an audio branch trained on real speech.
 
 **Why walla for the crowd and not silence.** Run 00's crowd clip had ambient crowd
 sound. The three tracks mirror run 00's audio *categories* — environment, many voices,
