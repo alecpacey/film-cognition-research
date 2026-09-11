@@ -59,13 +59,35 @@ Content is deliberately plain, present-tense, two-hander, no proper nouns, no pl
 requiring context — so the auditory/language response is to *speech between two
 people*, not to a story.
 
-## Generation record — filled after the run
+## Generation record — 11 September 2026
 
-| clip | generation id | resolution | duration (s, ffprobe) | audio provenance | regenerations |
-|---|---|---|---|---|---|
-| landscape | | | | | |
-| crowd | | | | | |
-| face | | | | | |
+Endpoint `minimax/h3-max/text-to-video` for segment 1 of each clip, then
+`minimax/h3-max/image-to-video` for segments 2–4 conditioned on the previous segment's
+last frame. Four 15 s generations per clip; seams at 15.1 / 30.2 / 45.3 s, identical
+across clips. `prompt_expansion_mode: balanced`, safety checker on. Full per-segment
+record incl. `expanded_prompt` and `timings` in `generation_record.json`.
+
+| clip | seeds (seg 1–4) | endpoints | res | duration s | audio provenance | regenerations |
+|---|---|---|---|---|---|---|
+| landscape | 20260911,20260912,20260913,20260914 | t2v→i2v×3 | 768P | 60.45 | native (H3 Max) | 0 |
+| crowd | 20260912,20260913,20260914,20260915 | t2v→i2v×3 | 768P | 60.45 | native (H3 Max) | 0 |
+| face | 20260913,20260914,20260915,20260916 | t2v→i2v×3 | 768P | 60.45 | native (H3 Max) | 0 |
+
+**Spend:** 12 × 15 s = 180 s × $0.02 = **$3.60** (promotional rate; user-verified on the
+model page 11 Sep). **Cap $3.60, not exceeded.**
+
+**Incident, recorded rather than tidied.** The first run aborted after landscape
+segment 1: the last-frame extraction for chaining failed (`ffmpeg … -sseof -0.05 …
+exit 234` — a single-image write without `-update 1`). The segment itself was valid and
+was kept; the script gained resume-by-existing-file and the extraction was fixed
+(`-sseof -1 -update 1`) and tested on that segment before relaunch. No segment was
+generated twice. Seed spaces overlap across clips (bases one apart, +0…3 per segment);
+harmless, since seeds only need to be recorded, but noted.
+
+**Also recorded:** two empty-body POSTs were accidentally accepted (HTTP 200) earlier the
+same day by `fal-ai/minimax/h3-max/director` and `fal-ai/minimax/h3-max` while probing
+for the endpoint id. Expected to have failed validation at $0; **not verified against
+the fal dashboard.**
 
 ## Cinemetrics — filled after generation, before scoring
 
