@@ -41,7 +41,7 @@ def payload(clip,text,seg,image_url=None,lines=None):
     else: d["aspect_ratio"]=ASPECT
     return d
 def last_frame(mp4):
-    out=mp4.with_suffix(".last.jpg"); subprocess.run(["ffmpeg","-y","-loglevel","error","-sseof","-0.05","-i",str(mp4),"-frames:v","1","-q:v","2",str(out)],check=True); return out
+    out=mp4.with_suffix(".last.jpg"); subprocess.run(["ffmpeg","-y","-loglevel","error","-sseof","-1","-i",str(mp4),"-update","1","-frames:v","1","-q:v","2",str(out)],check=True); return out
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--go",action="store_true"); ap.add_argument("--cap",type=float,default=0.0); ap.add_argument("--only",choices=["landscape","crowd","face"]); ap.add_argument("--price-per-s",type=float,default=0.0,help="USD per second at 768P, user-verified"); a=ap.parse_args()
     k=key(); props=schema(k); P=prompts(); FL=P.pop("_face_lines")
@@ -60,10 +60,16 @@ def main():
         parts=[]; img=None
         for seg in range(N_SEG):
             ep=ENDPOINT if img is None else "minimax/h3-max/image-to-video"
-            pl=payload(clip,text,seg,img,lines=FL); print(f"→ {clip} seg {seg+1}/{N_SEG} via {ep} seed {pl['seed']}",flush=True)
-            r=fal_client.subscribe(ep,arguments=pl,with_logs=False)
-            url=r["video"]["url"]; f=out/f"{clip}_{seg+1}.mp4"; urllib.request.urlretrieve(url,f)
-            parts.append(f); rec.setdefault(clip,[]).append({"seg":seg+1,"endpoint":ep,"seed":pl["seed"],"url":url,"expanded_prompt":r.get("expanded_prompt"),"timings":r.get("timings")})
+            pl=payload(clip,text,seg,img,lines=FL); f=out/f"{clip}_{seg+1}.mp4"
+            if f.exists() and f.stat().st_size>0:
+                print(f"↺ {clip} seg {seg+1}/{N_SEG} exists — resuming, not re-billed",flush=True)
+                rec.setdefault(clip,[]).append({"seg":seg+1,"endpoint":ep,"seed":pl["seed"],"resumed":True})
+            else:
+                print(f"→ {clip} seg {seg+1}/{N_SEG} via {ep} seed {pl['seed']}",flush=True)
+                r=fal_client.subscribe(ep,arguments=pl,with_logs=False)
+                url=r["video"]["url"]; urllib.request.urlretrieve(url,f)
+                rec.setdefault(clip,[]).append({"seg":seg+1,"endpoint":ep,"seed":pl["seed"],"url":url,"expanded_prompt":r.get("expanded_prompt"),"timings":r.get("timings")})
+            parts.append(f)
             img=fal_client.upload_file(str(last_frame(f)))
         lst=out/f"{clip}_parts.txt"; lst.write_text("".join(f"file '{p.name}'\n" for p in parts))
         subprocess.run(["ffmpeg","-y","-loglevel","error","-f","concat","-safe","0","-i",str(lst),"-c","copy",str(out/f"{clip}.mp4")],check=True)
