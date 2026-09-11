@@ -89,13 +89,27 @@ same day by `fal-ai/minimax/h3-max/director` and `fal-ai/minimax/h3-max` while p
 for the endpoint id. Expected to have failed validation at $0; **not verified against
 the fal dashboard.**
 
-## Cinemetrics — filled after generation, before scoring
+## Cinemetrics — measured 11 September, before any scoring
 
-Required ordering before any clip is scored: `face_area_frac` face > crowd > landscape;
-`face_hit_rate` highest on crowd.
+| clip | face_area_frac | frames with a face | cuts/min | camera_pan | median_luma | mean_sat |
+|---|---|---|---|---|---|---|
+| landscape | 0.0000 | 0 | 7.0 | +0.00004 | 47.0 | 88.5 |
+| crowd | 0.0000 | 99 | 9.9 | −0.00031 | 74.0 | 69.4 |
+| face | 0.1584 | 716 | 14.9 | +0.00005 | 53.0 | 151.3 |
 
-| clip | face_area_frac | face_hit_rate | cuts_per_min | camera_pan | median_luma |
-|---|---|---|---|---|---|
-| landscape | | | | | |
-| crowd | | | | | |
-| face | | | | | |
+**Pre-check verdict: FAIL as literally written; the failure is mostly in the check.**
+(1) `face > crowd > landscape` on `face_area_frac` fails only because the crowd clip's
+faces are below YuNet's size floor, so its largest-face measure is null → 0, tying
+landscape. On *presence* (frames with any face: 0 / 99 / 716) the crowd sits between
+the other two as intended. (2) "`face_hit_rate` highest on crowd" was mis-specified:
+run 00 ranked crowd on face *count per frame*, which cinemetrics does not report; on
+frames-with-any-face a two-person close-up trivially wins. That criterion is withdrawn
+as unmeasurable with this tool, not softened.
+
+**A real confound, not a technicality: the generator cuts.** Cuts per minute are
+7.0 / 9.9 / 14.9, not the ~3 seams per clip assumed. H3 Max edits within a 15 s
+generation, and the face clip — prompted as shot-reverse-shot — cuts twice as often
+as the landscape. "Cuts held identical across clips" is therefore **violated**, and
+cut rate covaries with content in this probe. Any 01b result must carry this: a
+difference between clips is a difference in content *and* in cutting.
+
