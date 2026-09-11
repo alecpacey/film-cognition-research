@@ -1,6 +1,6 @@
 # 01b — Result
 
-**Verdict: <PENDING — filled by evaluate_01b.py after harvest>**
+**Verdict: PASS — all three criteria met.**
 
 Run 11 September 2026 against `README.md` criteria as fixed before generation
 (bar for criterion 3: *r* ≥ 0.50). Generator `minimax/h3-max/text-to-video`, three
@@ -12,12 +12,29 @@ Run 11 September 2026 against `README.md` criteria as fixed before generation
 
 | criterion | required | found | |
 |---|---|---|---|
-| 1 · separation, mean top-10 Jaccard | < 0.60 | — | — |
-| 2 · direction, place chain on landscape / voice chain on face | both | — | — |
-| 3 · axis, corr(face − landscape, index axis 1) | ≥ +0.50 | — | — |
+| 1 · separation, mean top-10 Jaccard | < 0.60 | **0.083** | met |
+| 2 · direction, place chain on landscape / voice chain on face | both | **both** | met |
+| 3 · axis, corr(face − landscape, index axis 1) | ≥ +0.50 | **+0.699** | met |
 
-Reported, not gating: correlation with run 00's live-action contrast; per-clip
-correlation with the run-00 counterpart.
+Reported, not gating. Correlation of the generated face − landscape contrast with run
+00's live-action contrast: **+0.831**. Per clip against its run-00 counterpart:
+face **+0.885**, landscape +0.412, crowd +0.347.
+
+## Reading
+
+Generated imagery from this generator moves the same face/place axis real film moves,
+at about three-quarters of the live-action alignment (+0.699 against a reference of
++0.936) — comfortably over the bar and 4.9× the 180-parcel permutation null (0.144).
+Separation is *tighter* than run 00's (0.083 vs 0.146). The head sees the generated
+face clip almost as it sees the real one (+0.885); it sees the generated landscape and
+crowd less faithfully (+0.41, +0.35), which is where the confound below most plausibly
+bites and where stage 03 should expect the weakest transfer.
+
+**Consequence for the roadmap.** Stage 03 may proceed on all axes with `minimax/h3-max`,
+and stage 04's dependence on the face/place axis is met — subject to deviation 2: this
+PASS was earned with cutting confounded with content, so the *first* stage-03 design
+must control cutting per shot (image-to-video per shot, or single-shot prompts) before
+any dial is isolated.
 
 ## Deviations, disclosed before the result was seen
 

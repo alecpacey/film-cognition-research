@@ -76,7 +76,7 @@ break covariance, not enough to claim the index is film-independent.
 
 ---
 
-## 01b · Synthetic-imagery transfer — **prerequisite for stage 03**
+## 01b · Synthetic-imagery transfer — **prerequisite for stage 03** ✅ PASS (11 Sep 2026)
 
 Originally specified as an *animation* gate, when the stage-02 corpus was assumed
 to be animated Technicolor features. O1 removed that assumption, so 01b is no

@@ -1253,9 +1253,9 @@ the thinnest margin in the study.
 | 00 · Probe | ✅ Complete — PASS |
 | 01 · Gate | ✅ Complete — PASS |
 | **02 · Index** | ✅ **Complete — PARTIAL.** Registered at `osf.io/dg7fe`; criterion 1 met, criterion 2 not met |
-| 01b · Synthetic-imagery transfer | Specified, unrun — reclassified as a prerequisite for stage 03 |
+| 01b · Synthetic-imagery transfer | ✅ **PASS** — generated H3 Max clips reproduce the face/place axis at *r* = +0.699 (bar 0.50, live-action reference +0.936); cutting confounded with content |
 | 02b · Generalisation test | Specified, pulls only after stage 02 has a written result |
-| 03 · Isolation | Not started; gated by 01b |
+| 03 · Isolation | Not started; gate passed. First design must control cutting per shot |
 | 04 · Inversion | Not started |
 
 **Stage 02's PARTIAL verdict sets the agenda, and it points at stage 03 more sharply

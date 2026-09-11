@@ -1,0 +1,18 @@
+{
+ "source": "/Users/alecpacey/Documents/film/film-cognition-research/research/experiments/01b-transfer/parcel_vectors.json",
+ "criterion_1_mean_jaccard": 0.08333333333333333,
+ "criterion_1_met": true,
+ "criterion_2_landscape_place": true,
+ "criterion_2_face_voice": true,
+ "criterion_2_met": true,
+ "criterion_3_axis_r": 0.6990341048647538,
+ "criterion_3_bar": 0.5,
+ "criterion_3_met": true,
+ "reported_corr_with_run00_contrast": 0.831409530244977,
+ "per_clip_corr_with_run00": {
+  "landscape": 0.4120217097124133,
+  "crowd": 0.34670536780205047,
+  "face": 0.8850645282516261
+ },
+ "verdict": "PASS"
+}
