@@ -22,3 +22,7 @@ __pycache__/
 
 # analysis venv (scikit-learn for the elastic net)
 **/.venv-analysis/
+
+# Secrets — never commit
+.env
+**/.env
