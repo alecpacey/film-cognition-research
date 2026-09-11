@@ -3,7 +3,15 @@
 **Fixed before generation.** Prompts are in `README.md`; this file holds the audio
 inputs, then fills with generation IDs, provenance and cinemetrics once clips exist.
 
-## Target audio — prepared before generation, supplied as H3 Max input
+## Audio
+
+**11 September correction:** the text-to-video endpoint generates its own synchronised
+audio and takes no audio input, so the tracks below are **not** supplied to the generator.
+The dialogue is placed in the face-clip *prompt* instead; ambient and walla are requested
+in the other two prompts. The tracks remain as a fallback, regenerable from
+`make_audio.sh`, and their use would be reported.
+
+### Fallback tracks — prepared, held
 
 All three tracks: 60.0 s exactly, 48 kHz stereo AAC, loudness-normalised to the
 same integrated level (−16 LUFS), so audio level cannot differ across clips.

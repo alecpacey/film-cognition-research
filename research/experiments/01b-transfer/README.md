@@ -51,39 +51,36 @@ touches no outcome.
 
 ### Generator constraints, and how they are handled
 
-Read from fal's model pages on 10 September 2026, not assumed.
+**Third and final correction, 11 September 2026.** Two earlier versions of this section
+were written from fal's *web pages*; both were wrong in ways that changed the design.
+This one is written from the film's own API record (`../../report.md` § 9), which was
+verified against the live OpenAPI schema on 31 August 2026, and from a schema check
+performed with the key on 11 September. The web-page-derived claims — one 60 s
+generation per clip, 1080P, target-audio input — are withdrawn.
 
-- **The generator is `minimax/h3-max/director`**, not Hailuo-02. It generates
-  **continuous sessions of up to 15 minutes**, so each 60 s clip is **one generation**
-  — no concatenation, no introduced cuts. The 6–10 s limit that applied to Hailuo-02
-  does not apply here; the earlier concatenation protocol is withdrawn.
-- **It does not generate audio.** It accepts a **target audio** input and follows it
-  across scenes. So the audio-matched design is native: the speech, ambient and crowd
-  tracks are prepared *before* generation and supplied as inputs, giving each clip one
-  audio provenance rather than a layered mix.
-- **Optional first- and last-frame image inputs** exist. Neither is used: the three
-  clips must differ only in prompt and target audio, and a seed frame would smuggle
-  content in by a second route.
-- **Cost.** $0.02 per second of video **until 14 September 2026**, then $0.08; 1080p is
-  2×; minimum charge $1.20 per generation. Three 60 s clips at 1080p ≈ **$7.20 before
-  the 14th, ≈ $28.80 after**. Scoring ≈ $0.50. Figures may have moved since read.
-
-### Audio — a decision this gate has to make for stage 03
-
-Run 00's face clip was two people *talking* with the audio branch live, and § 5.1 of the
-paper records that its voice-chain response (A4, A5, STSdp) may be speech rather than
-faces. Generated clips may be silent. If they are, the auditory half of criterion 2 can
-fail for lack of sound rather than lack of transfer, and the gate would be uninformative.
-
-**Decision (10 September 2026): one arm, audio-matched. Three clips.** Audio is added to
-mirror run 00 — synthetic speech on the face clip, ambient on the landscape, crowd murmur
-on the crowd — so the gate tests the full pipeline stage 03 will actually run. A silent
-arm was specified and **dropped on cost**, halving generation spend. Consequence stated
-rather than hidden: if criterion 2 fails on the auditory parcels only, this design
-cannot say whether the head failed to see the generated faces or merely heard nothing
-distinctive — the silent arm would have separated those, and would be the first thing
-to add if that outcome occurs. H3 Max does not generate audio; the tracks are supplied as its target-audio input,
-so provenance is identical across clips by construction.
+- **Endpoint: `minimax/h3-max/text-to-video`** (queue at `queue.fal.run`; no `fal-ai/`
+  prefix). The `…/director` endpoint is a WebRTC streaming session and is not used.
+- **Duration is 5–15 s per generation.** A 60 s clip is therefore **4 × 15 s**, the
+  fewest seams available. Seams are cuts; they are held **identical across the three
+  clips** — same count, same positions — so the three-way contrast is not confounded by
+  cutting, and the seam positions are recorded in `CLIPS.md`. Continuity across seams
+  uses the endpoint's own mechanism: each generation after the first is conditioned on
+  the **last frame of the previous one** via `image_url` (the record notes the i2v route
+  falls through to t2v when the image is omitted, so one endpoint serves all four).
+- **Resolution: 768P**, the maximum this endpoint offers. Stage 03 inherits it.
+- **Audio is generated natively and synchronised** — dialogue, foley, ambience — from
+  the prompt. There is no target-audio input on this endpoint. **The audio-matched
+  design is therefore realised through the prompt**: the face-clip prompt carries the
+  dialogue from `CLIPS.md` verbatim; the landscape and crowd prompts specify ambient
+  and walla respectively. Audio provenance is identical across clips by construction —
+  one generator, one route. The three locally produced tracks in `audio/` are retained
+  as a **fallback only**, for use if native audio fails or is unusable, in which case
+  the substitution is reported.
+- **Seed: fixed per clip and recorded**, so a regeneration is reproducible.
+  `prompt_expansion_mode: "balanced"`, `enable_safety_checker: true` (the record
+  documents platform-level moderation regardless of the flag).
+- **Cost:** per-second pricing for this endpoint at 768P is **not in the record** and
+  is looked up at run time; a hard cap is set before submission. Scoring ≈ $0.50.
 
 ## Pass criteria — fixed now, before generation
 
@@ -137,7 +134,7 @@ test. It is a gate on the axis stage 04 needs, not a certificate for the generat
 
 | | |
 |---|---|
-| Generation, 3 × 60 s at 1080p, H3 Max Director | ≈ $7.20 before 14 Sep 2026, ≈ $28.80 after — fal pricing read 10 Sep |
+| Generation, 3 × (4 × 15 s) at 768P, `minimax/h3-max/text-to-video` | price looked up at run time; hard cap set before submission |
 | Scoring, 3 clips on A10G | ≈ $0.50, ≈ 30 min |
 | Regenerations | reported; budget one round |
 
