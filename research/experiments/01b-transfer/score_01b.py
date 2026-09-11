@@ -27,8 +27,10 @@ def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--harvest",action="store_true"); a=ap.parse_args()
     if a.harvest: harvest(); return
     pre=set(results()); assert not (pre & set(NAMES)), f"01b results already exist: {pre & set(NAMES)} — refusing to rescore"
+    have={Path(f).stem for f in api.list_repo_files(CLIPS_REPO,repo_type="dataset") if f.startswith("clips/")}
     for n in NAMES:
         f=HERE/"clips"/f"{n.replace('01b_','')}.mp4"; assert f.exists(), f"missing {f}"
+        if n in have: log(f"clips/{n}.mp4 already in {CLIPS_REPO} — not re-uploading"); continue
         api.upload_file(path_or_fileobj=str(f),path_in_repo=f"clips/{n}.mp4",repo_id=CLIPS_REPO,repo_type="dataset",commit_message=f"01b: {n}")
         log(f"uploaded clips/{n}.mp4 ({f.stat().st_size//1024} kB)")
     api.upload_file(path_or_fileobj=json.dumps({"clips":NAMES}).encode(),path_in_repo="batch.json",repo_id=CLIPS_REPO,repo_type="dataset",commit_message="01b batch")
