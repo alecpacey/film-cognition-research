@@ -60,6 +60,13 @@ reported against criteria fixed in advance. Nothing is running. The Space is PAU
 
 Stage 02 ≈ $16 · 01b $3.60 generation + ≈ $0.65 scoring · earlier stages $4.35. **≈ $25 total.**
 
+## Pending, outside the repo
+
+- **Meta gated access to `meta-llama/Llama-3.2-3B`**: requested 13 Sep 2026, awaiting Meta's
+  review. Unlocks the text-branch rescoring (~20 segments at the extremes of cut rate,
+  ≈ $3.40, `audio_only=False`) — the cheapest experiment left that could resolve the H2b
+  disagreement. Needs HF prepaid credit at run time.
+
 ## First actions next session
 
 1. Decide among: free 02b (n=3), stage 03 spec (cut rate first, per-shot cut control, criteria before spend), or the paper's finishing pass (claim–evidence audit, references).
