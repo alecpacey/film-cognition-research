@@ -113,7 +113,7 @@ disambiguator for the generalisation test below.
 
 ---
 
-## 02b · Generalisation test — does the index hold outside live action?
+## 02b · Generalisation test — does the index hold outside live action? ✅ RUN (exploratory, n=3, 13 Sep 2026)
 
 Pull only after stage 02 has a written RESULT. **Not a second corpus arm.**
 

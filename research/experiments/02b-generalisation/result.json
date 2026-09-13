@@ -1,0 +1,42 @@
+{
+ "EXPLORATORY": true,
+ "n": 3,
+ "dials_within_stage02_range": {
+  "cuts_per_min": true,
+  "mean_shot_len_s": true,
+  "camera_jitter": true,
+  "camera_zoom": true,
+  "camera_pan": true,
+  "median_luma": true,
+  "contrast_p5_p95": false,
+  "shadow_frac": true,
+  "colourfulness": true,
+  "mean_saturation": true,
+  "warm_cool": true,
+  "face_area_frac": true,
+  "face_hit_rate": true,
+  "dof_ratio": true
+ },
+ "per_clip_profile_r": {
+  "landscape": 0.4091290809730957,
+  "crowd": 0.9004219850695647,
+  "face": 0.8895156174664095
+ },
+ "per_clip_profile_r_survivors": {
+  "landscape": 0.48114104658896917,
+  "crowd": 0.921739141783275,
+  "face": 0.9215211314692916
+ },
+ "contrast_face_minus_landscape_r": 0.7687145033769132,
+ "contrast_face_minus_landscape_r_survivors": 0.8383704624425681,
+ "null_parcel_perm_95th": 0.14868306705885864,
+ "mean_profile_r_by_dial_assignment": {
+  "LCF": 0.733,
+  "LFC": -0.438,
+  "CLF": 0.616,
+  "CFL": -0.492,
+  "FLC": -0.153,
+  "FCL": -0.09
+ },
+ "mean_profile_r_true_assignment_rank": 1
+}
