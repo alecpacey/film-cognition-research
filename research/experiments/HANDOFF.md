@@ -62,8 +62,7 @@ Stage 02 ≈ $16 · 01b $3.60 generation + ≈ $0.65 scoring · earlier stages $
 
 ## Pending, outside the repo
 
-- **Meta gated access to `meta-llama/Llama-3.2-3B`**: requested 13 Sep 2026, awaiting Meta's
-  review. Unlocks the text-branch rescoring (~20 segments at the extremes of cut rate,
+- **Meta gated access to `meta-llama/Llama-3.2-3B`**: **granted 13 Sep 2026**, verified readable with the account token. Unlocks the text-branch rescoring (~20 segments at the extremes of cut rate,
   ≈ $3.40, `audio_only=False`) — the cheapest experiment left that could resolve the H2b
   disagreement. Needs HF prepaid credit at run time.
 
