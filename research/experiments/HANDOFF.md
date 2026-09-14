@@ -66,6 +66,27 @@ Stage 02 ≈ $16 · 01b $3.60 generation + ≈ $0.65 scoring · earlier stages $
   ≈ $3.40, `audio_only=False`) — the cheapest experiment left that could resolve the H2b
   disagreement. Needs HF prepaid credit at run time.
 
+## ⚠ Stage 03 scoring was in flight at close (14 Sep 2026, ~16:30)
+
+Ladder built and measured (cuts exactly 1/3/7/15/31, both arms), original scoring app
+verified on the Space, 12 clips submitted. **6 of 12 scored** when the local watcher was
+lost to the machine sleeping; the Space finishes the remaining six on its own (Sminus
+cut03/07/15/31, base_face, base_landscape) and pauses on its inactivity timer.
+Two earlier missteps are recorded honestly: a text-branch rescoring run produced 0/12 after
+189 min (parked, cause undiagnosed, `02-index/text_branch/`), and a watcher filter matching
+`"03_"` anywhere harvested six foreign files — a separate experiment `x1-av-emotion` writes
+to the same results repo — and paused the run at 6/12; corrected to exact-name matching.
+
+**Resume, in order (fresh session, from `03-isolation/`):**
+1. `python3 -c "from huggingface_hub import HfApi; print(HfApi().space_info('alecnpacey/tribe-probe').runtime.stage)"` — if not PAUSED, pause it.
+2. Harvest with the corrected `watch_03.sh` logic (exact names from `names.json`), or run its
+   inner Python once by hand → `parcel_vectors.json` must hold exactly the 12 keys
+   `Splus_cut01…31`, `Sminus_cut01…31`, `base_face`, `base_landscape`.
+3. `../02-index/.venv-analysis/bin/python evaluate_03.py` → verdict per README table.
+4. Write `RESULT.md` (verdict, both arms' tables, face base 0.052 limitation, spend ≈ $2.2
+   scoring + $3.60 bases, the two missteps), `LOG.md` line, status rows in ROADMAP/PAPER §9/
+   this table. Commit and push.
+
 ## First actions next session
 
 1. Decide among: free 02b (n=3), stage 03 spec (cut rate first, per-shot cut control, criteria before spend), or the paper's finishing pass (claim–evidence audit, references).
