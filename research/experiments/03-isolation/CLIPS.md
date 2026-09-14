@@ -46,3 +46,26 @@ Content is held fixed across cut levels by construction, so the manipulation is 
 but the face/place contrast between the two bases is smaller than 01b's.
 
 ## Intercut conditions — not yet built
+
+## Face base decision and the ladder — 14 September 2026
+
+**Face base: `face_close`** (regenerated 13 Sep, $1.20): single take (n_cuts 1), `face_area_frac`
+**0.052** — better than the wide first attempt (0.035) but short of the README's 0.10 target.
+No third attempt (promo rate ended 14 Sep; no further spend authorised). Consequence: the
+face/place contrast between bases is weaker than stage 01's, recorded as a limitation.
+
+**Ladder** built with `../01-cutrate/build_conditions.py` unchanged (`build_stage03.sh`):
+face_close × landscape at 1 / 3 / 7 / 15 / 31 added cuts. **S+** keeps the face scene's native
+dialogue; **S−** replaces all audio with the landscape's ambient track; video byte-identical
+across arms.
+
+| condition | measured cuts/min (S+) | (S−) | n_cuts | face_area_frac |
+|---|---|---|---|---|
+| cut01 | 1.0 | 1.0 | 1 | 0.048 |
+| cut03 | 3.0 | 3.0 | 3 | 0.048 |
+| cut07 | 7.0 | 7.0 | 7 | 0.048 |
+| cut15 | 15.0 | 15.0 | 15 | 0.048 |
+| cut31 | 31.0 | 31.0 | 31 | 0.048 |
+
+Measured = nominal: the single-take bases carried no cuts of their own, so the effective range is
+**31×** (stage 01: 2.1×). Content identical across levels by construction. Not yet scored.
