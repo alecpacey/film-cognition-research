@@ -1,0 +1,48 @@
+{
+ "low": [
+  "jungle_book_068",
+  "nothing_sacred_057",
+  "nothing_sacred_045",
+  "jungle_book_045",
+  "nothing_sacred_004",
+  "nothing_sacred_002",
+  "jungle_book_000",
+  "jungle_book_003",
+  "jungle_book_031",
+  "nothing_sacred_038"
+ ],
+ "high": [
+  "jungle_book_056",
+  "royal_wedding_007",
+  "nothing_sacred_048",
+  "jungle_book_022",
+  "royal_wedding_057",
+  "nothing_sacred_044",
+  "nothing_sacred_022",
+  "jungle_book_057",
+  "nothing_sacred_036",
+  "jungle_book_058"
+ ],
+ "centred_cuts_per_min": {
+  "jungle_book_068": -7.29,
+  "nothing_sacred_057": -6.83,
+  "nothing_sacred_045": -5.83,
+  "jungle_book_045": -5.29,
+  "nothing_sacred_004": -4.83,
+  "nothing_sacred_002": -4.83,
+  "jungle_book_000": -4.29,
+  "jungle_book_003": -4.29,
+  "jungle_book_031": -4.29,
+  "nothing_sacred_038": -3.83,
+  "jungle_book_056": 3.71,
+  "royal_wedding_007": 4.04,
+  "nothing_sacred_048": 4.17,
+  "jungle_book_022": 4.71,
+  "royal_wedding_057": 5.04,
+  "nothing_sacred_044": 5.17,
+  "nothing_sacred_022": 6.18,
+  "jungle_book_057": 6.72,
+  "nothing_sacred_036": 8.18,
+  "jungle_book_058": 10.7
+ }
+}

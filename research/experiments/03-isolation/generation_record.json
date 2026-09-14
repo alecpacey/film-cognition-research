@@ -82,5 +82,47 @@
     "inference": 15.974445664789528
    }
   }
+ ],
+ "face_close": [
+  {
+   "seg": 1,
+   "endpoint": "minimax/h3-max/text-to-video",
+   "seed": 20261020,
+   "url": "https://v3b.fal.media/files/b/0aaa4b15/_poslz-R70O4ed3rfLiPG_minimax-h3.mp4",
+   "expanded_prompt": "integrated_multimodal_description: [Shot 1] Cinematic, live-action, medium close-up Static Shot of two individuals conversing across a wooden kitchen table, capturing an unbroken singular take with 35mm film grain texture. The frame is strictly locked-off on a tripod, maintaining a fixed composition where both subjects' faces occupy the majority of the screen space, creating an intimate, dialogue-heavy tableau. S1 is positioned on the left, a young woman with wavy brown hair wearing a soft cotton sweater, while S2 is on the right, a middle-aged man with short grey hair and a button-down shirt. The interior is bathed in warm, amber-colored artificial light that casts soft shadows and highlights the expressive facial micro-movements and maintaining eye contact between the two. The background features blurred kitchen elements, including hanging utensils and a window showing dusk, keeping the focus sharply on the interaction. S1 listens attentively, nodding slightly before speaking first. S1 says in a clear, mid-pitched, conversational tone: [English] I just don't understand why you didn't call me back yesterday. S2 leans forward slightly, his expression shifting to one of gentle apology, making direct eye contact. S2 replies in a calm, slightly deeper voice with a hesitant pause: [English] I was buried in work, I'm really sorry, I wasn't trying to ignore you. S1\u2019s eyes narrow slightly in skepticism, then soften as she processes his words, tilting her head. S1 responds with a quicker, slightly playful rhythm: [English] Work? It was a Friday night, remember? S2 lets out a small, dry chuckle, shaking his head slightly while maintaining the locked gaze. S2 says in a lighthearted, admitting tone: [English] Fair point. I owe you a drink. The camera remains absolutely static throughout, capturing only the subtle shifts in breathing, blinking, and facial expressions as the conversation flows naturally.\n\noverall_soundscape: A quiet, intimate room tone fills the space, punctuated by the subtle, natural sounds of the conversation. Faint, soft creaks of the wooden chairs are audible as the subjects shift their weight slightly. The background features a very low-level, ambient hum, possibly from a nearby refrigerator or HVAC system, which remains constant and unobtrusive, grounding the scene in a realistic domestic environment.\n\nnon_diegetic_music: N/A",
+   "timings": {
+    "inference": 15.074176793918014
+   }
+  },
+  {
+   "seg": 2,
+   "endpoint": "minimax/h3-max/image-to-video",
+   "seed": 20261021,
+   "url": "https://v3b.fal.media/files/b/0aaa4b30/SE8GUq3nuio2g_JYv1Anr_minimax-h3.mp4",
+   "expanded_prompt": "For the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced.\n\nintegrated_multimodal_description: [Shot 1] This is a live-action, cinematic shot with a distinct 35mm film grain. The scene opens on a medium close-up of two people sitting at a wooden kitchen table. On the left sits a middle-aged woman (S1) with shoulder-length wavy brown hair, fair skin, wearing a heather gray long-sleeved sweater. On the right sits a middle-aged man (S2) with short, silver-gray hair and fair skin, wearing a pale blue collared shirt unbuttoned at the top. Both faces are large in the frame, positioned in profile, locked in direct eye contact across the table. The camera is completely locked off on a tripod, holding this exact framing unbroken for the entire duration with absolutely no cuts, edits, or scene changes. The background shows a domestic kitchen with out-of-focus wooden cabinets, a window with natural light, and hanging dark round metal pots near the top edge. Warm interior light softly illuminates their faces. S1 looks at S2 with a gentle, attentive expression, listening intently. S2 smiles warmly, leaning slightly forward. As the dialogue begins, S1 blinks naturally, her eyelashes framing soft blue eyes, smiling faintly as S2 speaks. S2's mouth moves dynamically as he talks, his face highly expressive with raised eyebrows and deepening smile lines. S1 nods subtly, her head tilting, her gaze staying steadily fixed on S2. Mid-shot, S1 replies, her lips forming words while her expression brightens. S2 listens, nodding his head gently, his eyes crinkling. The interplay of light and shadow subtly shifts on their faces only as they move. At the end of the shot, S1 breaks into a slight genuine smile, holding eye contact, while S2 continues watching her with an engaged, comfortable look. No text, captions, or subtitles appear on screen. \n\noverall_soundscape: An unobtrusive domestic room tone fills the space, layered with the faint, soft, natural cadence of two conversing voices. Underneath the dialogue, a subtle, warm environmental hum from a distant refrigerator and a barely audible low hum from a functioning hood fan establish the busy but quiet kitchen. Micro-sounds of clothing fabric shifting softly as the people lean and gesture lightly across the table accompany the conversation.\n\nnon_diegetic_music: N/A",
+   "timings": {
+    "inference": 17.125439455994638
+   }
+  },
+  {
+   "seg": 3,
+   "endpoint": "minimax/h3-max/image-to-video",
+   "seed": 20261022,
+   "url": "https://v3b.fal.media/files/b/0aaa4b1a/W1WRjtMm3QoKvgmR7EFK-_minimax-h3.mp4",
+   "expanded_prompt": "For the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced.\n\nintegrated_multimodal_description: [Shot 1] Cinematic, live-action, medium close-up of two people sitting across a wooden kitchen table in a warm, inviting interior. The scene is anchored by <Picture 1>, showing a woman (S1) with wavy brown hair and a grey sweater on the left, and a man (S2) with short grey hair and a light blue button-down shirt on the right. Both faces are large in the frame, filling the composition, maintaining intense eye contact. The background shows a soft-focus kitchen with hanging cookware and a window letting in soft daylight. The camera is completely locked-off on a tripod, maintaining a single continuous take for the entire 15-second duration with no cuts or camera movements. Throughout the shot, (S1) smiles warmly, her eyes crinkling at the corners as she speaks naturally: <d>[English] I can't believe we actually managed to do that.</d> (S2) responds with a gentle, knowing smile, leaning in slightly as he speaks back: <d>[English] It was a long time coming, but well worth the wait.</d> (S1) laughs softly, nodding her head slightly, while (S2) maintains affectionate gaze, his expression softening with pride. The lighting remains warm and golden, highlighting the skin textures and the subtle 35mm film grain visible across the entire image.\n\noverall_soundscape: The ambient sound of a quiet kitchen, featuring the distant, low hum of a refrigerator and the soft clink of a ceramic mug on the wooden table. Natural vocal dialogue between the two speakers is clear and intimate, characterized by soft breaths, occasional laughter, and the faint rustle of clothing as they move slightly.\n\nnon_diegetic_music: N/A",
+   "timings": {
+    "inference": 16.0268652359955
+   }
+  },
+  {
+   "seg": 4,
+   "endpoint": "minimax/h3-max/image-to-video",
+   "seed": 20261023,
+   "url": "https://v3b.fal.media/files/b/0aaa4b1c/UyR2nj2fVmBTVmXOINN7E_minimax-h3.mp4",
+   "expanded_prompt": "For the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced.\n\nintegrated_multimodal_description: <Picture 1> This is a live-action, cinematic medium close-up shot captured on 35mm film. The scene features a woman (S1) in her 30s with wavy brown hair wearing a grey knit sweater, and a man (S2) in his 50s with short grey hair wearing a light blue button-down shirt, sitting across from a wooden kitchen table. Their faces are large in the frame, filling most of the composition with intimate proximity. The background is a warm, softly blurred kitchen with wooden cabinets and hanging metal pots, illuminated by gentle interior golden lighting. The camera is locked-off on a tripod, maintaining a single continuous take for the entire duration without any cuts or movements. S1 starts by looking directly at S2 with a warm, genuine smile, her eyes crinkling as she speaks. S2 responds with a kind, affectionate expression, leaning in slightly while maintaining steady eye contact. Their dialogue is natural and back-and-forth, with subtle facial micro-expressions\u2014slight head tilts, soft smiles, and shifting gazes\u2014indicating deep connection and comfort. The lighting remains consistent, highlighting the soft textures of their clothing and the natural texture of their skin.\n\noverall_soundscape: The ambient sound of a quiet home interior, with the distant faint hum of a refrigerator. Clear, natural diegetic dialogue between S1 and S2, characterized by soft vocal tones, gentle occasional laughter, and the faint rustle of fabric as they move slightly in their seats.\n\nnon_diegetic_music: N/A",
+   "timings": {
+    "inference": 15.986701640300453
+   }
+  }
  ]
 }

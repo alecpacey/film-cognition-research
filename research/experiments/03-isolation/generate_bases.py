@@ -34,10 +34,10 @@ def last_frame(mp4):
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--go",action="store_true"); ap.add_argument("--cap",type=float,default=0.0)
     ap.add_argument("--price-per-s",type=float,default=0.0); ap.add_argument("--only",choices=list(PROMPTS)); ap.add_argument("--tag",default="")
-    ap.add_argument("--first-frame",help="local image to seed segment 1 (regeneration)"); ap.add_argument("--seed-offset",type=int,default=0); a=ap.parse_args()
+    ap.add_argument("--first-frame",help="local image to seed segment 1 (regeneration)"); ap.add_argument("--prompt",help="override the clip prompt (regeneration at different framing)"); ap.add_argument("--seed-offset",type=int,default=0); a=ap.parse_args()
     k=key(); schema(k); clips=[a.only] if a.only else list(PROMPTS)
     est=len(clips)*N_SEG*SEG_S*a.price_per_s; print(f"\nESTIMATE: {len(clips)} clip(s) × {N_SEG}×{SEG_S}s × ${a.price_per_s}/s = ${est:.2f} (cap ${a.cap})")
-    for c in clips: print(f"\n[{c}] seed {SEEDS[c]+a.seed_offset}\n"+json.dumps(payload(c,a.seed_offset),indent=1)[:700])
+    for c in clips: print(f"\n[{c}] seed {SEEDS[c]+a.seed_offset}\n"+json.dumps(payload(c,a.seed_offset,prompt=(a.prompt+" "+STYLE) if a.prompt else None),indent=1)[:700])
     if not a.go: print("\nDRY RUN — nothing submitted."); return
     assert a.price_per_s>0 and a.cap>0 and est<=a.cap, f"estimate ${est:.2f} vs cap ${a.cap}"
     import fal_client
@@ -46,7 +46,7 @@ def main():
         name=c+a.tag; parts=[]; img=fal_client.upload_file(a.first_frame) if a.first_frame else None
         for seg in range(N_SEG):
             s=seg+a.seed_offset; ep=ENDPOINT if img is None else "minimax/h3-max/image-to-video"
-            f=out/f"{name}_{seg+1}.mp4"; pl=payload(c,s,img)
+            f=out/f"{name}_{seg+1}.mp4"; pl=payload(c,s,img,prompt=(a.prompt+" "+STYLE) if a.prompt else None)
             if f.exists() and f.stat().st_size>0: print(f"↺ {name} seg {seg+1} exists — resuming",flush=True); rec.setdefault(name,[]).append({"seg":seg+1,"resumed":True})
             else:
                 print(f"→ {name} seg {seg+1}/{N_SEG} via {ep} seed {pl['seed']}",flush=True)
