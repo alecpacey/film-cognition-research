@@ -1255,7 +1255,7 @@ the thinnest margin in the study.
 | **02 · Index** | ✅ **Complete — PARTIAL.** Registered at `osf.io/dg7fe`; criterion 1 met, criterion 2 not met |
 | 01b · Synthetic-imagery transfer | ✅ **PASS** — generated H3 Max clips reproduce the face/place axis at *r* = +0.699 (bar 0.50, live-action reference +0.936); cutting confounded with content |
 | 02b · Generalisation test | ✅ **Run, exploratory, n = 3** — the fitted index predicts generated clips at profile *r* 0.41 / 0.90 / 0.89; contrast *r* +0.77 |
-| 03 · Isolation | Not started; gate passed. First design must control cutting per shot |
+| 03 · Isolation | ✅ **PARTIAL-A** — cutting drives IFJ up and auditory cortex down in both speech arms on generated footage (58 and 54 of 180 parcels at \|*r*\|>0.9); H3b misses the 0.9 bar by ≤ 0.03 at *n* = 5 |
 | 04 · Inversion | Not started |
 
 **Stage 02's PARTIAL verdict sets the agenda, and it points at stage 03 more sharply

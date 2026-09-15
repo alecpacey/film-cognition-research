@@ -15,7 +15,7 @@ reported against criteria fixed in advance. Nothing is running. The Space is PAU
 | **02 · Index** | ✅ **PARTIAL** — registered at `osf.io/dg7fe` before the analysis ran. Criterion 1 met (14/14 dials, 101/180 parcels); criterion 2 **not** met (cut rate does not replicate in IFJa/IFJp/IFSp/8C). Only 9/180 parcels reach the derived SESOI of 0.5 |
 | **01b · Transfer** | ✅ **PASS** — generated H3 Max clips reproduce the index's face/place axis at r = +0.699 (bar 0.50; live-action reference +0.936); Jaccard 0.083; direction both. **Cutting confounded with content** (generator cuts 7/10/15 per min) |
 | 02b · Generalisation | ✅ run (exploratory, n=3) — index predicts generated clips at r 0.41/0.90/0.89; contrast +0.77; landscape weakest; `contrast_p5_p95` extrapolated |
-| 03 · Isolation | not started — gate passed; **first design must control cutting per shot** |
+| 03 · Isolation | ✅ **PARTIAL-A** — frontal cut effect in both arms (S+ 3/4, S− 1/4 at r>0.9, all ≥0.87); auditory signature reproduces stage 02; cut rate is a causal lever. See `03-isolation/RESULT.md` |
 | 04 · Inversion | not started — **bounded in advance** (§6.7): the reachable set is ~3-dimensional |
 
 ## The findings that carry forward
