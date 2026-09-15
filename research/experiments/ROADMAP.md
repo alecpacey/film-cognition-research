@@ -135,7 +135,7 @@ index may have failed, or the sensor may simply not see the medium.
 
 ---
 
-## 03 · Isolation — controlled clips (pull when 02 identifies candidates)
+## 03 · Isolation — controlled clips ✅ RUN — PARTIAL-A (15 Sep 2026)
 
 Whatever 02 flags as interesting but confounded, isolate it. Generate clips that
 hold every dial fixed and move one. This is the only place causal claims are
