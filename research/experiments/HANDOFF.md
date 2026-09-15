@@ -87,6 +87,29 @@ to the same results repo — and paused the run at 6/12; corrected to exact-name
    scoring + $3.60 bases, the two missteps), `LOG.md` line, status rows in ROADMAP/PAPER §9/
    this table. Commit and push.
 
+## Decisions taken 15 September 2026 — execute in this order
+
+1. **Investigate why the stage-02 index missed the frontal half of the cut effect.** Free,
+   analysis-only. Stage 03 showed cutting drives IFJa/IFSp/8C *up* (r ≈ +0.9) and A4/A1/MBelt
+   *down* (≈ −0.95) in both speech arms; the index (§ 6.5) recovered the auditory half and not
+   the frontal one. Examine: those four parcels' full elastic-net fits and permutation p in
+   `analysis_result.json`; within-film variance of cuts_per_min per film; whether the penalty
+   zeroed a real cut-rate weight (refit those parcels OLS/ridge as an exploratory check,
+   labelled); whether the auditory signature carries the frontal one's variance. Output: a
+   short note in `02-index/frontal_miss.md`. This decides whether the index or the corpus is
+   at fault before stage 04 builds on either.
+2. **Full paper update with stage 03** — abstract, § 2 H3 row → supported, a stage-03
+   results section (verdict table, both arms, the reconciliation of stages 01 and 02, the
+   PARTIAL-A near-miss stated as such), § 8, § 9. Source: `03-isolation/RESULT.md` only;
+   verify every figure against `03-isolation/evaluation.json`.
+3. **Text-branch failure: parked.** Do not diagnose unless a text-on replication is later chosen.
+4. **Results repo split:** `alecnpacey/x1-av-emotion-results` has been created (private, empty).
+   Whoever runs `x1-av-emotion` must repoint its writer there; this programme's scorers keep
+   using `alecnpacey/tribe-probe-results` with exact-name matching.
+
+Not chosen yet: stage 04 spec; text-on stage-03b. Machine note: background jobs were killed
+twice for memory on 14 Sep — keep long watchers light or off-laptop.
+
 ## First actions next session
 
 1. Decide among: free 02b (n=3), stage 03 spec (cut rate first, per-shot cut control, criteria before spend), or the paper's finishing pass (claim–evidence audit, references).
