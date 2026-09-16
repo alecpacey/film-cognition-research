@@ -133,3 +133,12 @@ signature) and regressing IFJa on it is the next analysis, before any stage-04 s
 - **For stage 04**, cut rate is admissible with both signatures as targets on generated
   intercut material (stage 03's regime), and inadmissible as a frontal lever anywhere else
   until the scene-switch hypothesis is tested.
+
+## Addendum, 16 September — the hypothesis tested
+
+The between-scene cut count was implemented (`scene_switches.py`) and run on all 244 segments.
+**Not supported**: no frontal parcel correlates with between-scene cuts at any threshold
+(|r| ≤ 0.16, p ≥ 0.19), the film-flipping sign persists (IFJa +0.40 in *Nothing Sacred*, −0.25 in
+*Jungle Book*), and auditory cortex follows cuts of every kind. The proxy separates scene
+switches only partially on live action, so the hypothesis is weakened rather than excluded. See
+`scene_switches.md`. The consequences above stand.

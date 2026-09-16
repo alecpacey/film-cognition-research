@@ -78,9 +78,11 @@ raw within-film correlation of IFJa with cut rate is −0.005 and flips sign bet
 and transplanting stage 03's causal slopes into the corpus's variance predicts *r* ≈ +0.3
 to +0.45 for the frontal parcels where the auditory parcels come in at their predicted
 size. The frontal response to cutting is absent from these three films at that size.
-The one hypothesis left standing is that inferior-frontal cortex responds to *scene
+The one hypothesis that survived was that inferior-frontal cortex responds to *scene
 switches*, which in the intercut ladders are identical to cuts and in cinema mostly are
-not.
+not; a between-scene cut count built to test it finds no frontal association at any
+threshold, with the same film-flipping sign, while auditory cortex follows cuts of every
+kind. The frontal miss is a property of this corpus and remains unexplained.
 
 Two results qualify the first criterion and are reported with equal prominence. The
 dominant dial is **face area**, largest coefficient in 65 of the 101 survivors, whose
@@ -460,7 +462,10 @@ was never implemented**: no scene-boundary field exists in the dial table or in 
 per-segment measurement file, and `cinemetrics.py` counts cuts without classifying them
 as within- or between-scene. An earlier draft of this paragraph stated the count was
 recorded; it was not, and the omission matters — §6.8 ends on a hypothesis that turns on
-exactly that distinction.
+exactly that distinction. An exploratory between-scene cut count now exists for all 244
+segments (`02-index/scene_switches.py`, 16 September: cinemetrics' cut detector unchanged,
+each cut scored by the HSV-histogram distance between the adjacent shots); it is a measured
+diagnostic, not a registered dial.
 
 This yields **244 segments**: Jungle Book 95, Nothing Sacred 66, Royal Wedding 83.
 
@@ -1244,11 +1249,24 @@ way in both arms at |*r*| > 0.9, stage 02 has the sign of 22. The corpus, not th
 lacks the frontal effect. The hypothesis left standing is that inferior-frontal cortex
 responds to **scene switches**: in the stage 01 and 03 ladders every cut alternates two
 maximally different scenes, so cuts and scene switches are the same count, whereas most cuts
-in cinema are continuity cuts inside one scene. This is testable at no cost once a
-between-scene cut count exists, and §4.3 records that the diagnostic which would have
-supplied it was specified and never implemented. Until it is tested, the index's cut-rate
-column should be read as the auditory half of the effect only, and cut rate treated as a
-frontal lever solely on intercut material.
+in cinema are continuity cuts inside one scene. **Tested, and not supported**
+(`02-index/scene_switches.md`). A between-scene cut count — cinemetrics' detector unchanged,
+each cut scored by the histogram distance between the shots either side — separates stage
+03's ladder perfectly (all 57 imposed cuts at 0.73–0.84, the single-take bases at 0.20 or
+nothing) and stage 01's live-action ladder only partially (it recovers about half the imposed
+cuts, because *Jungle Book*'s own internal cuts reach 0.6–0.8). On the 70 scored segments no
+frontal parcel tracks between-scene cuts at any of three thresholds (|*r*| ≤ 0.16, every
+*p* ≥ 0.19); IFJa's sign still flips between films (+0.40 in *Nothing Sacred*, −0.25 in
+*Jungle Book*); and the auditory decrease follows within- and between-scene cuts alike
+(A1 and MBelt with within-scene cuts at −0.27 and −0.30, A4 and A5 with between-scene at
+−0.22 and −0.25), which is stage 03's no-speech result seen in real cinema across cut types.
+Because the proxy is partial on live action the hypothesis is weakened rather than excluded,
+but a surviving effect would have to be small where the transplanted slopes say it should be
+large. What stands: the frontal miss is not the penalty, not the range, not content variance
+and not, by this measure, the composition of the cuts; the frontal parcels' relation to
+cutting differs in sign between films, which points at film-specific content the dial set does
+not measure. The index's cut-rate column should be read as the auditory half of the effect
+only, and cut rate treated as a frontal lever solely on intercut material.
 
 ---
 
@@ -1391,8 +1409,10 @@ that a tighter registration would have closed.
 that the auditory signature is a property of cutting on this sensor — it appears with no
 speech present and a continuous ambient track — and that the frontal effect is causal on
 intercut generated footage. It does not show why real cinema lacks the frontal effect; the
-scene-switch hypothesis of §6.8 is untested, and the diagnostic that would test it was never
-recorded. Stage 03 is also *n* = 5 levels per arm, one generated scene pair, one generator,
+scene-switch hypothesis of §6.8 was tested with a histogram proxy and not supported, and
+the proxy separates within- from between-scene cuts only partially on live action, so the
+hypothesis is weakened rather than excluded and the frontal miss stays unexplained. Stage 03
+is also *n* = 5 levels per arm, one generated scene pair, one generator,
 with a face base short of its shot-scale target (0.052 against 0.10), and its verdict is
 PARTIAL-A by a margin of 0.001 on one parcel — a near-miss reported as a miss.
 
@@ -1433,9 +1453,12 @@ motion and shot scale fixed by construction and varied cutting alone over a 31×
 inferior-frontal response returned in both speech arms, and the auditory signature stage 02
 found appeared alongside it. Neither earlier track was wrong; each saw half of one effect.
 What stage 03 did not do is explain why real cinema carries only the auditory half, and the
-exploratory follow-up locates that in the corpus rather than in the regression. The next
-free analysis is a between-scene cut count on the 244 segments, to test whether frontal
-cortex tracks scene switches rather than cuts.
+exploratory follow-up locates that in the corpus rather than in the regression. A
+between-scene cut count over the 244 segments does not support the one hypothesis that
+follow-up left standing: frontal cortex shows no association with scene switches at any
+threshold and its sign flips between films, while auditory cortex follows cuts of every
+kind. The frontal miss is a property of this corpus and remains unexplained. Stage 04
+should treat cut rate as a frontal lever only on intercut material.
 
 Second, **the text branch remains open, and is parked.** Stage 03's no-speech arm removes
 the specific worry that the auditory cut-rate signature was an artefact of the missing text
@@ -1490,7 +1513,7 @@ claim about live action.
 `experiments/ROADMAP.md` · `experiments/LOG.md` · `experiments/OBJECTIVES.md` ·
 `experiments/00-probe/{README,RESULT,CLIPS}.md` ·
 `experiments/01-cutrate/{README,RESULT}.md` ·
-`experiments/02-index/{README,CORPUS,DIALS,RESULT,frontal_miss}.md` ·
+`experiments/02-index/{README,CORPUS,DIALS,RESULT,frontal_miss,scene_switches}.md` ·
 `experiments/01b-transfer/{README,RESULT,CLIPS}.md` ·
 `experiments/02b-generalisation/RESULT.md` ·
 `experiments/03-isolation/{README,RESULT,CLIPS}.md`

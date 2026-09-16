@@ -103,6 +103,7 @@ x1 now writes to its own Hugging Face dataset, **`alecnpacey/x1-av-emotion-resul
 to it while the Space is paused, verifies the read-back, restarts, and restores the variable
 to the programme's `alecnpacey/tribe-probe-results` on every exit path. `--migrate` moves
 the 11 Sep pilot's eight result files out of the shared repo (copy, verify, then delete;
-refuses unless all eight are banked locally in `results/`). Not yet run. Reason for the
+refuses unless all eight are banked locally in `results/`). Run 16 Sep 2026: 8 files
+moved, 0 left in the shared repo. Reason for the
 split: a stage-03 watcher matching `"03_"` anywhere in a filename harvested x1's files from
 the shared repo on 14 Sep and paused that run at 6 / 12.

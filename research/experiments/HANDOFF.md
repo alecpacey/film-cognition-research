@@ -26,9 +26,12 @@ executed. Nothing is running. The Space is PAUSED.
 2. **The two tracks disagreed on cut rate; stage 03 reconciled them.** Cutting drives
    inferior-frontal cortex up and auditory cortex down, in both speech arms. The corpus carries
    only the auditory half — not the penalty's fault, the frontal signal is absent at the size the
-   causal slopes predict (`02-index/frontal_miss.md`). Standing hypothesis: frontal cortex tracks
-   *scene switches*, which equal cuts in the intercut ladders and not in cinema. Untested; the
-   scene-boundary diagnostic CORPUS.md specified was never implemented.
+   causal slopes predict (`02-index/frontal_miss.md`). The scene-switch hypothesis (frontal
+   cortex tracks scene changes, which equal cuts in the ladders and not in cinema) was tested on
+   16 Sep with a between-scene cut count over all 244 segments — **not supported** by a histogram
+   proxy: no frontal association at any threshold, film-flipping sign persists, auditory follows
+   every kind of cut (`02-index/scene_switches.md`). The frontal miss is a property of this
+   corpus and is unexplained; it differs in sign between films.
 3. **Fourteen dials move this cortex along ~3 axes**: face/place 69%, motion 14%, colour 6%.
    Axis 1 is run 00's contrast (r = +0.936) and the axis generated imagery reproduces (+0.699).
    **Inversion is projection, not solution; the inverse is many-to-one.**
@@ -63,6 +66,14 @@ executed. Nothing is running. The Space is PAUSED.
 ## Spend
 
 Stage 02 ≈ $16 · 01b $3.60 generation + ≈ $0.65 scoring · earlier stages $4.35. **≈ $25 total.**
+
+## Done 16 September
+
+- Commit `4c7084d` pushed. `run_x1.py --migrate` run: 8 x1 files moved to
+  `alecnpacey/x1-av-emotion-results` (9 files there), 0 x1 files left in
+  `alecnpacey/tribe-probe-results` (57 files). Space PAUSED, `RESULTS_REPO` = shared repo.
+- Scene-switch test run and written up (`02-index/scene_switches.{py,md}`, results JSON/JSONL);
+  PAPER § 4.3 / § 6.8 / § 8 / § 9 and abstract updated.
 
 ## Pending, outside the repo
 
@@ -126,19 +137,18 @@ status rows written (commits `cdbb07b`, `53cbee8`). Space PAUSED.
    verifies, then deletes them from the shared repo, refusing unless all 8 are banked locally
    (they are). Verified 15 Sep: new repo private and empty; the 8 `x1_*` files are still in
    the shared repo; Space PAUSED with `RESULTS_REPO=alecnpacey/tribe-probe-results`;
-   `score_03.py` / `watch_03.sh` match exact names. **`--migrate` has not been run** — run it
-   before any stage-02 harvest touches the shared repo. `x1-av-emotion/README.md` documents
-   the split.
+   `score_03.py` / `watch_03.sh` match exact names. **`--migrate` run 16 Sep** — verified 8/0.
+   `x1-av-emotion/README.md` documents the split.
 
 Not chosen yet: stage 04 spec; text-on stage-03b. Machine note: background jobs were killed
 twice for memory on 14 Sep — keep long watchers light or off-laptop.
 
 ## First actions next session
 
-1. Free: implement a between-scene cut count in `cinemetrics.py`, run it on the 244 segments,
-   regress IFJa/IFSp/8C on it — the test of the scene-switch hypothesis in `frontal_miss.md`.
-   Decide the stage 04 spec after that result.
-2. `python3 x1-av-emotion/run_x1.py --migrate` — moves the 8 pilot files out of the shared
-   results repo. Do before any stage-02 harvest.
+1. Stage 04 spec, with the constraint now established: cut rate is a frontal lever only on
+   intercut, scene-alternating generated material; the index's cut-rate column is auditory
+   only; face area is the largest lever. Criteria before spend.
+2. Optional, free: a semantic scene-change proxy (shot embeddings) to re-test the scene-switch
+   hypothesis that the histogram proxy did not support. Not built.
 3. If publishing resumes: post the amendment, then the paper's finishing pass (claim–evidence
    audit, references), then OSF Preprints.
