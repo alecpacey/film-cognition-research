@@ -1,10 +1,11 @@
-# Handoff — 13 September 2026
+# Handoff — 15 September 2026
 
 Resume point for a fresh session. Read `ROADMAP.md` first, then this. The write-up is
 `../PAPER.md`; every figure below is sourced there or in a stage `RESULT.md`.
 
-**This handoff closes the exploration phase.** Four experiments are complete and
-reported against criteria fixed in advance. Nothing is running. The Space is PAUSED.
+**This handoff closes the exploration phase.** Stages 00–03, plus 01b and 02b, are complete
+and reported against criteria fixed in advance. The 15 September decisions below have been
+executed. Nothing is running. The Space is PAUSED.
 
 ## Where we are
 
@@ -22,9 +23,12 @@ reported against criteria fixed in advance. Nothing is running. The Space is PAU
 
 1. **The index exists but is broad and weak.** 101 parcels survive; 9 matter. Through TRIBE's
    0.2146 out-of-distribution accuracy a median survivor implies r ≈ 0.07 against cortex.
-2. **The two tracks disagree on cut rate, and the measured dials do not explain it.** Cut rate is
-   the most nearly independent dial (max |r| 0.194 with any other); the confound, if it is one,
-   is unmeasured — speech, semantics, scene type. The text branch was off throughout.
+2. **The two tracks disagreed on cut rate; stage 03 reconciled them.** Cutting drives
+   inferior-frontal cortex up and auditory cortex down, in both speech arms. The corpus carries
+   only the auditory half — not the penalty's fault, the frontal signal is absent at the size the
+   causal slopes predict (`02-index/frontal_miss.md`). Standing hypothesis: frontal cortex tracks
+   *scene switches*, which equal cuts in the intercut ladders and not in cinema. Untested; the
+   scene-boundary diagnostic CORPUS.md specified was never implemented.
 3. **Fourteen dials move this cortex along ~3 axes**: face/place 69%, motion 14%, colour 6%.
    Axis 1 is run 00's contrast (r = +0.936) and the axis generated imagery reproduces (+0.699).
    **Inversion is projection, not solution; the inverse is many-to-one.**
@@ -66,7 +70,7 @@ Stage 02 ≈ $16 · 01b $3.60 generation + ≈ $0.65 scoring · earlier stages $
   ≈ $3.40, `audio_only=False`) — the cheapest experiment left that could resolve the H2b
   disagreement. Needs HF prepaid credit at run time.
 
-## ⚠ Stage 03 scoring was in flight at close (14 Sep 2026, ~16:30)
+## Stage 03 scoring — closed 15 Sep 2026 (was in flight at the 14 Sep close)
 
 Ladder built and measured (cuts exactly 1/3/7/15/31, both arms), original scoring app
 verified on the Space, 12 clips submitted. **6 of 12 scored** when the local watcher was
@@ -77,17 +81,10 @@ Two earlier missteps are recorded honestly: a text-branch rescoring run produced
 `"03_"` anywhere harvested six foreign files — a separate experiment `x1-av-emotion` writes
 to the same results repo — and paused the run at 6/12; corrected to exact-name matching.
 
-**Resume, in order (fresh session, from `03-isolation/`):**
-1. `python3 -c "from huggingface_hub import HfApi; print(HfApi().space_info('alecnpacey/tribe-probe').runtime.stage)"` — if not PAUSED, pause it.
-2. Harvest with the corrected `watch_03.sh` logic (exact names from `names.json`), or run its
-   inner Python once by hand → `parcel_vectors.json` must hold exactly the 12 keys
-   `Splus_cut01…31`, `Sminus_cut01…31`, `base_face`, `base_landscape`.
-3. `../02-index/.venv-analysis/bin/python evaluate_03.py` → verdict per README table.
-4. Write `RESULT.md` (verdict, both arms' tables, face base 0.052 limitation, spend ≈ $2.2
-   scoring + $3.60 bases, the two missteps), `LOG.md` line, status rows in ROADMAP/PAPER §9/
-   this table. Commit and push.
+**Closed 15 Sep:** harvested 12/12, `evaluate_03.py` → PARTIAL-A, `RESULT.md`, LOG line and
+status rows written (commits `cdbb07b`, `53cbee8`). Space PAUSED.
 
-## Decisions taken 15 September 2026 — execute in this order
+## Decisions taken 15 September 2026 — executed 15 September, in order
 
 1. **Investigate why the stage-02 index missed the frontal half of the cut effect.** Free,
    analysis-only. Stage 03 showed cutting drives IFJa/IFSp/8C *up* (r ≈ +0.9) and A4/A1/MBelt
@@ -98,20 +95,50 @@ to the same results repo — and paused the run at 6/12; corrected to exact-name
    labelled); whether the auditory signature carries the frontal one's variance. Output: a
    short note in `02-index/frontal_miss.md`. This decides whether the index or the corpus is
    at fault before stage 04 builds on either.
+   → **Done.** `02-index/frontal_miss.{py,md,json}`, `frontal_miss_transplant.json`. Verdict:
+   **the corpus, not the index.** OLS/ridge refits of the four parcels give cut weights
+   +0.04–0.07, |t| < 1 — the penalty zeroed nothing real. Within-film r(IFJa, cuts) −0.005,
+   sign flips between films; auditory quartet −0.29 to −0.34 in every film. Transplanting the
+   stage-03 slopes into the corpus's variance predicts frontal r +0.30–0.45 (observed ≈ 0)
+   while auditory arrives at prediction. Stage-02 cut map vs stage-03 S− map r +0.52 over 180
+   parcels; sign right in 22/23 both-arm parcels. Hypothesis left: frontal cortex tracks
+   *scene switches*. **Found:** the scene-boundary diagnostic specified in CORPUS.md was never
+   implemented (no field anywhere); PAPER § 4.3 corrected.
 2. **Full paper update with stage 03** — abstract, § 2 H3 row → supported, a stage-03
    results section (verdict table, both arms, the reconciliation of stages 01 and 02, the
    PARTIAL-A near-miss stated as such), § 8, § 9. Source: `03-isolation/RESULT.md` only;
    verify every figure against `03-isolation/evaluation.json`.
+   → **Done.** Header/status, abstract (stage-03 paragraph), § 2 (H2b note, H3 supported),
+   § 4.3 correction, § 6.5 pointer, new § 6.8 (stage 03 + labelled exploratory follow-up),
+   § 8 (two paragraphs replace the "untested alternative" one), § 9 prose (five points; the
+   stale "01b remains a prerequisite" paragraph replaced), internal-documents list. Every
+   stage-03 figure read from `evaluation.json`; A5's S+ value (+0.152) added, which RESULT.md
+   did not state.
 3. **Text-branch failure: parked.** Do not diagnose unless a text-on replication is later chosen.
+   → Parked as decided; `02-index/text_branch/` untouched.
 4. **Results repo split:** `alecnpacey/x1-av-emotion-results` has been created (private, empty).
    Whoever runs `x1-av-emotion` must repoint its writer there; this programme's scorers keep
    using `alecnpacey/tribe-probe-results` with exact-name matching.
+   → **Done in code; nothing run against HF.** `x1-av-emotion/run_x1.py` now targets
+   `alecnpacey/x1-av-emotion-results`: `--run` sets the Space variable `RESULTS_REPO` while
+   the Space is paused, verifies the read-back, and restores the shared repo on every exit
+   path; `--migrate` (replaces `--cleanup`) copies the 8 pilot files into the new repo,
+   verifies, then deletes them from the shared repo, refusing unless all 8 are banked locally
+   (they are). Verified 15 Sep: new repo private and empty; the 8 `x1_*` files are still in
+   the shared repo; Space PAUSED with `RESULTS_REPO=alecnpacey/tribe-probe-results`;
+   `score_03.py` / `watch_03.sh` match exact names. **`--migrate` has not been run** — run it
+   before any stage-02 harvest touches the shared repo. `x1-av-emotion/README.md` documents
+   the split.
 
 Not chosen yet: stage 04 spec; text-on stage-03b. Machine note: background jobs were killed
 twice for memory on 14 Sep — keep long watchers light or off-laptop.
 
 ## First actions next session
 
-1. Decide among: free 02b (n=3), stage 03 spec (cut rate first, per-shot cut control, criteria before spend), or the paper's finishing pass (claim–evidence audit, references).
-2. Before any stage-03 spend: add HF credit; confirm fal balance; write `03-isolation/README.md` with criteria first.
-3. If publishing resumes: post the amendment, then verify references, then OSF Preprints.
+1. Free: implement a between-scene cut count in `cinemetrics.py`, run it on the 244 segments,
+   regress IFJa/IFSp/8C on it — the test of the scene-switch hypothesis in `frontal_miss.md`.
+   Decide the stage 04 spec after that result.
+2. `python3 x1-av-emotion/run_x1.py --migrate` — moves the 8 pilot files out of the shared
+   results repo. Do before any stage-02 harvest.
+3. If publishing resumes: post the amendment, then the paper's finishing pass (claim–evidence
+   audit, references), then OSF Preprints.
