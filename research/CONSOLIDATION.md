@@ -8,7 +8,7 @@ Rules: tick a box only when its done-criterion is met and the evidence is commit
 gets a `LOG.md` line. Paid steps get criteria in a README *before* spend. Update the status
 line below at the end of each session.
 
-**Status (20 Sep 2026):** 1a done; next 1b (ladder count null), then 1c. 1d is an author action.
+**Status (20 Sep 2026):** 1a, 1b, 1c done. **1d (post the OSF amendment) is an author action and is the only open item in step 1.** Next: step 2a, the criteria README for the discontinuity session.
 
 ## Step 1 · Integrity fixes — free
 
@@ -16,10 +16,10 @@ line below at the end of each session.
       `analysis_result.json`, reproduces every § 6.7 figure, adds a permuted-label baseline, writes
       `index_map.json`. *Done when:* each figure matches the paper to stated precision or the
       paper is corrected; the script is cited from § 6.7.
-- [ ] **1b · Ladder count null (M1).** Commit the level-permutation script; replace every
+- [x] **1b · Ladder count null (M1).** *Done 20 Sep: `experiments/ladder_count_null.py`; p = 0.017 (stage 01), 0.025 (stage 03, both arms); no "times chance" left; p-floor limitation added to § 8.* Commit the level-permutation script; replace every
       "× chance" statement (Abstract, § 5.2, § 6.8) with the permutation *p*, the null's 95th
       percentile and the participation ratio. *Done when:* no "times chance" remains in `PAPER.md`.
-- [ ] **1c · Per-film coefficients (M7).** Table of cut-rate and face-area coefficients per film
+- [x] **1c · Per-film coefficients (M7).** *Done 20 Sep: `experiments/02-index/per_film.py`; table in § 6.4 — face/place signature same sign in all three films; frontal parcels conflict.* Table of cut-rate and face-area coefficients per film
       for the named parcels. *Done when:* table in § 6.4 or a supplement, from a committed script.
 - [ ] **1d · OSF amendment posted (M8, m1).** **Author action** — `~/Desktop/osf-registration-attachments/15-AMENDMENT.md`.
       *Done when:* posted; § 4.8 / § 7 wording matches the fact and the date.

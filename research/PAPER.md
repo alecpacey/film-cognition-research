@@ -33,8 +33,9 @@ pre-registered threshold of 0.60, with a reciprocal double dissociation between 
 voice chain (A5, STSdp) and the place chain (VMV2, PHA1/2) and a graded intermediate
 condition. **Stage 01** establishes that *technique* moves the sensor with content
 held constant: intercutting two fixed 60-second scenes at five rates moved 51 of 180
-parcels to |*r*| > 0.9 against log cut count, against a pre-registered bar of 15 and
-a chance expectation of ~7. The strongest responders were inferior-frontal (IFJa
+parcels to |*r*| > 0.9 against log cut count, against a pre-registered bar of 15; against
+the correct null, a permutation of the five level labels, that count has *p* = 0.017, the
+floor of a five-level design. The strongest responders were inferior-frontal (IFJa
 *r* = +0.996) rather than the dorsal-attention network the literature predicted —
 coherent, since every cut is a task switch, but post-hoc and treated as a hypothesis
 rather than a finding.
@@ -64,7 +65,8 @@ were intercut at exactly 1, 3, 7, 15 and 31 cuts per minute — a 31× range aga
 01's effective 2.1× — in two arms, with the face scene's dialogue present (S+) or replaced
 by continuous ambient sound (S−), criteria fixed before generation. **Cutting alone drives
 inferior-frontal cortex up and auditory cortex down, in both arms**: 58 and 54 of 180
-parcels reach |*r*| > 0.9 against log cut count (chance ≈ 7); IFJa, IFSp and 8C reach
+parcels reach |*r*| > 0.9 against log cut count (level-permutation *p* = 0.025 in each
+arm); IFJa, IFSp and 8C reach
 +0.91 to +0.93 with speech and +0.89 to +0.90 without; A4, A1 and MBelt fall to −0.92 to
 −0.97 in both. The pre-fixed verdict is **PARTIAL-A**, because the no-speech arm puts one
 rather than two cluster parcels over the 0.9 bar — three miss it by 0.001 to 0.03 at
@@ -774,8 +776,15 @@ base rate.
 
 **Result: PASS on both.**
 
-**51 of 180 parcels** reached |*r*| > 0.9 — against a bar of 15 and a chance
-expectation of ~7, roughly **seven times chance**. Dorsal attention was
+**51 of 180 parcels** reached |*r*| > 0.9, against a bar of 15. **The criterion's "~7 by
+chance" was wrong, and an earlier draft's "seven times chance" with it.** That figure treats
+180 parcels as independent; across the five levels the cortex moves along roughly one
+direction (participation ratio 1.85 of a possible 4), so the count behaves like a single
+event. The correct null permutes the five level labels (`ladder_count_null.py`, 120
+orderings): median count 3, 95th percentile 28, and 17% of random orderings clear the bar of
+15. The observed 51 is matched only by the true ordering and its mirror image — *p* = 2/120
+= 0.017, **the most extreme result a five-level design can produce, and no stronger than
+that**. The pre-fixed verdict stands; the bar was weaker than we believed. Dorsal attention was
 over-represented: **3 of 7** parcels survived (LIPv, PEF, VIP) against 1.98 expected.
 
 **The strongest responders were not where the literature pointed:**
@@ -951,6 +960,28 @@ continuously measured dial rather than a three-way contrast: the voice chain up
 (STSdp +0.84, A5 +0.69, STSvp +0.58) and the place chain down (VMV2 −0.66,
 PHA2 −0.62, MT −0.54). A controlled probe and an observational index, sharing no
 segments and no analysis, agree on this axis to the parcel.
+
+**The face-area signature holds in each film separately; the frontal parcels do not**
+(exploratory, `02-index/per_film.py`). Within-film centring removes film means, not film
+slopes, so the pooled fit could average slopes of opposite sign. For face area it does not:
+
+| parcel | *Jungle Book* (n 24) | *Nothing Sacred* (n 23) | *Royal Wedding* (n 23) | pooled |
+|---|---|---|---|---|
+| STSdp | +0.49 | +0.37 | +0.89 | +0.40 |
+| A5 | +0.44 | +0.36 | +0.90 | +0.37 |
+| STSvp | +0.43 | +0.35 | +0.88 | +0.37 |
+| VMV2 | −0.48 | −0.49 | −0.66 | −0.45 |
+| PHA2 | −0.54 | −0.45 | −0.80 | −0.46 |
+| MT | −0.42 | −0.49 | −0.70 | −0.43 |
+| IFJp | +0.39 | −0.42 | −0.59 | −0.04 |
+
+Within-film Pearson *r* of each parcel with `face_area_frac`. The voice chain is positive and
+the place chain negative in all three films, strongest in *Royal Wedding*. The exception is
+inferior-frontal: IFJp's relation to face area is +0.39 in one film and −0.42 and −0.59 in
+the others, and pools to nothing. The same split appears for cut rate (§6.8): auditory
+parcels negative in every film, frontal parcels of opposite sign in two. **The index's
+dominant axis is a property of all three films; its frontal entries are not a property of
+any pooled fit.**
 
 **The lighting/colour cluster** is dominant in 25 survivors and, per the
 pre-registration, is reported as an association with the *cluster*. §6.2 fixed that
@@ -1205,7 +1236,8 @@ cut. Video is byte-identical across arms. Scored on the unchanged stage-02 Space
 **PARTIAL-A** (H3a, not H3b) was fixed in advance with the reading "the frontal cut effect
 needs speech present"; PARTIAL-B (neither, but auditory tracks) would demote stage 01 to a
 property of its two clips; FAIL if nothing tracks. Reported, not gating: the |*r*| > 0.9
-count (chance ≈ 7 at *n* = 5), whole-vector *r* cut01 vs cut31, and A4 / A5 / MBelt / A1
+count (the README took chance as ≈ 7 at *n* = 5; corrected below), whole-vector *r* cut01
+vs cut31, and A4 / A5 / MBelt / A1
 against cut count — stage 02's observational signature, to see whether it appears under
 control at all.
 
@@ -1215,7 +1247,8 @@ control at all.
 |---|---|---|---|
 | cluster parcels at *r* > +0.9 | ≥ 2 of 4 | **3 of 4** — met | **1 of 4** — not met |
 | IFJa · IFJp · IFSp · 8C | | +0.907 · +0.863 · **+0.932** · **+0.930** | +0.899 · +0.871 · **+0.902** · +0.889 |
-| parcels at \|*r*\| > 0.9 (chance ≈ 7) | reported | **58 / 180** | **54 / 180** |
+| parcels at \|*r*\| > 0.9 | reported | **58 / 180** | **54 / 180** |
+| that count against 120 level permutations | — | *p* = 0.025 (null 95th pct 32, max 79) | *p* = 0.025 (null 95th pct 32, max 90) |
 | A4 · A1 · MBelt · A5 | reported | **−0.969 · −0.959 · −0.951** · +0.152 | **−0.939 · −0.931 · −0.924 · −0.949** |
 | whole-vector *r*, cut01 vs cut31 | reported | +0.743 | +0.822 |
 
@@ -1227,9 +1260,15 @@ without.
 In the no-speech arm all four cluster parcels sit at +0.87 to +0.90, and the three that
 miss the bar do so by 0.001 (IFJa), 0.011 (8C) and 0.029 (IFJp). At *n* = 5 levels that gap
 is inside noise. The data show **the inferior-frontal cut effect present in both arms at
-near-identical magnitude**, with 58 and 54 parcels at |*r*| > 0.9 — roughly eight times
-chance, replicating stage 01's 51 / 180 on generated footage with content fixed by
-construction and the cut range genuinely 31×. PARTIAL-A stands because the criteria were
+near-identical magnitude**, with 58 and 54 parcels at |*r*| > 0.9, replicating stage 01's
+51 / 180 on generated footage with content fixed by construction and the cut range
+genuinely 31×. Against the level-permutation null (§5.2) each count has *p* = 3/120 =
+0.025 — the true ordering, its mirror image and one other — and some random orderings put
+79 or 90 parcels over the bar, because the response across the ladder is close to
+one-dimensional (participation ratio 1.25 and 1.20 of a possible 4). Two consequences. The
+counts are near the strongest evidence five levels can give, not "eight times chance". And
+"frontal up, auditory down" is the sign pattern of one response mode, not two independent
+findings. PARTIAL-A stands because the criteria were
 fixed and are not softened afterwards; the claim that speech is *required* for the frontal
 effect must not be carried forward as a finding, and this paper does not carry it.
 
@@ -1452,6 +1491,12 @@ hypothesis is weakened rather than excluded and the frontal miss stays unexplain
 is also *n* = 5 levels per arm, one generated scene pair, one generator,
 with a face base short of its shot-scale target (0.052 against 0.10), and its verdict is
 PARTIAL-A by a margin of 0.001 on one parcel — a near-miss reported as a miss.
+
+**The ladder designs have a *p*-floor.** Five levels allow 120 orderings, of which the true
+one and its mirror are indistinguishable, so no count can do better than *p* = 0.017. Stage
+01 reaches that floor and stage 03 sits one ordering above it. The designs cannot separate a
+strong effect from a very strong one, and the pre-fixed bar of 15 parcels is cleared by 8–17%
+of random orderings. Seven levels, or two scene pairs, would have cost little more.
 
 **Cut rate is not a frontal lever in the observational index.** The index has no cut-rate
 weight on inferior-frontal cortex to steer with, and the exploratory refits show none is

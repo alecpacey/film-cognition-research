@@ -1,0 +1,33 @@
+{
+ "stage01": {
+  "observed": 51,
+  "null_median": 3.0,
+  "null_p95": 28.049999999999997,
+  "null_max": 51,
+  "n_orderings_ge_observed": 2,
+  "p": 0.016666666666666666,
+  "frac_orderings_clearing_bar_15": 0.16666666666666666,
+  "participation_ratio_across_levels_max4": 1.8489324927375541
+ },
+ "stage03_Splus": {
+  "observed": 58,
+  "null_median": 2.0,
+  "null_p95": 32.05,
+  "null_max": 79,
+  "n_orderings_ge_observed": 3,
+  "p": 0.025,
+  "frac_orderings_clearing_bar_15": 0.08333333333333333,
+  "participation_ratio_across_levels_max4": 1.2505562367016876
+ },
+ "stage03_Sminus": {
+  "observed": 54,
+  "null_median": 1.0,
+  "null_p95": 32.49999999999997,
+  "null_max": 90,
+  "n_orderings_ge_observed": 3,
+  "p": 0.025,
+  "frac_orderings_clearing_bar_15": 0.1,
+  "participation_ratio_across_levels_max4": 1.195319319724731
+ },
+ "note": "identity and reversed orderings give identical |r|, so the p-floor of a 5-level design is 2/120 = 0.017"
+}
