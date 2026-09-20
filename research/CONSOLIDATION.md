@@ -28,7 +28,7 @@ line below at the end of each session.
 
 - [x] **2a · README with criteria** *(written 20 Sep, committed before any clip exists; awaiting the author's read before 2b–2d)* for the discontinuity-vs-switch test (M5 / F2), the text-on
       rescoring (M6 / F3) and timeline saving (F8), in `experiments/03b-discontinuity/README.md`.
-- [ ] **2b · Build clips, $0:** same-scene self-intercut ladder from `face_close.mp4`; black-frame
+- [x] **2b · Build clips, $0:** *Done 20 Sep: 15 clips built and measured (`03b-discontinuity/CLIPS.md`). D's joins detected as cuts 11% (rule ≤ 25%); B/C hard cuts with histogram distance 0.16/0.23 vs REF 0.78; audio MD5 identical across all 20 clips.* same-scene self-intercut ladder from `face_close.mp4`; black-frame
       insert ladder; measured with `cinemetrics.py`.
 - [ ] **2c · Space app saves the 1 Hz timeline** per clip to the results repo; identity-tested
       against an existing result.
