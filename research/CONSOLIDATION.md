@@ -8,7 +8,7 @@ Rules: tick a box only when its done-criterion is met and the evidence is commit
 gets a `LOG.md` line. Paid steps get criteria in a README *before* spend. Update the status
 line below at the end of each session.
 
-**Status (20 Sep 2026):** **Step 1 complete** (1a–1d). Next: step 2a, the criteria README for the discontinuity session — free to write; the author reads the criteria before any spend. Scoring (2d) needs HF prepaid credit, ≈ $5–8.
+**Status (20 Sep 2026):** **Step 1 complete** (1a–1d). **2a written** — `experiments/03b-discontinuity/README.md`; author to read before building (2b) and spending (2d). Scoring (2d) needs HF prepaid credit, ≈ $5–8.
 
 ## Step 1 · Integrity fixes — free
 
@@ -26,7 +26,7 @@ line below at the end of each session.
 
 ## Step 2 · One paid session, ≈ $5–8 — criteria first
 
-- [ ] **2a · README with criteria** for the discontinuity-vs-switch test (M5 / F2), the text-on
+- [x] **2a · README with criteria** *(written 20 Sep, committed before any clip exists; awaiting the author's read before 2b–2d)* for the discontinuity-vs-switch test (M5 / F2), the text-on
       rescoring (M6 / F3) and timeline saving (F8), in `experiments/03b-discontinuity/README.md`.
 - [ ] **2b · Build clips, $0:** same-scene self-intercut ladder from `face_close.mp4`; black-frame
       insert ladder; measured with `cinemetrics.py`.
