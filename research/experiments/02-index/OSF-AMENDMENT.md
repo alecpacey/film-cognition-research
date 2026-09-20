@@ -74,3 +74,23 @@ Leave the rest of item_15 (the description of `gate_and_continue.sh`) unchanged;
 
 Record the date here and in `../../CONSOLIDATION.md` (step 1d), and align PAPER § 4.8 / § 7,
 which currently say the registration "was amended publicly".
+
+---
+
+## Exact edits against the text as posted on OSF (supplied by the author, 20 Sep 2026)
+
+Field **"Explanation of foreknowledge and managing unintended influences"** — three changes;
+every other paragraph is left byte-for-byte as posted.
+
+**1 · Lead-in and list of WHAT WAS OBSERVED.** Change the lead-in sentence and add item (g):
+
+> WHAT WAS OBSERVED. Pipeline-health quantities, each declared in advance in the project's stage README before collection began, and one further item, (g), added by this update:
+> … (a) to (f) unchanged …
+>  (g) [ADDED BY UPDATE] the single binary verdict of the pre-registered futility check (see Stopping rule), executed once on 6 September 2026 at 30 of 70 segments. The verdict was CONTINUE. The original text of this registration omitted this item and stated the check had never been executed; that was false.
+
+**2 · WHAT WAS NOT OBSERVED** — replace the paragraph.
+
+**3 · Action 2** — replace the sentence claiming the script HAS NEVER BEEN EXECUTED.
+
+Full replacement text for 2 and 3 is in the conversation record of 20 Sep and in the OSF
+revision itself once approved.
