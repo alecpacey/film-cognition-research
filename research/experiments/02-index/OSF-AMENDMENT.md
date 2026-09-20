@@ -94,3 +94,21 @@ every other paragraph is left byte-for-byte as posted.
 
 Full replacement text for 2 and 3 is in the conversation record of 20 Sep and in the OSF
 revision itself once approved.
+
+---
+
+## Review-page check, 20 Sep 2026 — further locations found before submission
+
+Reading the full review page showed the false claim, or a claim it makes false, in more fields
+than the local notes recorded, plus one unrelated false statement:
+
+- **Starting and stopping rules** — the first paste did not take; review page still showed the original.
+- **Research Design → Additional blinding → item 5** ("THE FUTILITY SCRIPT WAS NEVER RUN").
+- **Analysis Plan → Inference criteria** ("No interim version of it has been run").
+- **Analysis Plan → Other planned analysis → item 1** (lists interim looks, omits the futility look).
+- **Research Design → Study design** and **Variables → Measured variables → COVARIATES**: both say
+  scene-boundary counts per segment are kept in the dial table. They never were (found 15 Sep;
+  PAPER § 4.3 corrected). Not in the registered model, so no analysis is affected.
+
+The justification was rewritten to use OSF's field names and to cover both corrections. The
+OSF revision, once approved, is the authoritative text.
