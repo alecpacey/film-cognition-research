@@ -53,12 +53,12 @@ executed. Nothing is running. The Space is PAUSED.
 | fal key | `01b-transfer/.env` (gitignored) |
 | Analysis env | `02-index/.venv-analysis` (sklearn, scipy, no statsmodels — use `scipy.stats.false_discovery_control`); HF tooling in system `python3` |
 | cinemetrics | `cinemetrics.py CLIP --json OUT`, run from `02-index/` (needs `yunet.onnx`); nested keys (`cuts.cuts_per_min`, `shot_scale.face_area_frac`); largest-face nulls on tiny faces |
-| Registration | `osf.io/dg7fe`, embargoed to 7 Sep 2027. **Amendment drafted, not posted**: `~/Desktop/osf-registration-attachments/15-AMENDMENT.md` — the futility check *was* run on 6 Sep (CONTINUE); three registration sentences say otherwise |
+| Registration | `osf.io/dg7fe`, embargoed to 7 Sep 2027. **Amended 20 Sep 2026** via OSF's update process (eight fields; text in `02-index/OSF-AMENDMENT.md`; the old Desktop draft no longer exists) — the futility check *was* run on 6 Sep (CONTINUE); three registration sentences say otherwise |
 | Frozen data | `02-index/parcel_vectors.json` sha `93807b80…`; four criteria docs byte-identical to `89d01a1` |
 
 ## Deviations and unfinished business, honestly
 
-- OSF amendment unposted (user deferred all registration work). Paper §7 already describes it.
+- OSF amendment filed and accepted 20 Sep 2026; paper § 4.8 / § 7 now describe it as it happened.
 - Elastic-net hyperparameters (α 0.1, l1 0.5, 5-fold) were not pre-registered; disclosed.
 - Within-film adjacency never tested (restricted permutation held: 99 vs 101).
 - Two accidental empty fal requests on 11 Sep, expected $0, **unverified** on the dashboard.
@@ -156,5 +156,5 @@ The list below predates it.
    only; face area is the largest lever. Criteria before spend.
 2. Optional, free: a semantic scene-change proxy (shot embeddings) to re-test the scene-switch
    hypothesis that the histogram proxy did not support. Not built.
-3. If publishing resumes: post the amendment, then the paper's finishing pass (claim–evidence
+3. If publishing resumes: the paper's finishing pass (claim–evidence
    audit, references), then OSF Preprints.

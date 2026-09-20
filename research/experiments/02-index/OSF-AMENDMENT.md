@@ -112,3 +112,9 @@ than the local notes recorded, plus one unrelated false statement:
 
 The justification was rewritten to use OSF's field names and to cover both corrections. The
 OSF revision, once approved, is the authoritative text.
+
+---
+
+## Filed
+
+Submitted and accepted by the author on **20 September 2026**. Nine review-page fields touched: the justification plus eight registration questions (Explanation of foreknowledge; Additional blinding; Study design; Starting and stopping rules; Measured variables; Inference criteria; Other planned analysis; Context and additional information). A double comma introduced in the last of these was fixed before acceptance. The registration remains embargoed to September 2027.

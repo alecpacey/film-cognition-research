@@ -8,7 +8,7 @@ Rules: tick a box only when its done-criterion is met and the evidence is commit
 gets a `LOG.md` line. Paid steps get criteria in a README *before* spend. Update the status
 line below at the end of each session.
 
-**Status (20 Sep 2026):** 1a, 1b, 1c done. **1d (post the OSF amendment) is an author action and is the only open item in step 1.** Next: step 2a, the criteria README for the discontinuity session.
+**Status (20 Sep 2026):** **Step 1 complete** (1a–1d). Next: step 2a, the criteria README for the discontinuity session — free to write; the author reads the criteria before any spend. Scoring (2d) needs HF prepaid credit, ≈ $5–8.
 
 ## Step 1 · Integrity fixes — free
 
@@ -21,7 +21,7 @@ line below at the end of each session.
       percentile and the participation ratio. *Done when:* no "times chance" remains in `PAPER.md`.
 - [x] **1c · Per-film coefficients (M7).** *Done 20 Sep: `experiments/02-index/per_film.py`; table in § 6.4 — face/place signature same sign in all three films; frontal parcels conflict.* Table of cut-rate and face-area coefficients per film
       for the named parcels. *Done when:* table in § 6.4 or a supplement, from a committed script.
-- [ ] **1d · OSF amendment posted (M8, m1).** **Author action** — `~/Desktop/osf-registration-attachments/15-AMENDMENT.md`.
+- [x] **1d · OSF amendment posted (M8, m1).** *Done 20 Sep 2026 (submitted and accepted by the author; registration still embargoed to Sep 2027, so not externally verifiable). Eight fields corrected: six for the futility check, two for the never-recorded scene-boundary count. Text in `experiments/02-index/OSF-AMENDMENT.md`; PAPER abstract, § 4.8, § 7 aligned.* **Author action** — `~/Desktop/osf-registration-attachments/15-AMENDMENT.md`.
       *Done when:* posted; § 4.8 / § 7 wording matches the fact and the date.
 
 ## Step 2 · One paid session, ≈ $5–8 — criteria first

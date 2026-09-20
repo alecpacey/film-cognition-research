@@ -122,7 +122,8 @@ project handoff — that background log pollers had been *killed* — was a wron
 diagnosis of a blocking read on a stream that never closes. The registration itself
 carried an error of the same kind: it stated three times that a pre-registered interim
 check had never been executed, inferred from the absence of any record of it on disk.
-The check had in fact been run, and the claim was corrected by public amendment. **When
+The check had in fact been run, and the registration was corrected through OSF's formal
+update process on 20 September 2026. **When
 an instrument returns plausible numbers whatever you feed it, silent failure is the
 central methodological hazard**, and the discipline that catches it — including when
 it catches the authors — is worth reporting alongside the results it protects.
@@ -650,8 +651,9 @@ produced; the study proceeded exactly as it would have, and no threshold or
 specification moved. The error was ours and its mechanism is instructive: we checked
 the claim by searching the repository and its logs for the script's output, found
 nothing, and read absence of a record as absence of execution. The script was
-untracked and had printed to a terminal. The registration was amended publicly, and
-§7 treats this as a method failure rather than a footnote. It was also *restated*, because the original was arithmetically inert. The
+untracked and had printed to a terminal. The registration was amended through OSF's formal update process on 20 September 2026 —
+the original remains visible as version 1, and both stay under embargo until September
+2027 — and §7 treats this as a method failure rather than a footnote. It was also *restated*, because the original was arithmetically inert. The
 original rule — "if after 20 segments no dial reaches |*r*| > 0.3, stop" — fires about
 one time in five under pure noise: at *n* = 20 the null probability of a single dial
 exceeding |*r*| = 0.3 is 0.247, and across six dials the probability at least one does
@@ -1410,8 +1412,13 @@ not asked.
 What it did and did not cost is worth separating. Running the check was *permitted*: it
 was pre-registered, it returned CONTINUE, its output is a single binary verdict by
 construction, and no threshold, sample size or specification moved. The protocol was
-not violated. What was damaged was the accuracy of a public document, and the remedy
-was a public amendment recording the correction and its cause. **A registration that
+not violated. What was damaged was the accuracy of a registered document, and the remedy
+was an amendment, filed through OSF's update process on 20 September 2026, recording the
+correction and its cause. Filing it taught the lesson a third time. Our own notes placed the
+false claim in two fields; reading the registration end to end before submitting found it
+stated or implied in six, and found a second, unrelated false statement in two more — that
+scene-boundary counts were kept in the dial table (§4.3). Eight fields were corrected in
+one update, each marked in the text as corrected, with the original wording quoted. **A registration that
 must be amended for a false statement about its own compliance is a worse artefact than
 one that never made the claim** — and the general lesson is the one already stated
 above, now demonstrated twice: a confidently recorded fact is exactly where verification
