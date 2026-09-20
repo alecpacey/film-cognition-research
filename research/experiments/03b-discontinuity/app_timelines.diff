@@ -1,0 +1,26 @@
+85c85
+< def _upload_result(clip, names, vals, z, shape):
+---
+> def _upload_result(clip, names, vals, z, shape, parcel_timeline=None, abs_times=None):
+97,99c97,105
+<     payload = json.dumps({"clip": clip, "n_parcels": len(names), "timeline_shape": list(shape),
+<                           "parcels": {n: {"raw": float(vals[i]), "z": float(z[i])}
+<                                       for i, n in enumerate(names)}}).encode()
+---
+>     body = {"clip": clip, "n_parcels": len(names), "timeline_shape": list(shape),
+>             "parcels": {n: {"raw": float(vals[i]), "z": float(z[i])} for i, n in enumerate(names)}}
+>     # 03b (20 Sep 2026): also keep each parcel's 1 Hz timeline. raw/z above are computed
+>     # exactly as before; this only adds fields. Identity-tested against stage 03's S- results.
+>     if parcel_timeline:
+>         body["parcel_timeline"] = {n: [round(float(v), 7) for v in parcel_timeline[n]] for n in names if n in parcel_timeline}
+>         if abs_times is not None:
+>             body["abs_times"] = [round(float(t), 3) for t in np.asarray(abs_times).ravel()]
+>     payload = json.dumps(body).encode()
+219a226
+>         ptl = {}                                   # 03b: per-parcel 1 Hz timeline, (T,) each
+230a238
+>                     ptl[str(pname)] = timeline[:, idx].mean(axis=1)
+253c261
+<         _upload_result(name, names, vals, z, timeline.shape)
+---
+>         _upload_result(name, names, vals, z, timeline.shape, ptl, abs_times)
