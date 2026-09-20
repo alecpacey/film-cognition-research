@@ -97,16 +97,21 @@ using a restricted within-film permutation returns 99 of 180 with a marginally
 *narrower* null, so the headline count is not an artefact of a lenient test.
 
 Characterising the fitted crosswalk as a map — exploratory, and the artefact the
-programme was built to produce — gives the sharpest structural result. **Fourteen dials
-move this cortex along about three effective dimensions**: three components carry 90%
-of the index's variance, and they are interpretable as a face/place axis (69%), a motion
-axis (14%) and a colour axis (6%). The reachable subspace retains 90.8% of observed
-profile variance against 7.9% for a random subspace of equal dimension and a 99.4%
-ceiling, and the first technique axis is very nearly the first principal component of
-cortical variation. This bounds the programme's endpoint before it is attempted:
-**inversion is projection, not solution** — an arbitrary target profile is not
-reachable, only its component in a roughly three-dimensional subspace is — and the
-direction technique commands most strongly is the face/place axis.
+programme was built to produce — gives a structural result, and a correction to our own
+first reading of it. Three components carry 90% of the index's variance, interpretable as
+a face/place axis (69%), a motion axis (14%) and a colour axis (6%). **That
+low-dimensionality belongs to the sensor's response space, not to technique**: refitting
+the same model to label-shuffled responses gives an index just as concentrated (three
+components 89%, *p* = 0.42), whose first axis aligns with the first principal component of
+cortical variation almost as well. What is specific to technique is narrower and survives
+the shuffled null: **face area is the dial that leads the dominant axis** (loading 0.80
+against a null 95th percentile of 0.57, *p* = 0.010), and the index's subspace retains
+90.8% of observed profile variance against a shuffled-label floor of 85.5% (*p* = 0.005) —
+not against the 7.8% of a random subspace, which was the wrong comparison. The bound on the
+programme's endpoint stands and is if anything tighter: **inversion is projection, not
+solution** — an arbitrary target profile is not reachable, because this sensor's responses
+to cinema occupy about three dimensions and technique can command no more than that — and
+the direction technique commands most strongly is the face/place axis.
 
 We also report method failure as evidence. Six of seven failures in stage 00 were
 assumed API shapes rather than model or data problems; clip uploads were silently
@@ -203,7 +208,7 @@ The programme is a chain. Each link gates the next and is permitted to break it.
 | **H2** | Across real cinema, measured technique dials predict parcel-level response profiles, recoverably by penalised regression | ✅ **Supported** (stage 02) — 14/14 dials, 101/180 parcels. But only 9 parcels reach the SESOI |
 | **H2b** | The controlled cut-rate result of stage 01 reappears observationally | ❌ **Not supported** (stage 02) — IFJa at its null; the one surviving cluster parcel has zero cut-rate weight. **Explained by stage 03 (§6.8)**: the observational index recovered the auditory half of the cut effect and the corpus does not carry the frontal half |
 | **H3** | At least some of those associations are causal, demonstrable by holding all dials fixed and moving one | ✅ **Supported** (stage 03, verdict **PARTIAL-A** against the pre-fixed table) — cutting alone, content fixed by construction, drives IFJa / IFSp / 8C up and A4 / A1 / MBelt down on generated footage in both speech arms; the no-speech arm misses the 0.9 bar on three cluster parcels by ≤ 0.03 at *n* = 5 |
-| **H4** | The mapping can be inverted — a target profile selects a technique, and the achieved profile matches | Not started (stage 04). **Bounded in advance by §6.7**: the reachable set is ~3-dimensional, so inversion is projection onto it, and the inverse is many-to-one |
+| **H4** | The mapping can be inverted — a target profile selects a technique, and the achieved profile matches | Not started (stage 04). **Bounded in advance by §6.7**: the reachable set is ~3-dimensional — a property of the sensor's response space, which technique cannot exceed — so inversion is projection onto it, and the inverse is many-to-one |
 
 **H2b deserves emphasis.** It is the only place in the design where the controlled
 and observational tracks can contradict each other. If cut rate moves the sensor on
@@ -1060,12 +1065,27 @@ programme was built to produce. This section characterises it. The object is the
 cortical pattern associated with dial *k*, and the set of response profiles technique
 can reach is the span of those columns.
 
-**Fourteen dials move cortex along about three effective dimensions.** The singular
-values of **B** fall away sharply — 3.34, 1.52, 1.01, then nothing above 0.74. Three
-components carry 90.1% of the index's variance and five carry 95.9%; the participation
-ratio is 5.56 of a possible 14. Restricted to the 101 surviving parcels the collapse is
-sharper still (4.76, three components for 92.7%). **The console has fourteen knobs and
-about three outputs.**
+**Provenance and a correction.** This section was first written with no script committed
+behind it. `02-index/index_map.py` (20 September) now rebuilds **B** from
+`analysis_result.json` and reproduces all 45 figures below; its output is `index_map.json`,
+with `index_map_followup.py` for the technique-specificity tests. The reproduction added the
+comparison the first draft lacked — the same elastic net refitted to **label-shuffled**
+responses, 200 times — and that comparison changes what the section may claim. Where the
+first draft's reading does not survive it, the text below says so.
+
+**The index is concentrated in about three dimensions — and so is an index fitted to
+noise.** The singular values of **B** fall away sharply — 3.34, 1.52, 1.01, then nothing
+above 0.75. Three components carry 90.1% of the index's variance and five carry 95.9%.
+Restricted to the 101 surviving parcels, three components carry 92.7%. (The first draft
+quoted participation ratios of 5.56 for **B**, 4.76 for the survivors and 8.35 for **Y**;
+those were computed on singular values. On variances, the conventional definition, they are
+1.97, 1.65 and 2.41.) Under label shuffling the index is just as concentrated: three
+components carry 89.1% on average (5th–95th percentile 82.5–93.9%; observed 90.1%,
+*p* = 0.42) and the first axis 66% (observed 69%, *p* = 0.39). **The console's three
+outputs are a property of the sensor's response space across these segments, which itself
+varies along two to three dimensions; they are not evidence that technique is
+low-dimensional.** Any 14-predictor fit to these responses, signal or none, collapses the
+same way.
 
 | axis | share | dominant dials | cortex |
 |---|---|---|---|
@@ -1080,42 +1100,59 @@ resemblance but a measurement: run 00's face − landscape contrast vector corre
 axis 1 at ***r* = +0.936** (face alone +0.704, landscape alone −0.684, crowd −0.135 —
 the graded middle again), against a 180-parcel permutation 95th percentile of 0.144.
 Two measurements sharing no segments, no films and no analysis agree on the dominant
-direction to 0.94. **Axis 2 is
+direction to 0.94 — **but most of that agreement is about the sensor, not about technique.**
+Run 00's contrast correlates with the first principal component of the 70 response profiles
+at |*r*| = 0.90 with no dial involved, and with the first axis of *label-shuffled* indices at
+0.84 on average (5th–95th percentile 0.68–0.93); the observed +0.936 sits at *p* = 0.045
+against that null, not at the 0.144 of a parcel permutation, which tested the wrong thing.
+What the agreement establishes is that the dominant axis of this sensor's response to real
+cinema *is* the face/place axis of stage 00. What is specific to technique is which dial
+leads it: face area loads on axis 1 at 0.80, against a shuffled-label mean of 0.22 and 95th
+percentile of 0.57 (*p* = 0.010), and leads axis 1 in 10% of shuffles. **Axis 2 is
 motion** — camera movement and cutting loading on MT, MST, FST, V4t, the motion-
 sensitive complex. **Axis 3 is colour**, and it is small. Note where cut rate lands: on
 the motion axis, at a third the weight of camera pan, and nowhere near frontal cortex —
 the same story §6.5 tells, arrived at without reference to stage 01.
 
-**Technique is well aligned with how this cortex actually varies, and that is not
-trivial.** Projecting the observed 70 × 180 profile matrix onto the reachable subspace
-retains **90.8%** of its variance. The comparisons that make that number meaningful:
+**Technique is aligned with how this cortex varies, by a modest margin over a fit to
+noise.** Projecting the observed 70 × 180 profile matrix onto the reachable subspace
+retains **90.8%** of its variance. The comparison that makes that number meaningful is the
+third row, which the first draft did not have:
 
 | 14-dimensional subspace | variance of observed profiles retained |
 |---|---|
-| random | 7.9% (sd 1.9, max 15.1 over 200 draws) |
-| **technique** | **90.8%** |
+| random | 7.8% (sd 1.8, max 13.5 over 200 draws, seed in script) |
+| **index fitted to label-shuffled responses** | **85.5%** (5th–95th pct 81.8–88.5, max 89.6 over 200) |
+| **technique** | **90.8%** (*p* = 0.005 against the shuffled fits) |
 | top-14 principal components (ceiling) | 99.4% |
+
+A random subspace is the wrong floor: the columns of any **B** fitted to **Y** are built
+from **Y**'s own rows, so they lie in its dominant directions whether or not the dial labels
+mean anything. The honest statement is a gain of about five points over that floor, real
+(*p* = 0.005) and small. The total coefficient mass tells the same story from the other
+side: ‖**B**‖ = 4.01 against a shuffled mean of 2.67 (*p* = 0.015).
 
 Technique reaches 91.3% of what the *best possible* 14-dimensional subspace could. With
 a single axis it retains 57.7% against a best-possible 61.8% — **the first technique
 axis is very nearly the first principal component of cortical variation across these
 segments.**
 
-**Two things temper this.** First, **B** is fitted to predict **Y**, so its column space
-is selected to align with **Y**; the number is partly a restatement of model fit rather
-than an independent discovery. What is not guaranteed by fitting is the *concentration*
-— that a 14-predictor fit collapses to three effective directions, and that the first
-of them nearly coincides with the dominant direction of variation. Second, the parcel
-space is highly redundant to begin with (participation ratio 8.35 of 67 available
-degrees of freedom), which is why the random baseline is the necessary comparison and
-is reported.
+**The first draft tempered this with a caveat and then claimed the wrong exception.** It
+noted that **B** is fitted to **Y** and so aligned by construction, and said that what
+fitting does *not* guarantee is the concentration and the coincidence of the first axis
+with the dominant direction of variation. The shuffled-label fits show fitting guarantees
+both: their first axis correlates with **Y**'s first principal component at 0.92 on average
+(observed 0.96, *p* = 0.095) and retains 52.7% of profile variance alone (observed 57.7%,
+*p* = 0.075). The single-axis figures in the paragraph above are therefore descriptive of
+the response space, not findings about technique.
 
 **What this says about inversion, which is the programme's endpoint.** H4 proposes
 specifying a target cortical profile and deriving the technique that reaches it. The
 geometry above says what that can and cannot mean.
 
 *A target profile is not freely specifiable.* Response profiles live in 180 dimensions;
-technique reaches about three. Any target decomposes into a reachable component and a
+this sensor's responses to cinema occupy about three, and technique can reach no more than
+the sensor varies over. The bound is on the instrument first and on technique second. Any target decomposes into a reachable component and a
 residual that no combination of these fourteen dials can produce, and the residual is
 not small in general — it is only small for targets that resemble the profiles real
 film already produces. **Inversion is projection, not solution.**
@@ -1421,10 +1458,15 @@ weight on inferior-frontal cortex to steer with, and the exploratory refits show
 hiding under the penalty. Any control law that reaches frontal cortex through cutting rests
 on stage 03's regime — scene-alternating intercut material — and nothing else yet.
 
-**The index is low-dimensional, which bounds every downstream claim.** Fourteen dials
-resolve to about three effective cortical directions (§6.7). Whatever the programme
-eventually demonstrates about control, it is control over a roughly three-dimensional
-subspace of response profiles, not over cortical response in general.
+**The sensor's response space is low-dimensional, which bounds every downstream claim.**
+Across 70 segments of real cinema the 180-parcel response varies along two to three
+dimensions, and an index fitted to label-shuffled responses is as concentrated as the real
+one (§6.7). Whatever the programme eventually demonstrates about control, it is control over
+a roughly three-dimensional subspace of response profiles. Whether that is a fact about
+cortex, about TRIBE's encoding head, or about clip-mean readouts that average away
+everything faster than a minute, this design cannot say. The technique-specific content of
+the map is narrower than the first draft claimed: which dial leads the dominant axis, and a
+five-point gain in retained variance over a fit to noise.
 
 **Cut rate is the weakest dial in the design**, at *s* ≈ 0.66, precisely because it
 carries the most between-film signal. It is also the dial the replication check

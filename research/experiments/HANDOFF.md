@@ -32,9 +32,12 @@ executed. Nothing is running. The Space is PAUSED.
    proxy: no frontal association at any threshold, film-flipping sign persists, auditory follows
    every kind of cut (`02-index/scene_switches.md`). The frontal miss is a property of this
    corpus and is unexplained; it differs in sign between films.
-3. **Fourteen dials move this cortex along ~3 axes**: face/place 69%, motion 14%, colour 6%.
-   Axis 1 is run 00's contrast (r = +0.936) and the axis generated imagery reproduces (+0.699).
-   **Inversion is projection, not solution; the inverse is many-to-one.**
+3. **The index sits in ~3 axes — face/place 69%, motion 14%, colour 6% — but that is the sensor's
+   response space, not technique** (corrected 20 Sep, `02-index/index_map.py`): an index fitted to
+   label-shuffled responses is as concentrated (p 0.42) and its axis 1 matches run 00's contrast at
+   0.84 on average (observed +0.936, p 0.045). Technique-specific: face area leads axis 1 (p 0.010);
+   retained variance 90.8% vs a shuffled floor of 85.5% (p 0.005). **Inversion is projection, not
+   solution; the inverse is many-to-one** — the bound stands, on the instrument first.
 4. **The film's premise has measured support**: face area is the dominant dial (largest coefficient
    in 65 of 101 survivors). A controller maximising this index goes to faces. Mechanism, not proof
    of the forty-clip drift.
@@ -144,6 +147,9 @@ Not chosen yet: stage 04 spec; text-on stage-03b. Machine note: background jobs 
 twice for memory on 14 Sep — keep long watchers light or off-laptop.
 
 ## First actions next session
+
+**Read `../CONSOLIDATION.md` first** — the step-by-step plan from the 16 Sep review, with status.
+The list below predates it.
 
 1. Stage 04 spec, with the constraint now established: cut rate is a frontal lever only on
    intercut, scene-alternating generated material; the index's cut-rate column is auditory

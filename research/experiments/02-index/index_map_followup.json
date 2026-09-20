@@ -1,0 +1,29 @@
+{
+ "participation_ratio": {
+  "on_singular_values_as_first_draft": {
+   "B": 5.5627996926935825,
+   "survivors": 4.75760684021566,
+   "Y": 8.34664341912032
+  },
+  "on_variances_conventional": {
+   "B": 1.9668272309873471,
+   "survivors": 1.6538047871260224,
+   "Y": 2.4078345351514963
+  }
+ },
+ "run00_contrast_vs_PC1_of_Y_abs_r": 0.8998946540756572,
+ "face_loading_axis1": {
+  "observed": 0.8023687874353711,
+  "null_mean": 0.2179643688503128,
+  "null_p95": 0.5677785051620626,
+  "p": 0.009950248756218905,
+  "face_leads_frac_null": 0.095
+ },
+ "axis1_vs_run00_contrast": {
+  "observed": 0.9359165566737783,
+  "null_mean": 0.838757714254869,
+  "null_p05": 0.6760825858146451,
+  "null_p95": 0.9299007672558007,
+  "p": 0.04477611940298507
+ }
+}

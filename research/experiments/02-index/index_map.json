@@ -1,0 +1,562 @@
+{
+ "singular_values": [
+  3.3431031215995373,
+  1.5153709452296227,
+  1.0132355146666783,
+  0.7447607169056951,
+  0.6242830653194583,
+  0.46313330916526946,
+  0.35960103226521356,
+  0.31559651851310466,
+  0.26735725711726516,
+  0.2307118856636846,
+  0.1670659887599082,
+  0.15827894060131553,
+  0.14573008730787249,
+  0.11524547565614136
+ ],
+ "variance_share": [
+  0.6942114853299064,
+  0.14263633150582633,
+  0.06376950646765923,
+  0.03445289900156449,
+  0.024207801898705826,
+  0.013323069171724631,
+  0.008032192493018757,
+  0.006186665791446202,
+  0.004439930811689374,
+  0.003306223329025083,
+  0.0017336776047823604,
+  0.0015561036375639366,
+  0.0013191394198956484,
+  0.0008249735371918235
+ ],
+ "participation_ratio": 1.966827230987347,
+ "survivors": {
+  "n": 101,
+  "singular_values": [
+   3.2334575777084202,
+   1.151723216030936,
+   0.9120120310651734,
+   0.673607321967684,
+   0.4185735599984393,
+   0.34561200169364986,
+   0.27651321434277254,
+   0.23722248566566553,
+   0.19417867839012218,
+   0.1802782341382196,
+   0.12866519253593006,
+   0.12064718143115853,
+   0.0973291708758058,
+   0.07739387776928422
+  ],
+  "participation_ratio": 1.6538047871260226,
+  "three_components": 0.9266855832156902
+ },
+ "axes": {
+  "1": {
+   "dials": {
+    "cuts_per_min": -0.06313808395318002,
+    "mean_shot_len_s": 0.193283297157123,
+    "camera_jitter": -0.10913049916870003,
+    "camera_zoom": -0.27343099436307894,
+    "camera_pan": 0.07078471693301223,
+    "median_luma": -0.15145916453593244,
+    "contrast_p5_p95": -0.04338038687148832,
+    "shadow_frac": -0.011544683245628823,
+    "colourfulness": -0.022390517198414398,
+    "mean_saturation": -0.4330469006858835,
+    "warm_cool": -0.088286685857981,
+    "face_area_frac": 0.8023687874353711,
+    "face_hit_rate": -0.04428055792098683,
+    "dof_ratio": 0.02082669690279328
+   },
+   "top_parcels": [
+    [
+     "STSdp",
+     0.3469578961827383
+    ],
+    [
+     "A5",
+     0.3012565445896303
+    ],
+    [
+     "VMV2",
+     -0.24776188757977458
+    ],
+    [
+     "STSvp",
+     0.23042414077806478
+    ],
+    [
+     "PHA2",
+     -0.22029858484219036
+    ],
+    [
+     "MT",
+     -0.18293570869977133
+    ]
+   ]
+  },
+  "2": {
+   "dials": {
+    "cuts_per_min": 0.34831357572992,
+    "mean_shot_len_s": -0.06078859228040201,
+    "camera_jitter": -0.04796381235218141,
+    "camera_zoom": -0.25720095406521604,
+    "camera_pan": -0.6484862258264054,
+    "median_luma": 0.5135065323929543,
+    "contrast_p5_p95": -0.09332201129051498,
+    "shadow_frac": -0.0011102774109927847,
+    "colourfulness": 0.1357901061939775,
+    "mean_saturation": -0.20571471333399668,
+    "warm_cool": 0.1237600169351188,
+    "face_area_frac": -0.007269516470158641,
+    "face_hit_rate": -0.19354947925206778,
+    "dof_ratio": -0.00277177503554277
+   },
+   "top_parcels": [
+    [
+     "V4t",
+     0.3018100570676378
+    ],
+    [
+     "MST",
+     0.30032485744881904
+    ],
+    [
+     "MT",
+     0.29000083823317263
+    ],
+    [
+     "FST",
+     0.2794521916697912
+    ],
+    [
+     "TPOJ2",
+     0.2727026330592474
+    ],
+    [
+     "TPOJ3",
+     0.20712319352602707
+    ]
+   ]
+  },
+  "3": {
+   "dials": {
+    "cuts_per_min": 0.3148803517244672,
+    "mean_shot_len_s": 0.257495491878405,
+    "camera_jitter": 0.05512852446751337,
+    "camera_zoom": 0.31925122176696047,
+    "camera_pan": -0.12712593668210842,
+    "median_luma": 0.12204913293753832,
+    "contrast_p5_p95": 0.25818168056733487,
+    "shadow_frac": 0.011296613524375812,
+    "colourfulness": 0.06670235045103211,
+    "mean_saturation": 0.57735088756975,
+    "warm_cool": 0.13558963579119418,
+    "face_area_frac": 0.4605978948702252,
+    "face_hit_rate": 0.17301643482220602,
+    "dof_ratio": 0.1830044887973593
+   },
+   "top_parcels": [
+    [
+     "PCV",
+     -0.30864948294951916
+    ],
+    [
+     "PIT",
+     0.24135238933166417
+    ],
+    [
+     "A5",
+     -0.23411541021023527
+    ],
+    [
+     "V8",
+     0.23297354761311495
+    ],
+    [
+     "LBelt",
+     -0.18450836415162483
+    ],
+    [
+     "7Am",
+     -0.18355152889608742
+    ]
+   ]
+  }
+ },
+ "run00": {
+  "contrast_r": 0.9359165566737783,
+  "face": 0.7035378869588768,
+  "landscape": -0.6835208761146365,
+  "crowd": -0.13548585225107096,
+  "perm95_abs": 0.14767469365988897
+ },
+ "retained": {
+  "technique": 0.9080990845404779,
+  "dim": 14,
+  "random_mean": 0.0784071142917763,
+  "random_sd": 0.018048961424371953,
+  "random_max": 0.1348982811032487,
+  "ceiling_top_pcs": 0.9943203450356017,
+  "ratio_to_ceiling": 0.9132862352403776,
+  "axis1": 0.576776058047551,
+  "pc1": 0.6179102089468755,
+  "participation_ratio_Y": 2.407834535151496,
+  "axis1_vs_pc1_abs_r": 0.9639162057108416
+ },
+ "permuted_label_baseline": {
+  "n": 200,
+  "observed": {
+   "frob": 4.012396803943148,
+   "dim": 14,
+   "share1": 0.6942114853299064,
+   "share3": 0.900617323303392,
+   "pr": 1.966827230987347,
+   "retained": 0.9080990845404779,
+   "axis1_retained": 0.576776058047551,
+   "axis1_vs_pc1": 0.9639162057108416
+  },
+  "null": {
+   "frob": {
+    "mean": 2.673319710153614,
+    "p05": 1.876760912561631,
+    "p95": 3.580394147158056,
+    "max": 4.193169387931771,
+    "min": 1.4492652978234182
+   },
+   "dim": {
+    "mean": 13.975,
+    "p05": 14.0,
+    "p95": 14.0,
+    "max": 14.0,
+    "min": 13.0
+   },
+   "share1": {
+    "mean": 0.6642062835147565,
+    "p05": 0.4930185522122708,
+    "p95": 0.8062924686361125,
+    "max": 0.873964576476509,
+    "min": 0.39971865911675636
+   },
+   "share3": {
+    "mean": 0.8913873390089546,
+    "p05": 0.8245007855540406,
+    "p95": 0.9394825710620452,
+    "max": 0.9576468555189651,
+    "min": 0.7845220302671819
+   },
+   "pr": {
+    "mean": 2.1564356571181786,
+    "p05": 1.511512629376228,
+    "p95": 3.1313287652095845,
+    "max": 4.010767655426893,
+    "min": 1.3021610050914103
+   },
+   "retained": {
+    "mean": 0.8551294115976279,
+    "p05": 0.817974279282029,
+    "p95": 0.8851780460142239,
+    "max": 0.8957746915878786,
+    "min": 0.7935997941215653
+   },
+   "axis1_retained": {
+    "mean": 0.5265419197517225,
+    "p05": 0.44194590884526924,
+    "p95": 0.5806515189535799,
+    "max": 0.5911575623816965,
+    "min": 0.16651286047561623
+   },
+   "axis1_vs_pc1": {
+    "mean": 0.9147138819208891,
+    "p05": 0.8224575753903397,
+    "p95": 0.9687203580014666,
+    "max": 0.9780694673382845,
+    "min": 0.3457454562630486
+   }
+  },
+  "p_ge": {
+   "frob": 0.014925373134328358,
+   "share1": 0.3880597014925373,
+   "share3": 0.4228855721393035,
+   "retained": 0.004975124378109453,
+   "axis1_retained": 0.07462686567164178,
+   "axis1_vs_pc1": 0.0945273631840796
+  },
+  "p_le_pr": 0.39303482587064675
+ },
+ "paper_checks": [
+  {
+   "figure": "singular value 1",
+   "reproduced": 3.3431031215995373,
+   "paper": 3.34,
+   "match": true
+  },
+  {
+   "figure": "singular value 2",
+   "reproduced": 1.5153709452296227,
+   "paper": 1.52,
+   "match": true
+  },
+  {
+   "figure": "singular value 3",
+   "reproduced": 1.0132355146666783,
+   "paper": 1.01,
+   "match": true
+  },
+  {
+   "figure": "4th singular value (paper: nothing above 0.74)",
+   "reproduced": 0.7447607169056951,
+   "paper": 0.74,
+   "match": true
+  },
+  {
+   "figure": "axis 1 share %",
+   "reproduced": 69.42114853299064,
+   "paper": 69.4,
+   "match": true
+  },
+  {
+   "figure": "axis 2 share %",
+   "reproduced": 14.263633150582633,
+   "paper": 14.3,
+   "match": true
+  },
+  {
+   "figure": "axis 3 share %",
+   "reproduced": 6.376950646765923,
+   "paper": 6.4,
+   "match": true
+  },
+  {
+   "figure": "3 components %",
+   "reproduced": 90.0617323303392,
+   "paper": 90.1,
+   "match": true
+  },
+  {
+   "figure": "5 components %",
+   "reproduced": 95.92780242036622,
+   "paper": 95.9,
+   "match": true
+  },
+  {
+   "figure": "participation ratio of B",
+   "reproduced": 1.966827230987347,
+   "paper": 5.56,
+   "match": false
+  },
+  {
+   "figure": "survivors: '4.76' read as participation ratio",
+   "reproduced": 1.6538047871260226,
+   "paper": 4.76,
+   "match": false
+  },
+  {
+   "figure": "survivors: 3 components %",
+   "reproduced": 92.66855832156902,
+   "paper": 92.7,
+   "match": true
+  },
+  {
+   "figure": "axis 1 dial face_area_frac",
+   "reproduced": 0.8023687874353711,
+   "paper": 0.8,
+   "match": true
+  },
+  {
+   "figure": "axis 1 dial mean_saturation",
+   "reproduced": -0.4330469006858835,
+   "paper": -0.43,
+   "match": true
+  },
+  {
+   "figure": "axis 1 dial camera_zoom",
+   "reproduced": -0.27343099436307894,
+   "paper": -0.27,
+   "match": true
+  },
+  {
+   "figure": "axis 1 parcel STSdp",
+   "reproduced": 0.3469578961827383,
+   "paper": 0.35,
+   "match": true
+  },
+  {
+   "figure": "axis 1 parcel A5",
+   "reproduced": 0.3012565445896303,
+   "paper": 0.3,
+   "match": true
+  },
+  {
+   "figure": "axis 1 parcel VMV2",
+   "reproduced": -0.24776188757977458,
+   "paper": -0.25,
+   "match": true
+  },
+  {
+   "figure": "axis 1 parcel PHA2",
+   "reproduced": -0.22029858484219036,
+   "paper": -0.22,
+   "match": true
+  },
+  {
+   "figure": "axis 2 dial camera_pan",
+   "reproduced": -0.6484862258264054,
+   "paper": -0.65,
+   "match": true
+  },
+  {
+   "figure": "axis 2 dial median_luma",
+   "reproduced": 0.5135065323929543,
+   "paper": 0.51,
+   "match": true
+  },
+  {
+   "figure": "axis 2 dial cuts_per_min",
+   "reproduced": 0.34831357572992,
+   "paper": 0.35,
+   "match": true
+  },
+  {
+   "figure": "axis 2 parcel V4t",
+   "reproduced": 0.3018100570676378,
+   "paper": 0.3,
+   "match": true
+  },
+  {
+   "figure": "axis 2 parcel MST",
+   "reproduced": 0.30032485744881904,
+   "paper": 0.3,
+   "match": true
+  },
+  {
+   "figure": "axis 2 parcel MT",
+   "reproduced": 0.29000083823317263,
+   "paper": 0.29,
+   "match": true
+  },
+  {
+   "figure": "axis 2 parcel FST",
+   "reproduced": 0.2794521916697912,
+   "paper": 0.28,
+   "match": true
+  },
+  {
+   "figure": "axis 3 dial mean_saturation",
+   "reproduced": 0.57735088756975,
+   "paper": 0.58,
+   "match": true
+  },
+  {
+   "figure": "axis 3 dial face_area_frac",
+   "reproduced": 0.4605978948702252,
+   "paper": 0.46,
+   "match": true
+  },
+  {
+   "figure": "axis 3 dial camera_zoom",
+   "reproduced": 0.31925122176696047,
+   "paper": 0.32,
+   "match": true
+  },
+  {
+   "figure": "axis 3 parcel PCV",
+   "reproduced": -0.30864948294951916,
+   "paper": -0.31,
+   "match": true
+  },
+  {
+   "figure": "axis 3 parcel PIT",
+   "reproduced": 0.24135238933166417,
+   "paper": 0.24,
+   "match": true
+  },
+  {
+   "figure": "axis 3 parcel A5",
+   "reproduced": -0.23411541021023527,
+   "paper": -0.23,
+   "match": true
+  },
+  {
+   "figure": "axis 3 parcel V8",
+   "reproduced": 0.23297354761311495,
+   "paper": 0.23,
+   "match": true
+  },
+  {
+   "figure": "run-00 contrast r",
+   "reproduced": 0.9359165566737783,
+   "paper": 0.936,
+   "match": true
+  },
+  {
+   "figure": "face alone",
+   "reproduced": 0.7035378869588768,
+   "paper": 0.704,
+   "match": true
+  },
+  {
+   "figure": "landscape alone",
+   "reproduced": -0.6835208761146365,
+   "paper": -0.684,
+   "match": true
+  },
+  {
+   "figure": "crowd alone",
+   "reproduced": -0.13548585225107096,
+   "paper": -0.135,
+   "match": true
+  },
+  {
+   "figure": "parcel-permutation 95th pct",
+   "reproduced": 0.14767469365988897,
+   "paper": 0.144,
+   "match": true
+  },
+  {
+   "figure": "technique retained %",
+   "reproduced": 90.8099084540478,
+   "paper": 90.8,
+   "match": true
+  },
+  {
+   "figure": "random subspace mean % (seed-dependent)",
+   "reproduced": 7.84071142917763,
+   "paper": 7.9,
+   "match": true
+  },
+  {
+   "figure": "top-14 PCs %",
+   "reproduced": 99.43203450356017,
+   "paper": 99.4,
+   "match": true
+  },
+  {
+   "figure": "ratio to ceiling %",
+   "reproduced": 91.32862352403777,
+   "paper": 91.3,
+   "match": true
+  },
+  {
+   "figure": "axis 1 retained %",
+   "reproduced": 57.6776058047551,
+   "paper": 57.7,
+   "match": true
+  },
+  {
+   "figure": "PC1 %",
+   "reproduced": 61.791020894687556,
+   "paper": 61.8,
+   "match": true
+  },
+  {
+   "figure": "participation ratio of Y",
+   "reproduced": 2.407834535151496,
+   "paper": 8.35,
+   "match": false
+  }
+ ]
+}
