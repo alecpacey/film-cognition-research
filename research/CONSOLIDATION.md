@@ -30,9 +30,9 @@ line below at the end of each session.
       rescoring (M6 / F3) and timeline saving (F8), in `experiments/03b-discontinuity/README.md`.
 - [x] **2b · Build clips, $0:** *Done 20 Sep: 15 clips built and measured (`03b-discontinuity/CLIPS.md`). D's joins detected as cuts 11% (rule ≤ 25%); B/C hard cuts with histogram distance 0.16/0.23 vs REF 0.78; audio MD5 identical across all 20 clips.* same-scene self-intercut ladder from `face_close.mp4`; black-frame
       insert ladder; measured with `cinemetrics.py`.
-- [ ] **2c · Space app saves the 1 Hz timeline** per clip to the results repo; identity-tested
+- [x] **2c · Space app saves the 1 Hz timeline** *(done 20 Sep; identity PASS, raw Δ 0.00)* per clip to the results repo; identity-tested
       against an existing result.
-- [ ] **2d · Score** (HF credit needed), harvest by exact name, evaluate, `RESULT.md`, LOG.
+- [ ] **2d · Score** *(session 1, 20–21 Sep: 10/20 — REF and B — then the Space stalled and overspent; see LOG. C and D remain: two batches of 5, stall detection in the watcher, credit to be confirmed first.)* (HF credit needed), harvest by exact name, evaluate, `RESULT.md`, LOG.
 - [ ] **2e · Text branch on:** five clips rescored, whole-vector and named-parcel Δ reported, or
       the failure bounded and stated.
 
