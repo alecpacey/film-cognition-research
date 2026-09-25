@@ -8,7 +8,7 @@ Rules: tick a box only when its done-criterion is met and the evidence is commit
 gets a `LOG.md` line. Paid steps get criteria in a README *before* spend. Update the status
 line below at the end of each session.
 
-**Status (20 Sep 2026):** **Step 1 complete** (1a–1d). **2a written** — `experiments/03b-discontinuity/README.md`; author to read before building (2b) and spending (2d). Scoring (2d) needs HF prepaid credit, ≈ $5–8.
+**Status (20 Sep 2026):** **Steps 1 and 2a–2d complete.** 2e (text branch, ≈ $1.25, capped) awaits the author's decision. Next free work: step 3 (content descriptors) and step 4 (consolidation pass, which folds 03b into § 6.8 / § 8 / § 9). Scoring (2d) needs HF prepaid credit, ≈ $5–8.
 
 ## Step 1 · Integrity fixes — free
 
@@ -32,8 +32,8 @@ line below at the end of each session.
       insert ladder; measured with `cinemetrics.py`.
 - [x] **2c · Space app saves the 1 Hz timeline** *(done 20 Sep; identity PASS, raw Δ 0.00)* per clip to the results repo; identity-tested
       against an existing result.
-- [ ] **2d · Score** *(session 1, 20–21 Sep: 10/20 — REF and B — then the Space stalled and overspent; see LOG. C and D remain: two batches of 5, stall detection in the watcher, credit to be confirmed first.)* (HF credit needed), harvest by exact name, evaluate, `RESULT.md`, LOG.
-- [ ] **2e · Text branch on:** five clips rescored, whole-vector and named-parcel Δ reported, or
+- [x] **2d · Score** *Done 25 Sep: 20/20 in three sessions (session 1 overspent, see LOG; sessions 2–3 bounded by a server-side guard). Verdict GRADED; `03b-discontinuity/RESULT.md`.* (HF credit needed), harvest by exact name, evaluate, `RESULT.md`, LOG.
+- [ ] **2e · Text branch on:** *(not run; README allows it if ≥ $3 credit remains — author's call after the overspend)* five clips rescored, whole-vector and named-parcel Δ reported, or
       the failure bounded and stated.
 
 ## Step 3 · Free analysis alongside

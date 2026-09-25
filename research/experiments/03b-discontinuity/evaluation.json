@@ -1,0 +1,91 @@
+{
+ "REF": {
+  "frontal_slope": 0.2508595164642782,
+  "rho_F": 1.0,
+  "p_F": 0.016666666666666666,
+  "class": "REPRODUCES",
+  "per_parcel_frontal_slopes": {
+   "IFJa": 0.29167362894554083,
+   "IFJp": 0.17772269464877452,
+   "IFSp": 0.2501231421469281,
+   "8C": 0.2839186001158693
+  },
+  "auditory_slope": -0.42188053681135157,
+  "rho_A": 1.0,
+  "p_A": 0.008333333333333333,
+  "gain": 1.0,
+  "p_gain": 0.008333333333333333,
+  "r_with_ref_mode": 1.0,
+  "participation_ratio_across_levels": 1.195319319724731,
+  "whole_vector_r_cut01_vs_cut31": 0.8219994098998524
+ },
+ "B": {
+  "frontal_slope": 0.10973569960567164,
+  "rho_F": 0.43743885483131656,
+  "p_F": 0.008333333333333333,
+  "class": "PARTIAL",
+  "per_parcel_frontal_slopes": {
+   "IFJa": 0.13924058163729305,
+   "IFJp": 0.12515357457091644,
+   "IFSp": 0.07444162712443328,
+   "8C": 0.10010701509004383
+  },
+  "auditory_slope": -0.26089502830981265,
+  "rho_A": 0.6184097286916904,
+  "p_A": 0.008333333333333333,
+  "gain": 0.6706365800974119,
+  "p_gain": 0.008333333333333333,
+  "r_with_ref_mode": 0.8588026907762858,
+  "participation_ratio_across_levels": 1.053845535112501,
+  "whole_vector_r_cut01_vs_cut31": 0.9149090253156265
+ },
+ "C": {
+  "frontal_slope": 0.046200384816739416,
+  "rho_F": 0.184168356329102,
+  "p_F": 0.016666666666666666,
+  "class": "ABSENT",
+  "per_parcel_frontal_slopes": {
+   "IFJa": 0.0628958250359248,
+   "IFJp": 0.05621192622288219,
+   "IFSp": 0.016282266421446166,
+   "8C": 0.0494115215867045
+  },
+  "auditory_slope": -0.16017991199260356,
+  "rho_A": 0.37968073427438,
+  "p_A": 0.008333333333333333,
+  "gain": 0.4658741700970137,
+  "p_gain": 0.008333333333333333,
+  "r_with_ref_mode": 0.7264997370972471,
+  "participation_ratio_across_levels": 1.0326814923593637,
+  "whole_vector_r_cut01_vs_cut31": 0.943404023809703
+ },
+ "D": {
+  "frontal_slope": 0.1215694464869223,
+  "rho_F": 0.4846116591484123,
+  "p_F": 0.041666666666666664,
+  "class": "PARTIAL",
+  "per_parcel_frontal_slopes": {
+   "IFJa": 0.18476852367124555,
+   "IFJp": 0.12882061557148253,
+   "IFSp": 0.08245152899179754,
+   "8C": 0.0902371177131636
+  },
+  "auditory_slope": -0.07332173672028737,
+  "rho_A": 0.17379739125788107,
+  "p_A": 0.075,
+  "gain": 0.5034231935129013,
+  "p_gain": 0.008333333333333333,
+  "r_with_ref_mode": 0.6157602458418853,
+  "participation_ratio_across_levels": 1.2537499410474744,
+  "whole_vector_r_cut01_vs_cut31": 0.8971654980617374
+ },
+ "same_scene_class": "PARTIAL",
+ "verdict": "GRADED",
+ "identity": {
+  "max_abs_raw_delta_vs_stage03": 0.0,
+  "max_abs_timeline_mean_minus_raw": 4.2957407658805735e-08,
+  "n_timelines": 180,
+  "timeline_len": 60,
+  "pass": true
+ }
+}
