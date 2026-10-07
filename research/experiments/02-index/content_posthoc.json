@@ -1,0 +1,109 @@
+{
+ "note": "post-hoc, after the fixed analysis was read",
+ "descriptor_vs_dials_pooled_within_film_r": {
+  "sem_pc1": {
+   "cuts_per_min": -0.153,
+   "mean_shot_len_s": 0.128,
+   "camera_jitter": -0.032,
+   "camera_zoom": 0.007,
+   "camera_pan": -0.025,
+   "median_luma": 0.186,
+   "contrast_p5_p95": 0.353,
+   "shadow_frac": -0.202,
+   "colourfulness": -0.14,
+   "mean_saturation": -0.464,
+   "warm_cool": 0.087,
+   "face_area_frac": 0.124,
+   "face_hit_rate": -0.142,
+   "dof_ratio": -0.028
+  },
+  "sem_pc2": {
+   "cuts_per_min": -0.244,
+   "mean_shot_len_s": 0.051,
+   "camera_jitter": 0.049,
+   "camera_zoom": -0.114,
+   "camera_pan": -0.148,
+   "median_luma": 0.286,
+   "contrast_p5_p95": 0.285,
+   "shadow_frac": -0.243,
+   "colourfulness": 0.284,
+   "mean_saturation": -0.212,
+   "warm_cool": 0.179,
+   "face_area_frac": 0.397,
+   "face_hit_rate": -0.387,
+   "dof_ratio": 0.065
+  },
+  "sem_pc3": {
+   "cuts_per_min": -0.075,
+   "mean_shot_len_s": 0.236,
+   "camera_jitter": 0.003,
+   "camera_zoom": -0.036,
+   "camera_pan": -0.071,
+   "median_luma": -0.271,
+   "contrast_p5_p95": -0.032,
+   "shadow_frac": 0.269,
+   "colourfulness": -0.676,
+   "mean_saturation": -0.227,
+   "warm_cool": -0.205,
+   "face_area_frac": 0.207,
+   "face_hit_rate": 0.005,
+   "dof_ratio": -0.133
+  },
+  "sem_dispersion": {
+   "cuts_per_min": 0.344,
+   "mean_shot_len_s": -0.322,
+   "camera_jitter": 0.031,
+   "camera_zoom": 0.341,
+   "camera_pan": 0.152,
+   "median_luma": -0.099,
+   "contrast_p5_p95": 0.162,
+   "shadow_frac": 0.07,
+   "colourfulness": 0.0,
+   "mean_saturation": 0.106,
+   "warm_cool": -0.086,
+   "face_area_frac": -0.175,
+   "face_hit_rate": 0.02,
+   "dof_ratio": -0.026
+  },
+  "speech_prop": {
+   "cuts_per_min": -0.197,
+   "mean_shot_len_s": -0.025,
+   "camera_jitter": -0.067,
+   "camera_zoom": -0.101,
+   "camera_pan": 0.147,
+   "median_luma": -0.004,
+   "contrast_p5_p95": 0.188,
+   "shadow_frac": -0.043,
+   "colourfulness": -0.042,
+   "mean_saturation": -0.186,
+   "warm_cool": -0.069,
+   "face_area_frac": 0.276,
+   "face_hit_rate": -0.164,
+   "dof_ratio": -0.097
+  }
+ },
+ "loo_cv_r2": {
+  "frontal": {
+   "dials_only": -0.148724750027748,
+   "content_only": 0.18651962919935472,
+   "dials_plus_content": 0.036804948024161455,
+   "dials_plus_speech": -0.1930987548219114
+  },
+  "auditory": {
+   "dials_only": -0.09105764655215176,
+   "content_only": 0.5978380841136948,
+   "dials_plus_content": 0.5225331370600346,
+   "dials_plus_speech": 0.5413853697184066
+  }
+ },
+ "auditory_cut_pooled_within_film": {
+  "marginal_r": -0.27180707316167313,
+  "partial_r_given_speech": -0.19299659121414472,
+  "r_cut_speech": -0.19674194635287476,
+  "r_auditory_speech": 0.7816223761437485
+ },
+ "frontal_cut_pooled_within_film": {
+  "marginal_r": -0.024927524846064475,
+  "partial_r_given_speech": 0.04087769837845501
+ }
+}

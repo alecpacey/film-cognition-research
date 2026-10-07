@@ -8,7 +8,7 @@ Rules: tick a box only when its done-criterion is met and the evidence is commit
 gets a `LOG.md` line. Paid steps get criteria in a README *before* spend. Update the status
 line below at the end of each session.
 
-**Status (7 Oct 2026):** **Steps 1 and 2a–2d complete; 4d complete — 03b is in the paper** (§ 6.9, with abstract, § 6.8, § 8, § 9 aligned). 2e (text branch, ≈ $1.25, capped) awaits the author's decision. Next free work: step 3a (content descriptors), then 4a (restructure), which now moves finished 03b text rather than writing it.
+**Status (7 Oct 2026):** **Steps 1, 2a–2d and 3a complete; 4d complete — 03b is in the paper** (§ 6.9, with abstract, § 6.8, § 8, § 9 aligned). 2e (text branch, ≈ $1.25, capped) awaits the author's decision. **3a complete (7 Oct): the frontal flip is not demonstrated; speech is a missing auditory dial.** Next: step 4 — 4a restructure, folding in 3a's three paper changes (`02-index/content_descriptors.md` § What this changes).
 
 ## Step 1 · Integrity fixes — free
 
@@ -38,7 +38,7 @@ line below at the end of each session.
 
 ## Step 3 · Free analysis alongside
 
-- [ ] **3a · Content descriptors (F5):** speech proportion and semantic embeddings per segment on
+- [x] **3a · Content descriptors (F5):** *Done 7 Oct: plan committed before any descriptor (55a8515), amendment before any parcel data (73cac7e). **Q0 NOT DEMONSTRATED** — the frontal sign flip is not significant (cut × film F 1.38, perm p 0.28; NS − JB +0.53, CI −0.14 to +1.08); speech, semantic change and semantic distance per cut all **DO NOT CARRY**. Post-hoc: speech explains within-film auditory variance (r +0.78; LOO R² dials −0.09 → dials + speech +0.54) and part of the corpus auditory cut-rate signature (−0.27 → −0.19). Seven 'flips between films' statements in PAPER to re-word in step 4.* speech proportion and semantic embeddings per segment on
       the 244 segments; test whether they carry the *Nothing Sacred* / *Jungle Book* sign flip.
       Note in `experiments/02-index/content_descriptors.md`.
 

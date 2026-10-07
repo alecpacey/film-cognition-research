@@ -1,0 +1,1914 @@
+{
+ "n": 70,
+ "n_per_film": {
+  "jungle_book": 24,
+  "nothing_sacred": 23,
+  "royal_wedding": 23
+ },
+ "sem_pca_variance": [
+  0.3704557224906677,
+  0.09614311010511996,
+  0.06636515149584449
+ ],
+ "Q0": {
+  "F_interaction": 1.375706411537262,
+  "p_perm": 0.27887211278872115,
+  "label": "NOT DEMONSTRATED",
+  "r_frontal_cut_by_film": {
+   "jungle_book": -0.27181719778360897,
+   "nothing_sacred": 0.26219048192356265,
+   "royal_wedding": -0.053573478199750356
+  },
+  "NS_minus_JB": 0.5340076797071716,
+  "NS_minus_JB_ci95": [
+   -0.14411888780377674,
+   1.0791535174372364
+  ],
+  "auditory_control": {
+   "F_interaction": 0.03164815807427305,
+   "p_perm": 0.971002899710029,
+   "r_auditory_cut_by_film": {
+    "jungle_book": -0.4680415878163178,
+    "nothing_sacred": -0.24448151903934445,
+    "royal_wedding": -0.11061463021347802
+   }
+  }
+ },
+ "descriptives": {
+  "speech_prop": {
+   "jungle_book": {
+    "mean": 0.28225076574901764,
+    "sd": 0.21545182858038409
+   },
+   "nothing_sacred": {
+    "mean": 0.49648176346124573,
+    "sd": 0.2906838221697958
+   },
+   "royal_wedding": {
+    "mean": 0.2994221183337225,
+    "sd": 0.3424557367776054
+   }
+  },
+  "sem_change_per_min": {
+   "jungle_book": {
+    "mean": 2.780751444386244,
+    "sd": 1.4753269528362352
+   },
+   "nothing_sacred": {
+    "mean": 1.8582245955089662,
+    "sd": 1.1831623925783492
+   },
+   "royal_wedding": {
+    "mean": 0.37997015033750237,
+    "sd": 0.483252334312227
+   }
+  },
+  "sem_dispersion": {
+   "jungle_book": {
+    "mean": 0.10775185184414787,
+    "sd": 0.029013905822207583
+   },
+   "nothing_sacred": {
+    "mean": 0.09724092119359797,
+    "sd": 0.03222485805949933
+   },
+   "royal_wedding": {
+    "mean": 0.06453666826694979,
+    "sd": 0.02720155378367815
+   }
+  },
+  "sem_dist_per_cut": {
+   "jungle_book": {
+    "mean": 0.25569554108355036,
+    "sd": 0.07986769441033098
+   },
+   "nothing_sacred": {
+    "mean": 0.19726831545471482,
+    "sd": 0.06599265148310778
+   },
+   "royal_wedding": {
+    "mean": NaN,
+    "sd": NaN
+   }
+  },
+  "sem_pc1": {
+   "jungle_book": {
+    "mean": -0.32061600422645675,
+    "sd": 0.04394855718944285
+   },
+   "nothing_sacred": {
+    "mean": 0.1420124987581149,
+    "sd": 0.11091651872948688
+   },
+   "royal_wedding": {
+    "mean": 0.20380381756955226,
+    "sd": 0.10381326785107428
+   }
+  },
+  "sem_pc2": {
+   "jungle_book": {
+    "mean": -0.00018092046242982698,
+    "sd": 0.2272235834100879
+   },
+   "nothing_sacred": {
+    "mean": -0.06346296030288065,
+    "sd": 0.091099756680671
+   },
+   "royal_wedding": {
+    "mean": -0.005815116052284407,
+    "sd": 0.06720326888951378
+   }
+  },
+  "sem_pc3": {
+   "jungle_book": {
+    "mean": 0.019098691722692584,
+    "sd": 0.022326768398425453
+   },
+   "nothing_sacred": {
+    "mean": 0.06296202901715638,
+    "sd": 0.0592211476048448
+   },
+   "royal_wedding": {
+    "mean": -0.12233632888392151,
+    "sd": 0.17958433749895558
+   }
+  },
+  "words_per_min": {
+   "jungle_book": {
+    "mean": 48.15808850715133,
+    "sd": 39.64870273129382
+   },
+   "nothing_sacred": {
+    "mean": 97.28701857590313,
+    "sd": 60.8074036729556
+   },
+   "royal_wedding": {
+    "mean": 66.29253946749432,
+    "sd": 78.87277120005761
+   }
+  }
+ },
+ "Q2": {
+  "frontal": {
+   "speech_prop": {
+    "marginal_r_cut": {
+     "jungle_book": -0.27181719778360897,
+     "nothing_sacred": 0.26219048192356265,
+     "royal_wedding": -0.053573478199750356
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.20381306445373074,
+     "nothing_sacred": 0.37940691715666075,
+     "royal_wedding": -0.13583535965657698
+    },
+    "delta": 0.5340076797071716,
+    "delta_partial": 0.5832199816103915,
+    "S": -0.09215654338567925,
+    "S_ci95": [
+     -2.1683305895591034,
+     1.6239061677263942
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.42031287390410665,
+     "nothing_sacred": -0.28485432609479994,
+     "royal_wedding": 0.17555035183971074
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.11791301007888953,
+     "nothing_sacred": 0.4031253695747357,
+     "royal_wedding": 0.41109373508145247
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    },
+    "class": "DOES NOT CARRY"
+   },
+   "sem_change_per_min": {
+    "marginal_r_cut": {
+     "jungle_book": -0.27181719778360897,
+     "nothing_sacred": 0.26219048192356265,
+     "royal_wedding": -0.053573478199750356
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.2679374511573842,
+     "nothing_sacred": 0.19504642269494704,
+     "royal_wedding": -0.2713241933486439
+    },
+    "delta": 0.5340076797071716,
+    "delta_partial": 0.46298387385233125,
+    "S": 0.1330014689934551,
+    "S_ci95": [
+     -3.0774438210759185,
+     2.632160380382242
+    ],
+    "r_cut_D": {
+     "jungle_book": 0.8787327820389562,
+     "nothing_sacred": 0.8572968847801354,
+     "royal_wedding": 0.9745980188364564
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.1590339987907415,
+     "nothing_sacred": -0.068269217729619,
+     "royal_wedding": 0.26645996853441156
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    },
+    "class": "DOES NOT CARRY"
+   },
+   "sem_dist_per_cut": {
+    "marginal_r_cut": {
+     "jungle_book": -0.27181719778360897,
+     "nothing_sacred": 0.26219048192356265,
+     "royal_wedding": 0.01995987566929333
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.2528877358931404,
+     "nothing_sacred": 0.3116528250218825,
+     "royal_wedding": -0.02691871624914121
+    },
+    "delta": 0.5340076797071716,
+    "delta_partial": 0.5645405609150229,
+    "S": -0.05717685787701465,
+    "S_ci95": [
+     -1.911322827814633,
+     1.9959042277140697
+    ],
+    "r_cut_D": {
+     "jungle_book": 0.46281979872472173,
+     "nothing_sacred": 0.45423336779612616,
+     "royal_wedding": 0.6542938991541324
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.023617947424408016,
+     "nothing_sacred": -0.17770361194780743,
+     "royal_wedding": 0.06414622995190133
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 18
+    },
+    "class": "DOES NOT CARRY"
+   },
+   "words_per_min": {
+    "marginal_r_cut": {
+     "jungle_book": -0.27181719778360897,
+     "nothing_sacred": 0.26219048192356265,
+     "royal_wedding": -0.053573478199750356
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.18379419584955053,
+     "nothing_sacred": 0.3848824590444981,
+     "royal_wedding": -0.1452004095663003
+    },
+    "delta": 0.5340076797071716,
+    "delta_partial": 0.5686766548940486,
+    "S": -0.06492224082973519,
+    "S_ci95": [
+     -2.0084446002805803,
+     1.6613423811292996
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.45999579908275423,
+     "nothing_sacred": -0.3712444626045447,
+     "royal_wedding": 0.22058674781844534
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.1429023899356766,
+     "nothing_sacred": 0.365846799599219,
+     "royal_wedding": 0.37855772795046877
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_dispersion": {
+    "marginal_r_cut": {
+     "jungle_book": -0.27181719778360897,
+     "nothing_sacred": 0.26219048192356265,
+     "royal_wedding": -0.053573478199750356
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.1284844532408859,
+     "nothing_sacred": 0.37535844905705545,
+     "royal_wedding": 0.041951059182015034
+    },
+    "delta": 0.5340076797071716,
+    "delta_partial": 0.5038429022979414,
+    "S": 0.05648753483427682,
+    "S_ci95": [
+     -1.5586446939081944,
+     1.7708125925631872
+    ],
+    "r_cut_D": {
+     "jungle_book": 0.3432924223538863,
+     "nothing_sacred": 0.3547371070575353,
+     "royal_wedding": 0.3770771644329458
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": -0.43249534606484447,
+     "nothing_sacred": -0.3523123635729424,
+     "royal_wedding": -0.23987729404864075
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_pc1": {
+    "marginal_r_cut": {
+     "jungle_book": -0.27181719778360897,
+     "nothing_sacred": 0.26219048192356265,
+     "royal_wedding": -0.053573478199750356
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.23659102471055704,
+     "nothing_sacred": 0.452227674801698,
+     "royal_wedding": -0.05347229285987547
+    },
+    "delta": 0.5340076797071716,
+    "delta_partial": 0.688818699512255,
+    "S": -0.2899041075401305,
+    "S_ci95": [
+     -4.917454319228015,
+     3.236241678822371
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.20983933450658857,
+     "nothing_sacred": -0.2377699042485471,
+     "royal_wedding": -0.015061113491721477
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.17317000402180616,
+     "nothing_sacred": 0.5984839030564296,
+     "royal_wedding": 0.5157948519650288
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_pc2": {
+    "marginal_r_cut": {
+     "jungle_book": -0.27181719778360897,
+     "nothing_sacred": 0.26219048192356265,
+     "royal_wedding": -0.053573478199750356
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.08456003037116037,
+     "nothing_sacred": 0.3701249727467147,
+     "royal_wedding": -0.06302030194682204
+    },
+    "delta": 0.5340076797071716,
+    "delta_partial": 0.4546850031178751,
+    "S": 0.1485422019263728,
+    "S_ci95": [
+     -2.287410236149388,
+     1.9888011234741407
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.3540020438234753,
+     "nothing_sacred": -0.11670726500156312,
+     "royal_wedding": 0.01708944146999673
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.5452590790962184,
+     "nothing_sacred": 0.5466092155522069,
+     "royal_wedding": 0.3382645128815902
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_pc3": {
+    "marginal_r_cut": {
+     "jungle_book": -0.27181719778360897,
+     "nothing_sacred": 0.26219048192356265,
+     "royal_wedding": -0.053573478199750356
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.26424238296430086,
+     "nothing_sacred": 0.32871703367079474,
+     "royal_wedding": -0.05481710103627513
+    },
+    "delta": 0.5340076797071716,
+    "delta_partial": 0.5929594166350955,
+    "S": -0.11039492345924828,
+    "S_ci95": [
+     -1.6810898878007325,
+     1.3223272105184378
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.10772907924626648,
+     "nothing_sacred": -0.3088380552076646,
+     "royal_wedding": -0.010071341836820773
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.06953034311308286,
+     "nothing_sacred": 0.2534651217241731,
+     "royal_wedding": 0.4448986043768028
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "both_primary": {
+    "marginal_r_cut": {
+     "jungle_book": -0.27181719778360897,
+     "nothing_sacred": 0.26219048192356265,
+     "royal_wedding": -0.053573478199750356
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.2721571894098855,
+     "nothing_sacred": 0.29750183078340586,
+     "royal_wedding": -0.12444186371831288
+    },
+    "delta": 0.5340076797071716,
+    "delta_partial": 0.5696590201932914,
+    "S": -0.06676184976528732,
+    "S_ci95": [
+     -4.328634183734619,
+     3.989101607670841
+    ]
+   }
+  },
+  "auditory": {
+   "speech_prop": {
+    "marginal_r_cut": {
+     "jungle_book": -0.4680415878163178,
+     "nothing_sacred": -0.24448151903934445,
+     "royal_wedding": -0.11061463021347802
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.27615424515573406,
+     "nothing_sacred": 0.004262814969423448,
+     "royal_wedding": -0.398310991942981
+    },
+    "delta": 0.22356006877697332,
+    "delta_partial": 0.2804170601251575,
+    "S": -0.254325343784473,
+    "S_ci95": [
+     -9.290314243780053,
+     11.947482484875863
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.42031287390410665,
+     "nothing_sacred": -0.28485432609479994,
+     "royal_wedding": 0.17555035183971074
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.5928908621169802,
+     "nothing_sacred": 0.8561904216912217,
+     "royal_wedding": 0.8137067877017692
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_change_per_min": {
+    "marginal_r_cut": {
+     "jungle_book": -0.4680415878163178,
+     "nothing_sacred": -0.24448151903934445,
+     "royal_wedding": -0.11061463021347802
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.12529093336741334,
+     "nothing_sacred": -0.2903386117717855,
+     "royal_wedding": -0.51638887890973
+    },
+    "delta": 0.22356006877697332,
+    "delta_partial": -0.16504767840437215,
+    "S": 1.7382699392932557,
+    "S_ci95": [
+     -19.04881868160478,
+     12.791039477882713
+    ],
+    "r_cut_D": {
+     "jungle_book": 0.8787327820389562,
+     "nothing_sacred": 0.8572968847801354,
+     "royal_wedding": 0.9745980188364564
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": -0.1455049989488383,
+     "nothing_sacred": 0.19566175591690918,
+     "royal_wedding": 0.5075364596033353
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_dist_per_cut": {
+    "marginal_r_cut": {
+     "jungle_book": -0.4680415878163178,
+     "nothing_sacred": -0.24448151903934445,
+     "royal_wedding": -0.006365272059538667
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.3780862023084788,
+     "nothing_sacred": -0.27418115747409366,
+     "royal_wedding": -0.2578923979439787
+    },
+    "delta": 0.22356006877697332,
+    "delta_partial": 0.10390504483438512,
+    "S": 0.5352253852719904,
+    "S_ci95": [
+     -6.488427827087134,
+     6.333382333517222
+    ],
+    "r_cut_D": {
+     "jungle_book": 0.46281979872472173,
+     "nothing_sacred": 0.45423336779612616,
+     "royal_wedding": 0.6542938991541324
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": -0.1407942748649295,
+     "nothing_sacred": 0.12799833441273553,
+     "royal_wedding": 0.3714141280943895
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 18
+    }
+   },
+   "words_per_min": {
+    "marginal_r_cut": {
+     "jungle_book": -0.4680415878163178,
+     "nothing_sacred": -0.24448151903934445,
+     "royal_wedding": -0.11061463021347802
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.24655237732082433,
+     "nothing_sacred": 0.059258928074777784,
+     "royal_wedding": -0.44221716074822626
+    },
+    "delta": 0.22356006877697332,
+    "delta_partial": 0.3058113053956021,
+    "S": -0.36791559900924775,
+    "S_ci95": [
+     -9.44737185114205,
+     12.639687799005154
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.45999579908275423,
+     "nothing_sacred": -0.3712444626045447,
+     "royal_wedding": 0.22058674781844534
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.5666400358563112,
+     "nothing_sacred": 0.738444913136117,
+     "royal_wedding": 0.81210767044805
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_dispersion": {
+    "marginal_r_cut": {
+     "jungle_book": -0.4680415878163178,
+     "nothing_sacred": -0.24448151903934445,
+     "royal_wedding": -0.11061463021347802
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.3953543136052689,
+     "nothing_sacred": -0.11684235625633213,
+     "royal_wedding": -0.07642006495299943
+    },
+    "delta": 0.22356006877697332,
+    "delta_partial": 0.27851195734893675,
+    "S": -0.24580368431888533,
+    "S_ci95": [
+     -6.989875290086914,
+     6.831741148007069
+    ],
+    "r_cut_D": {
+     "jungle_book": 0.3432924223538863,
+     "nothing_sacred": 0.3547371070575353,
+     "royal_wedding": 0.3770771644329458
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": -0.22838313022910697,
+     "nothing_sacred": -0.3544149405479472,
+     "royal_wedding": -0.07061949256481477
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_pc1": {
+    "marginal_r_cut": {
+     "jungle_book": -0.4680415878163178,
+     "nothing_sacred": -0.24448151903934445,
+     "royal_wedding": -0.11061463021347802
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.45357045384085115,
+     "nothing_sacred": -0.14654100633762734,
+     "royal_wedding": -0.12332782029804965
+    },
+    "delta": 0.22356006877697332,
+    "delta_partial": 0.3070294475032238,
+    "S": -0.3733644348155962,
+    "S_ci95": [
+     -8.05638623329978,
+     9.992208148418106
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.20983933450658857,
+     "nothing_sacred": -0.2377699042485471,
+     "royal_wedding": -0.015061113491721477
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.04491324468092468,
+     "nothing_sacred": 0.4852109714767701,
+     "royal_wedding": 0.5616121571146258
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_pc2": {
+    "marginal_r_cut": {
+     "jungle_book": -0.4680415878163178,
+     "nothing_sacred": -0.24448151903934445,
+     "royal_wedding": -0.11061463021347802
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.4239215705379324,
+     "nothing_sacred": -0.21805456291930592,
+     "royal_wedding": -0.12333739731421244
+    },
+    "delta": 0.22356006877697332,
+    "delta_partial": 0.20586700761862647,
+    "S": 0.0791423139880928,
+    "S_ci95": [
+     -6.656099852405666,
+     7.4551351058897035
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.3540020438234753,
+     "nothing_sacred": -0.11670726500156312,
+     "royal_wedding": 0.01708944146999673
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.08144857706591895,
+     "nothing_sacred": 0.5616540729629461,
+     "royal_wedding": 0.3366046020371711
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_pc3": {
+    "marginal_r_cut": {
+     "jungle_book": -0.4680415878163178,
+     "nothing_sacred": -0.24448151903934445,
+     "royal_wedding": -0.11061463021347802
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.47682131052648946,
+     "nothing_sacred": -0.09147777024411784,
+     "royal_wedding": -0.12408079513336115
+    },
+    "delta": 0.22356006877697332,
+    "delta_partial": 0.3853435402823716,
+    "S": -0.7236689109574204,
+    "S_ci95": [
+     -8.092731983976766,
+     10.156217847226571
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.10772907924626648,
+     "nothing_sacred": -0.3088380552076646,
+     "royal_wedding": -0.010071341836820773
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": -0.11452178520566693,
+     "nothing_sacred": 0.522948753031347,
+     "royal_wedding": 0.5312537005581701
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "both_primary": {
+    "marginal_r_cut": {
+     "jungle_book": -0.4680415878163178,
+     "nothing_sacred": -0.24448151903934445,
+     "royal_wedding": -0.11061463021347802
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.15658246828990482,
+     "nothing_sacred": -0.20644492261216552,
+     "royal_wedding": -0.3428369490399731
+    },
+    "delta": 0.22356006877697332,
+    "delta_partial": -0.04986245432226069,
+    "S": 1.2230382849452608,
+    "S_ci95": [
+     -21.011125021227855,
+     11.560464398556036
+    ]
+   }
+  },
+  "IFJa": {
+   "speech_prop": {
+    "marginal_r_cut": {
+     "jungle_book": -0.24859079980442159,
+     "nothing_sacred": 0.32012286182996774,
+     "royal_wedding": -0.10838658748042596
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.23956478937648518,
+     "nothing_sacred": 0.31216941557196365,
+     "royal_wedding": -0.13831389915409364
+    },
+    "delta": 0.5687136616343893,
+    "delta_partial": 0.5517342049484488,
+    "S": 0.029855897319477687,
+    "S_ci95": [
+     -1.126753923097516,
+     1.2717375513071878
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.42031287390410665,
+     "nothing_sacred": -0.28485432609479994,
+     "royal_wedding": 0.17555035183971074
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": -0.0326939716468188,
+     "nothing_sacred": 0.01629250297873091,
+     "royal_wedding": 0.17222266445717616
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_change_per_min": {
+    "marginal_r_cut": {
+     "jungle_book": -0.24859079980442159,
+     "nothing_sacred": 0.32012286182996774,
+     "royal_wedding": -0.10838658748042596
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.2704563475609728,
+     "nothing_sacred": 0.24417825540025853,
+     "royal_wedding": -0.17061448442305946
+    },
+    "delta": 0.5687136616343893,
+    "delta_partial": 0.5146346029612313,
+    "S": 0.09509013466942873,
+    "S_ci95": [
+     -3.281294401497227,
+     2.812839466150853
+    ],
+    "r_cut_D": {
+     "jungle_book": 0.8787327820389562,
+     "nothing_sacred": 0.8572968847801354,
+     "royal_wedding": 0.9745980188364564
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.17533496991143072,
+     "nothing_sacred": -0.08961438017116073,
+     "royal_wedding": 0.15058572069238582
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_dist_per_cut": {
+    "marginal_r_cut": {
+     "jungle_book": -0.24859079980442159,
+     "nothing_sacred": 0.32012286182996774,
+     "royal_wedding": -0.030750810467218344
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.2614836899531598,
+     "nothing_sacred": 0.3508533542861436,
+     "royal_wedding": 0.03320029786269581
+    },
+    "delta": 0.5687136616343893,
+    "delta_partial": 0.6123370442393035,
+    "S": -0.07670535376194021,
+    "S_ci95": [
+     -1.9163922364743162,
+     1.6671802080910503
+    ],
+    "r_cut_D": {
+     "jungle_book": 0.46281979872472173,
+     "nothing_sacred": 0.45423336779612616,
+     "royal_wedding": 0.6542938991541324
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.0913341310643029,
+     "nothing_sacred": -0.15246990414000333,
+     "royal_wedding": -0.08614040957727005
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 18
+    }
+   },
+   "words_per_min": {
+    "marginal_r_cut": {
+     "jungle_book": -0.24859079980442159,
+     "nothing_sacred": 0.32012286182996774,
+     "royal_wedding": -0.10838658748042596
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.23330270047144971,
+     "nothing_sacred": 0.2851486820835843,
+     "royal_wedding": -0.13023791198921614
+    },
+    "delta": 0.5687136616343893,
+    "delta_partial": 0.518451382555034,
+    "S": 0.08837888461288201,
+    "S_ci95": [
+     -0.9503282029127006,
+     1.5114603497954278
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.45999579908275423,
+     "nothing_sacred": -0.3712444626045447,
+     "royal_wedding": 0.22058674781844534
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": -0.026000058208169783,
+     "nothing_sacred": -0.0445862442597067,
+     "royal_wedding": 0.10979503854105535
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_dispersion": {
+    "marginal_r_cut": {
+     "jungle_book": -0.24859079980442159,
+     "nothing_sacred": 0.32012286182996774,
+     "royal_wedding": -0.10838658748042596
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.13148889321015456,
+     "nothing_sacred": 0.3097411265801031,
+     "royal_wedding": -0.018605464394399612
+    },
+    "delta": 0.5687136616343893,
+    "delta_partial": 0.44123001979025767,
+    "S": 0.2241613846197481,
+    "S_ci95": [
+     -0.8382174192013595,
+     1.6333572037029436
+    ],
+    "r_cut_D": {
+     "jungle_book": 0.3432924223538863,
+     "nothing_sacred": 0.3547371070575353,
+     "royal_wedding": 0.3770771644329458
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": -0.33862089922500294,
+     "nothing_sacred": -0.027373062947058126,
+     "royal_wedding": -0.21965361312666376
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_pc1": {
+    "marginal_r_cut": {
+     "jungle_book": -0.24859079980442159,
+     "nothing_sacred": 0.32012286182996774,
+     "royal_wedding": -0.10838658748042596
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.22884499278727033,
+     "nothing_sacred": 0.4194098934537898,
+     "royal_wedding": -0.10937950163142571
+    },
+    "delta": 0.5687136616343893,
+    "delta_partial": 0.6482548862410602,
+    "S": -0.13986163859345768,
+    "S_ci95": [
+     -3.522059141729627,
+     1.8459909872357965
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.20983933450658857,
+     "nothing_sacred": -0.2377699042485471,
+     "royal_wedding": -0.015061113491721477
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.07903807576324137,
+     "nothing_sacred": 0.4002631446148433,
+     "royal_wedding": 0.32254148704345353
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_pc2": {
+    "marginal_r_cut": {
+     "jungle_book": -0.24859079980442159,
+     "nothing_sacred": 0.32012286182996774,
+     "royal_wedding": -0.10838658748042596
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.0968433667028894,
+     "nothing_sacred": 0.37659832685208783,
+     "royal_wedding": -0.11356625193648151
+    },
+    "delta": 0.5687136616343893,
+    "delta_partial": 0.4734416935549772,
+    "S": 0.16752185591184177,
+    "S_ci95": [
+     -1.7225032824056778,
+     1.4706815277308438
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.3540020438234753,
+     "nothing_sacred": -0.11670726500156312,
+     "royal_wedding": 0.01708944146999673
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.42987407274194933,
+     "nothing_sacred": 0.36603899738600987,
+     "royal_wedding": 0.18907060384621316
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_pc3": {
+    "marginal_r_cut": {
+     "jungle_book": -0.24859079980442159,
+     "nothing_sacred": 0.32012286182996774,
+     "royal_wedding": -0.10838658748042596
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.24485309882396977,
+     "nothing_sacred": 0.2676465575872479,
+     "royal_wedding": -0.11063518409457469
+    },
+    "delta": 0.5687136616343893,
+    "delta_partial": 0.5124996564112176,
+    "S": 0.09884412669395326,
+    "S_ci95": [
+     -0.7603516014567745,
+     1.0413143077645595
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.10772907924626648,
+     "nothing_sacred": -0.3088380552076646,
+     "royal_wedding": -0.010071341836820773
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.024990432707729816,
+     "nothing_sacred": -0.1515854491092419,
+     "royal_wedding": 0.30744333460562895
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "both_primary": {
+    "marginal_r_cut": {
+     "jungle_book": -0.24859079980442159,
+     "nothing_sacred": 0.32012286182996774,
+     "royal_wedding": -0.10838658748042596
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.2705294009802281,
+     "nothing_sacred": 0.24343427159821934,
+     "royal_wedding": -0.10944567079146758
+    },
+    "delta": 0.5687136616343893,
+    "delta_partial": 0.5139636725784474,
+    "S": 0.09626986786039116,
+    "S_ci95": [
+     -3.8931791620288747,
+     2.930145350305669
+    ]
+   }
+  },
+  "IFJp": {
+   "speech_prop": {
+    "marginal_r_cut": {
+     "jungle_book": 0.15715693313016335,
+     "nothing_sacred": 0.2686253660802964,
+     "royal_wedding": -0.09813411206774815
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.039231281922022805,
+     "nothing_sacred": 0.09115825518079035,
+     "royal_wedding": 0.025939168071129063
+    },
+    "delta": 0.11146843295013306,
+    "delta_partial": 0.13038953710281315,
+    "S": -0.1697440580432732,
+    "S_ci95": [
+     -6.954049623351755,
+     6.958593743298741
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.42031287390410665,
+     "nothing_sacred": -0.28485432609479994,
+     "royal_wedding": 0.17555035183971074
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": -0.42796594018331874,
+     "nothing_sacred": -0.7131912230749099,
+     "royal_wedding": -0.6635738179421966
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_change_per_min": {
+    "marginal_r_cut": {
+     "jungle_book": 0.15715693313016335,
+     "nothing_sacred": 0.2686253660802964,
+     "royal_wedding": -0.09813411206774815
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.17525724761811054,
+     "nothing_sacred": 0.17865709314998338,
+     "royal_wedding": 0.30592061738362036
+    },
+    "delta": 0.11146843295013306,
+    "delta_partial": 0.3539143407680939,
+    "S": -2.1750185357537264,
+    "S_ci95": [
+     -15.10443564512741,
+     15.300662531919558
+    ],
+    "r_cut_D": {
+     "jungle_book": 0.8787327820389562,
+     "nothing_sacred": 0.8572968847801354,
+     "royal_wedding": 0.9745980188364564
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.2808636243934238,
+     "nothing_sacred": -0.04412732443945374,
+     "royal_wedding": -0.33348756992520256
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_dist_per_cut": {
+    "marginal_r_cut": {
+     "jungle_book": 0.15715693313016335,
+     "nothing_sacred": 0.2686253660802964,
+     "royal_wedding": -0.05931341669010298
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": 0.09270279110157643,
+     "nothing_sacred": 0.2446778356210081,
+     "royal_wedding": 0.31434436158573625
+    },
+    "delta": 0.11146843295013306,
+    "delta_partial": 0.15197504451943167,
+    "S": -0.36339087665671044,
+    "S_ci95": [
+     -7.341642255366514,
+     6.175633641247386
+    ],
+    "r_cut_D": {
+     "jungle_book": 0.46281979872472173,
+     "nothing_sacred": 0.45423336779612616,
+     "royal_wedding": 0.6542938991541324
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.10473494435933706,
+     "nothing_sacred": -0.008571478482787723,
+     "royal_wedding": -0.5053776480136126
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 18
+    }
+   },
+   "words_per_min": {
+    "marginal_r_cut": {
+     "jungle_book": 0.15715693313016335,
+     "nothing_sacred": 0.2686253660802964,
+     "royal_wedding": -0.09813411206774815
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.030652966833807832,
+     "nothing_sacred": -0.031898479429676475,
+     "royal_wedding": 0.10052266830498634
+    },
+    "delta": 0.11146843295013306,
+    "delta_partial": -0.0012455125958686433,
+    "S": 1.0111736799639575,
+    "S_ci95": [
+     -8.18088644782363,
+     7.943557607259317
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.45999579908275423,
+     "nothing_sacred": -0.3712444626045447,
+     "royal_wedding": 0.22058674781844534
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": -0.36913447894881135,
+     "nothing_sacred": -0.7539788073748385,
+     "royal_wedding": -0.7427192085767127
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_dispersion": {
+    "marginal_r_cut": {
+     "jungle_book": 0.15715693313016335,
+     "nothing_sacred": 0.2686253660802964,
+     "royal_wedding": -0.09813411206774815
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": 0.25045669299216355,
+     "nothing_sacred": 0.13540840946758229,
+     "royal_wedding": -0.0035330185016179422
+    },
+    "delta": 0.11146843295013306,
+    "delta_partial": -0.11504828352458127,
+    "S": 2.0321153754449,
+    "S_ci95": [
+     -9.394470842969193,
+     10.309503152769182
+    ],
+    "r_cut_D": {
+     "jungle_book": 0.3432924223538863,
+     "nothing_sacred": 0.3547371070575353,
+     "royal_wedding": 0.3770771644329458
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": -0.28659631997729057,
+     "nothing_sacred": 0.37840589597995095,
+     "royal_wedding": -0.23309592512502245
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_pc1": {
+    "marginal_r_cut": {
+     "jungle_book": 0.15715693313016335,
+     "nothing_sacred": 0.2686253660802964,
+     "royal_wedding": -0.09813411206774815
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": 0.1856366061054034,
+     "nothing_sacred": 0.2076432065565151,
+     "royal_wedding": -0.11790393037415738
+    },
+    "delta": 0.11146843295013306,
+    "delta_partial": 0.02200660045111172,
+    "S": 0.8025754927320394,
+    "S_ci95": [
+     -5.88880191749848,
+     5.772874701511733
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.20983933450658857,
+     "nothing_sacred": -0.2377699042485471,
+     "royal_wedding": -0.015061113491721477
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.1488068829781328,
+     "nothing_sacred": -0.28298172892454215,
+     "royal_wedding": -0.4586588041898331
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_pc2": {
+    "marginal_r_cut": {
+     "jungle_book": 0.15715693313016335,
+     "nothing_sacred": 0.2686253660802964,
+     "royal_wedding": -0.09813411206774815
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": 0.24568190987984767,
+     "nothing_sacred": 0.24559018375175004,
+     "royal_wedding": -0.10093787303039649
+    },
+    "delta": 0.11146843295013306,
+    "delta_partial": -9.172612809763003e-05,
+    "S": 1.0008228888275361,
+    "S_ci95": [
+     -5.4115583765515725,
+     5.337874931325917
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.3540020438234753,
+     "nothing_sacred": -0.11670726500156312,
+     "royal_wedding": 0.01708944146999673
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.26912184850532533,
+     "nothing_sacred": -0.30773642284109987,
+     "royal_wedding": -0.440947316030228
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_pc3": {
+    "marginal_r_cut": {
+     "jungle_book": 0.15715693313016335,
+     "nothing_sacred": 0.2686253660802964,
+     "royal_wedding": -0.09813411206774815
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": 0.21678603914207933,
+     "nothing_sacred": 0.10408372333421745,
+     "royal_wedding": -0.10556517015990999
+    },
+    "delta": 0.11146843295013306,
+    "delta_partial": -0.11270231580786189,
+    "S": 2.0110693478420103,
+    "S_ci95": [
+     -7.443823105051865,
+     9.64643526733438
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.10772907924626648,
+     "nothing_sacred": -0.3088380552076646,
+     "royal_wedding": -0.010071341836820773
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.4108035796703858,
+     "nothing_sacred": -0.5836977483831147,
+     "royal_wedding": -0.2916672070792455
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "both_primary": {
+    "marginal_r_cut": {
+     "jungle_book": 0.15715693313016335,
+     "nothing_sacred": 0.2686253660802964,
+     "royal_wedding": -0.09813411206774815
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.18741054958445996,
+     "nothing_sacred": 0.030088811997273403,
+     "royal_wedding": 0.05316617426409745
+    },
+    "delta": 0.11146843295013306,
+    "delta_partial": 0.21749936158173336,
+    "S": -0.9512193347064877,
+    "S_ci95": [
+     -10.350858692620566,
+     11.426431069993994
+    ]
+   }
+  },
+  "IFSp": {
+   "speech_prop": {
+    "marginal_r_cut": {
+     "jungle_book": -0.34721246308344256,
+     "nothing_sacred": 0.11969651646136756,
+     "royal_wedding": -0.03249796650350197
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.20750301486597134,
+     "nothing_sacred": 0.4975306474104766,
+     "royal_wedding": -0.20531687304405155
+    },
+    "delta": 0.46690897954481014,
+    "delta_partial": 0.7050336622764479,
+    "S": -0.5100023626955852,
+    "S_ci95": [
+     -6.783313034854674,
+     4.379399211283168
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.42031287390410665,
+     "nothing_sacred": -0.28485432609479994,
+     "royal_wedding": 0.17555035183971074
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.3214003344183547,
+     "nothing_sacred": 0.8006499564077375,
+     "royal_wedding": 0.6865436935975284
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_change_per_min": {
+    "marginal_r_cut": {
+     "jungle_book": -0.34721246308344256,
+     "nothing_sacred": 0.11969651646136756,
+     "royal_wedding": -0.03249796650350197
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.2681811695847571,
+     "nothing_sacred": 0.016258094689375176,
+     "royal_wedding": -0.39579234183949946
+    },
+    "delta": 0.46690897954481014,
+    "delta_partial": 0.28443926427413224,
+    "S": 0.3908036111204538,
+    "S_ci95": [
+     -3.9964996805050177,
+     3.881808123019969
+    ],
+    "r_cut_D": {
+     "jungle_book": 0.8787327820389562,
+     "nothing_sacred": 0.8572968847801354,
+     "royal_wedding": 0.9745980188364564
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.11363127872259877,
+     "nothing_sacred": 0.05346070044002261,
+     "royal_wedding": 0.3981797179143043
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_dist_per_cut": {
+    "marginal_r_cut": {
+     "jungle_book": -0.34721246308344256,
+     "nothing_sacred": 0.11969651646136756,
+     "royal_wedding": 0.018659085506859532
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.303690624181669,
+     "nothing_sacred": 0.13175737908025026,
+     "royal_wedding": -0.1717707259837549
+    },
+    "delta": 0.46690897954481014,
+    "delta_partial": 0.43544800326191924,
+    "S": 0.06738139050905001,
+    "S_ci95": [
+     -2.5164120439506377,
+     2.079252921238595
+    ],
+    "r_cut_D": {
+     "jungle_book": 0.46281979872472173,
+     "nothing_sacred": 0.45423336779612616,
+     "royal_wedding": 0.6542938991541324
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": -0.02058906352716229,
+     "nothing_sacred": -0.0557026716131064,
+     "royal_wedding": 0.2775865188323968
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 18
+    }
+   },
+   "words_per_min": {
+    "marginal_r_cut": {
+     "jungle_book": -0.34721246308344256,
+     "nothing_sacred": 0.11969651646136756,
+     "royal_wedding": -0.03249796650350197
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.17361422365919618,
+     "nothing_sacred": 0.5110281165604346,
+     "royal_wedding": -0.2448388084587727
+    },
+    "delta": 0.46690897954481014,
+    "delta_partial": 0.6846423402196308,
+    "S": -0.46632934943142246,
+    "S_ci95": [
+     -6.3542005828879855,
+     3.925804352981312
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.45999579908275423,
+     "nothing_sacred": -0.3712444626045447,
+     "royal_wedding": 0.22058674781844534
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.35663545527967505,
+     "nothing_sacred": 0.752726156122158,
+     "royal_wedding": 0.6875258811264057
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_dispersion": {
+    "marginal_r_cut": {
+     "jungle_book": -0.34721246308344256,
+     "nothing_sacred": 0.11969651646136756,
+     "royal_wedding": -0.03249796650350197
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.2209626474482339,
+     "nothing_sacred": 0.31687322722942546,
+     "royal_wedding": 0.0157102558847165
+    },
+    "delta": 0.46690897954481014,
+    "delta_partial": 0.5378358746776594,
+    "S": -0.1519073272096756,
+    "S_ci95": [
+     -4.055492163794652,
+     2.75693075098083
+    ],
+    "r_cut_D": {
+     "jungle_book": 0.3432924223538863,
+     "nothing_sacred": 0.3547371070575353,
+     "royal_wedding": 0.3770771644329458
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": -0.4114586832303777,
+     "nothing_sacred": -0.49860926303695463,
+     "royal_wedding": -0.12122519108329949
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_pc1": {
+    "marginal_r_cut": {
+     "jungle_book": -0.34721246308344256,
+     "nothing_sacred": 0.11969651646136756,
+     "royal_wedding": -0.03249796650350197
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.3082781085519697,
+     "nothing_sacred": 0.3739270264187109,
+     "royal_wedding": -0.03072785104326178
+    },
+    "delta": 0.46690897954481014,
+    "delta_partial": 0.6822051349706806,
+    "S": -0.46110947713141615,
+    "S_ci95": [
+     -7.8768751048982875,
+     5.645880279107139
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.20983933450658857,
+     "nothing_sacred": -0.2377699042485471,
+     "royal_wedding": -0.015061113491721477
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.21793889564857183,
+     "nothing_sacred": 0.7068768327804698,
+     "royal_wedding": 0.6990532913671237
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_pc2": {
+    "marginal_r_cut": {
+     "jungle_book": -0.34721246308344256,
+     "nothing_sacred": 0.11969651646136756,
+     "royal_wedding": -0.03249796650350197
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.17265694441323917,
+     "nothing_sacred": 0.2688568900024643,
+     "royal_wedding": -0.04623012709931761
+    },
+    "delta": 0.46690897954481014,
+    "delta_partial": 0.44151383441570347,
+    "S": 0.05438992660596165,
+    "S_ci95": [
+     -3.709984325053539,
+     3.2957035776060537
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.3540020438234753,
+     "nothing_sacred": -0.11670726500156312,
+     "royal_wedding": 0.01708944146999673
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.5720016773862326,
+     "nothing_sacred": 0.6946105347367286,
+     "royal_wedding": 0.47731371618539264
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_pc3": {
+    "marginal_r_cut": {
+     "jungle_book": -0.34721246308344256,
+     "nothing_sacred": 0.11969651646136756,
+     "royal_wedding": -0.03249796650350197
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.34226247179687563,
+     "nothing_sacred": 0.3383215162369788,
+     "royal_wedding": -0.032652715590924135
+    },
+    "delta": 0.46690897954481014,
+    "delta_partial": 0.6805839880338544,
+    "S": -0.4576373936893572,
+    "S_ci95": [
+     -5.030508803555215,
+     3.4841991573743933
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.10772907924626648,
+     "nothing_sacred": -0.3088380552076646,
+     "royal_wedding": -0.010071341836820773
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.037991001924082314,
+     "nothing_sacred": 0.5783646657278193,
+     "royal_wedding": 0.5755202218351183
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "both_primary": {
+    "marginal_r_cut": {
+     "jungle_book": -0.34721246308344256,
+     "nothing_sacred": 0.11969651646136756,
+     "royal_wedding": -0.03249796650350197
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.2881179218523374,
+     "nothing_sacred": 0.30349570770326334,
+     "royal_wedding": -0.17353389155648508
+    },
+    "delta": 0.46690897954481014,
+    "delta_partial": 0.5916136295556007,
+    "S": -0.26708556801020444,
+    "S_ci95": [
+     -8.439062475025365,
+     6.012861655893446
+    ]
+   }
+  },
+  "8C": {
+   "speech_prop": {
+    "marginal_r_cut": {
+     "jungle_book": -0.27182070908236977,
+     "nothing_sacred": 0.14539128534644302,
+     "royal_wedding": 0.05680514131713838
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.1681371974533654,
+     "nothing_sacred": 0.2270150450388028,
+     "royal_wedding": -0.047941161463497584
+    },
+    "delta": 0.4172119944288128,
+    "delta_partial": 0.3951522424921682,
+    "S": 0.052874203597252034,
+    "S_ci95": [
+     -2.847920284846757,
+     2.6043867461045016
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.42031287390410665,
+     "nothing_sacred": -0.28485432609479994,
+     "royal_wedding": 0.17555035183971074
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.21330414083095467,
+     "nothing_sacred": 0.28890667988479496,
+     "royal_wedding": 0.5478055066628131
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_change_per_min": {
+    "marginal_r_cut": {
+     "jungle_book": -0.27182070908236977,
+     "nothing_sacred": 0.14539128534644302,
+     "royal_wedding": 0.05680514131713838
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.18002372846214332,
+     "nothing_sacred": 0.2724876962308524,
+     "royal_wedding": -0.31238354581045125
+    },
+    "delta": 0.4172119944288128,
+    "delta_partial": 0.4525114246929957,
+    "S": -0.08460789894717635,
+    "S_ci95": [
+     -5.582186882366688,
+     7.352039616066995
+    ],
+    "r_cut_D": {
+     "jungle_book": 0.8787327820389562,
+     "nothing_sacred": 0.8572968847801354,
+     "royal_wedding": 0.9745980188364564
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.05453456697042605,
+     "nothing_sacred": -0.2330052996830901,
+     "royal_wedding": 0.33141679786957584
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_dist_per_cut": {
+    "marginal_r_cut": {
+     "jungle_book": -0.27182070908236977,
+     "nothing_sacred": 0.14539128534644302,
+     "royal_wedding": 0.12576179000338908
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.22471490597946842,
+     "nothing_sacred": 0.299262008266903,
+     "royal_wedding": -0.026355150113888375
+    },
+    "delta": 0.4172119944288128,
+    "delta_partial": 0.5239769142463715,
+    "S": -0.2559008879016673,
+    "S_ci95": [
+     -3.5718744482972853,
+     2.6541463787377984
+    ],
+    "r_cut_D": {
+     "jungle_book": 0.46281979872472173,
+     "nothing_sacred": 0.45423336779612616,
+     "royal_wedding": 0.6542938991541324
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": -0.043182601767043347,
+     "nothing_sacred": -0.35680735791186236,
+     "royal_wedding": 0.18611051716888466
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 18
+    }
+   },
+   "words_per_min": {
+    "marginal_r_cut": {
+     "jungle_book": -0.27182070908236977,
+     "nothing_sacred": 0.14539128534644302,
+     "royal_wedding": 0.05680514131713838
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.1581013516793178,
+     "nothing_sacred": 0.27518424817814613,
+     "royal_wedding": -0.07850477825289619
+    },
+    "delta": 0.4172119944288128,
+    "delta_partial": 0.43328559985746395,
+    "S": -0.038526230413525875,
+    "S_ci95": [
+     -3.669667688152252,
+     3.1191973247473963
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.45999579908275423,
+     "nothing_sacred": -0.3712444626045447,
+     "royal_wedding": 0.22058674781844534
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.2044951469410639,
+     "nothing_sacred": 0.35364331177597064,
+     "royal_wedding": 0.5497803862368206
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_dispersion": {
+    "marginal_r_cut": {
+     "jungle_book": -0.27182070908236977,
+     "nothing_sacred": 0.14539128534644302,
+     "royal_wedding": 0.05680514131713838
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.1252892632480414,
+     "nothing_sacred": 0.3291502184323434,
+     "royal_wedding": 0.15976184250961192
+    },
+    "delta": 0.4172119944288128,
+    "delta_partial": 0.4544394816803848,
+    "S": -0.08922918743632602,
+    "S_ci95": [
+     -3.743730335981446,
+     3.9032176176272175
+    ],
+    "r_cut_D": {
+     "jungle_book": 0.3432924223538863,
+     "nothing_sacred": 0.3547371070575353,
+     "royal_wedding": 0.3770771644329458
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": -0.44298335778121806,
+     "nothing_sacred": -0.47655317150068416,
+     "royal_wedding": -0.2731273507044375
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_pc1": {
+    "marginal_r_cut": {
+     "jungle_book": -0.27182070908236977,
+     "nothing_sacred": 0.14539128534644302,
+     "royal_wedding": 0.05680514131713838
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.24469513370899326,
+     "nothing_sacred": 0.2698527479085694,
+     "royal_wedding": 0.0827690441928204
+    },
+    "delta": 0.4172119944288128,
+    "delta_partial": 0.5145478816175626,
+    "S": -0.23330078830070122,
+    "S_ci95": [
+     -5.162596061925865,
+     4.4068472837672426
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.20983933450658857,
+     "nothing_sacred": -0.2377699042485471,
+     "royal_wedding": -0.015061113491721477
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.1224744532127273,
+     "nothing_sacred": 0.4514132878186066,
+     "royal_wedding": 0.6066244024208608
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_pc2": {
+    "marginal_r_cut": {
+     "jungle_book": -0.27182070908236977,
+     "nothing_sacred": 0.14539128534644302,
+     "royal_wedding": 0.05680514131713838
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.0952949118205757,
+     "nothing_sacred": 0.1947045940378582,
+     "royal_wedding": 0.055688673241119174
+    },
+    "delta": 0.4172119944288128,
+    "delta_partial": 0.2899995058584339,
+    "S": 0.3049109092478036,
+    "S_ci95": [
+     -3.8565627664395206,
+     2.823897068433044
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.3540020438234753,
+     "nothing_sacred": -0.11670726500156312,
+     "royal_wedding": 0.01708944146999673
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": 0.5143082767518359,
+     "nothing_sacred": 0.3455451176901705,
+     "royal_wedding": 0.4972509216978708
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "sem_pc3": {
+    "marginal_r_cut": {
+     "jungle_book": -0.27182070908236977,
+     "nothing_sacred": 0.14539128534644302,
+     "royal_wedding": 0.05680514131713838
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.2791680554990927,
+     "nothing_sacred": 0.23624494680433575,
+     "royal_wedding": 0.06931628502686298
+    },
+    "delta": 0.4172119944288128,
+    "delta_partial": 0.5154130023034285,
+    "S": -0.23537436407852685,
+    "S_ci95": [
+     -2.8662221012929794,
+     2.638255093784874
+    ],
+    "r_cut_D": {
+     "jungle_book": -0.10772907924626648,
+     "nothing_sacred": -0.3088380552076646,
+     "royal_wedding": -0.010071341836820773
+    },
+    "partial_r_y_D_given_cut": {
+     "jungle_book": -0.08277327129710049,
+     "nothing_sacred": 0.29872257827242704,
+     "royal_wedding": 0.4636473681377734
+    },
+    "n_per_film": {
+     "jungle_book": 24,
+     "nothing_sacred": 23,
+     "royal_wedding": 23
+    }
+   },
+   "both_primary": {
+    "marginal_r_cut": {
+     "jungle_book": -0.27182070908236977,
+     "nothing_sacred": 0.14539128534644302,
+     "royal_wedding": 0.05680514131713838
+    },
+    "partial_r_cut_given_D": {
+     "jungle_book": -0.18614688626081782,
+     "nothing_sacred": 0.34277151831801206,
+     "royal_wedding": -0.11874941960131996
+    },
+    "delta": 0.4172119944288128,
+    "delta_partial": 0.5289184045788299,
+    "S": -0.2677449633320097,
+    "S_ci95": [
+     -8.267846289973198,
+     9.02012848576252
+    ]
+   }
+  }
+ }
+}

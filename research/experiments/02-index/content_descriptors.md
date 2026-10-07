@@ -119,6 +119,111 @@ to joins being located by formula on clips that run slightly short; the corpus u
 cut frames. Live-action cuts sit between the two calibration groups (median 0.229, 10th–90th
 percentile 0.12–0.37), so the continuous measure is the right form and no threshold is used.
 
-## Results
+## Results — run once, 7 Oct 2026
 
-*Not yet computed.*
+Descriptors `content_av.jsonl`, `content_words.jsonl` (244/244 each); analysis
+`content_analysis.py` → `content_analysis.json`, `content_analysis.log`. Convergent check: VAD
+`speech_prop` and Whisper `words_per_min` correlate at *r* 0.96 (Spearman 0.98) over the 244 —
+not independent (Whisper ran behind the same VAD), but it shows the VAD's speech spans contain
+words, not music.
+
+### Q0 · Is the flip real? **NOT DEMONSTRATED**
+
+| | *Jungle Book* | *Nothing Sacred* | *Royal Wedding* | cut × film *F* (perm *p*) | NS − JB (95% CI) |
+|---|---|---|---|---|---|
+| frontal cluster, within-film *r* with cut rate | −0.27 | +0.26 | −0.05 | 1.38 (**0.279**) | +0.53 (−0.14, +1.08) |
+| auditory cluster (control) | −0.47 | −0.24 | −0.11 | 0.03 (0.971) | — |
+
+The three films' frontal slopes are more scattered than the auditory ones, but not more than
+chance allows. **There is no demonstrated sign flip to explain**: the "flip" is three noisy
+estimates around zero, of which two happen to fall on opposite sides of it. By the fixed
+reading rule every Q2 result below accounts for a difference not shown to exist.
+
+### Q1–Q2 · Does a descriptor carry it? **DOES NOT CARRY, all three**
+
+| descriptor | *r*(cut, D) JB / NS / RW | partial *r*(frontal, cut \| D) JB / NS / RW | *S* (95% CI) | *r*(frontal, D \| cut) JB / NS / RW | class |
+|---|---|---|---|---|---|
+| `speech_prop` | −0.42 / −0.28 / +0.18 | −0.20 / +0.38 / −0.14 | −0.09 (−2.17, +1.62) | +0.12 / +0.40 / +0.41 | **DOES NOT CARRY** |
+| `sem_change_per_min` | +0.88 / +0.86 / +0.97 | −0.27 / +0.20 / −0.27 | +0.13 (−3.08, +2.63) | +0.16 / −0.07 / +0.27 | **DOES NOT CARRY** |
+| `sem_dist_per_cut` *(amendment; RW n = 18)* | +0.46 / +0.45 / +0.65 | −0.25 / +0.31 / −0.03 | −0.06 (−1.91, +2.00) | +0.02 / −0.18 / +0.06 | **DOES NOT CARRY** |
+| both primary together | — | −0.27 / +0.30 / −0.12 | −0.07 (−4.33, +3.99) | — | *(no class)* |
+
+Neither speech nor semantic change has a correlation with cut rate that differs in sign between
+*Nothing Sacred* and *Jungle Book*, which is what carrying the flip would need. Faster cutting
+goes with *less* speech in both, and with cuts that change the picture's meaning *more* in all
+three films (`sem_dist_per_cut` +0.45 to +0.65) — the opposite of "fast cutting is small
+continuity cuts". The *S* intervals are enormous because the difference they divide by is
+itself indistinguishable from zero. Auditory control: its partial *r* with cut rate stays at or
+below zero given every descriptor (given speech −0.28 / 0.00 / −0.40; given `sem_dist_per_cut`
+−0.38 / −0.27 / −0.26).
+
+### Reading — written after the classes, separately from them
+
+**The question F5 asked dissolves rather than being answered.** The frontal cluster's relation
+to cut rate in this corpus is zero within film (pooled *r* −0.02), and its per-film estimates
+scatter around zero within what three samples of 23–24 would produce. Together with 03b — which
+puts the expected corpus effect at only *r* ≈ +0.05 to +0.20 — the simplest account of the
+frontal miss is now an effect expected to be small, not detected, with nothing film-specific
+about it. The paper's repeated statement that the frontal sign "flips between films" is
+descriptively true and statistically empty, and should be worded as such.
+
+### Secondary and post-hoc — exploratory, uncorrected
+
+Post-hoc means written after the fixed analysis was read (`content_posthoc.py` →
+`content_posthoc.json`).
+
+**Speech is a large content dial the index lacks — on the auditory side.** Within film, the
+auditory cluster tracks `speech_prop` at *r* +0.78 pooled (partial on cut rate +0.59 / +0.86 /
++0.81 by film, the same sign and size everywhere). Leave-one-out within-film *R*²: the 14 visual
+dials alone −0.09 (OLS at *n* = 70 overfits; the registered model was an elastic net, so this
+is not a re-run of stage 02), the 14 dials plus speech **+0.54**, and four content descriptors
+alone (speech, semantic PC1, PC2, dispersion) **+0.60**. One audio descriptor explains more
+within-film auditory variance out of sample than the whole visual dial set. That is unsurprising
+for a sensor with an audio branch, and it is a measured fact the paper does not yet contain.
+
+**Part of the corpus's auditory cut-rate signature is speech.** Faster cutting goes with less
+dialogue (pooled within-film *r* −0.20), and auditory cortex follows dialogue, so some of the
+negative auditory–cut relation is speech: pooled *r* −0.27 marginal, −0.19 given speech. Most
+of it survives, consistent with stage 03, where cutting lowered auditory response with no
+speech at all (S−). The index's auditory cut-rate coefficient is therefore partly a speech
+coefficient; stage 03's causal result is unaffected.
+
+**What the frontal cluster does track is the picture's content, not its cutting.** Given cut
+rate, the frontal cluster follows semantic PC2 at +0.55 / +0.55 / +0.34 and PC1 at +0.17 /
++0.60 / +0.52, and falls with semantic dispersion at −0.43 / −0.35 / −0.24 — the same sign in
+every film. PC2 is partly faces (within-film *r* with `face_area_frac` +0.40, with
+`face_hit_rate` −0.39), PC1 partly colour (`mean_saturation` −0.46); neither is a dial under
+another name. Leave-one-out within-film *R*² for the frontal cluster: content descriptors alone
++0.19, the 14 dials −0.15. These columns were not planned tests; they mark where a frontal
+dial would have to come from, not what it is.
+
+**Speech may mask a frontal cut effect slightly — direction only.** Partialling speech moves
+the frontal cluster's cut-rate *r* towards stage 03's sign in *Nothing Sacred* (+0.26 → +0.38)
+and *Jungle Book* (−0.27 → −0.20), and the pooled value from −0.02 to +0.04. IFSp moves most
+(*Nothing Sacred* +0.12 → +0.50). Because fast cutting carries less speech and speech raises
+these parcels, a positive cut effect would be partly cancelled in cinema. The pooled change is
+small and nothing here is tested; it is reported as a direction for paper two's corpus.
+
+### What this changes in `PAPER.md` (for consolidation step 4)
+
+1. Every statement that the frontal relation to cutting "flips sign between films" should read
+   that the per-film estimates differ in sign but **do not differ significantly** (*F* 1.38,
+   *p* 0.28); the scene-switch and content hypotheses were answers to a difference not shown
+   to exist. Occurrences on 7 Oct: abstract ×3 ("flips sign between films"; two in the 03b
+   paragraph, "a sign that flips between films"), § 6.8 ×2, § 6.9 ×1, § 9 ×1 — `grep -n "flips" PAPER.md`.
+2. The abstract's account of stage 02's miss — cutting measured "where it co-occurs with
+   dialogue, close-ups and interiors" — is contradicted for dialogue as well as for close-ups:
+   faster cutting goes with *less* speech (−0.20) and smaller faces (§6.5).
+3. Speech belongs in §8 (a missing content dial, with the auditory *R*² figures) and in future
+   work, and qualifies "the index's cut-rate column should be read as the auditory half of the
+   effect": partly cutting, partly speech.
+
+### Limitations
+
+Three films, 23–24 segments each: a within-film *r* below ≈ 0.4 is inside noise, and Q0 has
+little power to detect a real heterogeneity of modest size — "not demonstrated" is not "absent".
+One VAD and one CLIP model; CLIP is trained on photographs and captions, not cinema. The
+semantic scene-change measure was validated on generated footage, where live-action cuts fall
+between the two calibration groups. `sem_change_per_min` was nearly collinear with cut rate by
+construction (see the amendment). The text branch is off throughout, so the sensor never saw
+words as text, only heard them.
