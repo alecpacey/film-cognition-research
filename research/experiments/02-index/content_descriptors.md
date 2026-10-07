@@ -87,6 +87,38 @@ CLIP distance at REF's joins (scene change) must exceed that at B's and C's join
 for every ladder level; if it does not, the descriptor is reported as failed and Q1–Q2 for it
 are not interpreted.
 
+## Amendment — 7 Oct, after the descriptors were computed, before any parcel data was read
+
+A descriptor-only check (no brain data) found that **`sem_change_per_min` correlates with cut
+rate at *r* = 0.94** across the 244 segments. Built as a sum over cuts, it is close to a copy of
+the variable it was meant to explain: it cannot carry a sign flip (that needs its correlation
+with cut rate to differ in sign between films) and partialling it out leaves little cut-rate
+variance, so its *S* will be unstable. This is a flaw in the plan, not in the data. It is
+**run as fixed and reported, with this caveat attached.**
+
+Added, as a third descriptor run through Q1–Q2 with the same class rules but labelled as an
+amendment: **`sem_dist_per_cut`** — the mean CLIP distance across a segment's cuts, i.e. how much
+the meaning of the picture changes at a *typical* cut, independent of how many cuts there are.
+This is the quantity F5 was reaching for: in one film fast cutting may mean small continuity
+cuts, in another large scene jumps. Undefined for segments with no cuts; the five such scored
+segments (all *Royal Wedding*) are dropped for this descriptor only, leaving *Royal Wedding*
+*n* = 18 and the *Nothing Sacred* / *Jungle Book* contrast untouched.
+
+Two properties of the method found by the synthetic self-test (speech planted to carry the
+flip entirely, a pure-noise semantic descriptor alongside): the planted case scores *S* +0.67
+(CI 0.41–1.00, CARRIES) rather than ≈ 1, because partial correlations under near-collinearity
+retain residual structure — **the 0.50 bar is conservative**; and the noise case scores
+*S* 0.00 (DOES NOT CARRY). The auditory cluster has no flip, so its *S* divides by ≈ 0 and is
+meaningless; **the auditory control is read from its partial *r*s staying negative, not from
+*S*.**
+
+Validation (`content_validation.json`): **PASS.** CLIP distance across 03b's scene-change joins
+(REF) 0.42–0.49 against 0.02–0.07 across same-scene joins (B, C) at every level. The stricter
+check (every REF join above every B/C join) fails at cut31 on one join of 0.006, attributable
+to joins being located by formula on clips that run slightly short; the corpus uses detected
+cut frames. Live-action cuts sit between the two calibration groups (median 0.229, 10th–90th
+percentile 0.12–0.37), so the continuous measure is the right form and no threshold is used.
+
 ## Results
 
 *Not yet computed.*

@@ -1,0 +1,108 @@
+{
+ "REF_cut01": {
+  "n_joins": 1,
+  "clip_dist_mean": 0.4941007618840797,
+  "clip_dist_min": 0.4941007618840797,
+  "clip_dist_max": 0.4941007618840797
+ },
+ "REF_cut03": {
+  "n_joins": 3,
+  "clip_dist_mean": 0.47820311190776255,
+  "clip_dist_min": 0.4519423371491369,
+  "clip_dist_max": 0.5268800229221853
+ },
+ "REF_cut07": {
+  "n_joins": 7,
+  "clip_dist_mean": 0.4812319513210851,
+  "clip_dist_min": 0.4421815148450574,
+  "clip_dist_max": 0.5490923912001585
+ },
+ "REF_cut15": {
+  "n_joins": 15,
+  "clip_dist_mean": 0.48566693617809725,
+  "clip_dist_min": 0.44442331391359824,
+  "clip_dist_max": 0.5241717268656055
+ },
+ "REF_cut31": {
+  "n_joins": 31,
+  "clip_dist_mean": 0.42435683418509673,
+  "clip_dist_min": 0.006016713158890852,
+  "clip_dist_max": 0.5397300611579413
+ },
+ "B_cut01": {
+  "n_joins": 1,
+  "clip_dist_mean": 0.022192541961148726,
+  "clip_dist_min": 0.022192541961148726,
+  "clip_dist_max": 0.022192541961148726
+ },
+ "B_cut03": {
+  "n_joins": 3,
+  "clip_dist_mean": 0.05384273398211429,
+  "clip_dist_min": 0.05028326602499911,
+  "clip_dist_max": 0.058324459396155715
+ },
+ "B_cut07": {
+  "n_joins": 7,
+  "clip_dist_mean": 0.07333451381239933,
+  "clip_dist_min": 0.04489482492478969,
+  "clip_dist_max": 0.12041633980278221
+ },
+ "B_cut15": {
+  "n_joins": 15,
+  "clip_dist_mean": 0.07056178150423893,
+  "clip_dist_min": 0.04324133857085566,
+  "clip_dist_max": 0.1137060854129821
+ },
+ "B_cut31": {
+  "n_joins": 31,
+  "clip_dist_mean": 0.059604119540925676,
+  "clip_dist_min": 0.005789333912473271,
+  "clip_dist_max": 0.1219693615845705
+ },
+ "C_cut01": {
+  "n_joins": 1,
+  "clip_dist_mean": 0.0186559369198962,
+  "clip_dist_min": 0.0186559369198962,
+  "clip_dist_max": 0.0186559369198962
+ },
+ "C_cut03": {
+  "n_joins": 3,
+  "clip_dist_mean": 0.03472829745852505,
+  "clip_dist_min": 0.02681613924417947,
+  "clip_dist_max": 0.04421943662212047
+ },
+ "C_cut07": {
+  "n_joins": 7,
+  "clip_dist_mean": 0.04009122317248327,
+  "clip_dist_min": 0.021679390381621366,
+  "clip_dist_max": 0.052923140700296134
+ },
+ "C_cut15": {
+  "n_joins": 15,
+  "clip_dist_mean": 0.04288200502697506,
+  "clip_dist_min": 0.028171587634591377,
+  "clip_dist_max": 0.06359045187887835
+ },
+ "C_cut31": {
+  "n_joins": 31,
+  "clip_dist_mean": 0.0379599073714565,
+  "clip_dist_min": 0.00505355009691022,
+  "clip_dist_max": 0.061683370499564516
+ },
+ "criterion": "REF mean CLIP distance across joins > B and C means, at every level (content_descriptors.md)",
+ "pass_by_level_means": {
+  "1": true,
+  "3": true,
+  "7": true,
+  "15": true,
+  "31": true
+ },
+ "PASS": true,
+ "stricter_separation_REF_min_gt_BC_max": {
+  "1": true,
+  "3": true,
+  "7": true,
+  "15": true,
+  "31": false
+ }
+}
