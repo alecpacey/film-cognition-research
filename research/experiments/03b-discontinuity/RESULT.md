@@ -33,7 +33,7 @@ table, **GRADED — no categorical claim; ratios reported as measured.**
 **Neither a pure cut detector nor a pure switch detector.** A hard cut with no change of scene
 gives 44% of the frontal effect in the face scene and 18% in the landscape; a change of scene
 with no hard cut gives 48%. The two contributions are close to additive: B + D ≈ 0.92 of REF,
-C + D ≈ 0.66. Every ladder's whole-map response pattern resembles REF's (*r* +0.62 to +0.86, all
+C + D ≈ 0.67. Every ladder's whole-map response pattern resembles REF's (*r* +0.62 to +0.86, all
 *p* = 0.008), so what varies across ladders is the size of one response, not its shape.
 
 **The two signatures of cutting come apart.** The auditory decrease follows the hard
@@ -58,8 +58,8 @@ abrupt), which this design cannot separate from "change of scene" (README § Lim
 
 **On the frontal miss in real cinema.** Cinema's within-scene hard cuts should, by B and C,
 produce 0.2–0.45 of REF's frontal slope per unit ln cuts. `frontal_miss.md` showed REF's full
-slope would have been detectable in the corpus at *r* ≈ +0.3–0.45; at 0.2–0.45 of it the
-expected corpus *r* is ≈ +0.08–0.20 — small, and within what a sign that flips between films
+slope would have been detectable in the corpus at *r* ≈ +0.3–0.45; at 0.18–0.44 of it the
+expected corpus *r* is ≈ +0.05–0.20 (corrected 7 Oct from +0.08: 0.18 × 0.30 to 0.44 × 0.45, linear at small *r*) — small, and within what a sign that flips between films
 could hide. **The miss is smaller than it looked, and no longer needs a special explanation
 beyond corpus heterogeneity; it is not resolved.**
 

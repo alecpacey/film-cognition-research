@@ -8,7 +8,7 @@ Rules: tick a box only when its done-criterion is met and the evidence is commit
 gets a `LOG.md` line. Paid steps get criteria in a README *before* spend. Update the status
 line below at the end of each session.
 
-**Status (20 Sep 2026):** **Steps 1 and 2a–2d complete.** 2e (text branch, ≈ $1.25, capped) awaits the author's decision. Next free work: step 3 (content descriptors) and step 4 (consolidation pass, which folds 03b into § 6.8 / § 8 / § 9). Scoring (2d) needs HF prepaid credit, ≈ $5–8.
+**Status (7 Oct 2026):** **Steps 1 and 2a–2d complete; 4d complete — 03b is in the paper** (§ 6.9, with abstract, § 6.8, § 8, § 9 aligned). 2e (text branch, ≈ $1.25, capped) awaits the author's decision. Next free work: step 3a (content descriptors), then 4a (restructure), which now moves finished 03b text rather than writing it.
 
 ## Step 1 · Integrity fixes — free
 
@@ -47,7 +47,7 @@ line below at the end of each session.
 - [ ] **4a · Restructure** to the outline in review § 8; results written once, history in § 7.
 - [ ] **4b · SESOI as heuristic (M3); criterion 1 leniency stated.**
 - [ ] **4c · Stage 03 audio construction stated exactly (M4); verdict-table lesson in § 7.**
-- [ ] **4d · Encoder-artefact alternative named (M5),** with step 2's result.
+- [x] **4d · Encoder-artefact alternative named (M5),** with step 2's result. *Done 7 Oct: § 6.9 and § 8 — pure form weakened (half the frontal effect arrives with no discontinuity), broad form ("any large visual change") not excluded. Every 03b figure verified against `evaluation.json` / `cut_locked.json`; two derived figures corrected (LOG).*
 - [ ] **4e · Limitations and Future Work** from review § 9, edited to the results of steps 1–3.
 - [ ] **4f · Abstract ≤ 400 words,** exploratory results flagged (m7); minor comments m2–m13.
 - [ ] **4g · References** verified and formatted (citation-management skill).

@@ -84,7 +84,18 @@ The one hypothesis that survived was that inferior-frontal cortex responds to *s
 switches*, which in the intercut ladders are identical to cuts and in cinema mostly are
 not; a between-scene cut count built to test it finds no frontal association at any
 threshold, with the same film-flipping sign, while auditory cortex follows cuts of every
-kind. The frontal miss is a property of this corpus and remains unexplained.
+kind.
+
+**Stage 03b** separates the two parts of a cut on constructed ladders, criteria fixed
+before any clip was built. The verdict is **GRADED**: a hard cut with no change of scene
+carries 18–44% of the frontal effect depending on the scene, and a change of scene by
+0.5 s dissolve with no hard cut carries 48%, close to additively. The two signatures of
+cutting separate: the auditory decrease follows the hard discontinuity (62% and 38% for
+same-scene cuts, 17% and not significant for dissolves), while the frontal increase is
+partly a response to the scene changing. Since most cuts in cinema stay inside a scene,
+the corpus *r* expected for the frontal parcels falls to ≈ +0.05 to +0.20 — small enough
+to hide inside a sign that flips between films. The frontal miss is smaller than it
+looked; it is not resolved.
 
 Two results qualify the first criterion and are reported with equal prominence. The
 dominant dial is **face area**, largest coefficient in 65 of the 101 survivors, whose
@@ -1269,8 +1280,10 @@ genuinely 31×. Against the level-permutation null (§5.2) each count has *p* = 
 79 or 90 parcels over the bar, because the response across the ladder is close to
 one-dimensional (participation ratio 1.25 and 1.20 of a possible 4). Two consequences. The
 counts are near the strongest evidence five levels can give, not "eight times chance". And
-"frontal up, auditory down" is the sign pattern of one response mode, not two independent
-findings. PARTIAL-A stands because the criteria were
+within this ladder "frontal up, auditory down" is the sign pattern of one response mode,
+not two independent findings — a statement that holds within a ladder and, as §6.9 shows by
+varying the kind of join, fails across ladders, where the two signatures separate.
+PARTIAL-A stands because the criteria were
 fixed and are not softened afterwards; the claim that speech is *required* for the frontal
 effect must not be carried forward as a finding, and this paper does not carry it.
 
@@ -1344,7 +1357,120 @@ large. What stands: the frontal miss is not the penalty, not the range, not cont
 and not, by this measure, the composition of the cuts; the frontal parcels' relation to
 cutting differs in sign between films, which points at film-specific content the dial set does
 not measure. The index's cut-rate column should be read as the auditory half of the effect
-only, and cut rate treated as a frontal lever solely on intercut material.
+only. **§6.9 puts the same question to a constructed test, and the answer changes how large
+the corpus effect should have been.**
+
+---
+
+### 6.9 Stage 03b · Which part of a cut — GRADED
+
+Stage 03 varied cutting on a ladder where every cut alternated two maximally different
+scenes, so a cut and a change of scene were the same event. Stage 03b separates them.
+Four ladders, each 1 / 3 / 7 / 15 / 31 constructed joins per minute as in stage 03:
+**REF**, stage 03's no-speech arm rescored, where each join is both a hard cut and a scene
+change; **B** and **C**, hard cuts with no change of scene, made by self-intercutting a
+single base — the two-person face scene and a landscape respectively; and **D**, changes of
+scene with no hard cut, the REF material joined by 0.5 s dissolves. Criteria, the four
+verdict classes and the frontal cluster were fixed in `03b-discontinuity/README.md` at
+commit `221faad` before any clip was built, and the evaluator was committed and self-tested
+on frozen calibration data before any result existed. Twenty clips, 180 parcels, plus a
+saved 1 Hz × 180 timeline per clip. The audio track is byte-identical across all twenty
+clips (one decoded MD5), so nothing here can be an auditory artefact of the construction.
+
+**Identity test: PASS.** The timeline-saving app reproduced stage 03's S− parcel values
+exactly (max raw |Δ| 0.0e+00), and each parcel's 60-point timeline averages to its raw value
+to 4.3e-08. Every figure below therefore sits on the same footing as stages 01–03.
+
+The frontal ratio ρ_F is a ladder's mean frontal-cluster slope (IFJa · IFJp · IFSp · 8C
+against log constructed cuts) divided by REF's +0.251; *p* is one-sided over the 120 level
+orderings, floor 0.008. As fixed: **REPRODUCES** at ρ_F ≥ 0.50 with *p* ≤ 0.05, **ABSENT**
+at ρ_F ≤ 0.25, **PARTIAL** otherwise.
+
+| ladder | ρ_F | *p* | class | ρ_A (*p*) | whole-map gain (*p*) | *r* with REF mode | PR |
+|---|---|---|---|---|---|---|---|
+| **REF** · hard cut + scene change | +1.00 | 0.017 | **REPRODUCES** | +1.00 (0.008) | +1.00 (0.008) | +1.00 | 1.20 |
+| **B** · hard cut, same scene — face | +0.44 | 0.008 | **PARTIAL** | +0.62 (0.008) | +0.67 (0.008) | +0.86 | 1.05 |
+| **C** · hard cut, same scene — landscape | +0.18 | 0.017 | **ABSENT** | +0.38 (0.008) | +0.47 (0.008) | +0.73 | 1.03 |
+| **D** · scene change, 0.5 s dissolves | +0.48 | 0.042 | **PARTIAL** | +0.17 (0.075) | +0.50 (0.008) | +0.62 | 1.25 |
+
+The same-scene arm returns one PARTIAL and one ABSENT, the dissolve arm PARTIAL. By the
+table as fixed that is **GRADED — no categorical claim; the ratios are reported as
+measured.**
+
+**The sensor is neither a pure cut detector nor a pure switch detector.** A hard cut with no
+change of scene carries 44% of the frontal effect in the face scene and 18% in the
+landscape; a change of scene with no hard cut carries 48%. The two contributions are close
+to additive — B + D ≈ 0.92 of REF, C + D ≈ 0.67 — and every ladder's whole-map response
+pattern resembles REF's (*r* +0.62 to +0.86, all *p* = 0.008), so what varies across the
+ladders is the size of one response and not its shape.
+
+**The two signatures of cutting come apart, which qualifies §6.8.** The auditory decrease
+follows the hard discontinuity: 62% and 38% for same-scene cuts, and only 17% under
+dissolves, where it is the one figure in the table that does not clear its null
+(*p* = 0.075). The frontal increase does not need the discontinuity at all: dissolves carry
+48% of it. §6.8 read "frontal up, auditory down" as the sign pattern of a single response
+mode, on the evidence of a participation ratio of 1.25 and 1.20 within one ladder. That
+reading holds within a ladder and fails across them. **The auditory signature is a
+discontinuity response; the frontal one is partly that and partly a response to the scene
+changing.** Two signs of one mode in stage 03, two separable effects here.
+
+**The same-scene result depends on the scene, and not on the size of the jump.** B and C
+have near-identical discontinuity magnitudes — peak frame Δ 40 against 39, histogram
+distance 0.16 against 0.23 — and ρ_F of 0.44 against 0.18. Cutting inside a scene of two
+people at a table moves the frontal cluster more than cutting inside a landscape. What is
+interrupted matters, not only that something is.
+
+**On the encoder-artefact alternative.** Its pure form — the model maps temporal
+discontinuity to frontal cortex and nothing more — is weakened: half the frontal effect
+arrives with no discontinuity, while the auditory half is the part that tracks
+discontinuity. A broader form, a response to any large visual change whether gradual or
+abrupt, is **not** excluded, because this design cannot separate it from "change of scene"
+(`03b-discontinuity/README.md` § Limits).
+
+**The frontal miss is smaller than it looked, and is still not resolved.** Most cuts in
+cinema are continuity cuts inside a scene, which by B and C produce 0.18 to 0.44 of REF's
+frontal slope per unit log cuts. `frontal_miss.md` put the corpus *r* expected from REF's
+*full* slope at ≈ +0.30 to +0.45; at 0.18–0.44 of it the expected corpus *r* is ≈ +0.05 to
++0.20. That is small enough to hide inside a sign that flips between films. The miss
+therefore needs no explanation beyond corpus heterogeneity — but it has not been explained,
+and the observational scene-switch test of §6.8 and the constructed test here disagree in a
+way *n* = 3 films cannot settle: scene change alone carries half the frontal effect on
+constructed material, and no frontal association with between-scene cuts appears in the
+corpus at any threshold.
+
+**Reported, not gating: no join-locked transient (exploratory, `cut_locked.py`).** Timelines
+projected on the unit REF mode and epoched −3 to +12 s around the joins of levels 1, 3 and 7
+show no clean transient. All four ladders give a small rise into the join, a dip near +3 s
+and a larger one at +10 to +11 s (REF −1.56, B −4.40, C −3.00, D −2.10), of similar shape
+whatever the join type. A shape recurring at fixed lags across ladders with different joins
+is more likely a property of the model's windowing than of the join, and with ten epochs per
+ladder this is descriptive only. The effect the slopes measure is in the **sustained level**:
+mean projection per level rises with cut count in REF (−1.84 → −1.34 → −0.76 → +0.88 →
++4.07) and B (+0.95 → +1.28 → +2.09 → +4.23 → +4.66), weakly in C (−2.45 → −2.41 → −1.50 →
+−0.42 → +0.36) and D (−1.70 → −1.26 → −0.59 → +0.02 → +0.22). The timelines are saved for a
+better-designed analysis; this one licenses no claim.
+
+**Limitations.** Five levels and a *p*-floor of 0.008; one generator; two scenes; text branch
+off; everything here is about TRIBE. Scene change and large gradual visual change are not
+separated, and a dissolve is also 0.5 s of blended imagery — 26% of the clip at 31 joins. B
+and C are single-scene clips where REF and D are two-scene, so slopes are within-ladder and
+the baselines differ. Clip length shrinks slightly with cut count in REF, B and C (59.9 →
+58.5–58.9 s), a property of `build_conditions.py` inherited from stages 01 and 03; D is
+60.00 s throughout. B carries the face base's one generator seam at every level, which is
+constant and cannot affect a slope. All three whole-map gain *p*-values sit at the floor, so
+the gain ordering (B 0.67 > D 0.50 > C 0.47) is not statistically resolved.
+
+**Spend and missteps, recorded.** Three Space sessions, 20–25 September 2026. **Session 1
+overspent.** Twenty clips were staged as a single batch against this project's own
+documented safe size of eight; the Space stalled after clip 10 while still billing; and the
+budget guard lived in a laptop-side watcher that slept with the machine. Roughly 5.5–8.2
+hours ran against a $3.60 estimate, ≈ $5.50–8.20 (the exact figure exists only on the
+Hugging Face billing page). The fix was to move the guard **server-side** into the app — a
+self-pause on completion and an 80-minute watchdog — with a 30-minute Space sleep timeout,
+batches of five, and a stall-detecting watcher. Sessions 2 and 3 then ran 63 and 62 minutes
+and the Space paused itself both times, ≈ $2.10 for the pair. The original app was restored
+byte-identically on 25 September. The lesson is general and it cost money twice: **a budget
+guard that runs on the client cannot bound a server's spend.**
 
 ---
 
@@ -1491,10 +1617,15 @@ that a tighter registration would have closed.
 **The cut-rate disagreement is resolved only as far as stage 03 reaches.** Stage 03 shows
 that the auditory signature is a property of cutting on this sensor — it appears with no
 speech present and a continuous ambient track — and that the frontal effect is causal on
-intercut generated footage. It does not show why real cinema lacks the frontal effect; the
-scene-switch hypothesis of §6.8 was tested with a histogram proxy and not supported, and
-the proxy separates within- from between-scene cuts only partially on live action, so the
-hypothesis is weakened rather than excluded and the frontal miss stays unexplained. Stage 03
+intercut generated footage. It does not show why real cinema lacks the frontal effect. The
+scene-switch hypothesis of §6.8 was tested observationally with a histogram proxy and not
+supported; stage 03b tested it by construction and found scene change alone carries about
+half the frontal effect (§6.9). The two tests disagree, and with three films and a proxy
+that separates within- from between-scene cuts only partially on live action, this design
+cannot say which is wrong. 03b lowers the corpus effect the frontal parcels should have
+shown to *r* ≈ +0.05 to +0.20, which makes the miss less surprising without explaining it.
+Stage 03b cannot separate a change of scene from any large visual change, gradual or
+abrupt, so the broad form of the encoder-artefact alternative stands. Stage 03
 is also *n* = 5 levels per arm, one generated scene pair, one generator,
 with a face base short of its shot-scale target (0.052 against 0.10), and its verdict is
 PARTIAL-A by a margin of 0.001 on one parcel — a near-miss reported as a miss.
@@ -1508,7 +1639,8 @@ of random orderings. Seven levels, or two scene pairs, would have cost little mo
 **Cut rate is not a frontal lever in the observational index.** The index has no cut-rate
 weight on inferior-frontal cortex to steer with, and the exploratory refits show none is
 hiding under the penalty. Any control law that reaches frontal cortex through cutting rests
-on stage 03's regime — scene-alternating intercut material — and nothing else yet.
+on constructed material: at full strength on scene-alternating intercuts (stage 03), and at
+0.18–0.48 of that on same-scene hard cuts and scene-changing dissolves (stage 03b).
 
 **The sensor's response space is low-dimensional, which bounds every downstream claim.**
 Across 70 segments of real cinema the 180-parcel response varies along two to three
@@ -1537,6 +1669,7 @@ the thinnest margin in the study.
 | 01b · Synthetic-imagery transfer | ✅ **PASS** — generated H3 Max clips reproduce the face/place axis at *r* = +0.699 (bar 0.50, live-action reference +0.936); cutting confounded with content |
 | 02b · Generalisation test | ✅ **Run, exploratory, n = 3** — the fitted index predicts generated clips at profile *r* 0.41 / 0.90 / 0.89; contrast *r* +0.77 |
 | 03 · Isolation | ✅ **PARTIAL-A** — cutting drives IFJ up and auditory cortex down in both speech arms on generated footage (58 and 54 of 180 parcels at \|*r*\|>0.9); H3b misses the 0.9 bar by ≤ 0.03 at *n* = 5 |
+| 03b · Discontinuity | ✅ **GRADED** — same-scene hard cuts carry 0.18–0.44 of the frontal effect, scene-changing dissolves 0.48, close to additively; the auditory signature follows the hard discontinuity, the frontal one partly the scene change |
 | 04 · Inversion | Not started |
 
 **Stage 02's PARTIAL verdict set the agenda; stage 03 has now answered the first item on
@@ -1551,8 +1684,13 @@ exploratory follow-up locates that in the corpus rather than in the regression. 
 between-scene cut count over the 244 segments does not support the one hypothesis that
 follow-up left standing: frontal cortex shows no association with scene switches at any
 threshold and its sign flips between films, while auditory cortex follows cuts of every
-kind. The frontal miss is a property of this corpus and remains unexplained. Stage 04
-should treat cut rate as a frontal lever only on intercut material.
+kind. Stage 03b then took a cut apart by construction (§6.9). The frontal response is close
+to additive in hard cut and scene change, the auditory one follows the hard cut, and the
+two signatures stage 03 saw as one mode separate. Because cinema's cuts are mostly inside a
+scene, the frontal effect the corpus should have shown is ≈ +0.05 to +0.20, not +0.30 to
++0.45. The miss is smaller than it looked; it is not explained. Stage 04 should treat cut
+rate as a frontal lever at full strength only on scene-alternating material, and expect
+roughly half of it from dissolves or same-scene cutting.
 
 Second, **the text branch remains open, and is parked.** Stage 03's no-speech arm removes
 the specific worry that the auditory cut-rate signature was an artefact of the missing text
@@ -1573,10 +1711,11 @@ target that lies *within* the reachable subspace, derive a dial setting, generat
 measure the achieved profile, and ask whether it lands where the index said it would.
 That is a falsifiable control-law test at a scale the effect sizes in §6.4 can support.
 Specifying targets outside the subspace would fail for geometric reasons that have
-nothing to do with whether the index is right. Stage 03 adds a constraint: if cut rate
-is among the dials the controller moves, the frontal target is reachable only on
-intercut, scene-alternating material, because that is the only regime where the effect
-has been shown.
+nothing to do with whether the index is right. Stages 03 and 03b add a constraint: if cut
+rate is among the dials the controller moves, the frontal target is reachable at full
+strength only on scene-alternating material, at about half strength through dissolves or
+same-scene cuts in a face scene, and barely through same-scene cuts in a landscape. The
+auditory target, by contrast, needs hard cuts.
 
 Fifth, **the 01b transfer gate passed on the axis that matters** — generated H3 Max clips
 reproduce the face/place axis at *r* = +0.699 against a bar of 0.50 (live-action reference
@@ -1610,4 +1749,5 @@ claim about live action.
 `experiments/02-index/{README,CORPUS,DIALS,RESULT,frontal_miss,scene_switches}.md` ·
 `experiments/01b-transfer/{README,RESULT,CLIPS}.md` ·
 `experiments/02b-generalisation/RESULT.md` ·
-`experiments/03-isolation/{README,RESULT,CLIPS}.md`
+`experiments/03-isolation/{README,RESULT,CLIPS}.md` ·
+`experiments/03b-discontinuity/{README,RESULT,CLIPS}.md`
