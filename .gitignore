@@ -27,3 +27,4 @@ __pycache__/
 .env
 **/.env
 research/experiments/01b-transfer/audio/
+research/preprint/*.html

@@ -1,6 +1,12 @@
 # A technique→response index for cinematography, measured through a brain encoding model
 
-**Working paper · consolidated draft of 8 October 2026**
+**Alec Pacey** · Independent researcher · alecpacey12@gmail.com
+
+Code, data and every criterion document: `github.com/alecpacey/film-cognition-research` ·
+Registration (stage 02): `osf.io/dg7fe`
+
+**Preprint, version 1 · 8 October 2026**
+
 **Status: stages 00, 01, 02, 03 and 03b complete and reported, with the 01b transfer gate
 and an exploratory 02b generalisation check. Stage 02's analysis plan was registered at
 `osf.io/dg7fe` before the analysis was run; it returned PARTIAL. Stage 03, criteria fixed
@@ -1303,12 +1309,12 @@ clips (one decoded MD5), so nothing here can be an auditory artefact of the cons
 exactly (max raw |Δ| 0.0e+00), and each parcel's 60-point timeline averages to its raw value
 to 4.3e-08. Every figure below therefore sits on the same footing as stages 01–03.
 
-The frontal ratio ρ_F is a ladder's mean frontal-cluster slope (IFJa · IFJp · IFSp · 8C
+The frontal ratio ρ<sub>F</sub> is a ladder's mean frontal-cluster slope (IFJa · IFJp · IFSp · 8C
 against log constructed cuts) divided by REF's +0.251; *p* is one-sided over the 120 level
-orderings, floor 0.008. As fixed: **REPRODUCES** at ρ_F ≥ 0.50 with *p* ≤ 0.05, **ABSENT**
-at ρ_F ≤ 0.25, **PARTIAL** otherwise.
+orderings, floor 0.008. As fixed: **REPRODUCES** at ρ<sub>F</sub> ≥ 0.50 with *p* ≤ 0.05, **ABSENT**
+at ρ<sub>F</sub> ≤ 0.25, **PARTIAL** otherwise.
 
-| ladder | ρ_F | *p* | class | ρ_A (*p*) | whole-map gain (*p*) | *r* with REF mode | PR |
+| ladder | ρ<sub>F</sub> | *p* | class | ρ<sub>A</sub> (*p*) | whole-map gain (*p*) | *r* with REF mode | PR |
 |---|---|---|---|---|---|---|---|
 | **REF** · hard cut + scene change | +1.00 | 0.017 | **REPRODUCES** | +1.00 (0.008) | +1.00 (0.008) | +1.00 | 1.20 |
 | **B** · hard cut, same scene — face | +0.44 | 0.008 | **PARTIAL** | +0.62 (0.008) | +0.67 (0.008) | +0.86 | 1.05 |
@@ -1338,7 +1344,7 @@ changing.** Two signs of one mode in stage 03, two separable effects here.
 
 **The same-scene result depends on the scene, and not on the size of the jump.** B and C
 have near-identical discontinuity magnitudes — peak frame Δ 40 against 39, histogram
-distance 0.16 against 0.23 — and ρ_F of 0.44 against 0.18. Cutting inside a scene of two
+distance 0.16 against 0.23 — and ρ<sub>F</sub> of 0.44 against 0.18. Cutting inside a scene of two
 people at a table moves the frontal cluster more than cutting inside a landscape. What is
 interrupted matters, not only that something is.
 
@@ -2111,9 +2117,11 @@ Data and services, not peer-reviewed:
 - Internet Archive metadata API, per identifier, read 3 September 2026.
 - Hugging Face Spaces hardware pricing (A10G Small, $1.00/hr).
 
-Tools: analysis and writing used the Scientific Agent Skills library (Kassis, T., Agarwal, V.,
-He, Y., Patel, D., & Brueckner, A. M. (2026). Scientific Agent Skills: A Library of Procedural
-Knowledge for Research Agents. arXiv:2609.00065. https://doi.org/10.48550/arXiv.2609.00065).
+Tools used in analysis and writing:
+
+- Kassis, T., Agarwal, V., He, Y., Patel, D., & Brueckner, A. M. (2026). Scientific Agent Skills:
+  A library of procedural knowledge for research agents. arXiv:2609.00065.
+  https://doi.org/10.48550/arXiv.2609.00065
 
 ## Internal documents
 
