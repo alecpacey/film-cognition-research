@@ -46,9 +46,10 @@ its analysis was run, and returned **PARTIAL** — the outcome the pre-registrat
 named in advance as the most important one available. Three public-domain live-action
 Technicolor features were cut into 244 fixed 60-second segments, normalised to a
 common encode, and measured on 14 cinematographic dials; 70 segments were selected by
-stratified maximin sampling across dial ranges and scored. We derive a smallest effect
+stratified maximin sampling across dial ranges and scored. We justify a smallest effect
 size of interest of *r* ≥ 0.5 from TRIBE's published out-of-distribution accuracy
-rather than asserting a convention, and set *n* = 70 from that.
+rather than asserting a convention — a heuristic with a wide range, not a bound — and
+set *n* = 70 from that.
 
 The first pass criterion was met and the second was not. All 14 dials carry weight in
 at least one of 101 parcels surviving a 1,000-permutation null under FDR correction —
@@ -63,8 +64,9 @@ measured later (§5.7), with *less* speech — not with dialogue and close-ups.
 
 **Stage 03** resolves it under control. Two generated single-take scenes (0 cuts measured)
 were intercut at exactly 1, 3, 7, 15 and 31 cuts per minute — a 31× range against stage
-01's effective 2.1× — in two arms, with the face scene's dialogue present (S+) or replaced
-by continuous ambient sound (S−), criteria fixed before generation. **Cutting alone drives
+01's effective 2.1× — in two arms: the soundtrack cut with the picture, so the face
+scene's dialogue alternates with ambient sound at every cut (S+), or one continuous
+ambient track with no speech (S−); criteria fixed before generation. **Cutting alone drives
 inferior-frontal cortex up and auditory cortex down, in both arms**: 58 and 54 of 180
 parcels reach |*r*| > 0.9 against log cut count (level-permutation *p* = 0.025 in each
 arm); IFJa, IFSp and 8C reach
@@ -110,11 +112,13 @@ Two results qualify the first criterion and are reported with equal prominence. 
 dominant dial is **face area**, largest coefficient in 65 of the 101 survivors, whose
 signature reproduces stage 00's double dissociation to the parcel; a controller
 maximising predicted response would find faces the lever with the most reach, which
-is a measured claim where it was previously a predicted one. And **only 9 of 180
-parcels exceed the derived SESOI**, median survivor *r* = 0.35 implying roughly
-*r* ≈ 0.07 against real cortex — so surviving a permutation null and reaching the
-smallest effect worth calling a finding are not the same thing, and most of this
-result falls on the wrong side of that line. A declared exploratory sensitivity check
+is a measured claim where it was previously a predicted one. And **almost nothing
+reaches the smallest effect worth calling a finding**: 9 of 180 parcels exceed the
+registered threshold of *r* ≥ 0.5 on the registered statistic, and in exploratory
+analysis only 6 of 2,520 dial–parcel correlations do on the marginal statistic the
+threshold was derived for, none with its confidence interval clear of the line. The
+median survivor's *r* = 0.35 implies roughly *r* ≈ 0.07 against real cortex — so
+surviving a permutation null and mattering are not the same thing. A declared exploratory sensitivity check
 using a restricted within-film permutation returns 99 of 180 with a marginally
 *narrower* null, so the headline count is not an artefact of a lenient test.
 
@@ -202,9 +206,9 @@ distinction is structural rather than decorative.
 
 ### 1.4 Contributions
 
-1. A **derived** rather than conventional effect-size threshold for encoding-model
+1. A **justified** rather than conventional effect-size threshold for encoding-model
    studies, obtained by propagating the model's published accuracy through to the
-   claim being made (§3.2).
+   claim being made — a heuristic with a stated range, not a bound (§3.2).
 2. A **two-track design** separating what observational data can establish
    (association across real cinema) from what only controlled generation can
    (isolation of covarying dials), with the boundary stated in advance.
@@ -233,7 +237,7 @@ The programme is a chain. Each link gates the next and is permitted to break it.
 |---|---|---|
 | **H0** | TRIBE discriminates content — different kinds of scene produce different parcel profiles, in anatomically interpretable directions | ✅ **Supported** (stage 00) |
 | **H1** | Cinematographic *technique* moves the predicted response with content held constant | ✅ **Supported** (stage 01, cut rate only) |
-| **H2** | Across real cinema, measured technique dials predict parcel-level response profiles, recoverably by penalised regression | ✅ **Supported** (stage 02) — 14/14 dials, 101/180 parcels. But only 9 parcels reach the SESOI |
+| **H2** | Across real cinema, measured technique dials predict parcel-level response profiles, recoverably by penalised regression | ✅ **Supported** (stage 02) — 14/14 dials, 101/180 parcels. But only 9 parcels reach the SESOI on the registered statistic, and 6 of 2,520 dial–parcel pairs on the marginal statistic it was derived for (§5.3.5) |
 | **H2b** | The controlled cut-rate result of stage 01 reappears observationally | ❌ **Not supported** (stage 02) — IFJa at its null; the one surviving cluster parcel has zero cut-rate weight. **Explained by stage 03 (§5.5)**: the observational index recovered the auditory half of the cut effect; the frontal half is not detected in the corpus, where §5.6–§5.7 put it at a size three films could not detect |
 | **H3** | At least some of those associations are causal, demonstrable by holding all dials fixed and moving one | ✅ **Supported** (stage 03, verdict **PARTIAL-A** against the pre-fixed table) — cutting alone, content fixed by construction, drives IFJa / IFSp / 8C up and A4 / A1 / MBelt down on generated footage in both speech arms; the no-speech arm misses the 0.9 bar on three cluster parcels by ≤ 0.03 at *n* = 5 |
 | **H3′** | The frontal response to cutting is a response to temporal discontinuity, to a change of scene, or both | **Graded** (stage 03b, verdict **GRADED**) — a hard cut within a scene carries 18–44% of the frontal effect and a change of scene with no hard cut 48%, close to additively; the auditory response follows the hard cut. The pure discontinuity (encoder-artefact) form is weakened; a response to any large visual change is not excluded |
@@ -314,19 +318,31 @@ To imply even a conventionally small real effect of *r* = 0.10:
 | raw out-of-distribution accuracy | 0.2146 | 0.10 / 0.2146 = **0.47** |
 | noise-ceiling-normalised accuracy | 0.54 | 0.10 / 0.54 = 0.19 |
 
-**We adopt SESOI = *r* ≥ 0.5**, the conservative row rounded up. The generous row is
-recorded so the choice is visible rather than buried: it would put the threshold near
-0.19 and demand roughly 200 segments.
+**We adopt SESOI = *r* ≥ 0.5**, the conservative row rounded up, and it is the value
+the registration fixed. The generous row is recorded so the choice is visible rather
+than buried: it would put the threshold near 0.19 and demand roughly 200 segments.
 
-Two things about this derivation are worth stating plainly. First, it follows
-Lakens' requirement that a smallest effect size of interest be *justified* rather
-than asserted, and the justification used here is the measurement chain itself — a
-theoretical/practical anchor rather than a convention or a resource constraint.
-Second, it argues for a **higher** threshold and therefore a **cheaper** study. A
-dial reaching only *r* = 0.3 in a measurement with no noise in it would be worth
-almost nothing once passed through a 0.21 bottleneck. The mediation reading is
-first-order and approximate; §4.5 records the sample-size headroom taken to absorb
-that.
+**This is a justified heuristic, not a bound, and its range is wide.** It follows
+Lakens' requirement that a smallest effect size of interest be *justified* rather than
+asserted, and the justification is the measurement chain itself — better anchored than a
+convention or a resource constraint, but looser than the table's two decimal places
+suggest, for three reasons. First, *r*<sub>DY</sub> ≈ *r*<sub>DP</sub> × *r*<sub>PY</sub>
+holds only if the prediction fully mediates the dial's relation to cortex and TRIBE's
+error is uncorrelated with the dial; nothing establishes either, so the true implied
+correlation can be larger or smaller than the product. Second, 0.2146 is an average over
+parcels. TRIBE predicts some regions far better — 0.77–0.85 of the noise ceiling in its
+best — so a parcel-wise propagation would put the required *r*<sub>DP</sub> anywhere from
+about 0.12 to 0.47 across cortex; accuracy is not published per parcel and was not
+measured here, so which of this paper's parcels sit where is unknown. Third, the
+threshold is derived for a *marginal* correlation between one dial and one parcel, so it
+applies to that quantity and only approximately to anything else; §5.3.5 reports both.
+
+What the heuristic does support is the direction it pushes: towards a **higher**
+threshold and therefore a **cheaper** study. A dial reaching only *r* = 0.3 in a
+measurement with no noise in it would be worth little once passed through a 0.21
+bottleneck. What it does not support is reading a result just under 0.5 as negligible or
+one just over it as meaningful. §4.5 records the sample-size headroom taken against its
+looseness.
 
 ### 3.3 Prior art, and where this design departs from it
 
@@ -1012,7 +1028,14 @@ label**. Stratifying *within* film cannot recover variance that lives *between* 
 Benjamini–Hochberg FDR at *q* < 0.05, and **every one of the 14 dials** carries a
 non-zero coefficient in at least one survivor. All 14 were classified TESTED at
 *n* = 70 before the run, so every result below is a real result and not an untested
-one. There are no nulls to report.
+one.
+
+**Criterion 1 could not have produced a null.** With 101 survivors and an L1 penalty that
+leaves several non-zero coefficients per parcel, every dial was all but certain to be
+attributed to some survivor. "At least 3 of 14 dials with at least one surviving parcel"
+was met as registered, but once any broad fit exists it is too lenient to be informative;
+a future registration should set a per-dial bar, for instance on the marginal effect size
+reported below.
 
 | dial | surviving parcels attributed | dial | surviving parcels attributed |
 |---|---|---|---|
@@ -1025,13 +1048,25 @@ one. There are no nulls to report.
 | median_luma | 43 | shadow_frac | 11 |
 
 **Statistical survival is not the same as reaching the smallest effect worth calling a
-finding, and most of this result falls on the wrong side of that line.** Among
-survivors, cross-validated *r* has median 0.35 (IQR 0.28–0.44, max 0.61). **Only nine
-parcels exceed the pre-registered SESOI of 0.5** — PCV 0.61, POS2 0.55, DVT 0.55,
-7Pm 0.55, 31a 0.54, 6v 0.53, POS1 0.53, 7Am 0.52, V3 0.50. Passed through TRIBE's
-out-of-distribution accuracy of 0.2146, a survivor at the median implies roughly
-*r* ≈ 0.07 against real cortex. §3.2 derived that threshold precisely so this
-distinction would be visible rather than buried under a count of significant parcels.
+finding, and almost none of this result reaches it.** The registered comparison is
+approximate: the SESOI was derived for a marginal dial→parcel correlation (§3.2), while
+the survival test uses each parcel's cross-validated *r* from all fourteen dials. On that
+statistic, survivors have median 0.35 (IQR 0.28–0.44, max 0.61) and **nine parcels exceed
+0.5** — PCV 0.61, POS2 0.55, DVT 0.55, 7Pm 0.55, 31a 0.54, 6v 0.53, POS1 0.53, 7Am 0.52,
+V3 0.50.
+
+**On the quantity the threshold does apply to, the picture is harsher** (exploratory,
+`02-index/sesoi_marginal.py`, registered preprocessing). Of 2,520 marginal dial–parcel
+correlations, **6 reach |*r*| ≥ 0.5** — face area with PCV −0.56, 7Am −0.55, DVT −0.54,
+7Pm −0.53 and POS2 −0.51, and contrast with V3 +0.54 — against a median of 0.12, and
+**none** does so with the lower bound of its 95% interval above 0.5. Each dial's unique
+share, the semi-partial *r* given the other thirteen, reaches 0.5 nowhere (largest 0.498,
+contrast with V3). The six pairs lie among the nine parcels above, so the two statistics
+agree on *where* the largest effects are and both put them at or just over the line.
+Passed through TRIBE's out-of-distribution accuracy of 0.2146, a survivor at the median
+cross-validated *r* implies roughly *r* ≈ 0.07 against real cortex, with §3.2's caveat
+that the propagation is a heuristic. Making this distinction visible rather than burying
+it under a count of significant parcels is what the threshold is for.
 
 **The dominant dial is face area**, holding the largest coefficient in 65 of the 101
 survivors. Its signature is stage 00's double dissociation reappearing as a
@@ -1237,10 +1272,18 @@ was measured, not assumed — 01b had shown the generator cuts within its own ou
 per minute — and both bases returned **0 cuts** on `cinemetrics.py`. The two were then
 intercut with stage 01's `build_conditions.py` unchanged at 1, 3, 7, 15 and 31 added cuts;
 measured cut counts were **exactly 1 / 3 / 7 / 15 / 31**, a 31× range against stage 01's
-effective 2.1×. Every level contains the same 30 s of each scene. The speech factor: **S+**
-keeps the face scene's native dialogue; **S−** replaces all audio with the landscape's
-continuous ambient track, so no speech is present and the sound has no discontinuity at any
-cut. Video is byte-identical across arms. Scored on the unchanged stage-02 Space path,
+effective 2.1×. Every level contains the same 30 s of each scene.
+
+**The two audio arms, exactly as built** (`03-isolation/build_stage03.sh`). **S+** is the
+ladder as `build_conditions.py` makes it: each segment is cut from its source *with that
+source's audio*, so the soundtrack switches between the face scene's dialogue and the
+landscape's ambient sound at every cut. Every level carries the same 30 s of dialogue, in
+1 to 16 pieces, and an audio discontinuity at every visual cut. **S−** keeps the same video
+and maps the landscape's own ambient track over the whole clip, so it has no speech, no
+audio discontinuity at any cut, and the same sound at every level. The arms therefore
+differ in three things at once — speech, audio discontinuity at cuts, and loudness and
+spectrum — and "speech" names the arm factor only loosely. Video is byte-identical across
+arms. Scored on the unchanged stage-02 Space path,
 `audio_only=True`; the two bases were scored as references.
 
 **Pre-registered predictions.** H3a: in S+, at least 2 of {IFJa, IFJp, IFSp, 8C} reach
@@ -1284,11 +1327,16 @@ not two independent findings — a statement that holds within a ladder and, as 
 varying the kind of join, fails across ladders, where the two signatures separate.
 PARTIAL-A stands because the criteria were
 fixed and are not softened afterwards; the claim that speech is *required* for the frontal
-effect must not be carried forward as a finding, and this paper does not carry it.
+effect must not be carried forward as a finding, and this paper does not carry it. That
+reading could not have been supported by this design in any case: S+ never isolates speech
+from audio discontinuity, so a PARTIAL-A could not have said which one the frontal effect
+needed (§7).
 
 **Stage 02's observational signature reproduces under control.** In both arms cut rate is
 strongly negative in auditory cortex — A4 −0.97 / −0.94, A1 −0.96 / −0.93, MBelt −0.95 /
 −0.92 (S+ / S−) — and A5 joins them without speech (−0.95) while sitting at +0.15 with it.
+That arm difference is unexplained, and because the arms differ in audio discontinuity as
+well as in speech, it is at least as likely to be about the one as the other.
 This is what the index found in §5.3.6 and what stage 01 did not report. **Both earlier tracks
 were right about different parts of one effect**: cutting drives inferior-frontal cortex up
 and auditory cortex down, with or without speech, and — since S− has a continuous ambient
@@ -1746,6 +1794,17 @@ both. **Every number was right and the claim was not**: the draft read propertie
 sensor's response space as properties of technique. A figure with no script behind it is a
 claim, and the comparison it most needs is the one the analyst did not think to run.
 
+**A verdict table that named a mechanism.** Stage 03's table fixed four outcomes before
+generation and attached a reading to each; PARTIAL-A's was "the frontal cut effect needs
+speech present". When PARTIAL-A came out — by 0.001 on one parcel — the outcome had to be
+reported as fixed while its reading was disowned, because the data showed the frontal
+effect at near-identical size in both arms. The reading was also never testable: S+
+carried speech *and* an audio discontinuity at every cut, so no outcome could have
+isolated speech. Fixing criteria in advance protects a result only if what is fixed is
+the outcome. **A verdict table should carry outcomes, not mechanisms**; the mechanism is
+a reading, written after the result and separately from it, as stage 03b's result and
+the content-descriptor analysis (§5.7.2) are.
+
 Three practices follow, and are now standing rules:
 
 1. **Criteria are written in the stage README before the run and are never softened
@@ -1816,10 +1875,18 @@ Generalisation beyond that is untested.
 skipped throughout. For a corpus containing dense dialogue — *Nothing Sacred* in
 particular — this omits a modality TRIBE was designed to use.
 
-**Most survivors do not reach the smallest effect worth calling a finding.** 101 of
-180 parcels survive the permutation null, but only 9 exceed the derived SESOI of 0.5,
-and the median survivor implies *r* ≈ 0.07 against real cortex. The count of surviving
-parcels is the weaker of the two numbers and should not be quoted without the second.
+**Almost nothing reaches the smallest effect worth calling a finding, and the threshold
+itself is a heuristic.** 101 of 180 parcels survive the permutation null, but only 9
+exceed the SESOI of 0.5 on the registered statistic, and only 6 of 2,520 dial–parcel
+pairs on the marginal statistic it was derived for, none securely. The median survivor
+implies *r* ≈ 0.07 against real cortex. The count of surviving parcels is the weaker of
+the numbers and should not be quoted without the others. The threshold's own range runs
+from about 0.12 to 0.47 depending on how TRIBE's accuracy is propagated (§3.2), so
+"below the line" is a judgement anchored in the measurement chain, not a measurement.
+
+**Criterion 1 was too lenient to be informative.** It asked for at least 3 of 14 dials
+with one surviving parcel each, and with a broad fit and an L1 penalty it could not have
+failed (§5.3.5). It was met; it does not show much. A per-dial bar would.
 
 **The null may still be lenient in a way we have not tested.** A declared exploratory
 check with permutation restricted within film returned 99 of 180 against the registered
@@ -1850,6 +1917,15 @@ abrupt, so the broad form of the encoder-artefact alternative stands. Stage 03
 is also *n* = 5 levels per arm, one generated scene pair, one generator,
 with a face base short of its shot-scale target (0.052 against 0.10), and its verdict is
 PARTIAL-A by a margin of 0.001 on one parcel — a near-miss reported as a miss.
+
+**Stage 03's audio arms are not a clean speech factor.** S+ is speech *with* an audio
+discontinuity at every cut; S− is no speech with continuous sound (§5.5). The frontal
+conclusion survives this, because the effect is present in both arms, so it needs
+neither speech nor an audio discontinuity. The auditory conclusion rests on S−, where
+visual cuts alone suffice. But nothing that differs *between* the arms — A5 most
+visibly — can be attributed to speech. A clean speech factor needs a third arm: one
+continuous dialogue bed under both scenes, so that speech is present and the sound has no
+discontinuity at the cuts.
 
 **The dial set has no audio or content dial, and speech is a large one.** All fourteen dials
 describe the picture. Measured afterwards (§5.7), speech proportion tracks auditory cortex
