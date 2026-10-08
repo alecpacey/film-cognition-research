@@ -8,7 +8,7 @@ Rules: tick a box only when its done-criterion is met and the evidence is commit
 gets a `LOG.md` line. Paid steps get criteria in a README *before* spend. Update the status
 line below at the end of each session.
 
-**Status (7 Oct 2026):** **Steps 1, 2a–2d and 3a complete; 4d complete — 03b is in the paper** (§ 6.9, with abstract, § 6.8, § 8, § 9 aligned). 2e (text branch, ≈ $1.25, capped) awaits the author's decision. **3a complete (7 Oct): the frontal flip is not demonstrated; speech is a missing auditory dial.** 3a is in the paper (§ 6.10, 8 Oct). Next: step 4a, the restructure.
+**Status (7 Oct 2026):** **Steps 1, 2a–2d and 3a complete; 4a and 4d complete — 03b is in the paper** (§ 6.9, with abstract, § 6.8, § 8, § 9 aligned). 2e (text branch, ≈ $1.25, capped) awaits the author's decision. **3a complete (7 Oct): the frontal flip is not demonstrated; speech is a missing auditory dial.** 3a is in the paper (§ 5.7.2 after the restructure). **4a complete (8 Oct).** Next: 4b, 4c, 4e, 4f, then 4g–4j.
 
 ## Step 1 · Integrity fixes — free
 
@@ -44,7 +44,7 @@ line below at the end of each session.
 
 ## Step 4 · Consolidation pass — after steps 1–3
 
-- [ ] **4a · Restructure** to the outline in review § 8; results written once, history in § 7.
+- [x] **4a · Restructure** to the outline in review § 8; results written once, history in § 7. *Done 8 Oct in two commits. Phase 1 (`a079dab`): pure move, 1,486/1,486 body lines preserved. Phase 2: results § 5 = 00, 01, 02, **new 5.4 (01b/02b, previously absent)**, 03, 03b, 5.7 'why the corpus lacks the frontal effect' (placed after 03b, not under 02 as the review proposed, because it uses stage 03's slopes and 03b's re-estimate); index map § 6; § 7 gains the count-null and map-without-a-script lessons and the paid-run missteps; § 8 Limitations and future work; § 9 status table only. Added: H3′ row, contribution 4 (reconciliation; detectability demoted to a method note), § 3.4 (model-based sensor / encoder artefact), § 4.10 (ladder null). § 5.3.6 rewritten once with stage 03 known. Every results subsection opens with what it licenses. 89/89 § refs resolve. **Left to other items:** abstract length (4f), SESOI (4b), stage 03 audio and verdict-table lesson (4c), limitations / future-work text (4e), § 4 narrative trimming and terminology drift (index / crosswalk / map / console) (4f).*
 - [ ] **4b · SESOI as heuristic (M3); criterion 1 leniency stated.**
 - [ ] **4c · Stage 03 audio construction stated exactly (M4); verdict-table lesson in § 7.**
 - [x] **4d · Encoder-artefact alternative named (M5),** with step 2's result. *Done 7 Oct: § 6.9 and § 8 — pure form weakened (half the frontal effect arrives with no discontinuity), broad form ("any large visual change") not excluded. Every 03b figure verified against `evaluation.json` / `cut_locked.json`; two derived figures corrected (LOG).*

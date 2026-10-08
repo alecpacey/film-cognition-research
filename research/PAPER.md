@@ -1,10 +1,11 @@
 # A technique→response index for cinematography, measured through a brain encoding model
 
-**Working paper · draft of 15 September 2026**
-**Status: stages 00, 01, 02 and 03 complete and reported, with the 01b transfer gate and
-an exploratory 02b generalisation check. Stage 02's analysis plan was registered at
+**Working paper · consolidated draft of 8 October 2026**
+**Status: stages 00, 01, 02, 03 and 03b complete and reported, with the 01b transfer gate
+and an exploratory 02b generalisation check. Stage 02's analysis plan was registered at
 `osf.io/dg7fe` before the analysis was run; it returned PARTIAL. Stage 03, criteria fixed
-before generation, returned PARTIAL-A and reconciles stages 01 and 02.**
+before generation, returned PARTIAL-A and reconciles stages 01 and 02; stage 03b returned
+GRADED. Exploratory analyses are labelled as such wherever they appear.**
 
 ---
 
@@ -211,11 +212,16 @@ distinction is structural rather than decorative.
    (§4.1), including the finding that animation — proposed as the corpus on
    availability grounds — is the *minimum*-variance case for the covariance-breaking
    the design requires.
-4. A **detectability classification** that distinguishes "this dial did not move the
-   sensor" from "this dial never varied enough to test", two results that a
-   conventional drop-low-variance-predictors step would have merged (§4.6).
+4. A **reconciliation of observational and controlled measurement** of the same dial.
+   The registered observational index and a controlled ladder disagreed about where cut
+   rate acts; constructed tests then showed neither was wrong — cutting has a frontal and
+   an auditory signature that separate under different kinds of join, and real cinema
+   shows only the auditory one at a detectable size (§5.5–§5.7).
 5. A report of **silent-failure modes** in this class of pipeline, and the practices
    that surfaced them (§7).
+
+A detectability classification (§4.6) separates "this dial did not move the sensor" from
+"this dial never varied enough to test"; it is a method note rather than a contribution.
 
 ---
 
@@ -228,8 +234,9 @@ The programme is a chain. Each link gates the next and is permitted to break it.
 | **H0** | TRIBE discriminates content — different kinds of scene produce different parcel profiles, in anatomically interpretable directions | ✅ **Supported** (stage 00) |
 | **H1** | Cinematographic *technique* moves the predicted response with content held constant | ✅ **Supported** (stage 01, cut rate only) |
 | **H2** | Across real cinema, measured technique dials predict parcel-level response profiles, recoverably by penalised regression | ✅ **Supported** (stage 02) — 14/14 dials, 101/180 parcels. But only 9 parcels reach the SESOI |
-| **H2b** | The controlled cut-rate result of stage 01 reappears observationally | ❌ **Not supported** (stage 02) — IFJa at its null; the one surviving cluster parcel has zero cut-rate weight. **Explained by stage 03 (§5.5)**: the observational index recovered the auditory half of the cut effect and the corpus does not carry the frontal half |
+| **H2b** | The controlled cut-rate result of stage 01 reappears observationally | ❌ **Not supported** (stage 02) — IFJa at its null; the one surviving cluster parcel has zero cut-rate weight. **Explained by stage 03 (§5.5)**: the observational index recovered the auditory half of the cut effect; the frontal half is not detected in the corpus, where §5.6–§5.7 put it at a size three films could not detect |
 | **H3** | At least some of those associations are causal, demonstrable by holding all dials fixed and moving one | ✅ **Supported** (stage 03, verdict **PARTIAL-A** against the pre-fixed table) — cutting alone, content fixed by construction, drives IFJa / IFSp / 8C up and A4 / A1 / MBelt down on generated footage in both speech arms; the no-speech arm misses the 0.9 bar on three cluster parcels by ≤ 0.03 at *n* = 5 |
+| **H3′** | The frontal response to cutting is a response to temporal discontinuity, to a change of scene, or both | **Graded** (stage 03b, verdict **GRADED**) — a hard cut within a scene carries 18–44% of the frontal effect and a change of scene with no hard cut 48%, close to additively; the auditory response follows the hard cut. The pure discontinuity (encoder-artefact) form is weakened; a response to any large visual change is not excluded |
 | **H4** | The mapping can be inverted — a target profile selects a technique, and the achieved profile matches | Not started (stage 04). **Bounded in advance by §6**: the reachable set is ~3-dimensional — a property of the sensor's response space, which technique cannot exceed — so inversion is projection onto it, and the inverse is many-to-one |
 
 **H2b deserves emphasis.** It is the only place in the design where the controlled
@@ -240,7 +247,7 @@ pre-registration names this outcome **PARTIAL** and calls it the most important
 possible finding — which is why §4.5 records that we raised the sample size
 specifically so that this check would be able to fail informatively. It did fail, and
 stage 03 (§5.5) then showed that neither track was wrong: cutting has a frontal and an
-auditory signature, and the observational corpus carries only the second.
+auditory signature, and the observational corpus shows only the second.
 
 ---
 
@@ -367,9 +374,31 @@ sensory regions, long states in angular gyrus and posterior medial cortex. This 
 the reason no single event-aligned segmentation can be correct for all 180 parcels
 (§4.3).
 
+### 3.4 What a model-based sensor can and cannot license
+
+Every result in this paper is a statement about TRIBE's predictions, and TRIBE is a stack
+of pretrained encoders — a video encoder, an audio encoder and, when enabled, a language
+model — feeding a learned mapping onto cortex. That architecture admits a reading of any
+result that cognitive neuroscience would not entertain for a brain: **the response may be
+a property of an encoder's representation, passed through the mapping, rather than of
+anything cortex would do.** A cut is a large discontinuity in a video encoder's input; if
+the mapping happens to route large discontinuities to inferior-frontal parcels, "frontal
+cortex responds to cutting" would be true of the sensor and uninformative about cortex.
+
+This alternative cannot be excluded by measuring the sensor alone, but it can be made
+specific and tested against variants it predicts differently. Its pure form — the sensor
+maps temporal discontinuity to frontal cortex and nothing more — predicts that a change of
+scene without a hard cut does nothing, and that a hard cut does the same whatever is
+interrupted. Stage 03b tests exactly those predictions (§5.6). Its broad form — a response
+to any large change in the encoder's input, gradual or abrupt — is not separable from
+"change of scene" by any design in this paper. Results are therefore read as properties of
+the sensor first, and as hypotheses about cortex only where a variant has been tested and
+the encoder-artefact reading has been made to predict differently; §3.2's threshold
+bounds what any of them could imply for real cortex.
+
 ---
 
-## 4 · Methodology
+## 4 · Methods
 
 ### 4.1 Corpus, and an assumption overturned
 
@@ -704,11 +733,35 @@ nothing is ever scored twice. The Space's filesystem is wiped on pause, so resul
 survive only in the log stream until harvested, and harvesting pauses the Space to
 stop billing.
 
+### 4.10 Ladder designs and their null
+
+Stages 01, 03 and 03b are *ladders*: one dial set at five levels (1, 3, 7, 15 and 31
+cuts) with everything else fixed, each level scored once. Their statistics are computed
+across the five levels — Pearson *r* of each parcel against log cut count, the count of
+parcels with |*r*| > 0.9, and in 03b a cluster's slope relative to a reference ladder.
+
+**The null permutes the level labels**, not the parcels (`ladder_count_null.py`; 03b's
+evaluator uses the same scheme). Five levels have 120 orderings; each is applied to the
+whole 180-parcel response and the statistic recomputed, so the parcels' correlation
+structure is preserved under the null. Parcels are not independent across a ladder — the
+response moves along close to one direction, which we report as the participation ratio
+of the five level profiles (1 to 4) — so a null that treats 180 parcels as 180 trials
+overstates any count. Two consequences are properties of the design, not of any result.
+**There is a *p*-floor**: an ordering and its mirror image give the same |*r*|, so no
+count can do better than *p* = 2/120 = 0.017 (one-sided slope statistics, as in 03b, reach
+1/120 = 0.008). And a design that reaches the floor cannot distinguish a strong effect
+from a very strong one. Stage 01's result used log₂ of cut count and stages 03 and 03b
+natural logs; Pearson *r* is invariant to the base, and 03b's slope ratios are ratios of
+slopes on the same base.
+
 ---
 
 ## 5 · Results
 
 ### 5.1 Stage 00 · Discrimination probe
+
+*Licenses: TRIBE separates kinds of content along a reciprocal face/place axis. It does
+not license attributing the face response to faces rather than to speech.*
 
 **Question.** Does TRIBE distinguish kinds of content at all? Everything downstream
 assumes it does; if the top-ranked regions were the same for a landscape, a crowd and
@@ -774,6 +827,9 @@ generalisation across stocks and eras is not yet shown. The text branch was skip
 
 ### 5.2 Stage 01 · Cut rate on identical footage
 
+*Licenses: technique alone — cut count on identical footage — moves the sensor, most
+strongly in inferior-frontal cortex. One dial, one scene pair, a 2.1× effective range.*
+
 **Question.** Does cinematographic *technique* move the sensor with content held
 constant? This is the first genuine test of the thesis and the first thing capable of
 killing it.
@@ -797,15 +853,14 @@ base rate.
 
 **Result: PASS on both.**
 
-**51 of 180 parcels** reached |*r*| > 0.9, against a bar of 15. **The criterion's "~7 by
-chance" was wrong, and an earlier draft's "seven times chance" with it.** That figure treats
-180 parcels as independent; across the five levels the cortex moves along roughly one
-direction (participation ratio 1.85 of a possible 4), so the count behaves like a single
-event. The correct null permutes the five level labels (`ladder_count_null.py`, 120
-orderings): median count 3, 95th percentile 28, and 17% of random orderings clear the bar of
-15. The observed 51 is matched only by the true ordering and its mirror image — *p* = 2/120
-= 0.017, **the most extreme result a five-level design can produce, and no stronger than
-that**. The pre-fixed verdict stands; the bar was weaker than we believed. Dorsal attention was
+**51 of 180 parcels** reached |*r*| > 0.9, against a bar of 15. Against the
+level-permutation null (§4.10) — median count 3, 95th percentile 28, with 17% of random
+orderings clearing the bar of 15 — the observed 51 is matched only by the true ordering
+and its mirror image: *p* = 2/120 = 0.017, **the most extreme result a five-level design
+can produce, and no stronger than that**. The criterion's own "~7 by chance" treated the
+180 parcels as independent; across the five levels cortex moves along roughly one
+direction (participation ratio 1.85 of a possible 4), so the bar was weaker than it was
+written to be (§7). The pre-fixed verdict stands. Dorsal attention was
 over-represented: **3 of 7** parcels survived (LIPv, PEF, VIP) against 1.98 expected.
 
 **The strongest responders were not where the literature pointed:**
@@ -841,11 +896,15 @@ scenes carry ~22–24 cuts of their own, so detected totals ran 25 → 53 rather
 manipulation — but it also means a null here would have meant "cutting did not move
 the sensor over a 2.1× range". One dial, one film, one pair of scenes: a passing gate
 says technique *can* move the sensor, not that lighting or shot scale do. And *n* = 5
-conditions is few; the defence is the count (51 ≫ 7) and the anatomical coherence, not
-any single parcel.
+conditions is few; the defence is the count at the design's *p*-floor and the anatomical
+coherence, not any single parcel.
 
 ### 5.3 Stage 02 · The observational index — PARTIAL
 
+*Licenses: across 70 segments of three 1937–1951 films, all fourteen measured dials carry
+a surviving association with this sensor's response, dominated by face area. Most
+associations fall below the smallest effect worth calling a finding, and cut rate's is
+auditory, not frontal.*
 
 **The analysis plan was registered at `osf.io/dg7fe` on 8 September 2026, before the
 analysis was run.** It was filed after collection and declares itself as such: OSF's
@@ -926,8 +985,8 @@ This is the elastic net earning its place — precisely the multicollinearity Ka
 before any result is read: **any association found inside the lighting/colour cluster
 will attribute poorly.** The model may establish that the cluster matters without
 being able to say which member drives it. Observational data structurally cannot
-resolve that; it is a stage-03 question and will be written up as one rather than
-argued away.
+resolve that; it needs a constructed ladder of the kind stage 03 ran for cut rate, which
+has not been run for lighting or colour (§8).
 
 #### 5.3.4 Detectability at *n* = 70
 
@@ -999,7 +1058,8 @@ Within-film Pearson *r* of each parcel with `face_area_frac`. The voice chain is
 the place chain negative in all three films, strongest in *Royal Wedding*. The exception is
 inferior-frontal: IFJp's relation to face area is +0.39 in one film and −0.42 and −0.59 in
 the others, and pools to nothing. The same split appears for cut rate (§5.7): auditory
-parcels negative in every film, frontal parcels of opposite sign in two. **The index's
+parcels negative in every film, frontal parcels of opposite sign in two — a difference
+§5.7.2 finds not significant. **The index's
 dominant axis is a property of all three films; its frontal entries are not a property of
 any pooled fit.**
 
@@ -1018,8 +1078,11 @@ matters without saying which member drives it.
 | IFSp | +0.346 | 0.221 | 0.015 | **yes** | **0** | **0** |
 | 8C | +0.075 | 0.176 | 0.158 | no | 0 | 0 |
 
-IFSp survives, and it survives with *exactly zero* weight on both cut-rate dials — its
-model is carried by face area (+0.23) and camera zoom (−0.12). Stage 01's strongest
+IFSp survives, and it survives with zero weight on both cut-rate dials — its model is
+carried by face area (+0.23) and camera zoom (−0.12). Under an L1 penalty an exact zero is
+expected output rather than a striking finding; the informative figure is the
+unpenalised refit (§5.7.1), whose cut-rate weights on the four cluster parcels are +0.04
+to +0.07 with |*t*| < 1. Stage 01's strongest
 responder, **IFJa at *r* = +0.996 on identical footage, is indistinguishable from its
 null here**. IFJp's point estimate is negative. The criterion required that the cluster
 associate *with cut rate*; nothing in it does.
@@ -1030,45 +1093,29 @@ PIT +0.17, MST +0.17, FFC +0.16, V8 +0.14. Mean shot length, its inverse, loads 
 place chain (PHA2 −0.22, VMV2 −0.17) and on motion-sensitive cortex (MT −0.17,
 V3A −0.21). Neither dial reaches frontal cortex at all.
 
-**A reading, stated as a reading — and one obvious version of it is ruled out by our
-own data.** The natural explanation is confounding: stage 01 varied cut count on
-identical footage, so every cut was a switch and nothing else changed, whereas stage 02
-measures cut rate where fast cutting co-occurs with other technique. **Among the
-measured dials, it does not.** After within-film centring, `cuts_per_min` correlates
-with every other dial except its own definitional inverse at |*r*| ≤ 0.194 — with
-`face_area_frac` at −0.194 (faster cutting goes with *smaller* faces, not close-ups),
-`camera_zoom` +0.163, `face_hit_rate` +0.145, and nothing else above 0.12. Cut rate is
-the most nearly independent dial we measure, which §5.3.3 already recorded as VIF < 2.3.
+**The disagreement is not a confound among the measured dials.** The natural explanation
+would be that stage 01 varied cut count on identical footage, where nothing else changed,
+while stage 02 measures cut rate where fast cutting co-occurs with other technique.
+**Among the measured dials, it does not.** After within-film centring, `cuts_per_min`
+correlates with every other dial except its own definitional inverse at |*r*| ≤ 0.194 —
+with `face_area_frac` at −0.194 (faster cutting goes with *smaller* faces, not close-ups),
+`camera_zoom` +0.163, `face_hit_rate` +0.145, and nothing else above 0.12. Cut rate is the
+most nearly independent dial we measure (VIF < 2.3, §5.3.3). Controlling the fourteen
+measured dials is therefore not sufficient to isolate cutting, which is why stage 03
+isolates it by construction instead.
 
-So the confound, if that is what this is, lies in what we did **not** measure. The dial
-set has no descriptor of speech, semantic content, narrative structure or scene type,
-and the text branch was disabled throughout, so dialogue reached the instrument only as
-audio. That the observational cut-rate signature is strongest in auditory cortex — and
-*negative* there — while stage 01's was frontal, is consistent with the two designs
-loading different unmeasured things, but we cannot show which. **We report the
-disagreement and decline to explain it.** What this does establish is a requirement on
-stage 03 that was not previously visible: controlling the fourteen measured dials is
-not sufficient to isolate cutting, because they were never what cut rate was confounded
-with.
-
-**We do not claim which track is wrong.** Observational and controlled measurements of
-the same dial disagree; that is the finding, and resolving it is a precondition for
-building anything on cut rate. One candidate artefact deserves ruling out first: the
-text branch was disabled throughout (§4.9), so dialogue reached the model only as
-sound. In a corpus containing *Nothing Sacred*, a fast-talking dialogue picture, an
-auditory cut-rate signature may be partly an artefact of the missing modality rather
-than a property of cutting.
-
-**Written before stage 03; left as written.** Stage 03 (§5.5) has since made the
-separation this section asks for. Both halves of the reading above survive in modified
-form: the frontal and auditory signatures are two parts of one causal effect, the
-auditory part is a property of cutting and not of the missing text modality (it appears
-with speech absent and the audio track continuous), and the reason the index missed the
-frontal part is a property of the corpus, not of the regression. The unmeasured content
-this section names has since been partly measured (§5.7). Speech is part of the
-auditory signature in the corpus — faster cutting carries less dialogue, and auditory
-cortex follows dialogue — but not all of it; and neither speech nor semantic content
-accounts for the frontal miss.
+**How the disagreement resolves — stated here once, argued in §5.5–§5.7.** Neither track
+was wrong. Cutting has two signatures on this sensor: inferior-frontal up and auditory
+down. Stage 03 shows both causally, with content fixed, and shows the auditory one is a
+property of cutting rather than of speech or of the disabled text branch, because it
+appears with no speech present and a continuous ambient track (§5.5). The observational
+index recovered that half. The frontal half is not detected in the corpus, and §5.7 shows
+why that need not be surprising: the penalty did not hide it, cinema's mostly within-scene
+cuts should produce only a fraction of it (§5.6), and the per-film differences that seemed
+to call for a film-specific explanation are not significant. Of the content the dial set
+does not measure, speech accounts for part of the corpus's auditory signature — faster
+cutting carries less dialogue, and auditory cortex follows dialogue — and neither speech
+nor semantic content accounts for the frontal miss (§5.7.2).
 
 #### 5.3.7 Declared choices, and one exploratory check
 
@@ -1109,8 +1156,67 @@ script. **This does not address within-film temporal adjacency**, which shufflin
 inside a film does not preserve; the check is one step more conservative than
 registered, not the conservative limit.
 
+### 5.4 Stages 01b and 02b · Transfer to generated imagery
+
+*Licenses: generated imagery from one generator moves this sensor along the same
+face/place axis live action does, which is the precondition for running stages 03 and 03b
+on generated footage. It licenses nothing about other generators, about live action, or
+about dials other than face/place; 02b's prediction result is exploratory at n = 3.*
+
+**Question.** Stages 03 and 03b need content held fixed while one dial moves, and only
+generation can do that. That is worth nothing unless the sensor reads generated imagery
+along the axis it reads real film. 01b asks this as a gate; 02b asks, exploratorily,
+whether the fitted index transfers.
+
+**Design (01b).** Three 60 s clips from `minimax/h3-max/text-to-video` — 768P, four 15 s
+generations chained on their last frames, native audio — a face, a landscape and a crowd,
+the three kinds of content stage 00 used, scored on the unchanged stage-02 Space path
+(`audio_only=True`). Criteria were fixed in `01b-transfer/README.md` before generation, and
+the evaluator was self-tested on stage 00's vectors (PASS, axis *r* +0.936):
+(1) separation, mean top-10 Jaccard < 0.60; (2) direction, the place chain highest on the
+landscape and the voice chain on the face; (3) axis, the generated face − landscape
+contrast correlating with the index's dominant axis (§6) at *r* ≥ +0.50, against live
+action's +0.936.
+
+**Result (01b): PASS on all three.** Jaccard **0.083**, tighter than stage 00's; direction
+met on both; axis ***r* = +0.699**. Reported, not gating: the generated contrast correlates
+with stage 00's live-action contrast at +0.831, and clip by clip the face at +0.885, the
+landscape at +0.412 and the crowd at +0.347. The sensor reads the generated face almost as
+it reads the real one and the wide shots less faithfully.
+
+**The confound 01b carried, and why stage 03's design follows from it.** The generator
+cuts inside its own 15 s outputs — 7.0, 9.9 and 14.9 cuts per minute for landscape, crowd
+and face — so 01b's pass was earned with cutting confounded with content. Stage 03 therefore
+required single-take bases and measured them (0 cuts) before intercutting them. Three
+further deviations were disclosed before the result was seen: the face-area pre-check
+failed as literally written, because the crowd's faces fall below the detector's size
+floor; the audio is generated rather than matched to stage 00's, with synthetic speech on
+the face clip; and the silent diagnostic arm was dropped on cost.
+
+**02b · Does the fitted index predict generated clips? (exploratory, n = 3).** The
+fourteen dials, measured on the three 01b clips and preprocessed as in stage 02, were
+passed through the already-fitted 180 × 14 coefficient matrix with no refitting. Predicted
+against actual profile *r*: landscape 0.41, crowd **0.90**, face **0.89** (0.48 / 0.92 / 0.92
+on the 101 surviving parcels); face − landscape contrast +0.77 against a parcel-permutation
+95th percentile of 0.15. Of the six ways to assign the three dial vectors to the three
+responses, the true assignment gives the highest mean profile *r* (0.73) and the runner-up
+swaps the two wide shots (0.62). One dial, `contrast_p5_p95`, lies outside stage 02's
+range, so the prediction extrapolates on it.
+
+**What 02b can carry.** An index fitted on 1937–1951 Technicolor predicting a 2026
+generator's output at *r* ≈ 0.9 looks like strong transfer, but §6 shows that the index's
+dominant axis is largely the sensor's own response space, so part of any prediction along
+it would come from any fit to these responses. With three clips, and 01b's confound
+inherited — part of what is predicted is the generator's own cutting — 02b is a reason to
+expect generated footage to work, not a finding. Landscapes are the weak case in both
+checks.
+
 ### 5.5 Stage 03 · Isolation — PARTIAL-A, and the two tracks reconciled
 
+*Licenses: cutting alone, with content fixed by construction, raises inferior-frontal and
+lowers auditory response on generated footage, with and without speech. It does not
+license the reading the verdict table attached to PARTIAL-A, that the frontal effect needs
+speech.*
 
 **Criteria were fixed in `03-isolation/README.md` on 13 September 2026, before any
 generation, and were not softened.** Run 14–15 September. Data `parcel_vectors.json` (12
@@ -1142,7 +1248,7 @@ cut. Video is byte-identical across arms. Scored on the unchanged stage-02 Space
 **PARTIAL-A** (H3a, not H3b) was fixed in advance with the reading "the frontal cut effect
 needs speech present"; PARTIAL-B (neither, but auditory tracks) would demote stage 01 to a
 property of its two clips; FAIL if nothing tracks. Reported, not gating: the |*r*| > 0.9
-count (the README took chance as ≈ 7 at *n* = 5; corrected below), whole-vector *r* cut01
+count (scored against the level-permutation null of §4.10), whole-vector *r* cut01
 vs cut31, and A4 / A5 / MBelt / A1
 against cut count — stage 02's observational signature, to see whether it appears under
 control at all.
@@ -1168,11 +1274,11 @@ miss the bar do so by 0.001 (IFJa), 0.011 (8C) and 0.029 (IFJp). At *n* = 5 leve
 is inside noise. The data show **the inferior-frontal cut effect present in both arms at
 near-identical magnitude**, with 58 and 54 parcels at |*r*| > 0.9, replicating stage 01's
 51 / 180 on generated footage with content fixed by construction and the cut range
-genuinely 31×. Against the level-permutation null (§5.2) each count has *p* = 3/120 =
+genuinely 31×. Against the level-permutation null (§4.10) each count has *p* = 3/120 =
 0.025 — the true ordering, its mirror image and one other — and some random orderings put
 79 or 90 parcels over the bar, because the response across the ladder is close to
 one-dimensional (participation ratio 1.25 and 1.20 of a possible 4). Two consequences. The
-counts are near the strongest evidence five levels can give, not "eight times chance". And
+counts are near the strongest evidence five levels can give. And
 within this ladder "frontal up, auditory down" is the sign pattern of one response mode,
 not two independent findings — a statement that holds within a ladder and, as §5.6 shows by
 varying the kind of join, fails across ladders, where the two signatures separate.
@@ -1192,7 +1298,7 @@ was an artefact of the missing text modality, does not survive an arm with no sp
 
 **Cut rate is therefore a causal lever on this sensor**, with the frontal and auditory
 signatures both available as targets for stage 04 — on the material where it has been
-shown, which is intercut generated footage (see the follow-up below).
+shown, which is intercut generated footage (§5.6 grades it by the kind of join).
 
 **Limitations.** The regenerated face base reached `face_area_frac` 0.052 against a 0.10
 target (a wide first attempt measured 0.035; no third attempt at the post-promotional
@@ -1204,6 +1310,9 @@ stage; a text-on replication is unrun.
 
 ### 5.6 Stage 03b · Which part of a cut — GRADED
 
+*Licenses: on constructed ladders, a hard cut within a scene and a change of scene without
+a hard cut each carry part of the frontal effect, close to additively, while the auditory
+effect follows the hard cut. The verdict is GRADED, so no categorical claim is made.*
 
 Stage 03 varied cutting on a ladder where every cut alternated two maximally different
 scenes, so a cut and a change of scene were the same event. Stage 03b separates them.
@@ -1304,18 +1413,25 @@ the gain ordering (B 0.67 > D 0.50 > C 0.47) is not statistically resolved.
 
 ### 5.7 Why the corpus lacks the frontal effect
 
+*Licenses: the frontal miss in the corpus is not an artefact of the regression and needs no
+film-specific explanation. It does not license saying the frontal effect is absent from
+cinema.*
+
+Stage 03 showed cutting raises inferior-frontal response causally, and stage 02's corpus
+shows no trace of it. Everything in this section is exploratory and was run on the frozen
+stage-02 data after the registered test; the PARTIAL verdict of §5.3.1 is unchanged. It
+proceeds by exclusion (§5.7.1) and then by measuring what the dial set lacks (§5.7.2).
+
 #### 5.7.1 Exclusions on the frozen stage-02 data
 
-**Exploratory follow-up: why the index missed the frontal half.** Not registered; the
-PARTIAL verdict of §5.3.1 is unchanged. Full note in `02-index/frontal_miss.md`, run on the
-frozen stage-02 data. *The penalty is not the cause*: refitting the four cluster parcels on
+Full note in `02-index/frontal_miss.md` and `02-index/scene_switches.md`. *The penalty is not the cause*: refitting the four cluster parcels on
 the registered design matrix without regularisation gives cut-rate weights of +0.04 to +0.07
 with the stage-03 sign and |*t*| < 1 (*p* 0.35–0.53); the elastic net zeroed coefficients
 indistinguishable from zero, and kept the auditory quartet's (OLS −0.15 to −0.26, MBelt
 *t* = −2.37). *The raw signal is absent*: IFJa's within-film correlation with cut rate is
 −0.005, and the per-film frontal estimates differ in sign (negative in *Jungle Book*,
 positive in *Nothing Sacred*) while the auditory sign is negative in all three — though
-the frontal difference is not significant (§5.7). *Range is not the
+the frontal difference is not significant (§5.7.2). *Range is not the
 explanation*: the two wide-range films each span a 7–8× range of cut rate and show the
 auditory effect inside each film and the frontal effect in neither. *Nor is swamping*:
 transplanting each parcel's stage-03 slope into the corpus's within-film variance predicts
@@ -1344,16 +1460,15 @@ but a surviving effect would have to be small where the transplanted slopes say 
 large. What stands: the frontal miss is not the penalty, not the range, not content variance
 and not, by this measure, the composition of the cuts. The frontal parcels' relation to
 cutting differs in sign between films, which pointed at film-specific content the dial set
-does not measure; §5.7 measured two candidates and found the sign difference itself not
+does not measure; §5.7.2 measured two candidates and found the sign difference itself not
 significant. The index's cut-rate column should be read as the auditory half of the effect
-only, and that half as partly cutting, partly speech (§5.7). **§5.6 puts the same question to a constructed test, and the answer changes how large
-the corpus effect should have been.**
+only, and that half as partly cutting, partly speech (§5.7.2). §5.6 put the same question to
+a constructed test, and its answer lowers the corpus effect the frontal parcels should have
+shown to *r* ≈ +0.05 to +0.20.
 
 #### 5.7.2 Content descriptors · the sign flip not demonstrated, and speech the missing dial
 
-
-*Exploratory, not registered; the PARTIAL verdict of §5.3.1 is unchanged.* §5.7.1 ended on a
-pointer: the frontal parcels' relation to cutting differs in sign between films, so perhaps
+The exclusions of §5.7.1 end on a pointer: the frontal parcels' relation to cutting differs in sign between films, so perhaps
 film-specific content the dial set lacks carries it. Two candidates were measured on all 244
 segments without reading any parcel data: **speech proportion** (Silero VAD; Whisper word
 counts agree at *r* 0.96), and **semantic change at cuts** (CLIP ViT-B/32 distance between
@@ -1412,7 +1527,6 @@ per-cut distance. The text branch was off, so the sensor heard speech and never 
 
 ## 6 · The index as a map, and what it implies for inversion
 
-
 **Exploratory. Not pre-registered, and none of it counts toward the pass criteria.**
 The registered test asks whether dials predict parcels. It does not ask what the
 resulting crosswalk *looks like* — and that crosswalk is the artefact the whole
@@ -1421,21 +1535,20 @@ programme was built to produce. This section characterises it. The object is the
 cortical pattern associated with dial *k*, and the set of response profiles technique
 can reach is the span of those columns.
 
-**Provenance and a correction.** This section was first written with no script committed
-behind it. `02-index/index_map.py` (20 September) now rebuilds **B** from
-`analysis_result.json` and reproduces all 45 figures below; its output is `index_map.json`,
-with `index_map_followup.py` for the technique-specificity tests. The reproduction added the
-comparison the first draft lacked — the same elastic net refitted to **label-shuffled**
-responses, 200 times — and that comparison changes what the section may claim. Where the
-first draft's reading does not survive it, the text below says so.
+**Provenance.** Every figure in this section is reproduced by `02-index/index_map.py`, which
+rebuilds **B** from `analysis_result.json` (output `index_map.json`), with the
+technique-specificity tests in `index_map_followup.py`. The comparison that governs what
+the section may claim is the same elastic net refitted to **label-shuffled** responses,
+200 times: where the real index and the shuffled ones agree, the property belongs to the
+sensor's responses and not to technique. (How this section's first draft went wrong without
+that comparison is recorded in §7.)
 
 **The index is concentrated in about three dimensions — and so is an index fitted to
 noise.** The singular values of **B** fall away sharply — 3.34, 1.52, 1.01, then nothing
 above 0.75. Three components carry 90.1% of the index's variance and five carry 95.9%.
-Restricted to the 101 surviving parcels, three components carry 92.7%. (The first draft
-quoted participation ratios of 5.56 for **B**, 4.76 for the survivors and 8.35 for **Y**;
-those were computed on singular values. On variances, the conventional definition, they are
-1.97, 1.65 and 2.41.) Under label shuffling the index is just as concentrated: three
+Restricted to the 101 surviving parcels, three components carry 92.7%. (Participation
+ratios, on variances: 1.97 for **B**, 1.65 for the survivors and 2.41 for **Y**.) Under
+label shuffling the index is just as concentrated: three
 components carry 89.1% on average (5th–95th percentile 82.5–93.9%; observed 90.1%,
 *p* = 0.42) and the first axis 66% (observed 69%, *p* = 0.39). **The console's three
 outputs are a property of the sensor's response space across these segments, which itself
@@ -1473,7 +1586,7 @@ the same story §5.3.6 tells, arrived at without reference to stage 01.
 **Technique is aligned with how this cortex varies, by a modest margin over a fit to
 noise.** Projecting the observed 70 × 180 profile matrix onto the reachable subspace
 retains **90.8%** of its variance. The comparison that makes that number meaningful is the
-third row, which the first draft did not have:
+third row:
 
 | 14-dimensional subspace | variance of observed profiles retained |
 |---|---|
@@ -1493,11 +1606,10 @@ a single axis it retains 57.7% against a best-possible 61.8% — **the first tec
 axis is very nearly the first principal component of cortical variation across these
 segments.**
 
-**The first draft tempered this with a caveat and then claimed the wrong exception.** It
-noted that **B** is fitted to **Y** and so aligned by construction, and said that what
-fitting does *not* guarantee is the concentration and the coincidence of the first axis
-with the dominant direction of variation. The shuffled-label fits show fitting guarantees
-both: their first axis correlates with **Y**'s first principal component at 0.92 on average
+**Fitting guarantees the alignment, the concentration and the coincidence of axes.**
+Because **B** is fitted to **Y**, its columns are aligned with **Y** by construction, and
+the shuffled-label fits show that concentration and the first axis's coincidence with the
+dominant direction of variation come with fitting too: their first axis correlates with **Y**'s first principal component at 0.92 on average
 (observed 0.96, *p* = 0.095) and retains 52.7% of profile variance alone (observed 57.7%,
 *p* = 0.075). The single-axis figures in the paragraph above are therefore descriptive of
 the response space, not findings about technique.
@@ -1532,7 +1644,6 @@ occurs in forty clips. It is evidence that the lever exists and is the largest o
 ---
 
 ## 7 · Method failure as evidence
-
 
 This section is not an appendix. When an instrument returns plausible numbers
 whatever you feed it, **silent failure is the central methodological hazard**, and the
@@ -1608,6 +1719,33 @@ one that never made the claim** — and the general lesson is the one already st
 above, now demonstrated twice: a confidently recorded fact is exactly where verification
 stops, which is exactly where it is most needed.
 
+**A null that assumed independence.** Stage 01's criterion took chance as ≈ 7 parcels at
+|*r*| > 0.9, reasoning that *r* = 0.9 at *n* = 5 has *p* ≈ 0.037 across 180 parcels, and
+stage 03's README inherited the figure; earlier drafts of this paper reported the counts as
+seven and eight "times chance". The parcels are not 180 independent trials: across a ladder
+the response moves along close to one direction, so a count behaves nearly like a single
+event. Permuting the level labels (§4.10) puts the null's 95th percentile at 28–32 and has
+8–17% of random orderings clearing the pre-fixed bar of 15. The verdicts stand, because the
+criteria were fixed and the observed counts sit at or one ordering above the design's
+*p*-floor; the bars were weaker than they were written to be. The lesson is the one this
+section keeps returning to: a null written down before the run is still an assumption, and
+checking it is part of the result.
+
+**A results section written without a script.** The index-as-map analysis (§6) was first
+written from interactive computation with no script committed behind it. Rebuilding it from
+the frozen coefficients (`index_map.py`) reproduced all 45 figures — and still changed the
+reading. Three participation ratios had been computed on singular values rather than
+variances (quoted as 5.56, 4.76 and 8.35; conventionally 1.97, 1.65 and 2.41). The
+agreement between stage 00's contrast and the index's first axis had been tested against a
+parcel permutation (95th percentile 0.144) rather than against fits to label-shuffled
+responses (*p* = 0.045). Retained variance had been compared with a random subspace (7.8%)
+rather than with those shuffled fits (85.5%). And the draft had named the concentration of
+the index and the coincidence of its first axis with the dominant direction of cortical
+variation as what fitting does *not* guarantee, when the shuffled fits show it guarantees
+both. **Every number was right and the claim was not**: the draft read properties of the
+sensor's response space as properties of technique. A figure with no script behind it is a
+claim, and the comparison it most needs is the one the analyst did not think to run.
+
 Three practices follow, and are now standing rules:
 
 1. **Criteria are written in the stage README before the run and are never softened
@@ -1616,7 +1754,7 @@ Three practices follow, and are now standing rules:
    pause; stage 00's first full result set was lost that way and had to be re-run.
 3. **Introspect before writing.** Seconds to check, ~35 minutes to get wrong.
 
-**Spend and missteps, recorded.** Bases $3.60 on fal including one regeneration; scoring
+**Missteps in the paid runs.** *Stage 03.* Bases $3.60 on fal including one regeneration; scoring
 ≈ $2.2 on the Space for 12 clips plus one wasted restart. That restart was caused by a
 watcher of ours that matched result files containing `"03_"` anywhere — which also matched
 stage-02 ordinals and files from a separate experiment writing to the same results
@@ -1626,7 +1764,7 @@ background tasks for memory twice; the Space finished the batch unattended and p
 its inactivity timer. A text-branch rescoring attempted on 13 September produced 0 / 12
 results after 189 minutes and is parked undiagnosed.
 
-**Spend and missteps, recorded.** Three Space sessions, 20–25 September 2026. **Session 1
+*Stage 03b.* Three Space sessions, 20–25 September 2026. **Session 1
 overspent.** Twenty clips were staged as a single batch against this project's own
 documented safe size of eight; the Space stalled after clip 10 while still billing; and the
 budget guard lived in a laptop-side watcher that slept with the machine. Roughly 5.5–8.2
@@ -1644,7 +1782,6 @@ guard that runs on the client cannot bound a server's spend.**
 
 ### 8.1 Limitations
 
-
 Stated plainly, and none of them resolvable within this design.
 
 **It is a model, not a brain.** Every result concerns TRIBE's predictions. The link to
@@ -1657,8 +1794,8 @@ technique moves TRIBE is a finding about TRIBE.
 covariance; it is not enough to claim film-independence. Gruber et al. found
 associations landing in non-overlapping regions for nearly every one of eight films,
 and concluded that a specific movie should be treated like a specific task. Our index
-should be read the same way, and the stage-02 report must say so rather than leave it
-to be discovered.
+should be read the same way. Per film (§5.3.5), its dominant face/place axis holds in
+all three films and its frontal entries do not.
 
 **Effect sizes are design-conditional.** Segments were deliberately selected to spread
 each dial's range, which inflates dial variance relative to a random sample of cinema.
@@ -1668,8 +1805,8 @@ Estimates therefore do not describe "the effect in typical film".
 58.8 and a near-redundant lighting/colour cluster, any association inside that cluster
 will attribute poorly no matter how the regression is regularised. Elastic net manages
 the instability; it does not manufacture identifiability. Separating those dials
-requires generating clips that hold all but one fixed — stage 03 — and that is a
-different kind of evidence.
+requires generated ladders that hold all but one fixed, as stage 03 did for cut rate;
+none has been run for lighting or colour.
 
 **One era, one medium, three directors.** Technicolor features from 1937–1951 share
 conventions of lighting, staging and lens that contemporary cinema does not.
@@ -1741,8 +1878,8 @@ one (§6). Whatever the programme eventually demonstrates about control, it is c
 a roughly three-dimensional subspace of response profiles. Whether that is a fact about
 cortex, about TRIBE's encoding head, or about clip-mean readouts that average away
 everything faster than a minute, this design cannot say. The technique-specific content of
-the map is narrower than the first draft claimed: which dial leads the dominant axis, and a
-five-point gain in retained variance over a fit to noise.
+the map is narrow: which dial leads the dominant axis, and a five-point gain in retained
+variance over a fit to noise.
 
 **Cut rate is the weakest dial in the design**, at *s* ≈ 0.66, precisely because it
 carries the most between-film signal. It is also the dial the replication check
@@ -1751,8 +1888,8 @@ the thinnest margin in the study.
 
 ### 8.2 Future work
 
-**Stage 02's PARTIAL verdict set the agenda; stage 03 has now answered the first item on
-it.** Five things follow.
+<!-- Consolidation step 4e replaces this subsection with the programme of explorations. -->
+Five directions follow from the results, in the order the results raise them.
 
 First, **cut rate has been isolated, and it is causal** (§5.5). Held content, lighting,
 motion and shot scale fixed by construction and varied cutting alone over a 31× range, the
@@ -1768,7 +1905,7 @@ to additive in hard cut and scene change, the auditory one follows the hard cut,
 two signatures stage 03 saw as one mode separate. Because cinema's cuts are mostly inside a
 scene, the frontal effect the corpus should have shown is ≈ +0.05 to +0.20, not +0.30 to
 +0.45, and the per-film sign differences that seemed to call for a film-specific
-explanation are not significant (§5.7). The miss is best read as a small effect three
+explanation are not significant (§5.7.2). The miss is best read as a small effect three
 films could not detect, which is not the same as showing it is there. Stage 04 should treat cut
 rate as a frontal lever at full strength only on scene-alternating material, and expect
 roughly half of it from dissolves or same-scene cutting.
@@ -1810,7 +1947,6 @@ claim about live action.
 ---
 
 ## 9 · Status
-
 
 | stage | status |
 |---|---|
