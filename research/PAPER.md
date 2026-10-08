@@ -58,7 +58,7 @@ cut-rate dials. Observationally, cut rate loads on auditory and early visual cor
 never frontal. Which track is wrong is not decidable from this data, and that it must
 be resolved before anything is built on cut rate is the finding. It is not a confound
 among the measured dials: within film, fast cutting goes with *smaller* faces and,
-measured later (§6.10), with *less* speech — not with dialogue and close-ups.
+measured later (§5.7), with *less* speech — not with dialogue and close-ups.
 
 **Stage 03** resolves it under control. Two generated single-take scenes (0 cuts measured)
 were intercut at exactly 1, 3, 7, 15 and 31 cuts per minute — a 31× range against stage
@@ -95,7 +95,7 @@ partly a response to the scene changing. Since most cuts in cinema stay inside a
 the corpus *r* expected for the frontal parcels falls to ≈ +0.05 to +0.20 — small enough
 to go undetected in three films of 23–24 segments.
 
-A content-descriptor follow-up (§6.10, exploratory) then removed the last reason to look
+A content-descriptor follow-up (§5.7, exploratory) then removed the last reason to look
 for a film-specific explanation. The frontal parcels' per-film cut-rate estimates differ
 in sign, but **not significantly** (cut × film *F* 1.38, permutation *p* 0.28); neither
 speech proportion nor semantic change across cuts accounts for the difference, because
@@ -228,9 +228,9 @@ The programme is a chain. Each link gates the next and is permitted to break it.
 | **H0** | TRIBE discriminates content — different kinds of scene produce different parcel profiles, in anatomically interpretable directions | ✅ **Supported** (stage 00) |
 | **H1** | Cinematographic *technique* moves the predicted response with content held constant | ✅ **Supported** (stage 01, cut rate only) |
 | **H2** | Across real cinema, measured technique dials predict parcel-level response profiles, recoverably by penalised regression | ✅ **Supported** (stage 02) — 14/14 dials, 101/180 parcels. But only 9 parcels reach the SESOI |
-| **H2b** | The controlled cut-rate result of stage 01 reappears observationally | ❌ **Not supported** (stage 02) — IFJa at its null; the one surviving cluster parcel has zero cut-rate weight. **Explained by stage 03 (§6.8)**: the observational index recovered the auditory half of the cut effect and the corpus does not carry the frontal half |
+| **H2b** | The controlled cut-rate result of stage 01 reappears observationally | ❌ **Not supported** (stage 02) — IFJa at its null; the one surviving cluster parcel has zero cut-rate weight. **Explained by stage 03 (§5.5)**: the observational index recovered the auditory half of the cut effect and the corpus does not carry the frontal half |
 | **H3** | At least some of those associations are causal, demonstrable by holding all dials fixed and moving one | ✅ **Supported** (stage 03, verdict **PARTIAL-A** against the pre-fixed table) — cutting alone, content fixed by construction, drives IFJa / IFSp / 8C up and A4 / A1 / MBelt down on generated footage in both speech arms; the no-speech arm misses the 0.9 bar on three cluster parcels by ≤ 0.03 at *n* = 5 |
-| **H4** | The mapping can be inverted — a target profile selects a technique, and the achieved profile matches | Not started (stage 04). **Bounded in advance by §6.7**: the reachable set is ~3-dimensional — a property of the sensor's response space, which technique cannot exceed — so inversion is projection onto it, and the inverse is many-to-one |
+| **H4** | The mapping can be inverted — a target profile selects a technique, and the achieved profile matches | Not started (stage 04). **Bounded in advance by §6**: the reachable set is ~3-dimensional — a property of the sensor's response space, which technique cannot exceed — so inversion is projection onto it, and the inverse is many-to-one |
 
 **H2b deserves emphasis.** It is the only place in the design where the controlled
 and observational tracks can contradict each other. If cut rate moves the sensor on
@@ -239,7 +239,7 @@ is wrong, and that must be resolved before anything is built on either. The
 pre-registration names this outcome **PARTIAL** and calls it the most important
 possible finding — which is why §4.5 records that we raised the sample size
 specifically so that this check would be able to fail informatively. It did fail, and
-stage 03 (§6.8) then showed that neither track was wrong: cutting has a frontal and an
+stage 03 (§5.5) then showed that neither track was wrong: cutting has a frontal and an
 auditory signature, and the observational corpus carries only the second.
 
 ---
@@ -488,7 +488,7 @@ recording scene-boundary counts per segment as a diagnostic, not a covariate. **
 was never implemented**: no scene-boundary field exists in the dial table or in any
 per-segment measurement file, and `cinemetrics.py` counts cuts without classifying them
 as within- or between-scene. An earlier draft of this paragraph stated the count was
-recorded; it was not, and the omission matters — §6.8 ends on a hypothesis that turns on
+recorded; it was not, and the omission matters — §5.7 ends on a hypothesis that turns on
 exactly that distinction. An exploratory between-scene cut count now exists for all 244
 segments (`02-index/scene_switches.py`, 16 September: cinemetrics' cut detector unchanged,
 each cut scored by the HSV-histogram distance between the adjacent shots); it is a measured
@@ -613,7 +613,7 @@ to a 2 × 10⁻⁴ number. Future dials should be checked on absolute spread as 
 
 Per parcel, a cross-validated elastic net regresses the parcel's *z* on the dial set.
 Elastic net rather than OLS follows Kauttonen: the dial set is multicollinear by
-construction (§6.2), and unregularised regression is unstable there.
+construction (§5.3.3), and unregularised regression is unstable there.
 
 The null is **permutation over segment labels**, 1,000 permutations. This is a
 regression across segments, not a map-to-map comparison, so a spin test is the wrong
@@ -706,7 +706,7 @@ stop billing.
 
 ---
 
-## 5 · Results — completed stages
+## 5 · Results
 
 ### 5.1 Stage 00 · Discrimination probe
 
@@ -844,9 +844,8 @@ says technique *can* move the sensor, not that lighting or shot scale do. And *n
 conditions is few; the defence is the count (51 ≫ 7) and the anatomical coherence, not
 any single parcel.
 
----
+### 5.3 Stage 02 · The observational index — PARTIAL
 
-## 6 · Stage 02 · The observational index — PARTIAL
 
 **The analysis plan was registered at `osf.io/dg7fe` on 8 September 2026, before the
 analysis was run.** It was filed after collection and declares itself as such: OSF's
@@ -863,7 +862,7 @@ model specification moved. And the registered test was run exactly once; the onl
 earlier dial→parcel computation was the pre-registered futility check described in
 §4.8, whose output is a single binary verdict by construction.
 
-### 6.0 Verdict
+#### 5.3.1 Verdict
 
 | criterion | required | found | |
 |---|---|---|---|
@@ -875,7 +874,7 @@ important one available: it means the observational and controlled tracks disagr
 and one of them is wrong. §4.5 records that the sample size was raised from 60 to 70
 specifically so that this check could fail informatively. It has.
 
-### 6.1 Pass criteria, as fixed
+#### 5.3.2 Pass criteria, as fixed
 
 For each dial, a cross-validated elastic net predicts each parcel's *z* from the dial
 set, compared against 1,000 label permutations.
@@ -897,7 +896,7 @@ possible finding, and one that would redirect the programme.
 **Nulls are reported with equal prominence.** A dial that does not move the sensor is
 a dial you cannot direct with, and knowing that is worth more than a plausible story.
 
-### 6.2 Stimulus-side diagnostic: dial interdependence
+#### 5.3.3 Stimulus-side diagnostic: dial interdependence
 
 Reported as a pre-registered diagnostic, computed on centred dials across all 244
 segments, and **not modelled**.
@@ -930,7 +929,7 @@ being able to say which member drives it. Observational data structurally cannot
 resolve that; it is a stage-03 question and will be written up as one rather than
 argued away.
 
-### 6.3 Detectability at *n* = 70
+#### 5.3.4 Detectability at *n* = 70
 
 All 14 dials clear the 80% power floor at the SESOI. The two cut-rate dials are the
 weakest (*s* = 0.66 and 0.67; power 0.85 and 0.86), for the reason given in §4.5 —
@@ -948,7 +947,7 @@ Stratified selection does not rescue it: recomputing detectability on the select
 subset rather than all 244 leaves *s* essentially unchanged and **no dial changes
 label**. Stratifying *within* film cannot recover variance that lives *between* films.
 
-### 6.4 Criterion 1 — technique predicts the sensor, broadly but weakly
+#### 5.3.5 Criterion 1 — technique predicts the sensor, broadly but weakly
 
 **101 of 180 parcels survive** a 1,000-permutation segment-label null under
 Benjamini–Hochberg FDR at *q* < 0.05, and **every one of the 14 dials** carries a
@@ -999,18 +998,18 @@ slopes, so the pooled fit could average slopes of opposite sign. For face area i
 Within-film Pearson *r* of each parcel with `face_area_frac`. The voice chain is positive and
 the place chain negative in all three films, strongest in *Royal Wedding*. The exception is
 inferior-frontal: IFJp's relation to face area is +0.39 in one film and −0.42 and −0.59 in
-the others, and pools to nothing. The same split appears for cut rate (§6.8): auditory
+the others, and pools to nothing. The same split appears for cut rate (§5.7): auditory
 parcels negative in every film, frontal parcels of opposite sign in two. **The index's
 dominant axis is a property of all three films; its frontal entries are not a property of
 any pooled fit.**
 
 **The lighting/colour cluster** is dominant in 25 survivors and, per the
-pre-registration, is reported as an association with the *cluster*. §6.2 fixed that
+pre-registration, is reported as an association with the *cluster*. §5.3.3 fixed that
 consequence before any result existed: with condition number 58.8 and
 `median_luma`~`shadow_frac` at −0.90, this design can establish that the cluster
 matters without saying which member drives it.
 
-### 6.5 Criterion 2 — cut rate does not replicate where stage 01 put it
+#### 5.3.6 Criterion 2 — cut rate does not replicate where stage 01 put it
 
 | parcel | CV *r* | null 95th pct | *q* | survives | coef cuts_per_min | coef mean_shot_len_s |
 |---|---|---|---|---|---|---|
@@ -1039,7 +1038,7 @@ measured dials, it does not.** After within-film centring, `cuts_per_min` correl
 with every other dial except its own definitional inverse at |*r*| ≤ 0.194 — with
 `face_area_frac` at −0.194 (faster cutting goes with *smaller* faces, not close-ups),
 `camera_zoom` +0.163, `face_hit_rate` +0.145, and nothing else above 0.12. Cut rate is
-the most nearly independent dial we measure, which §6.2 already recorded as VIF < 2.3.
+the most nearly independent dial we measure, which §5.3.3 already recorded as VIF < 2.3.
 
 So the confound, if that is what this is, lies in what we did **not** measure. The dial
 set has no descriptor of speech, semantic content, narrative structure or scene type,
@@ -1060,18 +1059,18 @@ sound. In a corpus containing *Nothing Sacred*, a fast-talking dialogue picture,
 auditory cut-rate signature may be partly an artefact of the missing modality rather
 than a property of cutting.
 
-**Written before stage 03; left as written.** Stage 03 (§6.8) has since made the
+**Written before stage 03; left as written.** Stage 03 (§5.5) has since made the
 separation this section asks for. Both halves of the reading above survive in modified
 form: the frontal and auditory signatures are two parts of one causal effect, the
 auditory part is a property of cutting and not of the missing text modality (it appears
 with speech absent and the audio track continuous), and the reason the index missed the
 frontal part is a property of the corpus, not of the regression. The unmeasured content
-this section names has since been partly measured (§6.10). Speech is part of the
+this section names has since been partly measured (§5.7). Speech is part of the
 auditory signature in the corpus — faster cutting carries less dialogue, and auditory
 cortex follows dialogue — but not all of it; and neither speech nor semantic content
 accounts for the frontal miss.
 
-### 6.6 Declared choices, and one exploratory check
+#### 5.3.7 Declared choices, and one exploratory check
 
 **Declared before the run, where the registration was silent.** Elastic net α = 0.1,
 l1_ratio = 0.5, 5-fold shuffled cross-validation — the values already present in the
@@ -1110,8 +1109,309 @@ script. **This does not address within-film temporal adjacency**, which shufflin
 inside a film does not preserve; the check is one step more conservative than
 registered, not the conservative limit.
 
+### 5.5 Stage 03 · Isolation — PARTIAL-A, and the two tracks reconciled
 
-### 6.7 The index as a map, and what it implies for inversion
+
+**Criteria were fixed in `03-isolation/README.md` on 13 September 2026, before any
+generation, and were not softened.** Run 14–15 September. Data `parcel_vectors.json` (12
+clips × 180 parcels), script `evaluate_03.py`, full output `evaluation.json`; every figure
+below is taken from that file.
+
+**Question.** Stage 01 varied cut count on identical live-action footage and the sensor
+answered in inferior-frontal cortex. Stage 02 measured cut rate across real cinema and found
+no frontal association; cut rate loaded on auditory cortex, negatively. The measured dials do
+not explain the disagreement (§5.3.6). Two candidates remained: stage 01's result was specific
+to its two scenes, or the observational signature was confounded by something unmeasured,
+speech above all. Stage 03 tests both with one design.
+
+**Design — 2 × 5, content held fixed by construction.** Two scenes were generated with the
+01b route (`minimax/h3-max`, 768P, 4 × 15 s chained), each a single continuous take: a face
+scene (two people in conversation at a table) and a landscape. The single-take precondition
+was measured, not assumed — 01b had shown the generator cuts within its own outputs at 7–15
+per minute — and both bases returned **0 cuts** on `cinemetrics.py`. The two were then
+intercut with stage 01's `build_conditions.py` unchanged at 1, 3, 7, 15 and 31 added cuts;
+measured cut counts were **exactly 1 / 3 / 7 / 15 / 31**, a 31× range against stage 01's
+effective 2.1×. Every level contains the same 30 s of each scene. The speech factor: **S+**
+keeps the face scene's native dialogue; **S−** replaces all audio with the landscape's
+continuous ambient track, so no speech is present and the sound has no discontinuity at any
+cut. Video is byte-identical across arms. Scored on the unchanged stage-02 Space path,
+`audio_only=True`; the two bases were scored as references.
+
+**Pre-registered predictions.** H3a: in S+, at least 2 of {IFJa, IFJp, IFSp, 8C} reach
+*r* > +0.9 against log measured cut count. H3b: the same in S−. PASS requires both;
+**PARTIAL-A** (H3a, not H3b) was fixed in advance with the reading "the frontal cut effect
+needs speech present"; PARTIAL-B (neither, but auditory tracks) would demote stage 01 to a
+property of its two clips; FAIL if nothing tracks. Reported, not gating: the |*r*| > 0.9
+count (the README took chance as ≈ 7 at *n* = 5; corrected below), whole-vector *r* cut01
+vs cut31, and A4 / A5 / MBelt / A1
+against cut count — stage 02's observational signature, to see whether it appears under
+control at all.
+
+**Result.**
+
+| | required | S+ (speech) | S− (no speech) |
+|---|---|---|---|
+| cluster parcels at *r* > +0.9 | ≥ 2 of 4 | **3 of 4** — met | **1 of 4** — not met |
+| IFJa · IFJp · IFSp · 8C | | +0.907 · +0.863 · **+0.932** · **+0.930** | +0.899 · +0.871 · **+0.902** · +0.889 |
+| parcels at \|*r*\| > 0.9 | reported | **58 / 180** | **54 / 180** |
+| that count against 120 level permutations | — | *p* = 0.025 (null 95th pct 32, max 79) | *p* = 0.025 (null 95th pct 32, max 90) |
+| A4 · A1 · MBelt · A5 | reported | **−0.969 · −0.959 · −0.951** · +0.152 | **−0.939 · −0.931 · −0.924 · −0.949** |
+| whole-vector *r*, cut01 vs cut31 | reported | +0.743 | +0.822 |
+
+H3a met, H3b not met: **PARTIAL-A**, by the table as fixed. The strongest single parcels
+were 7PL −0.996, STSva +0.981, 9a +0.980 with speech and 23d −0.990, VVC +0.981, PFcm −0.979
+without.
+
+**The verdict is reported as fixed; the reading the table attached to it is not supported.**
+In the no-speech arm all four cluster parcels sit at +0.87 to +0.90, and the three that
+miss the bar do so by 0.001 (IFJa), 0.011 (8C) and 0.029 (IFJp). At *n* = 5 levels that gap
+is inside noise. The data show **the inferior-frontal cut effect present in both arms at
+near-identical magnitude**, with 58 and 54 parcels at |*r*| > 0.9, replicating stage 01's
+51 / 180 on generated footage with content fixed by construction and the cut range
+genuinely 31×. Against the level-permutation null (§5.2) each count has *p* = 3/120 =
+0.025 — the true ordering, its mirror image and one other — and some random orderings put
+79 or 90 parcels over the bar, because the response across the ladder is close to
+one-dimensional (participation ratio 1.25 and 1.20 of a possible 4). Two consequences. The
+counts are near the strongest evidence five levels can give, not "eight times chance". And
+within this ladder "frontal up, auditory down" is the sign pattern of one response mode,
+not two independent findings — a statement that holds within a ladder and, as §5.6 shows by
+varying the kind of join, fails across ladders, where the two signatures separate.
+PARTIAL-A stands because the criteria were
+fixed and are not softened afterwards; the claim that speech is *required* for the frontal
+effect must not be carried forward as a finding, and this paper does not carry it.
+
+**Stage 02's observational signature reproduces under control.** In both arms cut rate is
+strongly negative in auditory cortex — A4 −0.97 / −0.94, A1 −0.96 / −0.93, MBelt −0.95 /
+−0.92 (S+ / S−) — and A5 joins them without speech (−0.95) while sitting at +0.15 with it.
+This is what the index found in §5.3.6 and what stage 01 did not report. **Both earlier tracks
+were right about different parts of one effect**: cutting drives inferior-frontal cortex up
+and auditory cortex down, with or without speech, and — since S− has a continuous ambient
+track with no discontinuity at any cut — the auditory decrease follows *visual* cut count,
+not an interrupted sound stream. The alternative §5.3.6 raised, that the auditory signature
+was an artefact of the missing text modality, does not survive an arm with no speech in it.
+
+**Cut rate is therefore a causal lever on this sensor**, with the frontal and auditory
+signatures both available as targets for stage 04 — on the material where it has been
+shown, which is intercut generated footage (see the follow-up below).
+
+**Limitations.** The regenerated face base reached `face_area_frac` 0.052 against a 0.10
+target (a wide first attempt measured 0.035; no third attempt at the post-promotional
+generation rate), so the face/place contrast between the bases is weaker than stage 01's;
+the cut manipulation is unaffected. *n* = 5 levels per arm: |*r*| > 0.9 is a coarse
+instrument and the arm difference is not resolvable at this *n*. Generated footage, one
+scene pair, one generator — the scope 01b licensed. Text branch off, as in every prior
+stage; a text-on replication is unrun.
+
+### 5.6 Stage 03b · Which part of a cut — GRADED
+
+
+Stage 03 varied cutting on a ladder where every cut alternated two maximally different
+scenes, so a cut and a change of scene were the same event. Stage 03b separates them.
+Four ladders, each 1 / 3 / 7 / 15 / 31 constructed joins per minute as in stage 03:
+**REF**, stage 03's no-speech arm rescored, where each join is both a hard cut and a scene
+change; **B** and **C**, hard cuts with no change of scene, made by self-intercutting a
+single base — the two-person face scene and a landscape respectively; and **D**, changes of
+scene with no hard cut, the REF material joined by 0.5 s dissolves. Criteria, the four
+verdict classes and the frontal cluster were fixed in `03b-discontinuity/README.md` at
+commit `221faad` before any clip was built, and the evaluator was committed and self-tested
+on frozen calibration data before any result existed. Twenty clips, 180 parcels, plus a
+saved 1 Hz × 180 timeline per clip. The audio track is byte-identical across all twenty
+clips (one decoded MD5), so nothing here can be an auditory artefact of the construction.
+
+**Identity test: PASS.** The timeline-saving app reproduced stage 03's S− parcel values
+exactly (max raw |Δ| 0.0e+00), and each parcel's 60-point timeline averages to its raw value
+to 4.3e-08. Every figure below therefore sits on the same footing as stages 01–03.
+
+The frontal ratio ρ_F is a ladder's mean frontal-cluster slope (IFJa · IFJp · IFSp · 8C
+against log constructed cuts) divided by REF's +0.251; *p* is one-sided over the 120 level
+orderings, floor 0.008. As fixed: **REPRODUCES** at ρ_F ≥ 0.50 with *p* ≤ 0.05, **ABSENT**
+at ρ_F ≤ 0.25, **PARTIAL** otherwise.
+
+| ladder | ρ_F | *p* | class | ρ_A (*p*) | whole-map gain (*p*) | *r* with REF mode | PR |
+|---|---|---|---|---|---|---|---|
+| **REF** · hard cut + scene change | +1.00 | 0.017 | **REPRODUCES** | +1.00 (0.008) | +1.00 (0.008) | +1.00 | 1.20 |
+| **B** · hard cut, same scene — face | +0.44 | 0.008 | **PARTIAL** | +0.62 (0.008) | +0.67 (0.008) | +0.86 | 1.05 |
+| **C** · hard cut, same scene — landscape | +0.18 | 0.017 | **ABSENT** | +0.38 (0.008) | +0.47 (0.008) | +0.73 | 1.03 |
+| **D** · scene change, 0.5 s dissolves | +0.48 | 0.042 | **PARTIAL** | +0.17 (0.075) | +0.50 (0.008) | +0.62 | 1.25 |
+
+The same-scene arm returns one PARTIAL and one ABSENT, the dissolve arm PARTIAL. By the
+table as fixed that is **GRADED — no categorical claim; the ratios are reported as
+measured.**
+
+**The sensor is neither a pure cut detector nor a pure switch detector.** A hard cut with no
+change of scene carries 44% of the frontal effect in the face scene and 18% in the
+landscape; a change of scene with no hard cut carries 48%. The two contributions are close
+to additive — B + D ≈ 0.92 of REF, C + D ≈ 0.67 — and every ladder's whole-map response
+pattern resembles REF's (*r* +0.62 to +0.86, all *p* = 0.008), so what varies across the
+ladders is the size of one response and not its shape.
+
+**The two signatures of cutting come apart, which qualifies §5.5.** The auditory decrease
+follows the hard discontinuity: 62% and 38% for same-scene cuts, and only 17% under
+dissolves, where it is the one figure in the table that does not clear its null
+(*p* = 0.075). The frontal increase does not need the discontinuity at all: dissolves carry
+48% of it. §5.5 read "frontal up, auditory down" as the sign pattern of a single response
+mode, on the evidence of a participation ratio of 1.25 and 1.20 within one ladder. That
+reading holds within a ladder and fails across them. **The auditory signature is a
+discontinuity response; the frontal one is partly that and partly a response to the scene
+changing.** Two signs of one mode in stage 03, two separable effects here.
+
+**The same-scene result depends on the scene, and not on the size of the jump.** B and C
+have near-identical discontinuity magnitudes — peak frame Δ 40 against 39, histogram
+distance 0.16 against 0.23 — and ρ_F of 0.44 against 0.18. Cutting inside a scene of two
+people at a table moves the frontal cluster more than cutting inside a landscape. What is
+interrupted matters, not only that something is.
+
+**On the encoder-artefact alternative.** Its pure form — the model maps temporal
+discontinuity to frontal cortex and nothing more — is weakened: half the frontal effect
+arrives with no discontinuity, while the auditory half is the part that tracks
+discontinuity. A broader form, a response to any large visual change whether gradual or
+abrupt, is **not** excluded, because this design cannot separate it from "change of scene"
+(`03b-discontinuity/README.md` § Limits).
+
+**The frontal miss is smaller than it looked, and is still not resolved.** Most cuts in
+cinema are continuity cuts inside a scene, which by B and C produce 0.18 to 0.44 of REF's
+frontal slope per unit log cuts. `frontal_miss.md` put the corpus *r* expected from REF's
+*full* slope at ≈ +0.30 to +0.45; at 0.18–0.44 of it the expected corpus *r* is ≈ +0.05 to
++0.20. That is small enough to go undetected in three films of 23–24 segments, and §5.7
+finds the per-film sign differences within noise, so the miss needs no film-specific
+explanation. It is still not *shown* to be small rather than absent, and the observational
+scene-switch test of §5.7 and the constructed test here disagree in a way *n* = 3 films
+cannot settle: scene change alone carries half the frontal effect on
+constructed material, and no frontal association with between-scene cuts appears in the
+corpus at any threshold.
+
+**Reported, not gating: no join-locked transient (exploratory, `cut_locked.py`).** Timelines
+projected on the unit REF mode and epoched −3 to +12 s around the joins of levels 1, 3 and 7
+show no clean transient. All four ladders give a small rise into the join, a dip near +3 s
+and a larger one at +10 to +11 s (REF −1.56, B −4.40, C −3.00, D −2.10), of similar shape
+whatever the join type. A shape recurring at fixed lags across ladders with different joins
+is more likely a property of the model's windowing than of the join, and with ten epochs per
+ladder this is descriptive only. The effect the slopes measure is in the **sustained level**:
+mean projection per level rises with cut count in REF (−1.84 → −1.34 → −0.76 → +0.88 →
++4.07) and B (+0.95 → +1.28 → +2.09 → +4.23 → +4.66), weakly in C (−2.45 → −2.41 → −1.50 →
+−0.42 → +0.36) and D (−1.70 → −1.26 → −0.59 → +0.02 → +0.22). The timelines are saved for a
+better-designed analysis; this one licenses no claim.
+
+**Limitations.** Five levels and a *p*-floor of 0.008; one generator; two scenes; text branch
+off; everything here is about TRIBE. Scene change and large gradual visual change are not
+separated, and a dissolve is also 0.5 s of blended imagery — 26% of the clip at 31 joins. B
+and C are single-scene clips where REF and D are two-scene, so slopes are within-ladder and
+the baselines differ. Clip length shrinks slightly with cut count in REF, B and C (59.9 →
+58.5–58.9 s), a property of `build_conditions.py` inherited from stages 01 and 03; D is
+60.00 s throughout. B carries the face base's one generator seam at every level, which is
+constant and cannot affect a slope. All three whole-map gain *p*-values sit at the floor, so
+the gain ordering (B 0.67 > D 0.50 > C 0.47) is not statistically resolved.
+
+### 5.7 Why the corpus lacks the frontal effect
+
+#### 5.7.1 Exclusions on the frozen stage-02 data
+
+**Exploratory follow-up: why the index missed the frontal half.** Not registered; the
+PARTIAL verdict of §5.3.1 is unchanged. Full note in `02-index/frontal_miss.md`, run on the
+frozen stage-02 data. *The penalty is not the cause*: refitting the four cluster parcels on
+the registered design matrix without regularisation gives cut-rate weights of +0.04 to +0.07
+with the stage-03 sign and |*t*| < 1 (*p* 0.35–0.53); the elastic net zeroed coefficients
+indistinguishable from zero, and kept the auditory quartet's (OLS −0.15 to −0.26, MBelt
+*t* = −2.37). *The raw signal is absent*: IFJa's within-film correlation with cut rate is
+−0.005, and the per-film frontal estimates differ in sign (negative in *Jungle Book*,
+positive in *Nothing Sacred*) while the auditory sign is negative in all three — though
+the frontal difference is not significant (§5.7). *Range is not the
+explanation*: the two wide-range films each span a 7–8× range of cut rate and show the
+auditory effect inside each film and the frontal effect in neither. *Nor is swamping*:
+transplanting each parcel's stage-03 slope into the corpus's within-film variance predicts
+*r* ≈ +0.30 to +0.45 for the frontal parcels — *larger* than for auditory, whose corpus
+variance is greater — and the auditory parcels arrive at or above their predicted size
+(−0.27 to −0.31) while the frontal ones show nothing (−0.12 to +0.06). *Everywhere else the
+index is right*: across 180 parcels the observational cut-rate map correlates with the
+stage-03 no-speech causal map at *r* = +0.52, and of the 23 parcels stage 03 moves the same
+way in both arms at |*r*| > 0.9, stage 02 has the sign of 22. The corpus, not the regression,
+lacks the frontal effect. The hypothesis left standing is that inferior-frontal cortex
+responds to **scene switches**: in the stage 01 and 03 ladders every cut alternates two
+maximally different scenes, so cuts and scene switches are the same count, whereas most cuts
+in cinema are continuity cuts inside one scene. **Tested, and not supported**
+(`02-index/scene_switches.md`). A between-scene cut count — cinemetrics' detector unchanged,
+each cut scored by the histogram distance between the shots either side — separates stage
+03's ladder perfectly (all 57 imposed cuts at 0.73–0.84, the single-take bases at 0.20 or
+nothing) and stage 01's live-action ladder only partially (it recovers about half the imposed
+cuts, because *Jungle Book*'s own internal cuts reach 0.6–0.8). On the 70 scored segments no
+frontal parcel tracks between-scene cuts at any of three thresholds (|*r*| ≤ 0.16, every
+*p* ≥ 0.19); IFJa's per-film estimates still differ in sign (+0.40 in *Nothing Sacred*,
+−0.25 in *Jungle Book*); and the auditory decrease follows within- and between-scene cuts alike
+(A1 and MBelt with within-scene cuts at −0.27 and −0.30, A4 and A5 with between-scene at
+−0.22 and −0.25), which is stage 03's no-speech result seen in real cinema across cut types.
+Because the proxy is partial on live action the hypothesis is weakened rather than excluded,
+but a surviving effect would have to be small where the transplanted slopes say it should be
+large. What stands: the frontal miss is not the penalty, not the range, not content variance
+and not, by this measure, the composition of the cuts. The frontal parcels' relation to
+cutting differs in sign between films, which pointed at film-specific content the dial set
+does not measure; §5.7 measured two candidates and found the sign difference itself not
+significant. The index's cut-rate column should be read as the auditory half of the effect
+only, and that half as partly cutting, partly speech (§5.7). **§5.6 puts the same question to a constructed test, and the answer changes how large
+the corpus effect should have been.**
+
+#### 5.7.2 Content descriptors · the sign flip not demonstrated, and speech the missing dial
+
+
+*Exploratory, not registered; the PARTIAL verdict of §5.3.1 is unchanged.* §5.7.1 ended on a
+pointer: the frontal parcels' relation to cutting differs in sign between films, so perhaps
+film-specific content the dial set lacks carries it. Two candidates were measured on all 244
+segments without reading any parcel data: **speech proportion** (Silero VAD; Whisper word
+counts agree at *r* 0.96), and **semantic change at cuts** (CLIP ViT-B/32 distance between
+frames either side of each detected cut). The plan, the class rules and the order of
+questions were committed before any descriptor existed, and an amendment before any parcel
+value was read (`02-index/content_descriptors.md`). The CLIP measure was validated on 03b's
+ladders — scene-change joins 0.42–0.49 against same-scene joins 0.02–0.07 — and the analysis
+on synthetic data where a carrier was planted.
+
+**The first question answered the rest: the flip is not demonstrated.** Within film, the
+frontal cluster's correlation with cut rate is −0.27 in *Jungle Book*, +0.26 in *Nothing
+Sacred* and −0.05 in *Royal Wedding*. Testing whether those slopes differ (cut × film, 10,000
+within-film permutations) gives *F* 1.38, *p* 0.28; the *Nothing Sacred* − *Jungle Book*
+difference is +0.53 with a 95% bootstrap interval of −0.14 to +1.08. Per parcel, IFJa —
+the parcel the earlier sections name — reaches *p* 0.19, and IFJp, IFSp and 8C 0.44–0.58.
+The auditory cluster, as a control, is homogeneous (*p* 0.97). By the class rules fixed in
+advance, speech proportion, semantic change per minute and semantic distance per cut **do
+not carry** the difference (shrinkage −0.09, +0.13 and −0.06) — and none could, because none
+correlates with cut rate in opposite directions in the two films. Faster cutting goes with
+*less* speech in both, and with cuts that change the picture's meaning *more* in all three.
+
+**So the frontal miss needs no film-specific explanation.** Pooled within film, the frontal
+cluster's correlation with cut rate is −0.02, and the per-film estimates scatter around zero
+by about as much as samples of 23–24 would. With §5.6's estimate of the effect cinema's
+within-scene cuts should produce (*r* ≈ +0.05 to +0.20), the simplest reading is a small
+expected effect that three films could not detect. Not detecting it is not showing it
+absent: the interaction test has little power at this *n*.
+
+**Speech is the content dial the index lacks, on the auditory side** (post-hoc, labelled
+as such in the note). Within film, the auditory cluster follows speech proportion at
+*r* +0.78, with the same sign and size in every film. In leave-one-out prediction within
+film, the fourteen visual dials alone reach *R*² −0.09 in ordinary least squares (which
+overfits at *n* = 70; the registered model was an elastic net, so this is not a re-run of
+§5.3.5), the dials plus speech **+0.54**. Because faster cutting carries less dialogue, some
+of the corpus's negative auditory–cut relation is speech: the pooled within-film *r* moves
+from −0.27 to −0.19 when speech is partialled out. Most of it survives, as stage 03 implies
+it should — cutting lowered auditory response there with no speech present. **The index's
+auditory cut-rate coefficient is therefore partly a speech coefficient; stage 03's causal
+result is unaffected.**
+
+**What the frontal cluster does track is the picture's content** (post-hoc). Given cut
+rate, it follows the second semantic component of the segment's CLIP embedding at +0.55,
++0.55 and +0.34 by film and falls with semantic dispersion at −0.43, −0.35 and −0.24 — the
+same sign in every film; the component is partly faces (*r* +0.40 with face area) but is
+not a dial under another name. This marks where a frontal dial would have to come from,
+not what it is.
+
+**Limitations.** Three films of 23–24 segments; one VAD and one CLIP model, the latter
+trained on photographs and captions rather than cinema; the semantic measure validated on
+generated footage, between whose two calibration groups live-action cuts fall (median
+0.23). The planned semantic-change rate turned out nearly collinear with cut rate
+(*r* 0.94) by construction and was supplemented, before any parcel data was read, with the
+per-cut distance. The text branch was off, so the sensor heard speech and never read it.
+
+---
+
+## 6 · The index as a map, and what it implies for inversion
+
 
 **Exploratory. Not pre-registered, and none of it counts toward the pass criteria.**
 The registered test asks whether dials predict parcels. It does not ask what the
@@ -1168,7 +1468,7 @@ percentile of 0.57 (*p* = 0.010), and leads axis 1 in 10% of shuffles. **Axis 2 
 motion** — camera movement and cutting loading on MT, MST, FST, V4t, the motion-
 sensitive complex. **Axis 3 is colour**, and it is small. Note where cut rate lands: on
 the motion axis, at a third the weight of camera pan, and nowhere near frontal cortex —
-the same story §6.5 tells, arrived at without reference to stage 01.
+the same story §5.3.6 tells, arrived at without reference to stage 01.
 
 **Technique is aligned with how this cortex varies, by a modest margin over a fit to
 noise.** Projecting the observed 70 × 180 profile matrix onto the reachable subspace
@@ -1229,325 +1529,10 @@ matrix rather than from a generative search. This is an association in a model's
 predictions, it inherits every limitation in §8, and it is not evidence that the drift
 occurs in forty clips. It is evidence that the lever exists and is the largest one.
 
-### 6.8 Stage 03 · Isolation — PARTIAL-A, and the two tracks reconciled
-
-**Criteria were fixed in `03-isolation/README.md` on 13 September 2026, before any
-generation, and were not softened.** Run 14–15 September. Data `parcel_vectors.json` (12
-clips × 180 parcels), script `evaluate_03.py`, full output `evaluation.json`; every figure
-below is taken from that file.
-
-**Question.** Stage 01 varied cut count on identical live-action footage and the sensor
-answered in inferior-frontal cortex. Stage 02 measured cut rate across real cinema and found
-no frontal association; cut rate loaded on auditory cortex, negatively. The measured dials do
-not explain the disagreement (§6.5). Two candidates remained: stage 01's result was specific
-to its two scenes, or the observational signature was confounded by something unmeasured,
-speech above all. Stage 03 tests both with one design.
-
-**Design — 2 × 5, content held fixed by construction.** Two scenes were generated with the
-01b route (`minimax/h3-max`, 768P, 4 × 15 s chained), each a single continuous take: a face
-scene (two people in conversation at a table) and a landscape. The single-take precondition
-was measured, not assumed — 01b had shown the generator cuts within its own outputs at 7–15
-per minute — and both bases returned **0 cuts** on `cinemetrics.py`. The two were then
-intercut with stage 01's `build_conditions.py` unchanged at 1, 3, 7, 15 and 31 added cuts;
-measured cut counts were **exactly 1 / 3 / 7 / 15 / 31**, a 31× range against stage 01's
-effective 2.1×. Every level contains the same 30 s of each scene. The speech factor: **S+**
-keeps the face scene's native dialogue; **S−** replaces all audio with the landscape's
-continuous ambient track, so no speech is present and the sound has no discontinuity at any
-cut. Video is byte-identical across arms. Scored on the unchanged stage-02 Space path,
-`audio_only=True`; the two bases were scored as references.
-
-**Pre-registered predictions.** H3a: in S+, at least 2 of {IFJa, IFJp, IFSp, 8C} reach
-*r* > +0.9 against log measured cut count. H3b: the same in S−. PASS requires both;
-**PARTIAL-A** (H3a, not H3b) was fixed in advance with the reading "the frontal cut effect
-needs speech present"; PARTIAL-B (neither, but auditory tracks) would demote stage 01 to a
-property of its two clips; FAIL if nothing tracks. Reported, not gating: the |*r*| > 0.9
-count (the README took chance as ≈ 7 at *n* = 5; corrected below), whole-vector *r* cut01
-vs cut31, and A4 / A5 / MBelt / A1
-against cut count — stage 02's observational signature, to see whether it appears under
-control at all.
-
-**Result.**
-
-| | required | S+ (speech) | S− (no speech) |
-|---|---|---|---|
-| cluster parcels at *r* > +0.9 | ≥ 2 of 4 | **3 of 4** — met | **1 of 4** — not met |
-| IFJa · IFJp · IFSp · 8C | | +0.907 · +0.863 · **+0.932** · **+0.930** | +0.899 · +0.871 · **+0.902** · +0.889 |
-| parcels at \|*r*\| > 0.9 | reported | **58 / 180** | **54 / 180** |
-| that count against 120 level permutations | — | *p* = 0.025 (null 95th pct 32, max 79) | *p* = 0.025 (null 95th pct 32, max 90) |
-| A4 · A1 · MBelt · A5 | reported | **−0.969 · −0.959 · −0.951** · +0.152 | **−0.939 · −0.931 · −0.924 · −0.949** |
-| whole-vector *r*, cut01 vs cut31 | reported | +0.743 | +0.822 |
-
-H3a met, H3b not met: **PARTIAL-A**, by the table as fixed. The strongest single parcels
-were 7PL −0.996, STSva +0.981, 9a +0.980 with speech and 23d −0.990, VVC +0.981, PFcm −0.979
-without.
-
-**The verdict is reported as fixed; the reading the table attached to it is not supported.**
-In the no-speech arm all four cluster parcels sit at +0.87 to +0.90, and the three that
-miss the bar do so by 0.001 (IFJa), 0.011 (8C) and 0.029 (IFJp). At *n* = 5 levels that gap
-is inside noise. The data show **the inferior-frontal cut effect present in both arms at
-near-identical magnitude**, with 58 and 54 parcels at |*r*| > 0.9, replicating stage 01's
-51 / 180 on generated footage with content fixed by construction and the cut range
-genuinely 31×. Against the level-permutation null (§5.2) each count has *p* = 3/120 =
-0.025 — the true ordering, its mirror image and one other — and some random orderings put
-79 or 90 parcels over the bar, because the response across the ladder is close to
-one-dimensional (participation ratio 1.25 and 1.20 of a possible 4). Two consequences. The
-counts are near the strongest evidence five levels can give, not "eight times chance". And
-within this ladder "frontal up, auditory down" is the sign pattern of one response mode,
-not two independent findings — a statement that holds within a ladder and, as §6.9 shows by
-varying the kind of join, fails across ladders, where the two signatures separate.
-PARTIAL-A stands because the criteria were
-fixed and are not softened afterwards; the claim that speech is *required* for the frontal
-effect must not be carried forward as a finding, and this paper does not carry it.
-
-**Stage 02's observational signature reproduces under control.** In both arms cut rate is
-strongly negative in auditory cortex — A4 −0.97 / −0.94, A1 −0.96 / −0.93, MBelt −0.95 /
-−0.92 (S+ / S−) — and A5 joins them without speech (−0.95) while sitting at +0.15 with it.
-This is what the index found in §6.5 and what stage 01 did not report. **Both earlier tracks
-were right about different parts of one effect**: cutting drives inferior-frontal cortex up
-and auditory cortex down, with or without speech, and — since S− has a continuous ambient
-track with no discontinuity at any cut — the auditory decrease follows *visual* cut count,
-not an interrupted sound stream. The alternative §6.5 raised, that the auditory signature
-was an artefact of the missing text modality, does not survive an arm with no speech in it.
-
-**Cut rate is therefore a causal lever on this sensor**, with the frontal and auditory
-signatures both available as targets for stage 04 — on the material where it has been
-shown, which is intercut generated footage (see the follow-up below).
-
-**Limitations.** The regenerated face base reached `face_area_frac` 0.052 against a 0.10
-target (a wide first attempt measured 0.035; no third attempt at the post-promotional
-generation rate), so the face/place contrast between the bases is weaker than stage 01's;
-the cut manipulation is unaffected. *n* = 5 levels per arm: |*r*| > 0.9 is a coarse
-instrument and the arm difference is not resolvable at this *n*. Generated footage, one
-scene pair, one generator — the scope 01b licensed. Text branch off, as in every prior
-stage; a text-on replication is unrun.
-
-**Spend and missteps, recorded.** Bases $3.60 on fal including one regeneration; scoring
-≈ $2.2 on the Space for 12 clips plus one wasted restart. That restart was caused by a
-watcher of ours that matched result files containing `"03_"` anywhere — which also matched
-stage-02 ordinals and files from a separate experiment writing to the same results
-repository — and paused the run at 6 / 12; corrected to exact-name matching, and the other
-experiment has since been given its own results repository. The local machine killed
-background tasks for memory twice; the Space finished the batch unattended and paused on
-its inactivity timer. A text-branch rescoring attempted on 13 September produced 0 / 12
-results after 189 minutes and is parked undiagnosed.
-
-**Exploratory follow-up: why the index missed the frontal half.** Not registered; the
-PARTIAL verdict of §6.0 is unchanged. Full note in `02-index/frontal_miss.md`, run on the
-frozen stage-02 data. *The penalty is not the cause*: refitting the four cluster parcels on
-the registered design matrix without regularisation gives cut-rate weights of +0.04 to +0.07
-with the stage-03 sign and |*t*| < 1 (*p* 0.35–0.53); the elastic net zeroed coefficients
-indistinguishable from zero, and kept the auditory quartet's (OLS −0.15 to −0.26, MBelt
-*t* = −2.37). *The raw signal is absent*: IFJa's within-film correlation with cut rate is
-−0.005, and the per-film frontal estimates differ in sign (negative in *Jungle Book*,
-positive in *Nothing Sacred*) while the auditory sign is negative in all three — though
-the frontal difference is not significant (§6.10). *Range is not the
-explanation*: the two wide-range films each span a 7–8× range of cut rate and show the
-auditory effect inside each film and the frontal effect in neither. *Nor is swamping*:
-transplanting each parcel's stage-03 slope into the corpus's within-film variance predicts
-*r* ≈ +0.30 to +0.45 for the frontal parcels — *larger* than for auditory, whose corpus
-variance is greater — and the auditory parcels arrive at or above their predicted size
-(−0.27 to −0.31) while the frontal ones show nothing (−0.12 to +0.06). *Everywhere else the
-index is right*: across 180 parcels the observational cut-rate map correlates with the
-stage-03 no-speech causal map at *r* = +0.52, and of the 23 parcels stage 03 moves the same
-way in both arms at |*r*| > 0.9, stage 02 has the sign of 22. The corpus, not the regression,
-lacks the frontal effect. The hypothesis left standing is that inferior-frontal cortex
-responds to **scene switches**: in the stage 01 and 03 ladders every cut alternates two
-maximally different scenes, so cuts and scene switches are the same count, whereas most cuts
-in cinema are continuity cuts inside one scene. **Tested, and not supported**
-(`02-index/scene_switches.md`). A between-scene cut count — cinemetrics' detector unchanged,
-each cut scored by the histogram distance between the shots either side — separates stage
-03's ladder perfectly (all 57 imposed cuts at 0.73–0.84, the single-take bases at 0.20 or
-nothing) and stage 01's live-action ladder only partially (it recovers about half the imposed
-cuts, because *Jungle Book*'s own internal cuts reach 0.6–0.8). On the 70 scored segments no
-frontal parcel tracks between-scene cuts at any of three thresholds (|*r*| ≤ 0.16, every
-*p* ≥ 0.19); IFJa's per-film estimates still differ in sign (+0.40 in *Nothing Sacred*,
-−0.25 in *Jungle Book*); and the auditory decrease follows within- and between-scene cuts alike
-(A1 and MBelt with within-scene cuts at −0.27 and −0.30, A4 and A5 with between-scene at
-−0.22 and −0.25), which is stage 03's no-speech result seen in real cinema across cut types.
-Because the proxy is partial on live action the hypothesis is weakened rather than excluded,
-but a surviving effect would have to be small where the transplanted slopes say it should be
-large. What stands: the frontal miss is not the penalty, not the range, not content variance
-and not, by this measure, the composition of the cuts. The frontal parcels' relation to
-cutting differs in sign between films, which pointed at film-specific content the dial set
-does not measure; §6.10 measured two candidates and found the sign difference itself not
-significant. The index's cut-rate column should be read as the auditory half of the effect
-only, and that half as partly cutting, partly speech (§6.10). **§6.9 puts the same question to a constructed test, and the answer changes how large
-the corpus effect should have been.**
-
----
-
-### 6.9 Stage 03b · Which part of a cut — GRADED
-
-Stage 03 varied cutting on a ladder where every cut alternated two maximally different
-scenes, so a cut and a change of scene were the same event. Stage 03b separates them.
-Four ladders, each 1 / 3 / 7 / 15 / 31 constructed joins per minute as in stage 03:
-**REF**, stage 03's no-speech arm rescored, where each join is both a hard cut and a scene
-change; **B** and **C**, hard cuts with no change of scene, made by self-intercutting a
-single base — the two-person face scene and a landscape respectively; and **D**, changes of
-scene with no hard cut, the REF material joined by 0.5 s dissolves. Criteria, the four
-verdict classes and the frontal cluster were fixed in `03b-discontinuity/README.md` at
-commit `221faad` before any clip was built, and the evaluator was committed and self-tested
-on frozen calibration data before any result existed. Twenty clips, 180 parcels, plus a
-saved 1 Hz × 180 timeline per clip. The audio track is byte-identical across all twenty
-clips (one decoded MD5), so nothing here can be an auditory artefact of the construction.
-
-**Identity test: PASS.** The timeline-saving app reproduced stage 03's S− parcel values
-exactly (max raw |Δ| 0.0e+00), and each parcel's 60-point timeline averages to its raw value
-to 4.3e-08. Every figure below therefore sits on the same footing as stages 01–03.
-
-The frontal ratio ρ_F is a ladder's mean frontal-cluster slope (IFJa · IFJp · IFSp · 8C
-against log constructed cuts) divided by REF's +0.251; *p* is one-sided over the 120 level
-orderings, floor 0.008. As fixed: **REPRODUCES** at ρ_F ≥ 0.50 with *p* ≤ 0.05, **ABSENT**
-at ρ_F ≤ 0.25, **PARTIAL** otherwise.
-
-| ladder | ρ_F | *p* | class | ρ_A (*p*) | whole-map gain (*p*) | *r* with REF mode | PR |
-|---|---|---|---|---|---|---|---|
-| **REF** · hard cut + scene change | +1.00 | 0.017 | **REPRODUCES** | +1.00 (0.008) | +1.00 (0.008) | +1.00 | 1.20 |
-| **B** · hard cut, same scene — face | +0.44 | 0.008 | **PARTIAL** | +0.62 (0.008) | +0.67 (0.008) | +0.86 | 1.05 |
-| **C** · hard cut, same scene — landscape | +0.18 | 0.017 | **ABSENT** | +0.38 (0.008) | +0.47 (0.008) | +0.73 | 1.03 |
-| **D** · scene change, 0.5 s dissolves | +0.48 | 0.042 | **PARTIAL** | +0.17 (0.075) | +0.50 (0.008) | +0.62 | 1.25 |
-
-The same-scene arm returns one PARTIAL and one ABSENT, the dissolve arm PARTIAL. By the
-table as fixed that is **GRADED — no categorical claim; the ratios are reported as
-measured.**
-
-**The sensor is neither a pure cut detector nor a pure switch detector.** A hard cut with no
-change of scene carries 44% of the frontal effect in the face scene and 18% in the
-landscape; a change of scene with no hard cut carries 48%. The two contributions are close
-to additive — B + D ≈ 0.92 of REF, C + D ≈ 0.67 — and every ladder's whole-map response
-pattern resembles REF's (*r* +0.62 to +0.86, all *p* = 0.008), so what varies across the
-ladders is the size of one response and not its shape.
-
-**The two signatures of cutting come apart, which qualifies §6.8.** The auditory decrease
-follows the hard discontinuity: 62% and 38% for same-scene cuts, and only 17% under
-dissolves, where it is the one figure in the table that does not clear its null
-(*p* = 0.075). The frontal increase does not need the discontinuity at all: dissolves carry
-48% of it. §6.8 read "frontal up, auditory down" as the sign pattern of a single response
-mode, on the evidence of a participation ratio of 1.25 and 1.20 within one ladder. That
-reading holds within a ladder and fails across them. **The auditory signature is a
-discontinuity response; the frontal one is partly that and partly a response to the scene
-changing.** Two signs of one mode in stage 03, two separable effects here.
-
-**The same-scene result depends on the scene, and not on the size of the jump.** B and C
-have near-identical discontinuity magnitudes — peak frame Δ 40 against 39, histogram
-distance 0.16 against 0.23 — and ρ_F of 0.44 against 0.18. Cutting inside a scene of two
-people at a table moves the frontal cluster more than cutting inside a landscape. What is
-interrupted matters, not only that something is.
-
-**On the encoder-artefact alternative.** Its pure form — the model maps temporal
-discontinuity to frontal cortex and nothing more — is weakened: half the frontal effect
-arrives with no discontinuity, while the auditory half is the part that tracks
-discontinuity. A broader form, a response to any large visual change whether gradual or
-abrupt, is **not** excluded, because this design cannot separate it from "change of scene"
-(`03b-discontinuity/README.md` § Limits).
-
-**The frontal miss is smaller than it looked, and is still not resolved.** Most cuts in
-cinema are continuity cuts inside a scene, which by B and C produce 0.18 to 0.44 of REF's
-frontal slope per unit log cuts. `frontal_miss.md` put the corpus *r* expected from REF's
-*full* slope at ≈ +0.30 to +0.45; at 0.18–0.44 of it the expected corpus *r* is ≈ +0.05 to
-+0.20. That is small enough to go undetected in three films of 23–24 segments, and §6.10
-finds the per-film sign differences within noise, so the miss needs no film-specific
-explanation. It is still not *shown* to be small rather than absent, and the observational
-scene-switch test of §6.8 and the constructed test here disagree in a way *n* = 3 films
-cannot settle: scene change alone carries half the frontal effect on
-constructed material, and no frontal association with between-scene cuts appears in the
-corpus at any threshold.
-
-**Reported, not gating: no join-locked transient (exploratory, `cut_locked.py`).** Timelines
-projected on the unit REF mode and epoched −3 to +12 s around the joins of levels 1, 3 and 7
-show no clean transient. All four ladders give a small rise into the join, a dip near +3 s
-and a larger one at +10 to +11 s (REF −1.56, B −4.40, C −3.00, D −2.10), of similar shape
-whatever the join type. A shape recurring at fixed lags across ladders with different joins
-is more likely a property of the model's windowing than of the join, and with ten epochs per
-ladder this is descriptive only. The effect the slopes measure is in the **sustained level**:
-mean projection per level rises with cut count in REF (−1.84 → −1.34 → −0.76 → +0.88 →
-+4.07) and B (+0.95 → +1.28 → +2.09 → +4.23 → +4.66), weakly in C (−2.45 → −2.41 → −1.50 →
-−0.42 → +0.36) and D (−1.70 → −1.26 → −0.59 → +0.02 → +0.22). The timelines are saved for a
-better-designed analysis; this one licenses no claim.
-
-**Limitations.** Five levels and a *p*-floor of 0.008; one generator; two scenes; text branch
-off; everything here is about TRIBE. Scene change and large gradual visual change are not
-separated, and a dissolve is also 0.5 s of blended imagery — 26% of the clip at 31 joins. B
-and C are single-scene clips where REF and D are two-scene, so slopes are within-ladder and
-the baselines differ. Clip length shrinks slightly with cut count in REF, B and C (59.9 →
-58.5–58.9 s), a property of `build_conditions.py` inherited from stages 01 and 03; D is
-60.00 s throughout. B carries the face base's one generator seam at every level, which is
-constant and cannot affect a slope. All three whole-map gain *p*-values sit at the floor, so
-the gain ordering (B 0.67 > D 0.50 > C 0.47) is not statistically resolved.
-
-**Spend and missteps, recorded.** Three Space sessions, 20–25 September 2026. **Session 1
-overspent.** Twenty clips were staged as a single batch against this project's own
-documented safe size of eight; the Space stalled after clip 10 while still billing; and the
-budget guard lived in a laptop-side watcher that slept with the machine. Roughly 5.5–8.2
-hours ran against a $3.60 estimate, ≈ $5.50–8.20 (the exact figure exists only on the
-Hugging Face billing page). The fix was to move the guard **server-side** into the app — a
-self-pause on completion and an 80-minute watchdog — with a 30-minute Space sleep timeout,
-batches of five, and a stall-detecting watcher. Sessions 2 and 3 then ran 63 and 62 minutes
-and the Space paused itself both times, ≈ $2.10 for the pair. The original app was restored
-byte-identically on 25 September. The lesson is general and it cost money twice: **a budget
-guard that runs on the client cannot bound a server's spend.**
-
-### 6.10 Content descriptors · the sign flip not demonstrated, and speech the missing dial
-
-*Exploratory, not registered; the PARTIAL verdict of §6.0 is unchanged.* §6.8 ended on a
-pointer: the frontal parcels' relation to cutting differs in sign between films, so perhaps
-film-specific content the dial set lacks carries it. Two candidates were measured on all 244
-segments without reading any parcel data: **speech proportion** (Silero VAD; Whisper word
-counts agree at *r* 0.96), and **semantic change at cuts** (CLIP ViT-B/32 distance between
-frames either side of each detected cut). The plan, the class rules and the order of
-questions were committed before any descriptor existed, and an amendment before any parcel
-value was read (`02-index/content_descriptors.md`). The CLIP measure was validated on 03b's
-ladders — scene-change joins 0.42–0.49 against same-scene joins 0.02–0.07 — and the analysis
-on synthetic data where a carrier was planted.
-
-**The first question answered the rest: the flip is not demonstrated.** Within film, the
-frontal cluster's correlation with cut rate is −0.27 in *Jungle Book*, +0.26 in *Nothing
-Sacred* and −0.05 in *Royal Wedding*. Testing whether those slopes differ (cut × film, 10,000
-within-film permutations) gives *F* 1.38, *p* 0.28; the *Nothing Sacred* − *Jungle Book*
-difference is +0.53 with a 95% bootstrap interval of −0.14 to +1.08. Per parcel, IFJa —
-the parcel the earlier sections name — reaches *p* 0.19, and IFJp, IFSp and 8C 0.44–0.58.
-The auditory cluster, as a control, is homogeneous (*p* 0.97). By the class rules fixed in
-advance, speech proportion, semantic change per minute and semantic distance per cut **do
-not carry** the difference (shrinkage −0.09, +0.13 and −0.06) — and none could, because none
-correlates with cut rate in opposite directions in the two films. Faster cutting goes with
-*less* speech in both, and with cuts that change the picture's meaning *more* in all three.
-
-**So the frontal miss needs no film-specific explanation.** Pooled within film, the frontal
-cluster's correlation with cut rate is −0.02, and the per-film estimates scatter around zero
-by about as much as samples of 23–24 would. With §6.9's estimate of the effect cinema's
-within-scene cuts should produce (*r* ≈ +0.05 to +0.20), the simplest reading is a small
-expected effect that three films could not detect. Not detecting it is not showing it
-absent: the interaction test has little power at this *n*.
-
-**Speech is the content dial the index lacks, on the auditory side** (post-hoc, labelled
-as such in the note). Within film, the auditory cluster follows speech proportion at
-*r* +0.78, with the same sign and size in every film. In leave-one-out prediction within
-film, the fourteen visual dials alone reach *R*² −0.09 in ordinary least squares (which
-overfits at *n* = 70; the registered model was an elastic net, so this is not a re-run of
-§6.4), the dials plus speech **+0.54**. Because faster cutting carries less dialogue, some
-of the corpus's negative auditory–cut relation is speech: the pooled within-film *r* moves
-from −0.27 to −0.19 when speech is partialled out. Most of it survives, as stage 03 implies
-it should — cutting lowered auditory response there with no speech present. **The index's
-auditory cut-rate coefficient is therefore partly a speech coefficient; stage 03's causal
-result is unaffected.**
-
-**What the frontal cluster does track is the picture's content** (post-hoc). Given cut
-rate, it follows the second semantic component of the segment's CLIP embedding at +0.55,
-+0.55 and +0.34 by film and falls with semantic dispersion at −0.43, −0.35 and −0.24 — the
-same sign in every film; the component is partly faces (*r* +0.40 with face area) but is
-not a dial under another name. This marks where a frontal dial would have to come from,
-not what it is.
-
-**Limitations.** Three films of 23–24 segments; one VAD and one CLIP model, the latter
-trained on photographs and captions rather than cinema; the semantic measure validated on
-generated footage, between whose two calibration groups live-action cuts fall (median
-0.23). The planned semantic-change rate turned out nearly collinear with cut rate
-(*r* 0.94) by construction and was supplemented, before any parcel data was read, with the
-per-cut distance. The text branch was off, so the sensor heard speech and never read it.
-
 ---
 
 ## 7 · Method failure as evidence
+
 
 This section is not an appendix. When an instrument returns plausible numbers
 whatever you feed it, **silent failure is the central methodological hazard**, and the
@@ -1631,9 +1616,34 @@ Three practices follow, and are now standing rules:
    pause; stage 00's first full result set was lost that way and had to be re-run.
 3. **Introspect before writing.** Seconds to check, ~35 minutes to get wrong.
 
+**Spend and missteps, recorded.** Bases $3.60 on fal including one regeneration; scoring
+≈ $2.2 on the Space for 12 clips plus one wasted restart. That restart was caused by a
+watcher of ours that matched result files containing `"03_"` anywhere — which also matched
+stage-02 ordinals and files from a separate experiment writing to the same results
+repository — and paused the run at 6 / 12; corrected to exact-name matching, and the other
+experiment has since been given its own results repository. The local machine killed
+background tasks for memory twice; the Space finished the batch unattended and paused on
+its inactivity timer. A text-branch rescoring attempted on 13 September produced 0 / 12
+results after 189 minutes and is parked undiagnosed.
+
+**Spend and missteps, recorded.** Three Space sessions, 20–25 September 2026. **Session 1
+overspent.** Twenty clips were staged as a single batch against this project's own
+documented safe size of eight; the Space stalled after clip 10 while still billing; and the
+budget guard lived in a laptop-side watcher that slept with the machine. Roughly 5.5–8.2
+hours ran against a $3.60 estimate, ≈ $5.50–8.20 (the exact figure exists only on the
+Hugging Face billing page). The fix was to move the guard **server-side** into the app — a
+self-pause on completion and an 80-minute watchdog — with a 30-minute Space sleep timeout,
+batches of five, and a stall-detecting watcher. Sessions 2 and 3 then ran 63 and 62 minutes
+and the Space paused itself both times, ≈ $2.10 for the pair. The original app was restored
+byte-identically on 25 September. The lesson is general and it cost money twice: **a budget
+guard that runs on the client cannot bound a server's spend.**
+
 ---
 
-## 8 · Limitations
+## 8 · Limitations and future work
+
+### 8.1 Limitations
+
 
 Stated plainly, and none of them resolvable within this design.
 
@@ -1684,19 +1694,19 @@ upper bound.
 **The hyperparameters of the model were not pre-registered.** The registration
 specified "a cross-validated elastic net" without fixing α, l1_ratio or fold count.
 Those were set before the run to the values already present in the pre-registered
-futility script, and are disclosed in §6.6, but they were a residual degree of freedom
+futility script, and are disclosed in §5.3.7, but they were a residual degree of freedom
 that a tighter registration would have closed.
 
 **The cut-rate disagreement is resolved only as far as stage 03 reaches.** Stage 03 shows
 that the auditory signature is a property of cutting on this sensor — it appears with no
 speech present and a continuous ambient track — and that the frontal effect is causal on
 intercut generated footage. It does not show why real cinema lacks the frontal effect. The
-scene-switch hypothesis of §6.8 was tested observationally with a histogram proxy and not
+scene-switch hypothesis of §5.7 was tested observationally with a histogram proxy and not
 supported; stage 03b tested it by construction and found scene change alone carries about
-half the frontal effect (§6.9). The two tests disagree, and with three films and a proxy
+half the frontal effect (§5.6). The two tests disagree, and with three films and a proxy
 that separates within- from between-scene cuts only partially on live action, this design
 cannot say which is wrong. 03b lowers the corpus effect the frontal parcels should have
-shown to *r* ≈ +0.05 to +0.20, and §6.10 finds the per-film frontal differences within
+shown to *r* ≈ +0.05 to +0.20, and §5.7 finds the per-film frontal differences within
 noise; together they make the miss unsurprising, but an undetected small effect and an
 absent one are not distinguished at three films. Stage 03b cannot separate a change of scene from any large visual change, gradual or
 abrupt, so the broad form of the encoder-artefact alternative stands. Stage 03
@@ -1705,7 +1715,7 @@ with a face base short of its shot-scale target (0.052 against 0.10), and its ve
 PARTIAL-A by a margin of 0.001 on one parcel — a near-miss reported as a miss.
 
 **The dial set has no audio or content dial, and speech is a large one.** All fourteen dials
-describe the picture. Measured afterwards (§6.10), speech proportion tracks auditory cortex
+describe the picture. Measured afterwards (§5.7), speech proportion tracks auditory cortex
 within film at *r* +0.78 and, added to the dials, lifts out-of-sample within-film *R*² for
 the auditory cluster from −0.09 to +0.54; it also carries part of the auditory cut-rate
 signature, because faster cutting goes with less dialogue. The index's auditory
@@ -1727,7 +1737,7 @@ on constructed material: at full strength on scene-alternating intercuts (stage 
 **The sensor's response space is low-dimensional, which bounds every downstream claim.**
 Across 70 segments of real cinema the 180-parcel response varies along two to three
 dimensions, and an index fitted to label-shuffled responses is as concentrated as the real
-one (§6.7). Whatever the programme eventually demonstrates about control, it is control over
+one (§6). Whatever the programme eventually demonstrates about control, it is control over
 a roughly three-dimensional subspace of response profiles. Whether that is a fact about
 cortex, about TRIBE's encoding head, or about clip-mean readouts that average away
 everything faster than a minute, this design cannot say. The technique-specific content of
@@ -1739,25 +1749,12 @@ carries the most between-film signal. It is also the dial the replication check
 depends on. The sample size was raised to keep that check informative, but it remains
 the thinnest margin in the study.
 
----
-
-## 9 · Status and next steps
-
-| stage | status |
-|---|---|
-| 00 · Probe | ✅ Complete — PASS |
-| 01 · Gate | ✅ Complete — PASS |
-| **02 · Index** | ✅ **Complete — PARTIAL.** Registered at `osf.io/dg7fe`; criterion 1 met, criterion 2 not met |
-| 01b · Synthetic-imagery transfer | ✅ **PASS** — generated H3 Max clips reproduce the face/place axis at *r* = +0.699 (bar 0.50, live-action reference +0.936); cutting confounded with content |
-| 02b · Generalisation test | ✅ **Run, exploratory, n = 3** — the fitted index predicts generated clips at profile *r* 0.41 / 0.90 / 0.89; contrast *r* +0.77 |
-| 03 · Isolation | ✅ **PARTIAL-A** — cutting drives IFJ up and auditory cortex down in both speech arms on generated footage (58 and 54 of 180 parcels at \|*r*\|>0.9); H3b misses the 0.9 bar by ≤ 0.03 at *n* = 5 |
-| 03b · Discontinuity | ✅ **GRADED** — same-scene hard cuts carry 0.18–0.44 of the frontal effect, scene-changing dissolves 0.48, close to additively; the auditory signature follows the hard discontinuity, the frontal one partly the scene change |
-| 04 · Inversion | Not started |
+### 8.2 Future work
 
 **Stage 02's PARTIAL verdict set the agenda; stage 03 has now answered the first item on
 it.** Five things follow.
 
-First, **cut rate has been isolated, and it is causal** (§6.8). Held content, lighting,
+First, **cut rate has been isolated, and it is causal** (§5.5). Held content, lighting,
 motion and shot scale fixed by construction and varied cutting alone over a 31× range, the
 inferior-frontal response returned in both speech arms, and the auditory signature stage 02
 found appeared alongside it. Neither earlier track was wrong; each saw half of one effect.
@@ -1766,12 +1763,12 @@ exploratory follow-up locates that in the corpus rather than in the regression. 
 between-scene cut count over the 244 segments does not support the one hypothesis that
 follow-up left standing: frontal cortex shows no association with scene switches at any
 threshold, while auditory cortex follows cuts of every kind. Stage 03b then took a cut
-apart by construction (§6.9). The frontal response is close
+apart by construction (§5.6). The frontal response is close
 to additive in hard cut and scene change, the auditory one follows the hard cut, and the
 two signatures stage 03 saw as one mode separate. Because cinema's cuts are mostly inside a
 scene, the frontal effect the corpus should have shown is ≈ +0.05 to +0.20, not +0.30 to
 +0.45, and the per-film sign differences that seemed to call for a film-specific
-explanation are not significant (§6.10). The miss is best read as a small effect three
+explanation are not significant (§5.7). The miss is best read as a small effect three
 films could not detect, which is not the same as showing it is there. Stage 04 should treat cut
 rate as a frontal lever at full strength only on scene-alternating material, and expect
 roughly half of it from dissolves or same-scene cutting.
@@ -1789,11 +1786,11 @@ reach faces first. That is a measured association, not a causal claim, and it in
 every limitation in §8 — but it is the association most worth isolating next.
 
 **Fourth, and changing what stage 04 should attempt: the reachable set is about three
-dimensional (§6.7).** Inversion cannot mean specifying an arbitrary cortical profile.
+dimensional (§6).** Inversion cannot mean specifying an arbitrary cortical profile.
 The tractable version — and the one stage 04 should be respecified to test — is: take a
 target that lies *within* the reachable subspace, derive a dial setting, generate,
 measure the achieved profile, and ask whether it lands where the index said it would.
-That is a falsifiable control-law test at a scale the effect sizes in §6.4 can support.
+That is a falsifiable control-law test at a scale the effect sizes in §5.3.5 can support.
 Specifying targets outside the subspace would fail for geometric reasons that have
 nothing to do with whether the index is right. Stages 03 and 03b add a constraint: if cut
 rate is among the dials the controller moves, the frontal target is reachable at full
@@ -1803,12 +1800,28 @@ auditory target, by contrast, needs hard cuts.
 
 Fifth, **the 01b transfer gate passed on the axis that matters** — generated H3 Max clips
 reproduce the face/place axis at *r* = +0.699 against a bar of 0.50 (live-action reference
-+0.936), which is what §6.7 said the gate had to establish. Its one confound, that the
++0.936), which is what §6 said the gate had to establish. Its one confound, that the
 generator cut within its own outputs at 7–15 per minute, is what stage 03 removed by
 demanding single-take bases and measuring them (0 cuts). The exploratory 02b check
 (*n* = 3) found the fitted index predicts generated clips at profile *r* 0.41 / 0.90 / 0.89.
 Stage 04 rests on those two results and on the scope they carry: one generator, and no
 claim about live action.
+
+---
+
+## 9 · Status
+
+
+| stage | status |
+|---|---|
+| 00 · Probe | ✅ Complete — PASS |
+| 01 · Gate | ✅ Complete — PASS |
+| **02 · Index** | ✅ **Complete — PARTIAL.** Registered at `osf.io/dg7fe`; criterion 1 met, criterion 2 not met |
+| 01b · Synthetic-imagery transfer | ✅ **PASS** — generated H3 Max clips reproduce the face/place axis at *r* = +0.699 (bar 0.50, live-action reference +0.936); cutting confounded with content |
+| 02b · Generalisation test | ✅ **Run, exploratory, n = 3** — the fitted index predicts generated clips at profile *r* 0.41 / 0.90 / 0.89; contrast *r* +0.77 |
+| 03 · Isolation | ✅ **PARTIAL-A** — cutting drives IFJ up and auditory cortex down in both speech arms on generated footage (58 and 54 of 180 parcels at \|*r*\|>0.9); H3b misses the 0.9 bar by ≤ 0.03 at *n* = 5 |
+| 03b · Discontinuity | ✅ **GRADED** — same-scene hard cuts carry 0.18–0.44 of the frontal effect, scene-changing dissolves 0.48, close to additively; the auditory signature follows the hard discontinuity, the frontal one partly the scene change |
+| 04 · Inversion | Not started |
 
 ---
 
