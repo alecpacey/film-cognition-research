@@ -71,8 +71,11 @@ conditions.
 
 Collecting fMRI on enough film segments to fit such a model is out of reach for this
 project. The substitute is an encoding model that predicts fMRI from stimulus.
-TRIBE, the Algonauts 2025 winner, predicts responses across 1,000 cortical parcels
-from video, audio and time-aligned text.
+TRIBE, the Algonauts 2025 winner (d'Ascoli et al., 2025; Scotti & Tripathy, 2025), predicts
+cortical fMRI responses from video, audio and time-aligned text. It was evaluated in the
+competition on the 1,000 parcels of the Schaefer atlas; the released model, as run here,
+returns 20,484 fsaverage5 vertices, which this paper reads out at the 180 areas of the
+HCP-MMP1 (Glasser) parcellation.
 
 Using it as an instrument has one large advantage and one large cost.
 
@@ -186,21 +189,21 @@ not re-derived:
 |---|---|
 | Output rate | exactly **1 Hz** — `timeline (61, 20484)` over a 60.0 s span = 1.000 rows/s |
 | Vertices | 20,484 (fsaverage5) |
-| Parcels | 181 returned; index 0 is `???` and is dropped, leaving **180 usable** |
+| Parcels | HCP-MMP1 (Glasser): 181 returned; index 0 is `???` and is dropped, leaving **180 usable** |
 | Throughput | ~10 min per 60 s clip on an A10G — roughly **10× slower than real time** |
 | Determinism | reproduces to 2 d.p. across independent runs |
 
 ### 3.2 The scope condition, stated quantitatively
 
 The dependent variable is TRIBE's prediction, not measured cortex. The link between
-the two is published:
+the two is published (d'Ascoli et al., 2025: Algonauts 2025 leaderboard, eq. 1 and fig. 3):
 
 | | Pearson *r* |
 |---|---|
 | In-distribution (Friends season 7) | 0.3195 |
 | **Out-of-distribution** | **0.2146** |
 | Noise-ceiling-normalised | 0.54 ± 0.1 (54% of explainable variance) |
-| Best individual regions, normalised | 0.77 – 0.85 |
+| Best regions (auditory and language cortex) | "near the noise ceiling"; no figure given |
 
 Our corpus — Technicolor features from 1937–1951 — is out of distribution, and
 arguably further out than the challenge's own out-of-distribution films, so 0.2146
@@ -223,17 +226,19 @@ the registration fixed. The generous row is recorded so the choice is visible ra
 than buried: it would put the threshold near 0.19 and demand roughly 200 segments.
 
 **This is a justified heuristic, not a bound, and its range is wide.** It follows
-Lakens' requirement that a smallest effect size of interest be *justified* rather than
-asserted, and the justification is the measurement chain itself — better anchored than a
+Lakens' requirement (Lakens, 2022) that a smallest effect size of interest be *justified*
+rather than asserted, and the justification is the measurement chain itself — better anchored than a
 convention or a resource constraint, but looser than the table's two decimal places
 suggest, for three reasons. First, *r*<sub>DY</sub> ≈ *r*<sub>DP</sub> × *r*<sub>PY</sub>
 holds only if the prediction fully mediates the dial's relation to cortex and TRIBE's
 error is uncorrelated with the dial; nothing establishes either, so the true implied
 correlation can be larger or smaller than the product. Second, 0.2146 is an average over
-parcels. TRIBE predicts some regions far better — 0.77–0.85 of the noise ceiling in its
-best — so a parcel-wise propagation would put the required *r*<sub>DP</sub> anywhere from
-about 0.12 to 0.47 across cortex; accuracy is not published per parcel and was not
-measured here, so which of this paper's parcels sit where is unknown. Third, the
+parcels. TRIBE predicts some regions far better: its authors report the highest scores in
+auditory and language cortex, "near the noise ceiling" (d'Ascoli et al., 2025, fig. 3b),
+which includes the auditory parcels this paper's cut-rate results rest on. A parcel-wise
+propagation would therefore put the required *r*<sub>DP</sub> anywhere from about 0.10 in
+those regions to 0.47 at the raw average; no per-parcel figures are published, and none
+were measured here. Third, the
 threshold is derived for a *marginal* correlation between one dial and one parcel, so it
 applies to that quantity and only approximately to anything else; §5.3.5 reports both.
 
@@ -265,8 +270,9 @@ scanned 86 participants watching one of **ten full-length feature films** across
 diverse genres. It is the strongest precedent that a multi-film, whole-feature corpus
 is an ordinary design rather than an invention.
 
-**Gruber et al. (2024)**, *Between-movie variability severely limits generalizability
-of "naturalistic" neuroimaging* (bioRxiv 2024.12.03.626542), is the most consequential
+**Leipold et al. (2024)**, *Between-movie variability severely limits generalizability
+of "naturalistic" neuroimaging* (bioRxiv 2024.12.03.626542, version 1; retitled in
+version 3), is the most consequential
 for us. Across 112 participants watching **eight animated movies** over 210
 Brainnetome parcels, whole-brain inter-subject correlation differed significantly
 between films — *F*(7,385) = 4.65, *p* < 0.001, η²<sub>G</sub> = 0.048 — and the
@@ -344,7 +350,7 @@ public-domain live-action Technicolor features against two animated colour featu
 one of the latter carrying French intertitles. What is abundant in the animation
 collections is colour *shorts* — Popeye one-reelers of 7–9 minutes — not features.
 
-The second failure is more interesting, and comes from Gruber et al. They selected
+The second failure is more interesting, and comes from Leipold et al. They selected
 animated movies *because* animation is stylistically and thematically homogeneous —
 an ideal limiting case for measuring between-movie variability. **Animation is
 therefore the minimum-variance condition, which is the opposite of what a corpus
@@ -771,10 +777,12 @@ whole-vector *r* = −0.098) intercut at five rates: 1, 3, 7, 15 and 31 added cu
 motion, subject matter and audio are all held; only the number of cuts differs.
 
 Cut rate was chosen as the gate rather than as part of the index because it is the
-only dial that can be varied with content perfectly constant, and it carries the
-largest documented effect in the literature (montage context, η²ₚ 0.715). If
-technique could not move the sensor when varied this cleanly and this strongly, no
-subtler dial would.
+only dial that can be varied with content perfectly constant, and because editing
+carries the largest documented effect of any cinematographic manipulation on viewers:
+what a shot is cut together with shifts its rated valence at η²ₚ = 0.715, replicated at
+0.721 (Cao et al., 2024). That is an effect of editing *context*, not of cut *rate*; it
+made cutting the natural first lever without measuring cut rate itself. If technique
+could not move the sensor when varied this cleanly, no subtler dial would.
 
 **Criteria, fixed before the run.** (1) Count: at least 15 of 180 parcels reach
 |*r*| > 0.9 against log cut count — with *n* = 5, *r* = 0.9 is *p* ≈ 0.037, so ~7 are
@@ -1790,7 +1798,7 @@ diagnosed.
 #### Of the observational index
 
 **Three films, one era, three directors: the index is corpus-conditional.** Three films
-are enough to break dial covariance and not enough to claim film-independence. Gruber et al.
+are enough to break dial covariance and not enough to claim film-independence. Leipold et al.
 found associations landing in non-overlapping regions for nearly every one of eight films,
 and concluded that a specific movie should be treated like a specific task; our index should
 be read the same way. Per film (§5.3.5) its dominant face/place axis holds in all three
@@ -1810,7 +1818,7 @@ exceed the SESOI of 0.5 on the registered statistic, and only 6 of 2,520 dial–
 pairs on the marginal statistic it was derived for, none securely. The median survivor
 implies *r* ≈ 0.07 against real cortex. The count of surviving parcels is the weaker of
 the numbers and should not be quoted without the others. The threshold's own range runs
-from about 0.12 to 0.47 depending on how TRIBE's accuracy is propagated (§3.2), so
+from about 0.10 to 0.47 depending on how TRIBE's accuracy is propagated (§3.2), so
 "below the line" is a judgement anchored in the measurement chain, not a measurement.
 
 **Criterion 1 was too lenient to be informative.** It asked for at least 3 of 14 dials
@@ -2012,16 +2020,48 @@ the count null in the registration; and keep verdict tables to outcomes, not mec
 
 ## Sources
 
-- TRIBE: *TRImodal Brain Encoder for whole-brain fMRI response prediction*, arXiv:2507.22229
-- *Insights from the Algonauts 2025 Winners*, arXiv:2508.10784
-- Kauttonen, J. et al. (2015). Optimizing methods for linking cinematic features to fMRI data. *NeuroImage* 110:136–148. PMID 25662868
-- Aliko, S. et al. (2020). A naturalistic neuroimaging database for understanding the brain using ecological stimuli. *Scientific Data* 7:347
-- Gruber, M. et al. (2024). Between-movie variability severely limits generalizability of "naturalistic" neuroimaging. bioRxiv 2024.12.03.626542
-- Geerligs, L. et al. (2022). A partially nested cortical hierarchy of neural states underlies event segmentation in the human brain. *eLife* 11:e77430
-- Baldassano, C. et al. (2017). Discovering event structure in continuous narrative perception and memory
-- Lakens, D. *Sample Size Justification* / *Improving Your Statistical Inferences*, ch. 8
-- Internet Archive metadata API, per-identifier, read 3 September 2026
-- Hugging Face Spaces hardware pricing (A10G Small, $1.00/hr)
+Each entry verified against its primary record (CrossRef, PubMed, arXiv, bioRxiv or DataCite) on
+8 October 2026; preprints checked for published versions, none found.
+
+- Aliko, S., Huang, J., Gheorghiu, F., Meliss, S., & Skipper, J. I. (2020). A naturalistic
+  neuroimaging database for understanding the brain using ecological stimuli. *Scientific Data*,
+  7, 347. https://doi.org/10.1038/s41597-020-00680-2
+- Baldassano, C., Chen, J., Zadbood, A., Pillow, J. W., Hasson, U., & Norman, K. A. (2017).
+  Discovering event structure in continuous narrative perception and memory. *Neuron*, 95(3),
+  709–721.e5. https://doi.org/10.1016/j.neuron.2017.06.041
+- Cao, Z., Wang, Y., Li, R., Xiao, X., Xie, Y., Bi, S., Wu, L., Zhu, Y., & Wang, Y. (2024).
+  Exploring the combined impact of color and editing on emotional perception in authentic films:
+  Insights from behavioral and neuroimaging experiments. *Humanities and Social Sciences
+  Communications*, 11, 1349. https://doi.org/10.1057/s41599-024-03874-w
+- d'Ascoli, S., Rapin, J., Benchetrit, Y., Banville, H., & King, J.-R. (2025). TRIBE: TRImodal
+  Brain Encoder for whole-brain fMRI response prediction. arXiv:2507.22229.
+  https://doi.org/10.48550/arXiv.2507.22229
+- Geerligs, L., Gözükara, D., Oetringer, D., Campbell, K. L., van Gerven, M., & Güçlü, U. (2022).
+  A partially nested cortical hierarchy of neural states underlies event segmentation in the
+  human brain. *eLife*, 11, e77430. https://doi.org/10.7554/eLife.77430
+- Kauttonen, J., Hlushchuk, Y., & Tikka, P. (2015). Optimizing methods for linking cinematic
+  features to fMRI data. *NeuroImage*, 110, 136–148. https://doi.org/10.1016/j.neuroimage.2015.01.063
+- Lakens, D. (2022). Sample size justification. *Collabra: Psychology*, 8(1), 33267.
+  https://doi.org/10.1525/collabra.33267
+- Lakens, D. (2022). *Improving Your Statistical Inferences* (v1.0.0), ch. 8. Zenodo.
+  https://doi.org/10.5281/zenodo.6409077
+- Leipold, S., Ravi Rao, R., Schoffelen, J.-M., Bögels, S., & Toni, I. (2024). Between-movie
+  variability severely limits generalizability of "naturalistic" neuroimaging (version 1).
+  bioRxiv. https://doi.org/10.1101/2024.12.03.626542 — retitled in version 3 (2026),
+  *Inter-subject correlations and their behavioral associations vary across movies:
+  Implications for generalizability*. Earlier drafts of this paper misattributed it to
+  "Gruber et al."
+- Scotti, P. S., & Tripathy, M. (2025). Insights from the Algonauts 2025 winners.
+  arXiv:2508.10784. https://doi.org/10.48550/arXiv.2508.10784
+
+Data and services, not peer-reviewed:
+
+- Internet Archive metadata API, per identifier, read 3 September 2026.
+- Hugging Face Spaces hardware pricing (A10G Small, $1.00/hr).
+
+Tools: analysis and writing used the Scientific Agent Skills library (Kassis, T., Agarwal, V.,
+He, Y., Patel, D., & Brueckner, A. M. (2026). Scientific Agent Skills: A Library of Procedural
+Knowledge for Research Agents. arXiv:2609.00065. https://doi.org/10.48550/arXiv.2609.00065).
 
 ## Internal documents
 
