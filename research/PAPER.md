@@ -55,14 +55,13 @@ compliance and was corrected by formal amendment.
 ### 1.1 The question
 
 A director changes the cut rate and something changes in the audience. That much is
-uncontroversial and is the working assumption of every editing manual written. What
-is missing is a *map*: which techniques move which parts of cortex, by how much, and
+the working assumption of editing practice. What is missing is a *map*: which techniques move which parts of cortex, by how much, and
 with enough structure that the relation can be run backwards.
 
 Backwards is the point. An index from technique to response is descriptive; the
 thesis this programme is built toward is **inversion** — specify a target response
 profile, and derive the technique that reaches it. That is a control problem, and it
-requires three things the current literature does not supply together: many dials
+requires three things that, in the work we found (§3.3), are not supplied together: many dials
 measured on the same material, a response measure dense enough to distinguish
 cortical regions, and enough samples to fit a model rather than compare two
 conditions.
@@ -88,8 +87,9 @@ parcel values to two decimal places (LO2 +2.43 vs +2.43, A5 +2.37 vs +2.38, STSd
 +2.04), and stage 03b's identity test reproduced stage 03's values exactly (maximum
 |Δ| 0.0). There is no trial-to-trial noise, no
 subject variance, no scanner drift. A correlation computed against these values is
-not attenuated by measurement unreliability, which is the dominant limit on effect
-sizes in real naturalistic-imaging work.
+not attenuated by measurement unreliability, which in real naturalistic imaging caps
+how large any observed effect can be — the reason encoding accuracy is reported
+against a noise ceiling at all.
 
 The cost is **validity**. We are measuring a model's behaviour, and the model's
 agreement with real cortex is a published, finite number. Section 3.2 turns that
@@ -290,7 +290,7 @@ The same paper also supplied the argument that removed animation from our corpus
 (§4.1), because they chose animated films precisely for being "stylistically and
 thematically similar" — a deliberate minimum-variance condition.
 
-**Baldassano et al. (2017)** and **Geerligs et al. (2022)** establish that neural
+**Baldassano et al. (2017)** and **Geerligs et al. (2022)** show that neural
 event timescales form a partially nested cortical hierarchy — short states in early
 sensory regions, long states in angular gyrus and posterior medial cortex. This is
 the reason no single event-aligned segmentation can be correct for all 180 parcels

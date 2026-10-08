@@ -1,0 +1,37 @@
+claim_id,location,claim_type,claim_summary,evidence_ids,support_level,alignment_issue,limitation,requested_action
+A01,Abstract:p1,methods,TRIBE read at 180 parcels with text branch off,S1.2;S3.1;space_app.py,supported,none,,
+A02,Abstract:p1,other,Published OOD accuracy r = 0.2146,dAscoli2025-leaderboard,supported,none,,
+A03,Abstract:p1,methods,SESOI r >= 0.5 is a justified heuristic not a bound,S3.2,supported,none,,
+A04,Abstract:p2,primary_outcome,Stage 00 PASS on a reciprocal face/place axis,S5.1;exp:00-probe:RESULT.md,supported,none,,
+A05,Abstract:p2,primary_outcome,Stage 01 PASS at the design's permutation floor,S5.2;S4.10;exp:01-cutrate:RESULT.md;ladder_count_null.py,supported,none,,
+A06,Abstract:p2,primary_outcome,Registered index PARTIAL; every dial survives; cut rate auditory not frontal,S5.3;exp:02-index:analysis_result.json,supported,none,,
+A07,Abstract:p2,generalization,Generated footage moves the same face/place axis (01b PASS),S5.4;exp:01b-transfer:RESULT.md,partly_supported,scope,One generator and three clips; wide shots transfer less faithfully,Text scopes it to one generator (S5.4; S8.1); keep
+A08,Abstract:p2,causal,Cutting alone raises frontal and lowers auditory response with and without speech (PARTIAL-A),S5.5;exp:03-isolation:evaluation.json,partly_supported,scope,Generated intercut footage only; arms differ in audio discontinuity as well as speech,Scope stated in S5.5 and S8.1; keep
+A09,Abstract:p2,mechanistic,03b GRADED: frontal close to additive in hard cut and scene change; auditory follows hard cut,S5.6;exp:03b-discontinuity:evaluation.json,partly_supported,causal_language,GRADED licenses no categorical claim; additivity is a reading of measured ratios,Abstract reports ratios as measured via 'showed'; S5.6 labels the reading; keep
+A10,Abstract:p3,primary_outcome,Index broad but weak; 6 of 2520 marginal correlations reach the SESOI none securely,S5.3.5;exp:02-index:sesoi_marginal.json,supported,none,,
+A11,Abstract:p3,primary_outcome,Two tracks disagreed without either being wrong,S5.3.6;S5.5;S5.7,supported,none,,
+A12,Abstract:p3,secondary_outcome,Frontal miss needs no film-specific explanation (exploratory),S5.7.2;exp:02-index:content_analysis.json,partly_supported,uncertainty,Interaction test has little power at three films; not detected is not absent,Text says so in S5.7.2 and S8.1; keep
+A13,Abstract:p3,secondary_outcome,Speech explains much of the auditory variance the visual dials leave (exploratory),S5.7.2;exp:02-index:content_posthoc.json,supported,none,,
+A14,Abstract:p4,primary_outcome,Responses vary along ~3 dimensions and a shuffled-label index is as concentrated,S6;exp:02-index:index_map.json,supported,none,,
+A15,Abstract:p4,primary_outcome,Technique-specific content is narrow; face area leads the dominant axis,S6;exp:02-index:index_map_followup.json,supported,none,,
+A16,Abstract:p4,prediction,Inversion is projection and many-to-one,S6,supported,none,,
+A17,Abstract:p4,prediction,A controller on this index would move towards faces,S6,partly_supported,scope,A property of the index's geometry and a prediction not an observed trajectory,Conditional 'would' kept; tested by F9 (S8.2)
+A18,Abstract:p5,other,Registration misstated its own compliance and was corrected by formal amendment,S7;exp:02-index:OSF-AMENDMENT.md,supported,none,,
+C1,S1.4:item1,methods,Justified effect-size threshold from published accuracy,S3.2,supported,none,,
+C2,S1.4:item2,methods,Two-track design with boundary stated in advance,S4;S5.3;S5.5,supported,none,,
+C3,S1.4:item3,methods,Corpus decision overturning a prior assumption; animation is minimum variance,S4.1;Leipold2024-v1,supported,none,,
+C4,S1.4:item4,primary_outcome,Reconciliation of observational and controlled measurement,S5.5;S5.6;S5.7,supported,none,,
+C5,S1.4:item5,other,Report of silent-failure modes and practices,S7,supported,none,,
+H0,S2:table,primary_outcome,H0 supported by stage 00,S5.1,supported,none,,
+H1,S2:table,primary_outcome,H1 supported for cut rate only,S5.2,supported,none,,
+H2,S2:table,primary_outcome,H2 supported with only 9 parcels / 6 pairs at the SESOI,S5.3.5,partly_supported,magnitude,Statistically surviving but below the threshold worth calling a finding,Row states the magnitude caveat; keep
+H2b,S2:table,primary_outcome,H2b not supported; explained by stages 03 and 03b,S5.3.6;S5.5;S5.7,supported,none,,
+H3,S2:table,causal,H3 supported by stage 03 (PARTIAL-A),S5.5,partly_supported,scope,Causal on the sensor and on generated footage only,Row and S5.5 scope it; keep
+H3p,S2:table,mechanistic,H3prime graded by stage 03b,S5.6,supported,none,,
+H4,S2:table,prediction,H4 not started and bounded in advance by S6,S6;S8.2,supported,none,,
+I1,S1.1:p1,other,Cut rate changing the audience is the working assumption of editing practice,S1.1,supported,none,Revised 8 Oct from 'every editing manual written' (unsourced universal),
+I2,S1.1:p2,other,Three requirements not supplied together in the work found,S3.3,supported,none,Revised 8 Oct from an unqualified negative claim about the literature,
+I3,S1.2:p3,other,Measurement unreliability caps observed effects in real naturalistic imaging,S1.2;dAscoli2025-eq1,supported,none,Revised 8 Oct from 'the dominant limit' (unsourced),
+R1,S3.2:table,other,Best-region accuracy,dAscoli2025-fig3b,supported,none,Revised 8 Oct: '0.77-0.85' was in no source; replaced by the source's 'near the noise ceiling',
+R2,S3.3,other,Between-movie variability findings,Leipold2024-v1,supported,none,Revised 8 Oct: misattributed to 'Gruber et al.'; figures verified in v1 full text,
+R3,S5.2:p3,other,Largest documented editing effect,Cao2024,supported,none,Revised 8 Oct: was unsourced and described as a cut-rate effect; it is editing context on valence,
