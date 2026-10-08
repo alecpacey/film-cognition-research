@@ -2018,6 +2018,52 @@ the count null in the registration; and keep verdict tables to outcomes, not mec
 
 ---
 
+## Data and code availability
+
+**Repository.** `https://github.com/alecpacey/film-cognition-research` holds every script,
+criterion document, result file and analysis named in this paper, with its full history.
+The pre-registration (§4.8) cites the repository under an earlier address,
+`github.com/alec-mutuals/film-cognition-research`, which no longer exists: the repository was
+recreated under its present owner with its history intact, and the commit the registration
+cites, `89d01a1`, is present in it.
+
+**When each stage's criteria were fixed.** Each stage's README states its criteria; the commit
+that first added it dates them. Stage 02's registered documents: `89d01a1` (5 September 2026),
+byte-identical at registration (8 September). 01b: `ed2c0ea` (9 September; run 11 September).
+Stage 03: `9a56af1` (13 September; run 14–15 September). Stage 03b: `221faad` (20 September;
+before any clip was built). The content-descriptor analysis (§5.7.2): `55a8515` (7 October;
+before any descriptor was computed). **Stages 00 and 01 ran on 1–3 September, before the
+repository existed**; their criteria were first committed on 5 September, so for those two
+stages "fixed before the run" rests on the documents, not on version control.
+
+**Registration.** `osf.io/dg7fe`, filed 8 September 2026, amended through OSF's update process
+on 20 September 2026; its full text is reproduced in `experiments/02-index/OSF-REGISTRATION.md`
+and the amendment in `OSF-AMENDMENT.md`. The frozen stage-02 dataset is
+`experiments/02-index/parcel_vectors.json`, SHA-256 `93807b80…3a3189`, verified by `analyse.py`
+before it runs.
+
+**Data in the repository.** The sensor's outputs for every scored clip (180-parcel vectors per
+stage; 1 Hz × 180 timelines for 03b), the dial table for all 244 segments, the content
+descriptors and transcripts (`content_av.jsonl`, `content_words.jsonl`), and every summary
+output each claim traces to (§7; `reviews/AUDIT-2026-10-08-claim-evidence.md`).
+
+**Not redistributed.** The three source films are public-domain prints, identified by Internet
+Archive identifier in `experiments/02-index/CORPUS.md` and re-cut by the scripts given; the
+240-odd segment files and the generated clips are not committed. Generated footage can be
+regenerated from the prompts in the stage folders, but generation is stochastic, so not
+bit-for-bit.
+
+**Instrument and environments.** TRIBE ran inside a duplicate of the reference Hugging Face
+Space (its `tribev2` fork and pinned dependencies, used as found; driving code in
+`experiments/00-probe/space_app.py`, and for 03b `experiments/03b-discontinuity/app_timelines.py`).
+The checkpoint revision was not pinned in our code, which is why determinism was established
+empirically (§1.2). Local analysis used two environments: numpy 2.5.2, scipy 1.18.1 and
+scikit-learn 1.9.0 for the registered and statistical analyses; faster-whisper 1.2.1, fastembed
+0.9.0 (CLIP ViT-B/32) and onnxruntime 1.30.0 for the content descriptors. Seeds are fixed in
+each script.
+
+---
+
 ## Sources
 
 Each entry verified against its primary record (CrossRef, PubMed, arXiv, bioRxiv or DataCite) on
