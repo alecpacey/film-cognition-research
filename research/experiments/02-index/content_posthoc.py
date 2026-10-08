@@ -69,3 +69,16 @@ out["frontal_cut_pooled_within_film"] = {"marginal_r": pooled_r(outcome["frontal
                                          "partial_r_given_speech": pr(centre(outcome["frontal"]), x, s)}
 print("frontal ~ cut, pooled within film:", {k: round(v, 2) for k, v in out["frontal_cut_pooled_within_film"].items()})
 (H / "content_posthoc.json").write_text(json.dumps(out, indent=1)); print("wrote content_posthoc.json")
+
+# 4. (added 8 Oct, post-hoc) Q0's interaction test per frontal parcel, since PAPER names IFJa. Same
+#    statistic and permutation scheme as content_analysis.py Q0, 10,000 within-film permutations, seed 0.
+src = (H / "content_analysis.py").read_text()
+exec(compile(src[src.index("def resid"):src.index("res = {")], "content_analysis_fns", "exec"))
+out["Q0_per_parcel"] = {}
+for p in FRONTAL:
+    rng = np.random.default_rng(0); F = interaction_F(outcome[p], cut)
+    Fp = np.array([interaction_F(outcome[p], perm_within(rng, cut)) for _ in range(10_000)])
+    out["Q0_per_parcel"][p] = {"F": float(F), "p_perm": float((1 + np.sum(Fp >= F)) / 10_001), "r_by_film": by_film(outcome[p], cut)}
+    print(f"Q0 {p:5} cut x film F = {F:.2f}, perm p = {out['Q0_per_parcel'][p]['p_perm']:.3f}  r by film "
+          + " ".join(f"{k[:2]} {v:+.2f}" for k, v in out["Q0_per_parcel"][p]["r_by_film"].items()))
+(H / "content_posthoc.json").write_text(json.dumps(out, indent=1))
