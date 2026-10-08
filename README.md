@@ -153,3 +153,9 @@ that the viewer is a fiction.
 And do not soften a pass criterion after seeing a result. Every threshold in this repo was
 written before the run that tested it, and the ones that failed are in `LOG.md` alongside the
 ones that passed.
+
+## Licence
+
+Code: MIT (`LICENSE`). Text, documentation and data: CC BY 4.0 (`LICENSE-CC-BY-4.0.md`).
+The parcel vectors and timelines are TRIBE's predictions, and TRIBE has its own non-commercial
+licence; see `LICENSING.md` for scope and exclusions.

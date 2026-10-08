@@ -621,8 +621,9 @@ specification moved. The error was ours and its mechanism is instructive: we che
 the claim by searching the repository and its logs for the script's output, found
 nothing, and read absence of a record as absence of execution. The script was
 untracked and had printed to a terminal. The registration was amended through OSF's formal update process on 20 September 2026 —
-the original remains visible as version 1, and both stay under embargo until September
-2027 — and §7 treats this as a method failure rather than a footnote. It was also *restated*, because the original was arithmetically inert. The
+the original remains visible as version 1. The registration was filed under embargo until
+September 2027; the author lifts it with this paper's release so that it can be checked —
+and §7 treats this as a method failure rather than a footnote. It was also *restated*, because the original was arithmetically inert. The
 original rule — "if after 20 segments no dial reaches |*r*| > 0.3, stop" — fires about
 one time in five under pure noise: at *n* = 20 the null probability of a single dial
 exceeding |*r*| = 0.3 is 0.247, and across six dials the probability at least one does
@@ -2052,6 +2053,11 @@ Archive identifier in `experiments/02-index/CORPUS.md` and re-cut by the scripts
 240-odd segment files and the generated clips are not committed. Generated footage can be
 regenerated from the prompts in the stage folders, but generation is stochastic, so not
 bit-for-bit.
+
+**Licences.** Code is released under the MIT licence (`LICENSE`); the paper, notes and result
+data under CC BY 4.0 (`LICENSE-CC-BY-4.0.md`); scope in `LICENSING.md`. The parcel vectors and
+timelines are TRIBE's predictions, and TRIBE is distributed under its own non-commercial
+licence, so their reuse may also be governed by that licence.
 
 **Instrument and environments.** TRIBE ran inside a duplicate of the reference Hugging Face
 Space (its `tribev2` fork and pinned dependencies, used as found; driving code in

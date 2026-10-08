@@ -3,9 +3,8 @@
 **Written before the run, 11 September 2026. Do not edit the pass criteria afterwards.**
 
 A side branch, not a stage in the 00→04 chain. Nothing downstream depends on it and it
-gates nothing. It exists because a speech-emotion connectome project (oruk, Nathan
-Roll, which drives connectome wiring with CREMA-D *audio*) asked where to start on other
-modalities. CREMA-D was recorded on video, and that project used only the sound.
+gates nothing. It exists because a speech-emotion connectome project, which drives
+connectome wiring with CREMA-D *audio*, asked where to start on other modalities. CREMA-D was recorded on video, and that project used only the sound.
 
 ## The question
 
